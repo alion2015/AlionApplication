@@ -1,0 +1,964 @@
+第十一章 Android基础
+类首常大包全小  Eclipse  interface 
+implements/extends abstract instanceof 
+static 实例个数及自动命名
+final 常量不可改
+String.equal() 
+Integer.parseInt() finish() 
+str.getBytes()
+regedit
+布局：abt at apt (layout_centerHorizontal/Vertical/inParent) orientation
+strethColum
+onCreateOptionMenu-->menu.add(组,id,排序,名字)-->onOptionsItemSeleted(item.getItemId)
+radioGroup.OnCheckedChangeListener()-->checkBox用CompoundButton
+Toast.makeText(xx.this,”内容”,Toast.LENGTH_SHORT).show()
+progressBar-->
+style/incrementProgressBarBy()/setProgress()
+BufferedReader
+buf=new BufferedReader(new InputStreamReader(System.in))
+          While((line=buf.readline())!=null) 
+          sb.append(line);
+使用HttpURLconnection(URL.openConnection得到).getinputStream()下载文件
+SAX解析XML文件
+实现Document/Element/Characters的解析-->调用SAXparserFactory.
+          newInstance().newSAXParser().getXMLReader()生成解析器对象
+WIFI使用(WiFiManger)context.getSystemService(Service.WIFI_SERVICE).setWifiEnabled()
+Spinner 类似下拉菜单
+DatePickerDialog用于选择日期
+AutoCompleteTextView
+提供热点快速输入功能
+SeekBar有滑块的进度条；RatingBar评价
+APPWidget桌面插件
+Animations 动画startAnimation()/loadAnimation()
+ArrayList---GashMap
+ListView  ArrayAdapter-----SimpleAdapter
+输入提示 Editor->contentAssist
+android:parentActivityName  界面左上角添加< 可以直接跳回指定的窗口
+第1节 Intent
+setClass()   setAction()
+startActivity()
+putExtra()/getStringExtra()------bundle.putString()/intent.getExtras().getString()
+startActivityFroResult()/setResult()/onActivityResult()重写
+第2节 Handler
+message.arg1/2
+-->setData()/getData()可用bundle对象-->sendToTarget()
+使用post添加runable对象到队列，使用removeCallbacks取消
+obtainMessage生成消息，sendMessage发送到消息队列
+通过Override--handleMessage处理消息
+可使用looper(HandlerThread的getlooper())作为参数实例化，则其处理过程在单独线程中
+第3节 Activity
+extends-->Override
+OnCreate-->Manifest(name是包名,label是显示名intent-filter中action及category定义传入intent)
+Intent.setclass()-->startActivity()
+Create-->Start-->Resume-->pause-->stop?Restart-->Destory
+第4节 Broadcast
+继承BroadcastReceiver -->override OnReceive-->Manifest中注册<receiver>并添加相应的intent-filter中的action(静态注册的关闭后仍执行)
+Intent.setAction()-->sendBroadcast(intent)
+intentFilter.addAction()-------->(un)registerReceiver(receiver,filter)(动态注册)
+第5节 service
+extends
+Service|IntentService-->Override
+onStartCommand/onDestroy/onBind-->Manifest中登记名字
+Intent.setclass()-->startService/stopService
+第6节 ContentProvider
+创建数据库DBlite继承SQLiteOpenHelper
+MyProvider
+extends ContentProvider-->override Ciduq -->在manifest中声明<provider>添加name和authorities
+使用----->contentResolver = context.getContentResolver();Uri
+uri = Uri.parse("content://XX");
+         Cursor cursor = resolver.query(uri, null, null, null, "userid desc");
+         while(cursor.moveToNext()){s.add(cursor.getString(1));}
+
+
+
+第一章 杂项
+识别第X章第X节
+duokan/downloads/micloudbooks
+2.环形发光二极管  mOccupied
+4.drawable的padding需要setBounds
+5.bat命令的判断(空格)
+if '%1'=='' (
+) else (
+)
+6.线程池执行传入runable的run方法
+10.mLocalBroadcastManager = LocalBroadcastManager.getInstance(this);//获得实例  mLocalBroadcastManager.registerReceiver(receiver, filter);//注册监听
+Context.registerReceiver(mBroadcastReceiver, intentFilter);  //全局广播的注册方式
+20.边距的不同(mp内外)
+margin是外边距在border外面，而padding是内边距，在border内部
+31.无缝合并多个文件copy /b 1.jpg+dz.rar mypic.jpg 
+1.aadd amod adel
+3.外部类.this.成员变量|成员方法
+6.LinearLayout 对比 RelativeLayout  无法降低层级深度或子view高度与group不同时优先使用Linerlayout
+7.ANR：应用在5秒内未响应用户的输入事件（如按键或者触摸）；BroadcastReceiver未在10秒内完成相关的处理；Service在特定的时间内无法处理完成 20秒
+8.postInvalidate() 方法在非 UI 线程中调用，通知 UI 线程重绘。invalidate() 方法在 UI 线程中调用，重绘当前 UI。
+9.android:largeHeap="true"
+11.postdelayed 
+looper中  MessageQueue.next 进入是判定当前msg是否有延迟，有的话就阻塞nativePollOnce精准
+MessageQueue.enqueueMessage 判断与当前msg.when 若更短且线程阻塞就唤醒
+12.在使用高于minSdkVersion API level的方法需要:
+用@TargeApi(9) 使可以编译通过, 不建议使用@SuppressLint(“NewApi”);
+运行时判断API level; 仅在足够高，有此方法的API level系统中，调用此方法;
+保证功能完整性，保证低API版本通过其他方法提供功能实现。
+13.倒计时CountDownTimer (long millisInFuture, long countDownInterval)  
+ 	回调onFinish|onTick    记得操作前判定activity存在，且在onDestory中timer.cancle()
+14.丢帧率过高   过度重回只是一种
+18.一个数左移N位表示乘以2的n次方，右移表示除以
+19. 获取屏幕密度值
+final float scale = context.getResources().getDisplayMetrics().density; 单位是sp
+21. Lp Hv横竖(laopo)
+22.callback实现是本身定义了interface和具体调用流程，对方通过实现interface来接入。便于信息回传
+23.alpha-scale-rotate-translate-set
+24.DrawerLayout替代sideMenu实现侧边菜单栏功能
+android.support.v4.widget.DrawerLayout   DrawerListener  | ActionBarDrawerToggle(有actionbar时有优先)  setDrawerLockMode
+android.support.design.widget.NavigationView (headerLayout,menu)  setNavigationItemSelectedListener()
+25.jar -cvf android.jar .  //打包当前内容到jar包(用于合并java包)
+26.点9切图使用方法：将图命名.9.png-->做普通图使用
+27.接口定义类似abstract定义的抽象类，必须全部实现
+28.|=    -----------   &= ~  用于添加和剥离标志位
+30.Ctrl+G 转到相应的行  记事本也可以
+31.C盘不足：删除 widows/temp文件夹
+32.PS圆角矩形及录制动作：选择-->修改-->平滑 选择7
+33.火车退票：48--5%；24--10%；20%。两天五一天十，不到整天扣20
+34.飞机发票：机票30天内可以补打发票
+35.黄金比例：黄金分割6.18
+36.查资料：
+找产品，找CNKI专利，QQ群，论坛
+找资料，搜作者Blog
+
+
+第1节 内存泄露
+单例或静态变量持有contex应使用applicationContext
+非静态内部类和匿名类内部类都会潜在持有它们所属的外部类的引用，但是静态内部类却不会。内部类不可生成静态对象，匿名类(AsyncTask，handler，runable)益封装为静态类
+BraodcastReceiver，ContentObserver，File，Cursor，Stream，Bitmap等资源，应该在Activity销毁时及时关闭或者注销，Timer Timertask需要cancel，cancel掉属性动画
+使用ListView在构造Adapter时，使用缓存的convertView。
+集合容器（比如ArrayList）在退出程序之前，将集合里的东西clear，然后置为null，再退出程序。
+不使用WebView对象时，应该先从父控件中移除，再调用它的destory()函数来销毁它
+
+第2节 重绘
+调用invalidate方法只会执行onDraw方法；
+调用requestLayout方法只会执行onMeasure方法和onLayout方法，并不会执行onDraw方法。
+
+第3节 启动模式
+standard|singleTop|singleTask|singleInstance----------(onNewIntent())
+   默认|栈顶复用|实例复用|单独进程
+  --|消息接收|主界面|闹钟提醒之类需要与应用本身分离
+  
+1. 如何决定所属task
+“standard”和”singleTop”和Intent的发送者在同一个task内，除非intent包括参数FLAG_ACTIVITY_NEW_TASK。
+“singleTask”会查找是否存在合适的task(taskAffinity相同)，有的话则在其中启动，且不一定是根Activity,没有的话新建一个task。
+”singleInstance”总是把activity作为一个task的根元素，他们不会被启动到一个其他task里。
+ 
+2. 是否允许多个实例
+“standard”和”singleTop”可以被实例化多次；
+“singleTask”和”singleInstance”只生成一个实例，并且singleInstance必须是task的根元素。
+singleTop仅在栈顶时不重新创建。
+ 
+3. 是否允许其它activity存在于本task内
+“singleInstance”独占一个task，其它activity不能存在那个task里；而另外三种模式，则可以和其它activity共存。
+ 
+4. 是否每次都生成新实例
+“standard”对于每一个启动Intent都会生成一个activity的新实例；
+“singleTop”仅在栈顶时复用不创建新的实例
+“singleInstance”是其所在栈的唯一activity，它会每次都被重用。
+“singleTask”如果在栈顶，则接受intent，如果不在栈顶，则会把它切换到前台，并销毁其上的Activity
+
+第4节 okhttp：
+Response re = OkHttpClient.Builder().readTimeout(5, TimeUnit.SECONDS).build().newCall(new Request.Builder().url("http://www.baidu.com").get().build()).execute/enqueue();
+
+Call是将okhttpClient和Request封装，由内部的Dispatcher维护运行列表，异步丢入线程池。均执行getResponseWithInterceptorChain方法链式调用拦截器
+
+第5节 代理
+静态代理：代理和实体均继承接口并在代理中添加实体的引用，即可注入实体引用使用代理
+动态代理：运行时合成代理，需要实习接口的实体和实现InvocationHandler的代理基类，运用jdk动态反射java.lang.reflect.Proxy.newProxyInstance传入实体的classloader，实体的interface，代理基类
+1、定义抽象角色
+public interface Subject {
+public void Request();
+}
+2、定义真实角色
+public class RealSubject implements Subject {
+@Override
+public void Request() {
+System.out.println("RealSubject");
+}
+}
+3、定义代理角色
+public class DynamicSubject implements InvocationHandler {
+private Object sub;
+public DynamicSubject(Object obj){
+this.sub = obj;
+}
+@Override
+public Object invoke(Object proxy, Method method, Object[] args)
+throws Throwable {
+method.invoke(sub, args);
+return null;
+}
+}
+4、通过Proxy.newProxyInstance构建代理对象
+RealSubject realSub = new RealSubject();
+InvocationHandler handler = new DynamicSubject(realSub);
+Class classType = handler.getClass();
+Subject sub = (Subject)Proxy.newProxyInstance(classType.getClassLoader(),
+realSub.getClass().getInterfaces(), handler);
+System.out.println(sub.getClass());        
+5、通过调用代理对象的方法去调用真实角色的方法。
+sub.Request();
+
+
+第6节 Androidstudio 相关
+1.todo  Editor下编辑todo和 Live Templates 后者用于快速插入代码，要注意abbreviation和template(需要todo大写)
+2. favorites可以收藏相关文件  bookmark在特定方法前加断点 
+3.localhistory 每次保存都会生成历史记录
+
+第7节 ContentObserver
+getContentResolver().registerContentObserver (uri, boolean notifyForDescendants,  ContentObserver observer)
+ Uri.parse(XXX)  只需要uri唯一且注册和通知更新，可以监听任何数据
+getContentResolver().notifyChange(uri, null);
+
+第8节 Glide和volley
+volley  谷歌的网络请求框架.  RequestQueue -->XXXRequest-->queue.add(request)
+Glide Glide.with(this).load(url).into(imageView);
+
+
+第9节 开源控件使用
+2.XRecyclerView 一个支持下拉刷新和下拉加载的 RecyclerView。下拉刷新、上拉加载更多、RecyclerView头部
+3.EventBus
+4.UI卡顿监测框架BlockCanary
+应用发生卡顿，一定是在dispatchMessage中执行了耗时操作。我们通过给主线程的Looper设置一个Printer，打点统计dispatchMessage方法执行的时间，如果超出阀值，表示发生卡顿，则dump出各种信息，提供开发者分析性能瓶颈。
+2.SwipeBackLayout  右滑返回  
+3.greenDao 根据注释自动生成数据库及相关操作
+1.bugly  腾讯方案 解决应用热更新和ANR日志回传
+2.Transaction  事务将操作封装为原子操作，
+3.LeakCanary 代替mat进行内存检测
+4.ButterKnife(快速资源事件绑定)
+5.jitpack 开源库的创建与使用
+6.SwipeBackLayout 
+
+第10节 ViewPager和ViewPagerIndicator
+ViewPager 和 PagerAdapter 后者需要实现instantiateItem在容器中添加itemView；在destoryItem中container.removeView;isViewFromObject中return view == object ;
+Viewpager.setOnPageChangeListener(new ViewPager.OnPageChangeListener()监听页面onPageScrolled和onPageSelected 
+ViewPagerIndicator引入：
+实例化TabPageIndicator，indicator.setViewPager(pager); 
+在Indicator上设置OnPagerChangeListner监听器
+
+第11节 Eclipse快捷键
+a2插入上下,c5 hedo删注释,as爱是如此pm,acl格式化
+单词补全：Alt+/
+插入操作：Alt+insert
+上一个/下一个光标的位置：Alt+Left/Right 
+上下移动行：Alt+Up/Down
+
+和偶的代表
+全局搜索：Ctrl+H
+Recent File：Ctrl+E
+注释：Ctrl+/
+删除行：Ctrl+D
+快速Outline：Ctrl+O
+删除下一个/上一个单词：Ctrl+Delete/Backspace
+
+擦掉了  爱是如此PM
+复制选中：Ctrl+Alt+Down 
+格式化代码：Ctrl+Alt+L
+
+重构-重命名：Alt+Shift+R 
+重构-改变方法名：Alt+Shift+C
+提取本地方法：alt+shift+m
+实现方法：alt+shift+p
+
+选中到行末/行首：Shift+End/Home
+删除到行末：Ctrl+Shift+Delete
+
+
+第12节 获得 LayoutInflater 实例的三种方式
+1. LayoutInflater inflater = getLayoutInflater();//调用Activity的getLayoutInflater() 
+2. LayoutInflater inflater = LayoutInflater.from(context);  
+3. LayoutInflater inflater =  (LayoutInflater)context.getSystemService (Context.LAYOUT_INFLATER_SERVICE);
+平时ListView加载item中，adapter的getView方法中，我们经常用到：
+LayoutInflater.from(mContext).inflate(R.layout.it,parent,false);
+其中LayoutInflater的Inflate的三个参数意思为：(布局文件，父类布局，是否加载在父类上(可省略))
+对于Inflate的三个参数(int resource, ViewGroup root, boolean attachToRoot)
+
+第13节 常见intent-filter中的actioin
+<action android:name="android.intent.action.MAIN" />                               决定启动的主activity
+<category android:name="android.intent.category.LAUNCHER" />                在luncher中显示图标(与上面的一起使用)
+<category android:name="android.intent.category.DEFAULT" />                   决定该Activity接收隐式Intent
+<category android:name="android.intent.category.HOME" /> 设置该组件为Home Activity
+
+第二章 java基础
+随机生成 a 到 b (不包含b)的整数:
+(int)(Math.random()*(b-a))+a; (int)(Math.random()*(b-a+1))+a;
+
+static 静态 (自动命名)  final 不可改   static final 静态不可改
+
+数组属于引用类型，父类object     AdView [] adViews=new AdView[N];
+
+equals
+
+Overloading 类中重载    Overriding 继承时覆写
+
+throws 方法前，方法不处理异常
+
+thread run start   |   runable run thread start 资源共享
+synchronized 方法和块
+
+子类的泛型类型是无法使用父类的泛型类型接收，例如：Info <String>不能使用Info<Object> 
+类名称<? (extends/super 类)> 对象名称   分别定义了通配/上限/下限
+
+StringBuffer   append|indexOf|insert(o,s)|reverse反转|replace(s,e,s)|delete(s,e)|substring      adsir2
+Runtime   getRuntime()|gc|exec("notepad.exe")
+Locale获取当前国家语音信息。ResourceBundle一起实现多国语言自动切换
+System exit(0)|currentTimeMillis 毫秒级系统时间|getProperties 属性
+new Date().getHours());  
+Calendar.getInstance().get(Calendar.HOUR); 
+new SimpleDateFormat("EE-yyyy-MM-dd HH:mm:ss").format(new Date());EE表示星期    Date/Calendar/SimpleDateFormat
+Math 静态方法求绝对值三角函数等
+Random nextXXX(Y) 
+new DecimalFormat("0.0").format(12.34);//10进制格式化
+BigInteger //比long长的int
+BigDecimal //大数据的精准计算
+Arrays fill|sort||binarySearch 填充数组，排序(Comparable|Comparator)，检索         fsb
+Observable类和Observer接口 addObserver|deleteObserver|setChanged|notifyObservers
+Timer.scheduleAtFixedRate 固定频率执行
+
+File createNewFile()|mkdir()|delete|exists|isDirectory|length|list|listFiles|     创存删长 isDirectory list(Files)
+FileOutputStream(file,append文件尾追加) write|flush|close 
+FileInputStream available(文件大小)|read|close
+FileWriter|FileReader(OutputStreamWriter|InputStreamReader) 字符流转换为字节流
+ByteArrayInputStream|ByteArrayOutputStream 内存操作流
+BufferedReader（InputStreamReader（FileInputStream）） readLine == Scanner（FileInputStream）
+Scanner  hasNextXXX|nextXXX|useDelimiter（设置分隔符）|nextLine       (has)NextXXX(Line)|useDelimiter
+
+Collection   clear| contains|equals| isEmpty|size| toArray       等于包含size不空clear toarray
+List   get/set   lastIndexOf  subList    设得子list 最后index
+ArrayList(数组)
+LinkedList(链表) peek/poll(表头后者删除) offer addF/L removeF/L             all
+Vector(带同步的数组) 
+hashSet  SortedSet 内容不重复
+SortedSet headSet/tailSet/subSet  first/last  descendingIterator逆序的iterator        hst
+Iterator  hasNext|next|remove  (ListIterator可以双向访问)
+hashMap|treeMap(key不重复)   containsKey/value   Set<Map.Entry<K,V>> entrySet()  keySet/values  get/put   isEmpty      ht
+Collections  sort|混排Shuffling|反转Reverse|替换所以的元素(Fill)|拷贝(Copy)|min/max|Rotate定距离循环元素
+Stack pop|push|peek|empty|search
+
+枚举(enum)类也可以实现一个接口，枚举中可以定义抽象方法----每个元素都必须分别实现此抽象方法。
+
+1.抽象、继承、封装、多态性
+第1节 进程和线程的区别(先进递增)
+多进程，可以提高我们APP占用的最高内存。
+1. 一个程序至少有一个进程,一个进程至少有一个线程.
+2. 线程的划分尺度小于进程，使得多线程程序的并发性高。
+3. 进程在执行过程中拥有独立的内存单元，多个线程共享内存，从而极大地提高了程序的运行效率。
+4. 线程有一个程序运行的入口、顺序执行序列和程序的出口，但不能够独立执行，必须依存在应用程序中，由应用程序提供多个线程执行控制。
+5.从逻辑角度来看，多线程的意义在于一个应用程序中，有多个执行部分可以同时执行。但操作系统并没有将多个线程看做多个独立的应用，来实现进程的调度和管理以及资源分配。这就是进程和线程的重要区别。
+第2节 数组和链表(注: all vs  --- hashtable arraymap)
+1.ArrayList 是一个数组队列，相当于动态数组。它由数组实现，随机访问效率高，随机插入、随机删除效率低。
+　　LinkedList 是一个双向链表。它也可以被当作堆栈、队列或双端队列进行操作。LinkedList随机访问效率低，但随机插入、随机删除效率高。
+　　Vector 是矢量队列，和ArrayList一样，它也是一个动态数组，由数组实现。但是ArrayList是非线程安全的，而Vector是线程安全的。
+　　Stack 是栈，它继承于Vector。它的特性是：先进后出(FILO, First In Last Out)。
+HashSet|LinkedHashSet|TreeSet(随机高|遍历好|有序) 
+HashTable相对HashMap区别是同步 线程安全
+HashMap内部一个数组<HashMapEntry>  ArrayMap内部双数组
+数据量小，且需频繁存储数据时，推荐ArrayMap。而量较大时，推荐HashMap。
+
+第三章 Android问题分析和优化
+1.crash （崩溃）
+关键字：FATAL EXCEPTION   -----java代码     英[?feit?l ?] 致命的
+                   fault 进程pid及线程tid号  backtrace及stack信息
+2.anr（无响应）
+关键字：ANR CPu占用信息较高可能死循环，较低可能是IOWait
+/data/anr/traces.txt  可详细信息到行号
+4.闪屏
+Log: activityManager: Process com.android.settings (pid 7413) has died ----关闭
+Log:ActivityManager: Start proc 8372:com.android.settings/1000 for activity
+5.界面多次跳转
+搜索关键字：start u
+6.Forse close
+Kernellog ：关键字lowmemorykiller  低内存时关闭进程
+Eventslog ：am_finish_activity  结束activity
+7.权限拒绝
+ java.lang.SecurityException: Permission Denial
+
+第四章 adb命令
+获取当前activity
+Linux:adb shell dumpsys activity | grep "mFocusedActivity"
+windows:adb shell dumpsys activity | findstr "mFocusedActivity"
+启动Activity：
+adb shell am start -n 包名/包名＋类名（-n 类名,-a action,-d date,-m MIME-TYPE,-c category,-e 扩展数据,等）。
+adb shell am start -n com.Android.settings/com.android.settings.ChooseLockGeneric --ez confirm_credentials false --ei lockscreen.password_type 0 --activity-clear-task
+log过滤
+adb logcat |grep -E "Bluetooth|BtOpp"(log多筛选)
+Adb logcat –s XXX
+adb logcat -s *:E > a.log  将所有elog写入
+
+第五章 Ubuntu使用
+gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize' 双击最小化
+终端内多个标签   shift+ctrl+T
+搜索：grep -nr  Xx  搜索内容.
+find -name "*" |xargs grep "BluetoothManagerService"
+Croot 直接到编译根目录
+calibre 可以做epub文件的软件
+meld  比较软件
+第1节 linux命令
+pwd
+cd ls ll 
+mkdir rmdir
+touch cp mv rm cat chmod
+tar {-a,-x}压缩与解压
+man
+echo 
+et/profile 环境变量 home/XXX/.bashrc 开机启动 source XX快速生效
+ln -s 原路径 快捷方式路径
+$XXX 代表变量内容 $n 表示第n个参数 $0是脚本名
+
+
+
+第六章 git命令
+git push -u origin master 推送本地代码到云端
+强制覆盖下载
+git fetch --all
+git reset --hard origin/master
+回退：
+git log 
+git reset --hard fc1cf2a323642e16579e4eb681c5f98ac443a58f
+push代码：
+git commit --amend
+git pull --rebase
+git配置：
+git config --global user.name jinlong.liang
+git config --global user.email mywokemail@163.com
+ssh-keygen
+cat ~/.ssh/id_rsa.pub
+
+
+第七章 妙语连珠
+
+
+第八章 速记单元
+快捷键
+Win+L 锁屏，Win+E 显示资源管理器，Win+D 显示桌面(led灯)
+Eclipse:a2插入上下,c5 hedo删注释,as爱是如此pm,acl格式化
+第1节 优秀思维
+目利他迭忙整合运(牡蛎跌盲证喝晕)
+第2节 UML关系(实现，泛化，依赖，关联，聚合，组合)
+是翻译官剧组：△虚实线，局参静方虚箭头，实箭有个数，菱形实箭总分现，组合不共享
+第4节 编程感悟
+添加之前先清空，使用之前先判有(null或size)，先框架后逻辑，布局参数XMl化，选大取小用Math
+
+
+第九章 系统bug及需求
+获取手机属性
+adb shell getprop ro.cda.skuid.id_final 获取当前SKUID
+adb shell getprop >a.prof  导出手机系统属性值
+
+bug ：获取当前android版本号
+int sysVersion = Integer.parseInt(VERSION.SDK);  
+
+REQ：保持屏幕不暗不锁
+getWindow().setFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON, WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
+REQ：查看手机imei
+*#06# 手机imei
+
+BUG：点击dialog外会自动结束
+processDialog有一个属性  setCanceledOnTouchOutside(false)
+
+BUG:弹出的对话框背景会多一条线
+requestWindowFeature(Window.FEATURE_NO_TITLE); //added 
+BUG：Notification位置固定
+notificationSleep.priority
+
+BUG：打开应用是白屏/黑屏很久
+使用releasre版本软件可以避免Android Studio中新加入的Instant Run功能对debug版本的影响
+
+BUG：发布应用对未翻译报错
+<resources xmlns:tools="http://schemas.android.com/tools"  xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2"  tools:ignore="MissingTranslation">
+
+FAR：全屏任意位置滑动语言选择控件
+在Activity中dispatch事件dispatchTouchEvent传递给相应控件处理
+
+BUG：导航栏或状态栏白色看不清内容
+getWindow().getDecorView().setSystemUiVisibility( getWindow().getDecorView().getSystemUiVisibility() | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+getWindow().getDecorView().setSystemUiVisibility( mActivity.getWindow().getDecorView().getSystemUiVisibility() | LOGHT_NAVIGATIN_BAR);
+onWindowFocusChanged  中添加
+状态栏及导航透明度为100%，需要使用合成色
+
+REQ：全屏并隐藏虚拟导航按键
+Window window = getWindow();
+WindowManager.LayoutParams params = window.getAttributes();
+params.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN|View.SYSTEM_UI_FLAG_HIDE_NAVIGATION|View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
+window.setAttributes(params);
+
+REQ：将user修改为userdebug版本
+fastboot flash boot boot.img
+fastboot erase  userdata
+
+REQ：安卓手机取消虚拟按键
+system下build.prop
+qemu.hw.mainkeys=1
+
+BUG：HorizontalScrollView存在多余的导航条
+android:scrollbars="none"
+
+REQ:导出wifi账号密码|锁屏密码 
+adb shell cat /data/misc/wifi/wpa_supplicant.conf
+adb shell ls data/system/gatekeeper.pattern.key
+
+第十章 四级单词
+special/specify  特殊的，专门的---明确说明，具体指定
+function/fiction/firction  功能函数--小说虚构---不和抵触
+aspect--perspective   方面---观点视角
+
+cave/pave/care/carve 山洞洞穴--铺路--关心--切，雕刻
+assess/process/possess  进行评估评价--过程程序--占有，拥有
+interest/internet/internal  兴趣利息--互联网--内部的
+pursuit/biscuit/circuit/circus  追求--饼干--电路--马戏团
+
+tinct/distinct   色彩---明显清楚的 不寻常的
+I perfer quality to quantily 
+tailor/tail  裁缝(v/n)---尾巴
+soccer/saucer/sauce   足球---茶托碟子---酱汁，调味料
+lunch/bunch/punch/branch/brunch/brand 午餐--群，束--猛击穿孔---树枝分支---早午饭---品牌，商标
+static/statistic  静态不变的---统计学，统计资料/值
+tigar/cigar  老虎--雪茄烟
+infect/inspect/affect/effect/insect/impact   传染---检查---感动假装---影响实现，个人财务(pl)---昆虫---影响碰撞
+count/county/country    计算--郡县---国家乡村
+free/fee/flee/fleet  解放---费用---逃走--舰队
+faculty/faulty  天赋，学院，全体教员---次品
+
+property/properly/proportion  特性财产---适当地; 正确地---比例平衡使成比例
+peasant/pleasant  农民(豌豆蚂蚁)---舒适的，令人愉悦的
+brood/blood  沉思孵蛋，一窝---血，血统家族
+row/frown/crown  排，划船---皱眉---王冠
+sense/sensible   感官识别力---明智的
+
+diagram/graph  简图--图解
+bank/blank/blanket/black  银行---空白的茫然的---毛毯毯子---黑人的，黑色
+ail/mail/sail/pail/tail/rail  生病苦恼境况不佳---邮政---航行驾船---桶，一桶的量---尾巴，盯...梢---轨道
+amaze/amuse  使惊讶，惊颚---逗乐，给...提供娱乐
+aid/raid/maid/amid  救援助手---突然袭击，劫掠---女仆，少女---在...中间
+tap/top/cap/tip  水龙头，轻叩--顶，上部---帽，遮罩，覆盖胜过---小费，忠告，倒下
+vain/rain/gain/rein 徒劳的--下雨--收益得到，增加---缰绳，勒缰绳使停步
+curious/serious/precious /previous  好奇的--严重的--珍贵的---之前的
+cate/cake    佳肴---蛋糕
+ski/skin  滑雪(板)，皮肤
+rota/rotary   值班表---旋转的，转动的
+hat/hate  帽子，帽子代表的职位---憎恨不喜欢，厌恶
+venture/adventure 风险投资，企业，冒险---冒险精神，冒险活动
+table/tablet 桌子表格---药片，竹木简
+stock/stick/block  库存，股票---棍，粘住，留下(stuck过去式)--大楼，街区，障碍物
+freeway/freeze/freely    高速公路--使冻结，冰冻期--自由的，慷慨的
+rag/rage/range 破布---发怒---一系列
+
+sweet/sweat 甜的---出汗，汗水
+fate/fade/fare 命运---褪色---票价，进展
+stead/steadily  代替好处对..,有用---坚定地，不断地，稳定的
+invite/invade    邀请---侵略
+rail/rain 栏杆，铁路，咒骂---下雨，雨
+slit/split  切开，裂缝---分裂分担
+sight/slight/night/tight/fight  眼界，名胜---纤细的，轻视蔑视---晚上---紧身的--战斗---
+constitute/contribute  组成建立---捐款贡献
+reside、inhabit  驻扎，居住
+Descendent/descend/ancestor后裔---下来(from)起源(to)沦为--祖先，原型
+
+steadily/ stitch /ditch/strategy (斯特的泪)坚定地，稳定的---缝，绣，一针(司太奇)---沟，渠----策略，战略
+concern 担心，使担心
+precious/previous 珍贵的--先前的
+spill/skill/spoil/spell  使溢出，溢出---技巧手艺---损坏，溺爱，战利品---拼写，咒语，魅力
+flat---flag---fat  平的，统一的，公寓套房---旗帜---胖的
+dispute/disputy   争端，争吵--副手，代理人（家疲累）
+
+fashion/cushion 时尚--垫子
+cell/celler/seller  细胞，小房间/地窖，地下室/销售者
+thread/dread 线，将线穿过---恐惧，畏惧
+gradual/graduate  逐渐的---毕业生
+tight/right 紧身的，牢固的--对的，右，权利
+extend/intend/tend/extent 延伸给予，到达-- 打算做--趋向，照管---程度，范围
+deception/dictation/detection 骗局--口授--觉察，侦查
+soul/soup/sour/sold 灵魂--汤---酸的，馊的---卖的   （plr 评论人）
+bough/cough 树枝--咳舒
+storey/story  楼层/故事，报道，楼层
+
+suspend/spend/suspect/sudden  暂停中止--用钱，花时间，度过--推测怀疑，嫌疑犯，可疑的--突然地，意外的
+constitution/institution/stitution/stituation  宪法体质--社会公共机构，习俗，制度--制度--个人情况，局面，处境
+bear/ear/earn/pear/hear/near/era 熊--耳朵--挣得--梨树--听到，听证，听说--在附近，靠近，亲近的--时代，纪元
+camp/campaign/  野营地，工地宿舍，阵营--运动，战役
+stoop/loop/stool/shoot/shop/stop --弯腰，(to)堕落到，降低身份做--环，回路--凳子--射击，投篮，拍摄，苗--商店，工厂车间，购物--停止
+paw/law/raw/saw/jaw  爪，用爪子抓--法律规律--原始的生的--锯，锯东西--颌，颚
+drop/drip/crop 使下降，滴--滴，滴水声，滴下的液体--作物，收成，修剪
+sale/scale/salt/seal/pale/salty/sole/solo/solor  卖--刻度比例，攀登--盐，腌--封条，海豹，密封--苍白的--咸的--唯一的--独奏--日光的
+pant/pan/ant/pint/pants/plant/want  喘息，气喘吁吁的--平底锅--蚂蚁--品脱--长裤，内裤--植物，工厂，间谍，种植--想要，不足
+rubber/robber/robot   橡胶，橡胶的--海盗，海贼
+
+loaf/load/leaf 一条面包，游荡闲逛--负荷，使装载--叶子，张，页
+silk/milk/mill 丝绸--牛奶，挤奶--磨坊工厂，研磨
+less/bless/brass 少的--使有幸得到(with),祝福--黄铜，厚脸皮
+tension/extension/pension/mention  状态拉力--扩大分机--养老金，发养老金--提及说起
+bitter/batter/better 哭的--连续猛击，击球员--较好的
+electric/elastic/plastic 电动的--电的--橡皮圈，有弹性的--塑料制品，信用卡，塑料的
+
+twelfth(拖要付century 陕西瑞 --世纪)  第十二。十二分之一
+fence/defence(defense)栅栏(粉丝)，击剑--(in)防御工事，辩护
+lighten/brighten/enlighten/frighten  减轻点亮--使明亮愉快--启发启蒙--使恐惧
+deserve/preserve/reserve 应得，值得--保存维持，保护区--保留预定，自然保护区
+sweet/sweat/seeep 甜的--出汗，汗水--扫，打扫
+hasty /haste/nasty/tasty 草率的/急忙(n)/令人讨厌的/味道好的
+plan plane 计划加e平坦的，飞机
+progress process 进步进展 -- 步骤，处理
+abstract subtract  抽象，提取--减去
+curl curb cure 卷发弄卷--制止--治愈治疗
+pilot  plot  故事情节i飞行员驾驶
+shift gift shirt  转移礼物衬衫
+launch  lunch  bunch 午餐加a就发射 束，使成一束，群等
+
+loyal--royal 忠诚的--王室的
+towel--tower 毛巾，用毛巾檫--塔，要害
+convince--province  使信服，使信任--省 领域
+drag--drug  拖--毒品，使服用麻醉药
+explo--explosive--explorer  爆炸--爆炸的突增的，炸药--探险家探测器
+semester 学期（义子消毒）
+whisky/risky 威士忌酒--危险的，有伤风化的
+fever/never/lever/favo(u)r 发烧，一时的狂热--从不，绝不--工具，途径，撬动sth--好感，赞同sth
+repent/repeat/recent  后悔--重复说做--最近的
+sole/pole/hole/role  唯一的，脚底--杆，电极--洞，漏洞，窘境--角色，作用
+reward/award/toward/ward/inward 报答，奖赏--授予，奖金--朝，接近--病房行政区，挡住--内心的里面的
+drain/brain/grain/train/pain/plain  排水，排水沟--脑，智慧--谷物，少量--火车，一系列--痛苦，使心痛--清晰地，平原
+
+enquiry  （inquiry尹快瑞）查询，打听
+torture  （脱却）折磨，拷问
+ratio（瑞秀）比率----radio(收音机，无线电传送)----generate（产生能量，导致）
+illustrate（以类似崔忒）说明，给...做插图说明
+money（钱）----monetary（嘛呢特瑞）金融的，货币的
+reveal（瑞未有）揭露，泄露----reverse（瑞我是）使翻转，倒退
+compensation（康喷谁信）补偿，赔偿(一支笔的车站)
+character 性格，人物，字符(字符扮演者)
+host----cost--ghost--post--lost(主人-使-灵魂-花费-邮寄-失去的迷惑的)
+occupation（阿Q培新）工作职业消遣(occ向上的增加辐射)
+dictation（迪克忒心）口授听写（字典增加辐射）
+superb（苏坡博）极好的，高质量的（极好的b）--superme（最重要的）--suburb（萨贝尔）郊区（U-R-b的一部分）
+comply(顺从; 应允) --complicate（使复杂难懂恶化）--compliment（称赞恭维）
+passenger/messenger  乘客/送信人
+resident（居民，住院的）--president(总统校长董事长)
+collide（两个ide一致）碰撞，冲突
+race（瑞士）赛跑，竞争，参赛，使疾跑（face/rice面对稻谷米饭）
+cripple（哭到苹果没有a）跛子，使跛，严重剥削
+territory（忒瑞特瑞）领土版图（保守党的毛巾）
+abandon---abundant抛弃/大量的(啊板凳特)
+boast(of/about)--coast--roast--toast--boat--boot--boost（自夸/海岸/烤/吐司/船/启动解雇/推动提高）
+prescribe--describe（开药--描写形容画出）
+consistent -- continent （一致的/大陆，洲）
+tune/tone/tunnel/june 曲调，语气，隧道，六月
+interpret/intergrate/enterprise/interrupt口译，使合并，事业心，打扰
+block、clock 大楼时钟
+dam/dim/jam/ham/dad 堤坝--昏暗的--果酱塞进--火腿--爸爸
+component/opponent 部件成分--对手
+inhabit--inherit 居住于--继承
+shame/same/scheme 羞耻使丢脸--相同的--计划阴谋（死尅么）
+gloomy--bloom 忧郁的--开花，开花期
+shield/field/yield 护罩，保护--田地视野--屈服产生让出产量
+convention/convenient/conversion  （肯温馨）习俗大会--近便的省力的（肯为你丫的）-转变信仰
+earnest 认真的真挚的(耳朵的鸟窝)
+hare/care/fare/rare/dare/here 野兔--关心--票价--珍奇的--敢--在这里
+
+第十二章 人性的弱点
+第1节 待人处世的基本技巧
+所谓礼貌，就是彼此调节到适当的距离。
+1、如欲采蜜，勿蹴蜂房（不要批评、责怪或抱怨他人）。
+人就是这样，做错事的时候只会怨天尤人，就是不去责怪自己。善解人意和宽恕他人，需要有修养自制的功夫。
+2、真诚地赞赏他人。
+人类本质里最深远的驱动力就是“希望具有重要性”。天底下只有一种方法可以促使他人去做任何事。那就是给他想要的东西。
+3、要想钓到鱼，得问鱼儿吃什么（首先想到他人的需求）。
+成功的人际关系在于你能捕捉对方观点的能力；还有，看一件事须兼顾你和对方的不同角度。
+天底下只有一种方法可以影响他人，那就是提出他们的需要，并让他们知道怎样去获得。
+能设身处地为他人着想，了解别人心里想些什么的人，永远不用担心未来。
+
+第2节 平安快乐的要诀
+拥有好心境的人，才是真正的富有者。
+4、保持自我本色（不要盲目模仿）。
+既然你已来到世上，就应庆幸自己在世上是独一无二的，并把自己的禀赋发挥出来。
+我们每个人的生活面貌都是自己塑造而成的，如果我们能学会接受自己，看清自己的长处，明白自己的短处，便能踏稳脚步，达到目标。
+求职者通常犯下的是大错误，就是不能秉持本色。他们总是揣测对方期望得到什么样的答案，而不是直截了当地讲出自己的想法。
+5、改变不良的工作习惯（养成良好的工作习惯）
+人有两种能力是千金难求的无价之宝－－一是思考能力，二是分清事情的轻重缓急并妥当处理的能力。
+快乐并非取决于你是什么人，或你拥有什么，它完全来自于你的思想。
+按部就班地做事方法，总比想到什么就做什么要好得多。
+6、学会放松，解除疲劳（放松自己，消除疲劳）
+紧张是一种习惯，放松也是一种习惯。
+仅只劳心的工作，并不会让人感到疲劳。大多数疲劳现象源于精神或情绪的态度。
+健康情况良好而常坐着工作的人，他们的疲劳100%是由于心里因素，或是我们所说的情绪因素。
+7、倦怠导致身体的疲劳（不要对事情感到倦怠，而应使之充满乐趣）。
+引起疲劳的主要原因之一是倦怠感。
+如果你“假装”对工作感兴趣，也许这种态度会使你的兴趣弄假成真。
+每天跟自己时时交谈，这样可以引导自己思考什么是勇气和幸福，什么是平安和力量；每天跟自己谈些需要感谢的事，这样，你的心灵就会海阔天空，快乐欢唱。
+8、不要以为自己一无所有（算算你拥有的幸福，而非烦恼）。
+生命中只有两个目标：其一，追求你所要的；其二，享受你所追求到的。只有最聪明的人可以达到第二个目标。
+在我们的生活当中，约有90%的事情是好的，10%的事情是不好的。如果你想过得快乐，就应该把精神放在这90%的好事上面。
+要为所有而喜，不为所无而忧。凡是往好的一面去想，这种习惯比收入千镑还好。
+9、没有人去踢一只死狗（不用理它，因为没有人会踢一只死狗）。
+在现实中，愈是显得重要的狗，人们踢起来愈感到心满意足。
+无见识的民众喜欢挑大人物的毛病，因为他们可以从中获得很大的乐趣。
+10、不要让批评之箭射中自己（尽己所能，撑起雨伞，让批评之雨打不到你颈背上）。
+虽然我们不能避免别人的恶意攻击，却能做一件很重要的事：是否让别人的攻击干扰我们正常的工作和生活。
+避免别人攻击的唯一方法就是，你得像一只有价值的精美瓷器，有风度地立于架子之上。
+第3节 如何使人喜欢你
+交朋友的唯一方法是你自己首先要够朋友。
+11、学会真诚地关心他人
+如果我们想结交朋友，就要先为别人做些事情－－那些需要花时间、精力、体贴、奉献才能做到的事。
+关心他人与其他的人际关系原则一样，必须出于真诚。
+只有你真正关心他人，才能赢得他人的注意、帮忙与合作，甚至最忙碌的重要人物也不例外。
+如果我们只是引起别人的注意，想让别人留下印象，就不可能交到许多真心、诚恳的朋友。
+12、不要忘记微笑（保持微笑）
+微笑也不能欺骗他人。
+如果你希望别人很高兴地见到你，你必须高兴地会见别人。
+世上人人都在寻求快乐，但只有一个确实有效的方法，那就是控制你的思想。
+多数人的快乐同他们所决意要得到的相差不多。
+13、千万别忘记他人的姓名（记住他人的姓名，它是语言当中最甜蜜最重要的声音）
+记忆姓名的能力在事业与交际上的重要性，同在政治上差不多同等重要。
+人们极重视他们的名字，因而他们竭力设法使之延续，即使牺牲也在所不惜。
+多数人不记得姓名，只因为他们没有下必要的功夫与精力把别人的姓名牢记在心。他们给自己找借口：他们太忙。
+14、学会倾听他人讲话（做一个善于倾听的人，鼓励别人谈论他们自己）
+如果你想成为一个善于谈话的人，那就先做一个注意静听的人。
+始终挑剔的人，甚至最激烈的批评者，常会在一个忍耐、同情的静听者面前软化降服。
+如果你要知道如何使人躲避你，背后笑你，甚至轻视你，这里有一个最好的办法－－决不静听别人说话，不断地谈论你自己。
+15、迎合他人的兴趣（谈论别人感兴趣的话题）
+与人沟通的诀窍就是：谈论他人最以为贵的事情。
+16、让他人感到自己重要，而且要真诚而为
+人类行为有个极为重要的法则－－时时让别人感到重要。
+差不多你所遇见的每一个人都自以为在某些地方比你优秀。所以，要打动他们内心的最好方法，就是巧妙地表现你衷心地认为他们很重要。
+与他人谈谈他们自己，他们会愿意听上好几个钟头。
+第4节 如何使人信服你
+我们经常是由于自身的缺点而不是优点招人喜欢。
+17、不要争论不休（避免辩论）
+我们绝不可能对任何人－－无论其智力的高低－－用口头的争斗改变他的思想。
+“不要辩论！”真正的推销术，不是辩论，也不要类似于辩论。人类的思想不是通过辩论就可以改变的。
+如果你辩论、争强、反对，你或许有时获得胜利；但这种胜利是空洞的，因为你永远得不到对方的好感了。
+18、尊重他人的意见（对别人的意见表示尊重。千万别说“你错了”。）
+如果你过于直率地指出别人的错误，再好的意见也不会被人接受，甚至会受到很大的伤害。
+你在教人的时候，要好像若无其事一样。事情要不知不觉地提出来，好象被人遗忘一样。
+你可以利用眼神、音调，或手势来指责别人的错误，这与言辞表达一样有力。
+19、如果错了，当即承认（如果你错了，迅速而真诚的承认）
+假如我们知道自己势必遭受责备时先发制人，自己责备自己，这样岂不比让别人责备好得多？听自己的批评，不比忍受别人的斥责容易得多吗？
+任何愚蠢的人都会尽力为自己的错误进行辩护－－而且多数愚蠢的人都会这样去做－－他承认自己的错误，使人出众，并给人一种尊贵高尚的感觉。
+用争夺的方法，你永远得不到满足，但用让步的方法，你可得到比你所期望的更多。
+20、友善地对待他人（以友善的方式开始）
+人的思想不易改变。你不能强迫他们同意于你，但你完全有可能引导他们，只要你温和友善。
+一滴蜂蜜要比一加仑胆汁能招引更多的苍蝇。如果你想赢得人心，首先要让他人相信你是最真诚的朋友。那样就像有一滴蜂蜜吸引住他的心，也就有一条坦然大道，通往他的理性。
+21、让对方开口说“是”（首先让别人说“是，是的”）
+懂得说话技巧的人，会在开始就得到许多“是”的答复。
+任何让对方一开口就朝着肯定的方向作出反应，这对你们的结果是很重要的。
+当你与别人交谈的时候，不先讨论你不同意的事，要先强调－－而且不停地强调你所同意的事。
+“是”的反应其实是一种很简单的技术，却为大多数人所忽略。
+22、给他人说话的机会（让对方多说话）
+很多人为了让别人的意见同自己保持一致，他们往往采用一种错误的策略：说话太多。
+当我们的朋友胜过我们时，他们获得了一种自重感；但当我们胜过他们时，他们会产生一种自卑感，并引起猜忌与嫉妒。
+不要时时向他人夸大自己的成就，我们要谦逊，这样永远能使人喜欢你。
+23、别将自己的意见强加于人（让别人觉得那是他们的注意）
+没有人喜欢接受推销，或被人强迫去做一件事。
+24、善于从他人角度考虑问题（真诚地尽力从对方的角度看事情）
+对方为什么会有那样的思想和行为，其中自有一定的原因。
+在与人会谈以前，如果对于我所要说的，及他似乎要回答的东西没有一个极清楚的观念，我情愿在那人办公室的人行道上踱上两个小时。而不愿走进他的办公室。
+25、同情对方的意愿（同情对方的意念及欲望）
+人类普遍地追求同情。
+为真实的或想像的不幸而感到“自怜”，这差不多是人类的一种共同习惯。
+26、激发他人去产生一种高尚的动机
+我们每一个人在内心都把自己理想化，都喜欢把自己行为的动机赋予一种良好的解释。因此，如果我们想改变他人，就应该使之产生一种高尚的动机。
+27、使自己的意图戏剧化（将你的意图表演出来）
+真理需要我们使之更生动、更有趣、更加戏剧化，你必须恰当运用表演的艺术。
+28、让他人不断面临挑战（向他提出一个挑战）
+激发他人产生一种向上的精神－－一种确实有效的方法！
+要做成事情的办法，是激起竞争。当然不是勾心斗角的竞争，而是相互取胜的欲望。
+第5节 如何更好地说服他人
+如果两个人意见始终一致的话，那么其中的一个是属于不必存在的人。
+29、称赞并欣赏他人（从称赞鱼真诚的欣赏开始）
+当我们听到他人对自己的优点加以称赞以后，再去听一些不愉快的话，自然好受一些。
+长途电话，辩论！激烈的谈话！都没有用。
+30、间接委婉地指出他人的错误
+有许多人在真诚地赞美他人之后，喜欢拐弯抹角地加上“但是”两个字，然后开始一连串的批评。
+间接提出别人的错失，要比直接说出口来得温和，且不会引起别人的强烈反感。
+31、不要总是责怪他人（在指责别人前，先想想自己的错误）
+承认一个人本身的错误－－就算你还没有改正过来－－也可以帮助改善行为。
+32、没有人喜欢受人指使（以提问的方式代替命令）
+给他一种自重感，这样他就会与你保持合作，而不是背叛。
+以提问的方式来代替命令。
+33、保全他人的面子
+保留他人的面子！这是一个何等重要的问题！而我们却很少会考虑到这个问题。
+纵使别人犯错，而我们是对的，如果没有为别人保留面子，就会毁了一个人。
+34、激励他人获得成功（称赞他人的每个进步，即使十分微小，要“诚于嘉许，宽于称道。”）
+讲到改变人，假如你我要激励我们所接触的人，认识他们所具有的宝藏，我们所能做的，比实际上改变的人还多。我们真能改变他们。
+35、学会给人“戴高帽”（给人一个美名，并使之努力保全）
+如果你要在某方面改进一个人，就要做得好像那种特点已经是他的显著特性之一。
+差不多每一个人－－富人、穷人、乞丐、盗贼－－保全所赐予他的这诚实的名誉。
+36、鼓励更易使人改正错误
+如果你告诉自己的孩子、丈夫或他人，他在某件事上真是愚笨，他对某事没有天赋，或者他做的都错了……那么你就差不多消除了他要作出改进的各种动力。但如果我们用相反的办法，宽容他人、鼓励他人，使事情好像容易去做，使对方知道你相信他有能力去做，他对这事有尚未发掘的才干－－他为了争胜就会终夜练习。
+37、给他人授予一种权威
+永远使对方乐于做你所提议的事。
+获得权威感，这是人类的一种天性。
+第6节 让你的家庭生活幸福快乐
+幸福在哪里？幸福就是在太多和太少之间的一站。
+38、切勿喋喋不休
+许多做妻子的，不断地一点一点地挖掘，造成她们自己婚姻的坟墓。
+在所有一切烈火中，地狱魔鬼所发明的狞恶的毁灭爱情的计划，喋喋不休是最致命的。它像毒蛇的毒汁一样，永远浸蚀着人们的生命。
+39、不要试图改造对方（不要改造你的配偶）
+与人交往，第一件应学的事情就是不要干涉他们自己快乐的特殊方法，如果那些方法不激烈地与我们相冲突的话。
+40、不要批评对方（不要批评你的丈夫或妻子）
+在所有婚姻中，有一半以上是失败的；她知道使许多浪漫之梦撞击婚姻礁石的一个原因，就是因为批评－－无用的、令人心碎的批评。
+41、真诚地欣赏对方（给予对方真诚的欣赏）
+男性对于女性追求美观及装束得体的努力应表示欣赏。所有的男人都忘了，如果他们曾有过觉察的话，将知道女性是如何注重自己的衣着。
+对很多男人来讲，他们也许想不起自己五年前穿的什么衣服、什么衬衫，他们也丝毫没有意思去记住它们，但女人则不同。
+42、注重生活中的小事（注重那些看似小事的事情）
+女人对生日及纪念日很重视，这永远是一种女性的神秘。
+在很多婚姻破裂的事件中，并非所有的家庭都是因为一些重大的事件而过不下去，相反，大多数人往往是由于一些小小的事情。
+43、家庭内部也应有礼（对你的妻子/丈夫要有礼貌）
+无礼，这是浸蚀爱情的祸水。
+婚姻幸福的普通人，比幽居的天才快乐得多。
+大凡男人都知道，他可先让妻子快乐，然后使她做任何事，并且不需报酬。
+44、如何与女性相处（学会与她相处）
+男人喜欢感到被爱，女人则喜欢你告诉她。
+要想赢得女人的心，并愿意永远不辞辛劳地取悦自己，最好、最有用、也最不会失败的方法，便是时时全心全意地感谢她、赞美她。
+有些男性可能认为对女人家的事务表示兴趣，会损及大男人的尊严。
+被爱是女性成功的重要因素，因此，丈夫在此所扮演的角色十分重要。
+45、如何与男性相处（学会与他相处）
+男性在找寻另一半的时候，最注意的是对方是否有好脾性。
+男人宁愿在欢愉的气氛中吃罐头食品，也不愿和一个唠叨、烦躁、牢骚满腹的女性一道吃牛排。
+认为“改变个性”可以抓住男人的心，或是改变妆扮－－穿件漂亮的新衣或梳个迷人的发型－－这都是不成熟的想法。男人绝不会因此而被催眠，完全忘记惟独原来的真面目。
+46、不要做婚姻的文盲（了解一些必备的性知识）
+“性”是众所公认的生活中最重要的问题。无疑地，那是造成男女快乐破裂原因的东西。
+快乐的婚姻，很少是机会的产物，她们像建筑似的，必需有理智的，用心去设计过的。
+“性”不过是在结婚生活中的多种满意中的一种，但除非这种关系适当，没有别的事会适当的。
+第7节 如何使你变得更加成熟
+人生之路由无数道门构成，看你如何走出和进入。
+47、不要光踢椅子（要承担自己行为的后果，要为自己的行为负责，而不是光踢椅子）
+一个人迈向成熟的第一步应该是敢于承担责任。
+责怪别人比自己担负责任肯定要容易得多。
+对那些不成熟的人来说，他们永远都可以找到一些理由以解脱他们自身的某些缺点或不幸。
+把人的生活改造得更美好才重要，而不是整日沉溺在自怜的深渊。
+48、困难并不意味着不幸（不要在乎困难，也许他是一种幸福的开始）
+对喜欢逃避责任的人来说，困难则成了最好的挡箭牌。
+具有成熟心灵的人，不会陷于自己的困难当中，而是勇敢地去面对它、接受它，然后想办法加以克服、解决。他们不会去乞怜、不会绝望，也不会去找借口逃避。
+不成熟的人随时可以把自己与众不同的地方看成是缺陷、是障碍，然后期望自己能受到特别的待遇，成熟的人则不然。
+49、摆脱生活的不幸（学会摆脱生命中的不幸）
+生命并不是一帆风顺的幸福之旅，而是时时摆动在幸运与不幸、沉与浮、光明与黑暗之间的模式里。
+只有一个方法可以让我们面对不幸－－就是接受它。当我们的生活被不幸的遭遇分割得支离破碎的时候，只有时间可以把这些破片捡拾起来，并重新抚平。
+不幸遭遇并非就是世界末日。有时候，它还是促使我们采取行动的催化剂，对改善状况大有必要。它能使我们的才智变得灵敏，以帮助我们解决问题。
+要想摆脱不幸的阴影，最好的一种方法便是提升我们自己去帮助别人。
+50、拥有自己的信仰，并付诸行动
+我们必须信仰某些事物，但是，假如我们没有就此信仰去采取行动，一切仍然无用。只有信心而没有作为是无济于事的。
+光只信仰并不足以让我们变得成熟。信仰的好处是能增加勇气。使我们在接受考验的时候，不致临阵退却。有时候，我们的行动和信仰也会有矛盾的地方。
+51、你是独一无二的
+兴奋的品质是我们工作能否成功的极重要因素，因此情绪的动力是促成我们向前的力量。
+人的个性虽不能改变，但可以借由某些行为呈现出来。
+心灵的成熟过程，是持续不断的自我发现、自我探险的过程。
+52、学会喜欢你自己（了解并喜欢你自己）
+成熟的人不会在晚间躺在床上计算自己和别人不同的地方。
+把注意力放在我们自身的优秀品质上，培养优点，忘却弱点，如此才能不断进步并自我实践。当然，我们也会随时改正错失，却不必一直放在心上。
+身为一个人，完美主义者也如同一般人一样会犯错、会失败。千万别这么苛待自己。
+53、不要因循守旧（不要盲从因袭）
+小孩喜欢与同龄的人做相同的事，他们很在乎朋友或同伴对自己的看法。他们需要被自己的同伴接受－－这是他存在的最重要的证据。
+当我们身处不熟悉的环境，又没有以往的经验可以参考的时候，最好的方法便是顺应一般人的标准。
+坚持一项并不获人支持的原则，或不随便迁就一项普遍为人支持的原则，都不是件容易的事。
+人们只有在找到自我的时候，才会明白自己为什么会到这个世界上来、要做些什么事、以后又要到什么地方去等这类问题。
+54、不要令人生厌（时时注意自己身上的那些令人讨厌之举）
+很多人总是在不断地给人制造乏味，让人生厌，这种人说不上什么罪过，也算不上什么不轨行为，却对他人有着极大的危害。
+飘忽的眼神也是一项不可忽略的警示，那是对方对目前的话题不感兴趣的表示。
+言语乏味是人格生病的一种症状，也是人格不再成长的一种现象。
+人若是心灵成熟，或心智继续成长，就能与人讨论任何事情而不致引人生厌。
+55、为什么别人要喜欢你（要让别人喜欢你，先得使自己让人喜欢）
+爱是人类能够进步的基础，也是我们与他人交往的桥梁，更是衡量一个人是否成熟的依据。
+最重要的，不是别人有没有爱我们，而是我们值不值得被爱。
+第8节 走出孤独忧虑的人生
+孤独者有个特点，他不爱别人的同时还不愿接受别人的爱。
+56、孤独－－现代人的通病
+一个人要想受到他人的欢迎，或被人接纳，一定要付出许多努力和代价。要想让别人喜欢我们，的确需要尽点心力。
+我们若想克服孤寂，就必须远离自怜的阴影，勇敢走入充满光亮的人群里。
+幸福并不是靠别人来布施，而是要自己去赢取别人对你的需求和喜爱。
+57、让忙碌消除你的忧虑（让自己一直不停地忙着）
+忧虑最能伤害到你的时候，不是在你有所行动的时候，而是在一天的工作做完了之后。
+让人愁苦的秘密就是，有空闲来想想自己到底快不快乐。
+58、不要为小事垂头丧气（不要让自己因为一些应该抛开和忘记的小事烦心）
+法律不会去管那些小事情。一个人也不该为这些小事忧虑，如果他希望求得心理平静的话。
+59、接受不可避免的事实（不要试图改变那些不可避免的情况，而应去尽力的适应它）
+要乐于承认事情就是这样的。能够接受发生的事实，就是能克服随之而来的任何不幸的第一步。
+当我们不再反抗那些不可避免的事实之后，我们就能节省下精力，创造出一个更加丰富的生活。
+60、解除忧虑的万能公式（运用卡维尔万能公式，做一个无忧无虑的人）
+第一步：问你自己：“可能发生的最坏情况是什么？”
+第二步：如果你必须接受的话，就准备接受它。
+第三步：很镇定地想办法改善最坏的情况。
+第9节、不要为金钱和工作而烦恼
+61、一生最重要的决定
+（1）当你到了十八岁时，你可能面临着两个重大的决定：你将如何谋生？你选择一个什么样的人生伴侣？
+（2）一个人只要无限热爱自己的工作，他就可能获得成功。
+（3）选择一个合适的工作，这对你的健康十分重要。
+（4）让我们为那些找到自己心爱工作的人祝福，他们无需祈求其它幸福了。
+（5）记住：你向某人请教，等于是给他荣誉。对于你的请求，他会有一种被奉承的感觉。记住：成年人一向是很喜欢向年轻的男女提出忠告的。
+消除金钱和工作烦恼的第一大原则是：慎重作出重大的决定。
+62、70%的烦恼与金钱有关
+（1）令多数人感到烦恼的，并不是他没有足够的钱，而是不知道如何支配手中已有的钱。
+（2）即使我们拥有整个世界，我们一天也只能吃三餐，一次也只能睡一张床---即使一个挖水沟的人也能做到这一点，也许他们比洛克菲勒吃得更津津有味，睡得更安稳。
+（3）当牵涉到你的金钱时，你就等于是在为自己经营事业。如何开展预算和计划？请记住：
+A、把事实记在纸上；
+B、拟出一个真正适合你的预算；
+C、学习如何聪明地花钱；
+D、不要因你的收入而增加头痛；
+E、如果你必须借贷，设法争取银行贷款；
+F、投保医药、火灾，以及紧急开销的保险；
+G、不要让保险公司以现金将你的人寿保险付给你的受益人；
+H、教导子女养成对金钱负责的态度；
+I、如果你是家庭主妇，也许可在家中赚一点外快；
+J、不要赌博，永远不要；
+K、如果我们无法改善我们的经济情况，不妨宽恕自己。
+消除金钱和工作烦恼的第二大原则是：不要总为工作和金钱发愁。
+63、夫妻间的职业冲突
+（1）最适合某个人的工作，或能够使他感到快乐的工作，并不一定就会使他富有或过上好日子。
+（2）疑虑是我们心中的叛逆者，由于害怕去追求，将会使我们失去我们通常能够赢得的东西。
+（3）上帝的确偏爱勇敢和坚强的心灵。
+消除金钱和工作烦恼的第三大原则是：处理好夫妻间的职业冲突。
+64、不要入不敷出
+（1）没有计划地花钱，就等到于让肉贩、服装商、家具店。。。。。。都来分享你的收入。
+（2）有计划的，或是有预算的花费，可以保证你和家人能够从你的收入里得到公平的分享。
+（3）预算是一张蓝图、一个经过计划的方法，用以帮助你从你的收入中得到更大的好处。
+（4）怎样完成你的家庭预算计划？
+A、记录每一件开销，使你对于你的支出情形有个清楚的了解；
+B、根据家庭的特殊需要，设计出自己的预算。
+C、至少要把每年收入的10 % 储蓄起来；
+D、准备一笔意外或紧急用途的资金；
+E、使预算计划成为全家人的事；
+F、要考虑人寿保险的事；
+消除金钱和工作烦恼的第四大原则是：合理开支，不要入不敷出。
+第10节 防止疲劳，永葆活力
+65、保持每日多清醒一小时
+（1）防止疲劳和忧虑的第一条规则是：经常休息，在你感到疲倦以前就休息。
+（2）爱迪生认为他无穷的精力和耐力，都来自于他能随时想睡就睡的习惯。
+（3）休息并不是绝对什么事都不做，休息就是“修补”。
+（4）在你感到疲劳之前先休息，这样你每天清醒的时间，就可以多增加一小时。
+防止疲劳和忧虑的第一大规则是：经常休息，在你感到疲倦以前就休息。
+66、人为什么会产生疲劳
+（1）我们所感到的疲劳绝大部分是由于心理的影响。事实上，纯粹由生理引起的疲劳是很少见的。
+（2）一个坐着工作的人，如果健康情形良好的话，他的疲劳100 % 是受心理因素，也就是情感因素的影响。
+（3）困难的工作本身很少造成好好休息之后不能消除的疲劳。。。忧虑、紧张和情绪不安，才是产生疲劳的三大原因。
+（4）你在任何时候都能放松，任何地方也能放松，只是不要花费力气去让自己去放松。
+防止疲劳和忧虑的第二大规则是：学会放松自己。
+67、说出你的心事
+（1）只要一个病人能够说话---单单说出来，就能够解除他心中的忧虑。
+（2）不要为别人的缺点过于操心。
+（3）今晚上床之前，先安排好明天工作的程序。
+（4）减轻忧虑的最好的药就是：“跟信认的人谈论你的问题”。
+（5）消除忧虑和疲劳，请记住下列几点：
+A、准备一本“供给灵感”的剪贴薄；
+B、不要为别人的缺点操心；
+C、对你的邻居感兴趣；
+D、今晚上床之前，先安排好明天工作的程序；
+E、避免紧张和疲劳的唯一方法就是：放松；
+防止疲劳和忧虑的第三大规则是：向信任的人说出你的心事。
+68、消除烦闷心理
+（1）当我们在做一些有兴趣也很令人兴奋的事情时，很少感到疲倦。
+（2）我们的疲倦通常不是因为工作，而是由于忧虑、紧张和不快。
+（3）如果你假装对工作有兴趣，一点点的假装就会使你的兴趣成真，也可以减少你的疲劳、紧张和忧虑。
+防止疲劳和忧虑的第四大规则是：消除烦闷的心理。
+68、不再为失眠而忧虑
+（1）为失眠症而忧虑，对你伤害的程度，远远超过失眠症本身。
+（2）治疗症的最好办法是：使你自己的体力劳动到疲倦的程度。
+要想不为失眠症而忧虑，请记住第五大规则：
+A、如果睡不着，就起来工作或看书，直到你想睡为止；
+B、从来没有人因为缺乏睡眠而死；
+C、试着祈祷；
+D、保持全身放松；
+E、加强运动。

@@ -1,4 +1,4 @@
-package com.example.wutong.ContentObserver;
+package com.alion.countdowntimer;
 
 import android.os.CountDownTimer;
 
@@ -8,8 +8,8 @@ import android.os.CountDownTimer;
 
 // timer Util
     /* 定义一个倒计时的内部类 */
-class TimeCount extends CountDownTimer {
-    interface TimerCallback {
+public class TimeCount extends CountDownTimer {
+    public interface TimerCallback {
         public void onFinish();
         public void onTick(long millisUntilFinished);
     }

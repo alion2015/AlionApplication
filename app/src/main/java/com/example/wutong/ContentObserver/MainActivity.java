@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import com.alion.countdowntimer.TimeCount;
+
 /**
  * ContentObserver 可以用来监听任何数据的变化
  */

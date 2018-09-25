@@ -284,6 +284,23 @@ LayoutInflater.from(mContext).inflate(R.layout.it,parent,false);
 <category android:name="android.intent.category.DEFAULT" />                   决定该Activity接收隐式Intent
 <category android:name="android.intent.category.HOME" /> 设置该组件为Home Activity
 
+第14节 gc reason
+I/art: <GC_Reason> <GC_Name> <Objects_freed>(<Size_freed>) AllocSpace Objects, <Large_objects_freed>(<Large_object_size_freed>) <Heap_stats> LOS objects, <Pause_time(s)>
+
+D/dalvikvm: <GC_Reason> <Amount_freed>, <Heap_stats>, <External_memory_stats>, <Pause_time>
+GC_CONCURRENT(同时发生的事) 当堆将要被填满的时候触发的gc
+GC_FOR_MALLOC(内存分配) 当应用的堆已经被填满且继续申请内存时gc。系统会杀死应用的进程并且回收所有内存
+GC_EXPLICIT：显示的GC，例如调用System.gc()（应该避免调用显示的GC，信任GC会在需要时运行）。
+GC_HPROF_DUMP_HEAP：请求创建 HPROF 文件来分析堆内存时出现的GC。
+GC_EXTERNAL_ALLOC：仅适用于 API 级别小于等于10 ，用于外部分配内存的GC。
+
+第15节 dumpsys命令
+dumpsys activity intents 每个待处理的intent使用一个PendingIntentRecord对象表示
+dumpsys activity broadcasts 系统中所有注册的广播接收者，
+dumpsys activity providers，一个provider组件使用一个ContentProviderRecord对象表示。
+dumpsys activity services ServiceRecord
+dumpsys activity activities, Activity是以栈的形式管理的,每个栈中存在若干个任务(task),每个任务又由若干个Activity组成。
+
 第二章 java基础
 随机生成 a 到 b (不包含b)的整数:
 (int)(Math.random()*(b-a))+a; (int)(Math.random()*(b-a+1))+a;

@@ -22,7 +22,18 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        new TimeCount(5000, 200, new TimeCount.TimerCallback() {
+            @Override
+            public void onFinish() {
+                Log.i(TAG, "onFinish" + 1);
+            }
 
+            @Override
+            public void onTick(long millisUntilFinished) {
+                Log.i(TAG, "onTick" + (1-millisUntilFinished/5000f));
+                getContentResolver().notifyChange(uri, null);
+            }
+        }).start();
         observer = new ContentObserver(new Handler()) {
 
             @SuppressLint("NewApi") @Override

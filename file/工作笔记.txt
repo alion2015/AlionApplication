@@ -1,4 +1,8 @@
-µÚÊ®Ò»ÕÂ Android»ù´¡
+µÚÒ»ÕÂ ÔÓÏî
+Ê¶±ðµÚXÕÂµÚX½Ú
+duokan/downloads/micloudbooks
+regedit
+getContentResolver().registerContentObserver(Settings.System.getUriFor(KEY_THEME_MONITOR), true, mContentObserver); ¸ù¾ÝÃû×Ö¼àÌýsettingÖÐÊý¾Ý
 ÀàÊ×³£´ó°üÈ«Ð¡  Eclipse  interface 
 implements/extends abstract instanceof 
 static ÊµÀý¸öÊý¼°×Ô¶¯ÃüÃû
@@ -6,9 +10,6 @@ final ³£Á¿²»¿É¸Ä
 String.equal() 
 Integer.parseInt() finish() 
 str.getBytes()
-regedit
-²¼¾Ö£ºabt at apt (layout_centerHorizontal/Vertical/inParent) orientation
-strethColum
 onCreateOptionMenu-->menu.add(×é,id,ÅÅÐò,Ãû×Ö)-->onOptionsItemSeleted(item.getItemId)
 radioGroup.OnCheckedChangeListener()-->checkBoxÓÃCompoundButton
 Toast.makeText(xx.this,¡±ÄÚÈÝ¡±,Toast.LENGTH_SHORT).show()
@@ -22,59 +23,16 @@ buf=new BufferedReader(new InputStreamReader(System.in))
 SAX½âÎöXMLÎÄ¼þ
 ÊµÏÖDocument/Element/CharactersµÄ½âÎö-->µ÷ÓÃSAXparserFactory.
           newInstance().newSAXParser().getXMLReader()Éú³É½âÎöÆ÷¶ÔÏó
-WIFIÊ¹ÓÃ(WiFiManger)context.getSystemService(Service.WIFI_SERVICE).setWifiEnabled()
-Spinner ÀàËÆÏÂÀ­²Ëµ¥
+WIFIÊ¹ÓÃ(WiFiManger)context.getSystemService(Service.WIFI_SERVICE).setWifiEnabled(){ÔÚSystemServiceRegistryÖÐ²éÕÒ}
+Spinner ÏÂÀ­¿ò
 DatePickerDialogÓÃÓÚÑ¡ÔñÈÕÆÚ
 AutoCompleteTextView
 Ìá¹©ÈÈµã¿ìËÙÊäÈë¹¦ÄÜ
 SeekBarÓÐ»¬¿éµÄ½ø¶ÈÌõ£»RatingBarÆÀ¼Û
-APPWidget×ÀÃæ²å¼þ
-Animations ¶¯»­startAnimation()/loadAnimation()
-ArrayList---GashMap
 ListView  ArrayAdapter-----SimpleAdapter
-ÊäÈëÌáÊ¾ Editor->contentAssist
 android:parentActivityName  ½çÃæ×óÉÏ½ÇÌí¼Ó< ¿ÉÒÔÖ±½ÓÌø»ØÖ¸¶¨µÄ´°¿Ú
-µÚ1½Ú Intent
-setClass()   setAction()
-startActivity()
-putExtra()/getStringExtra()------bundle.putString()/intent.getExtras().getString()
-startActivityFroResult()/setResult()/onActivityResult()ÖØÐ´
-µÚ2½Ú Handler
-message.arg1/2
--->setData()/getData()¿ÉÓÃbundle¶ÔÏó-->sendToTarget()
-Ê¹ÓÃpostÌí¼Órunable¶ÔÏóµ½¶ÓÁÐ£¬Ê¹ÓÃremoveCallbacksÈ¡Ïû
-obtainMessageÉú³ÉÏûÏ¢£¬sendMessage·¢ËÍµ½ÏûÏ¢¶ÓÁÐ
-Í¨¹ýOverride--handleMessage´¦ÀíÏûÏ¢
-¿ÉÊ¹ÓÃlooper(HandlerThreadµÄgetlooper())×÷Îª²ÎÊýÊµÀý»¯£¬ÔòÆä´¦Àí¹ý³ÌÔÚµ¥¶ÀÏß³ÌÖÐ
-µÚ3½Ú Activity
-extends-->Override
-OnCreate-->Manifest(nameÊÇ°üÃû,labelÊÇÏÔÊ¾Ãûintent-filterÖÐaction¼°category¶¨Òå´«Èëintent)
-Intent.setclass()-->startActivity()
-Create-->Start-->Resume-->pause-->stop?Restart-->Destory
-µÚ4½Ú Broadcast
-¼Ì³ÐBroadcastReceiver -->override OnReceive-->ManifestÖÐ×¢²á<receiver>²¢Ìí¼ÓÏàÓ¦µÄintent-filterÖÐµÄaction(¾²Ì¬×¢²áµÄ¹Ø±ÕºóÈÔÖ´ÐÐ)
-Intent.setAction()-->sendBroadcast(intent)
-intentFilter.addAction()-------->(un)registerReceiver(receiver,filter)(¶¯Ì¬×¢²á)
-µÚ5½Ú service
-extends
-Service|IntentService-->Override
-onStartCommand/onDestroy/onBind-->ManifestÖÐµÇ¼ÇÃû×Ö
-Intent.setclass()-->startService/stopService
-µÚ6½Ú ContentProvider
-´´½¨Êý¾Ý¿âDBlite¼Ì³ÐSQLiteOpenHelper
-MyProvider
-extends ContentProvider-->override Ciduq -->ÔÚmanifestÖÐÉùÃ÷<provider>Ìí¼ÓnameºÍauthorities
-Ê¹ÓÃ----->contentResolver = context.getContentResolver();Uri
-uri = Uri.parse("content://XX");
-         Cursor cursor = resolver.query(uri, null, null, null, "userid desc");
-         while(cursor.moveToNext()){s.add(cursor.getString(1));}
+Transaction  ÊÂÎñ½«²Ù×÷·â×°ÎªÔ­×Ó²Ù×÷
 
-
-
-µÚÒ»ÕÂ ÔÓÏî
-Ê¶±ðµÚXÕÂµÚX½Ú
-duokan/downloads/micloudbooks
-2.»·ÐÎ·¢¹â¶þ¼«¹Ü  mOccupied
 4.drawableµÄpaddingÐèÒªsetBounds
 5.batÃüÁîµÄÅÐ¶Ï(¿Õ¸ñ)
 if '%1'=='' (
@@ -86,7 +44,7 @@ Context.registerReceiver(mBroadcastReceiver, intentFilter);  //È«¾Ö¹ã²¥µÄ×¢²á·½Ê
 20.±ß¾àµÄ²»Í¬(mpÄÚÍâ)
 marginÊÇÍâ±ß¾àÔÚborderÍâÃæ£¬¶øpaddingÊÇÄÚ±ß¾à£¬ÔÚborderÄÚ²¿
 31.ÎÞ·ìºÏ²¢¶à¸öÎÄ¼þcopy /b 1.jpg+dz.rar mypic.jpg 
-1.aadd amod adel
+1.aadd amod adel csxg
 3.Íâ²¿Àà.this.³ÉÔ±±äÁ¿|³ÉÔ±·½·¨
 6.LinearLayout ¶Ô±È RelativeLayout  ÎÞ·¨½µµÍ²ã¼¶Éî¶È»ò×Óview¸ß¶ÈÓëgroup²»Í¬Ê±ÓÅÏÈÊ¹ÓÃLinerlayout
 7.ANR£ºÓ¦ÓÃÔÚ5ÃëÄÚÎ´ÏìÓ¦ÓÃ»§µÄÊäÈëÊÂ¼þ£¨Èç°´¼ü»òÕß´¥Ãþ£©£»BroadcastReceiverÎ´ÔÚ10ÃëÄÚÍê³ÉÏà¹ØµÄ´¦Àí£»ServiceÔÚÌØ¶¨µÄÊ±¼äÄÚÎÞ·¨´¦ÀíÍê³É 20Ãë
@@ -96,10 +54,10 @@ marginÊÇÍâ±ß¾àÔÚborderÍâÃæ£¬¶øpaddingÊÇÄÚ±ß¾à£¬ÔÚborderÄÚ²¿
 looperÖÐ  MessageQueue.next ½øÈëÊÇÅÐ¶¨µ±Ç°msgÊÇ·ñÓÐÑÓ³Ù£¬ÓÐµÄ»°¾Í×èÈûnativePollOnce¾«×¼
 MessageQueue.enqueueMessage ÅÐ¶ÏÓëµ±Ç°msg.when Èô¸ü¶ÌÇÒÏß³Ì×èÈû¾Í»½ÐÑ
 12.ÔÚÊ¹ÓÃ¸ßÓÚminSdkVersion API levelµÄ·½·¨ÐèÒª:
-ÓÃ@TargeApi(9) Ê¹¿ÉÒÔ±àÒëÍ¨¹ý, ²»½¨ÒéÊ¹ÓÃ@SuppressLint(¡°NewApi¡±);
-ÔËÐÐÊ±ÅÐ¶ÏAPI level; ½öÔÚ×ã¹»¸ß£¬ÓÐ´Ë·½·¨µÄAPI levelÏµÍ³ÖÐ£¬µ÷ÓÃ´Ë·½·¨;
-±£Ö¤¹¦ÄÜÍêÕûÐÔ£¬±£Ö¤µÍAPI°æ±¾Í¨¹ýÆäËû·½·¨Ìá¹©¹¦ÄÜÊµÏÖ¡£
+ÓÃ@TargeApi(9) Ê¹¿ÉÒÔ±àÒëÍ¨¹ý;
+if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD) 
 13.µ¹¼ÆÊ±CountDownTimer (long millisInFuture, long countDownInterval)  
+	extends CountDownTimer ×ÜÊ±³¤,Ë¢ÐÂ»Øµ÷¼ä¸ô
  	»Øµ÷onFinish|onTick    ¼ÇµÃ²Ù×÷Ç°ÅÐ¶¨activity´æÔÚ£¬ÇÒÔÚonDestoryÖÐtimer.cancle()
 14.¶ªÖ¡ÂÊ¹ý¸ß   ¹ý¶ÈÖØ»ØÖ»ÊÇÒ»ÖÖ
 18.Ò»¸öÊý×óÒÆNÎ»±íÊ¾³ËÒÔ2µÄn´Î·½£¬ÓÒÒÆ±íÊ¾³ýÒÔ
@@ -121,10 +79,20 @@ android.support.design.widget.NavigationView (headerLayout,menu)  setNavigationI
 33.»ð³µÍËÆ±£º48--5%£»24--10%£»20%¡£Á½ÌìÎåÒ»ÌìÊ®£¬²»µ½ÕûÌì¿Û20
 34.·É»ú·¢Æ±£º»úÆ±30ÌìÄÚ¿ÉÒÔ²¹´ò·¢Æ±
 35.»Æ½ð±ÈÀý£º»Æ½ð·Ö¸î6.18
-36.²é×ÊÁÏ£º
-ÕÒ²úÆ·£¬ÕÒCNKI×¨Àû£¬QQÈº£¬ÂÛÌ³
-ÕÒ×ÊÁÏ£¬ËÑ×÷ÕßBlog
 
+µÚ0½Ú AppWidgetÌåÏµ
+RemoteViews£ºÃèÊöViewµÄÊµÌå¡£Èç£º´´½¨ViewÐèÒªµÄ×ÊÔ´IDºÍ¸÷¸ö¿Ø¼þµÄÊÂ¼þÏìÓ¦·½·¨¡£
+
+ÏÂÃæÁ½¸ö¶ÔÏó¹¹³ÉÁË¿Í»§¶Ë
+AppWidgetHost{hostid£¬handler£¬sService}ÊÇÕæÕýÈÝÄÉAppWidgetµÄµØ·½£¬ËüµÄÖ÷Òª¹¦ÄÜÓÐÁ½¸ö£º
+	¼àÌýÀ´×ÔAppWidgetServiceµÄÊÂ¼þ£ºÖ÷Òª´¦ÀíupdateºÍprovider_changedÁ½¸öÊÂ¼þ¸üÐÂwidget¡£
+	´´½¨AppWidgetHostView£º1.ÏÈ´´½¨AppWidgetHostView;2.Í¨¹ýAppWidgetService²éÑ¯appWidgetId¶ÔÓ¦µÄRemoteViews;3.updateAppWidget(RemoteViews).
+AppWidgetHostViewÊÇÕæÕýµÄView£¬µ«ËüÖ»ÊÇÒ»¸öÈÝÆ÷£¬ÓÃÀ´ÈÝÄÉ¸ù¾ÝRemoteViewsµÄÃèÊö´´½¨µÄview¡£remoteViews.apply´´½¨ÁËÊµ¼ÊµÄView¡£
+
+ÏÂÃæÁ½¸ö¹¹³É·þÎñÆ÷¶Ë
+AppWidgetService && AppWidgetManager
+managerÊÇappÓëservice½»»¥µÄÇÅÁº£¬ÄÚ²¿binderºÍservice½»»¥£»¿É¸ù¾Ýwidgetid²éÑ¯widgetinfo£»ÔÚAppwidgetProviderÖÐ½«¸üÐÂÍÆËÍµ½service
+serviceÊ¹ÓÃhost´«ÈëµÄcallback·¢ËÍ¸üÐÂÏûÏ¢£»Î¬»¤ÄÚ²¿widgetÁÐ±í{´Ódata/system/appwidgets.xml¶ÁÈ¡}
 
 µÚ1½Ú ÄÚ´æÐ¹Â¶
 µ¥Àý»ò¾²Ì¬±äÁ¿³ÖÓÐcontexÓ¦Ê¹ÓÃapplicationContext
@@ -137,30 +105,11 @@ BraodcastReceiver£¬ContentObserver£¬File£¬Cursor£¬Stream£¬BitmapµÈ×ÊÔ´£¬Ó¦¸ÃÔÚAc
 µÚ2½Ú ÖØ»æ
 µ÷ÓÃinvalidate·½·¨Ö»»áÖ´ÐÐonDraw·½·¨£»
 µ÷ÓÃrequestLayout·½·¨Ö»»áÖ´ÐÐonMeasure·½·¨ºÍonLayout·½·¨£¬²¢²»»áÖ´ÐÐonDraw·½·¨¡£
+measure()»á»Øµ÷onMeasure()¸ømMeasuredWidth¸³Öµ{setMeasuredDimension}¸¸ÀàÖ¸¶¨µÄ¿ÉÒÔÖ±½ÓÉèÖÃ£¬ÔÚMeasureChildÇ°¿ÉÒÔÉèÖÃchild.setPadding()
 
 µÚ3½Ú Æô¶¯Ä£Ê½
-standard|singleTop|singleTask|singleInstance----------(onNewIntent())
-   Ä¬ÈÏ|Õ»¶¥¸´ÓÃ|ÊµÀý¸´ÓÃ|µ¥¶À½ø³Ì
-  --|ÏûÏ¢½ÓÊÕ|Ö÷½çÃæ|ÄÖÖÓÌáÐÑÖ®ÀàÐèÒªÓëÓ¦ÓÃ±¾Éí·ÖÀë
-  
-1. ÈçºÎ¾ö¶¨ËùÊôtask
-¡°standard¡±ºÍ¡±singleTop¡±ºÍIntentµÄ·¢ËÍÕßÔÚÍ¬Ò»¸ötaskÄÚ£¬³ý·Çintent°üÀ¨²ÎÊýFLAG_ACTIVITY_NEW_TASK¡£
-¡°singleTask¡±»á²éÕÒÊÇ·ñ´æÔÚºÏÊÊµÄtask(taskAffinityÏàÍ¬)£¬ÓÐµÄ»°ÔòÔÚÆäÖÐÆô¶¯£¬ÇÒ²»Ò»¶¨ÊÇ¸ùActivity,Ã»ÓÐµÄ»°ÐÂ½¨Ò»¸ötask¡£
-¡±singleInstance¡±×ÜÊÇ°Ñactivity×÷ÎªÒ»¸ötaskµÄ¸ùÔªËØ£¬ËûÃÇ²»»á±»Æô¶¯µ½Ò»¸öÆäËûtaskÀï¡£
- 
-2. ÊÇ·ñÔÊÐí¶à¸öÊµÀý
-¡°standard¡±ºÍ¡±singleTop¡±¿ÉÒÔ±»ÊµÀý»¯¶à´Î£»
-¡°singleTask¡±ºÍ¡±singleInstance¡±Ö»Éú³ÉÒ»¸öÊµÀý£¬²¢ÇÒsingleInstance±ØÐëÊÇtaskµÄ¸ùÔªËØ¡£
-singleTop½öÔÚÕ»¶¥Ê±²»ÖØÐÂ´´½¨¡£
- 
-3. ÊÇ·ñÔÊÐíÆäËüactivity´æÔÚÓÚ±¾taskÄÚ
-¡°singleInstance¡±¶ÀÕ¼Ò»¸ötask£¬ÆäËüactivity²»ÄÜ´æÔÚÄÇ¸ötaskÀï£»¶øÁíÍâÈýÖÖÄ£Ê½£¬Ôò¿ÉÒÔºÍÆäËüactivity¹²´æ¡£
- 
-4. ÊÇ·ñÃ¿´Î¶¼Éú³ÉÐÂÊµÀý
-¡°standard¡±¶ÔÓÚÃ¿Ò»¸öÆô¶¯Intent¶¼»áÉú³ÉÒ»¸öactivityµÄÐÂÊµÀý£»
-¡°singleTop¡±½öÔÚÕ»¶¥Ê±¸´ÓÃ²»´´½¨ÐÂµÄÊµÀý
-¡°singleInstance¡±ÊÇÆäËùÔÚÕ»µÄÎ¨Ò»activity£¬Ëü»áÃ¿´Î¶¼±»ÖØÓÃ¡£
-¡°singleTask¡±Èç¹ûÔÚÕ»¶¥£¬Ôò½ÓÊÜintent£¬Èç¹û²»ÔÚÕ»¶¥£¬Ôò»á°ÑËüÇÐ»»µ½Ç°Ì¨£¬²¢Ïú»ÙÆäÉÏµÄActivity
+standard|singleTop ¿É¶àÊµÀý£¬Ä¬ÈÏÔÚ·¢ËÍµÄtask £¬ºóÕßÔÚ½öÔÚÕ»¶¥Ê±²»ÐÂ½¨
+singleTask|singleInstance µ¥Àý£¬ºóÕß¶ÀÕ¼task£¬Ç°Õß»áÇå¿ÕÕ»¶¥
 
 µÚ4½Ú okhttp£º
 Response re = OkHttpClient.Builder().readTimeout(5, TimeUnit.SECONDS).build().newCall(new Request.Builder().url("http://www.baidu.com").get().build()).execute/enqueue();
@@ -228,11 +177,10 @@ Glide Glide.with(this).load(url).into(imageView);
 2.SwipeBackLayout  ÓÒ»¬·µ»Ø  
 3.greenDao ¸ù¾Ý×¢ÊÍ×Ô¶¯Éú³ÉÊý¾Ý¿â¼°Ïà¹Ø²Ù×÷
 1.bugly  ÌÚÑ¶·½°¸ ½â¾öÓ¦ÓÃÈÈ¸üÐÂºÍANRÈÕÖ¾»Ø´«
-2.Transaction  ÊÂÎñ½«²Ù×÷·â×°ÎªÔ­×Ó²Ù×÷£¬
 3.LeakCanary ´úÌæmat½øÐÐÄÚ´æ¼ì²â
 4.ButterKnife(¿ìËÙ×ÊÔ´ÊÂ¼þ°ó¶¨)
 5.jitpack ¿ªÔ´¿âµÄ´´½¨ÓëÊ¹ÓÃ
-6.SwipeBackLayout 
+
 
 µÚ10½Ú ViewPagerºÍViewPagerIndicator
 ViewPager ºÍ PagerAdapter ºóÕßÐèÒªÊµÏÖinstantiateItemÔÚÈÝÆ÷ÖÐÌí¼ÓitemView£»ÔÚdestoryItemÖÐcontainer.removeView;isViewFromObjectÖÐreturn view == object ;
@@ -285,23 +233,75 @@ LayoutInflater.from(mContext).inflate(R.layout.it,parent,false);
 <category android:name="android.intent.category.HOME" /> ÉèÖÃ¸Ã×é¼þÎªHome Activity
 
 µÚ14½Ú gc reason
-I/art: <GC_Reason> <GC_Name> <Objects_freed>(<Size_freed>) AllocSpace Objects, <Large_objects_freed>(<Large_object_size_freed>) <Heap_stats> LOS objects, <Pause_time(s)>
-
-D/dalvikvm: <GC_Reason> <Amount_freed>, <Heap_stats>, <External_memory_stats>, <Pause_time>
 GC_CONCURRENT(Í¬Ê±·¢ÉúµÄÊÂ) µ±¶Ñ½«Òª±»ÌîÂúµÄÊ±ºò´¥·¢µÄgc
 GC_FOR_MALLOC(ÄÚ´æ·ÖÅä) µ±Ó¦ÓÃµÄ¶ÑÒÑ¾­±»ÌîÂúÇÒ¼ÌÐøÉêÇëÄÚ´æÊ±gc¡£ÏµÍ³»áÉ±ËÀÓ¦ÓÃµÄ½ø³Ì²¢ÇÒ»ØÊÕËùÓÐÄÚ´æ
+
+I/art: <GC_Reason> <GC_Name> <Objects_freed>(<Size_freed>) AllocSpace Objects, <Large_objects_freed>(<Large_object_size_freed>) <Heap_stats> LOS objects, <Pause_time(s)>
+D/dalvikvm: <GC_Reason> <Amount_freed>, <Heap_stats>, <External_memory_stats>, <Pause_time>
 GC_EXPLICIT£ºÏÔÊ¾µÄGC£¬ÀýÈçµ÷ÓÃSystem.gc()£¨Ó¦¸Ã±ÜÃâµ÷ÓÃÏÔÊ¾µÄGC£¬ÐÅÈÎGC»áÔÚÐèÒªÊ±ÔËÐÐ£©¡£
 GC_HPROF_DUMP_HEAP£ºÇëÇó´´½¨ HPROF ÎÄ¼þÀ´·ÖÎö¶ÑÄÚ´æÊ±³öÏÖµÄGC¡£
 GC_EXTERNAL_ALLOC£º½öÊÊÓÃÓÚ API ¼¶±ðÐ¡ÓÚµÈÓÚ10 £¬ÓÃÓÚÍâ²¿·ÖÅäÄÚ´æµÄGC¡£
 
-µÚ15½Ú dumpsysÃüÁî
-dumpsys activity intents Ã¿¸ö´ý´¦ÀíµÄintentÊ¹ÓÃÒ»¸öPendingIntentRecord¶ÔÏó±íÊ¾
-dumpsys activity broadcasts ÏµÍ³ÖÐËùÓÐ×¢²áµÄ¹ã²¥½ÓÊÕÕß£¬
-dumpsys activity providers£¬Ò»¸öprovider×é¼þÊ¹ÓÃÒ»¸öContentProviderRecord¶ÔÏó±íÊ¾¡£
-dumpsys activity services ServiceRecord
-dumpsys activity activities, ActivityÊÇÒÔÕ»µÄÐÎÊ½¹ÜÀíµÄ,Ã¿¸öÕ»ÖÐ´æÔÚÈô¸É¸öÈÎÎñ(task),Ã¿¸öÈÎÎñÓÖÓÉÈô¸É¸öActivity×é³É¡£
+µÚ15½Ú dumpsysÃüÁî dumpsys activity XXXs
+intents ´ý´¦ÀíµÄintent(PendingIntentRecord)
+broadcasts all×¢²áµÄbroadcasts
+providers ContentProviderRecord
+activities, Stack-->task{TaskRecord}-->Activity{ActivityRecord}
+
+µÚ16½Ú TextureViewºÍSurfaceView
+SurfaceView{ »æÖÆ»áÓÐ¶ÀÁ¢´°¿Ú£¬ TextureView Ã»ÓÐ¶ÀÁ¢µÄ´°¿Ú}
+×¢: TextureView.setSurfaceTextureListener(new TextureView.SurfaceTextureListener()
+¼Ì³ÐSurfaceView,²¢ÊµÏÖÁ½¸ö½Ó¿Ú£ºSurfaceHolder.CallbackºÍRunnable£»
+getHolder()./*»ñÈ¡SurfaceHolder¶ÔÏó*/mHolder.addCallback(this);//×¢²áSurfaceHolderµÄ»Øµ÷·½·¨
+synchronized (mSurfaceHolder) {/**ÔÚÕâÀï¼ÓÉÏÏß³Ì°²È«Ëø**/ 
+mCanvas =mSurfaceHolder.lockCanvas();/**ÄÃµ½µ±Ç°»­²¼ È»ºóËø¶¨**/ 
+draw();
+mSurfaceHolder.unlockCanvasAndPost(mCanvas); }/**»æÖÆ½áÊøºó½âËøÏÔÊ¾ÔÚÆÁÄ»ÉÏ**/ 
+
+µÚ17½Ú JSON´´½¨Óë½âÎö
+JSONStringer´´½¨Ò»¸öJson ÎÄ±¾£¬¿ÉÒÔÍ¨¹ýJSONTokenerµÄnextValue()À´
+»ñµÃJSONObject¶ÔÏó
+Í¨¹ýJSONObjectÓëJSONArrayµÄgetInt£¬getString,getDouble,getJSONArray£¬getJSONObjectµÈº¯ÊýÀ´½âÎöjson.
+
+µÚ18½Ú LauncherÏà¹Ø
+sBgWorkspaceItems¡ª¨C¼ÓÔØºó×ÀÃæµÄËùÓÐitem
+sBgAppWidgets¡ª¨CÕâÀïÃæ·ÅµÄwidget
+2.»·ÐÎ·¢¹â¶þ¼«¹Ü  mOccupied
+
+µÚ19½Ú info×Ü½á
+LauncheractivityInfoCompat-->AppInfo
+	Ç°ÕßÐèÒªlauncherAppsCompat.getActivylist(pagename,user)
+	ºóÕßÐèÒªÇ°Õß¹¹Ôì£¬°üº¬intent,icon,componetName,makelaunchIntent(·½·¨)
+LauncherAppWidgetInfo ´ú±íwidgetÊµÀý
+	Ö÷Òª°üº¬appwidgetId£¬hostview£¬ComponentName providername
+	appwidgetId = WidgetHost.allocateAppWidgetID()
+	°ó¶¨£ºAppWidgetManager.bindAppWidgetIdifAllowed(id,providerinfo{ÏÂÃæ},options)
+pendingAddItemInfo-->pendingAddWidgetInfo
+	Ç°ÕßÖ»ÊÇ°üº¬componetNameµÄiteminfo£¬±êÖ¾ÓÃÓÚ´«µÝÐÅÏ¢µÄinfo
+	ºóÕß°üº¬previewImage,icon,providerinfo{ÏÂÃæ},hostview,Bundle bindoptions
+	LauncherModel.getProviderinfo(contex,name,user)»ñÈ¡
+AppWidgetProviderInfo-->LauncherAppWidgetProviderInfo{providerinfo}
+	ºóÕßÊÇÇ°ÕßµÄ¼òµ¥°ü×°£¬´ú±íwidgetÀà±ð
+	ºóÕßLauncherModel.getWidgetProviders(contex,user)»ñÈ¡
+ResolveInfo Í¨¹ýPM.queryIntentActivities²éÑ¯µÃµ½ÔÚmannifestÖÐ²É¼¯µÄÐÅÏ¢
+
+µÚ19½Ú ¶¯»­Ïà¹Ø
+anim.addListener(new AnimatorListenerAdapter() 
+anim.addListener(new Animator.AnimatorListener()
+valueAnimator.addUpdateListener(new AnimatorUpdateListener()
+
+animator.getAnimatedValue();
+
+ObjectAnimator.ofFloat(mButton, "alpha", 1f, 0f, 1f);
+ÊÖ¶¯ÉèÖÃ¶ÔÏóÀàÊôÐÔµÄ set()&get() À©Õ¹
+
+AnimatorSet play|after|before|with
+
+ViewPropertyAnimator  Ö±½ÓbtnShow.animate().setDuration(2000).translationX(300).rotation(360).start();
+
 
 µÚ¶þÕÂ java»ù´¡
+1.³éÏó¡¢¼Ì³Ð¡¢·â×°¡¢¶àÌ¬ÐÔ
 Ëæ»úÉú³É a µ½ b (²»°üº¬b)µÄÕûÊý:
 (int)(Math.random()*(b-a))+a; (int)(Math.random()*(b-a+1))+a;
 
@@ -319,7 +319,7 @@ thread run start   |   runable run thread start ×ÊÔ´¹²Ïí
 synchronized ·½·¨ºÍ¿é
 
 ×ÓÀàµÄ·ºÐÍÀàÐÍÊÇÎÞ·¨Ê¹ÓÃ¸¸ÀàµÄ·ºÐÍÀàÐÍ½ÓÊÕ£¬ÀýÈç£ºInfo <String>²»ÄÜÊ¹ÓÃInfo<Object> 
-ÀàÃû³Æ<? (extends/super Àà)> ¶ÔÏóÃû³Æ   ·Ö±ð¶¨ÒåÁËÍ¨Åä/ÉÏÏÞ/ÏÂÏÞ
+ÀàÃû³Æ<? (extends/super Àà)> ¶ÔÏóÃû³Æ   ·Ö±ð¶¨ÒåÁËÍ¨Åä/ÉÏÏÞ/ÏÂÏÞ <? extends Object> Ïàµ±ÓÚÃ»ÓÐÏÞÖÆ
 
 StringBuffer   append|indexOf|insert(o,s)|reverse·´×ª|replace(s,e,s)|delete(s,e)|substring      adsir2
 Runtime   getRuntime()|gc|exec("notepad.exe")
@@ -347,19 +347,9 @@ Scanner  hasNextXXX|nextXXX|useDelimiter£¨ÉèÖÃ·Ö¸ô·û£©|nextLine       (has)NextX
 
 Collection   clear| contains|equals| isEmpty|size| toArray       µÈÓÚ°üº¬size²»¿Õclear toarray
 List   get/set   lastIndexOf  subList    ÉèµÃ×Ólist ×îºóindex
-ArrayList(Êý×é)
-LinkedList(Á´±í) peek/poll(±íÍ·ºóÕßÉ¾³ý) offer addF/L removeF/L             all
-Vector(´øÍ¬²½µÄÊý×é) 
-hashSet  SortedSet ÄÚÈÝ²»ÖØ¸´
-SortedSet headSet/tailSet/subSet  first/last  descendingIteratorÄæÐòµÄiterator        hst
-Iterator  hasNext|next|remove  (ListIterator¿ÉÒÔË«Ïò·ÃÎÊ)
-hashMap|treeMap(key²»ÖØ¸´)   containsKey/value   Set<Map.Entry<K,V>> entrySet()  keySet/values  get/put   isEmpty      ht
 Collections  sort|»ìÅÅShuffling|·´×ªReverse|Ìæ»»ËùÒÔµÄÔªËØ(Fill)|¿½±´(Copy)|min/max|Rotate¶¨¾àÀëÑ­»·ÔªËØ
 Stack pop|push|peek|empty|search
-
 Ã¶¾Ù(enum)ÀàÒ²¿ÉÒÔÊµÏÖÒ»¸ö½Ó¿Ú£¬Ã¶¾ÙÖÐ¿ÉÒÔ¶¨Òå³éÏó·½·¨----Ã¿¸öÔªËØ¶¼±ØÐë·Ö±ðÊµÏÖ´Ë³éÏó·½·¨¡£
-
-1.³éÏó¡¢¼Ì³Ð¡¢·â×°¡¢¶àÌ¬ÐÔ
 µÚ1½Ú ½ø³ÌºÍÏß³ÌµÄÇø±ð(ÏÈ½øµÝÔö)
 ¶à½ø³Ì£¬¿ÉÒÔÌá¸ßÎÒÃÇAPPÕ¼ÓÃµÄ×î¸ßÄÚ´æ¡£
 1. Ò»¸ö³ÌÐòÖÁÉÙÓÐÒ»¸ö½ø³Ì,Ò»¸ö½ø³ÌÖÁÉÙÓÐÒ»¸öÏß³Ì.
@@ -379,7 +369,7 @@ HashMapÄÚ²¿Ò»¸öÊý×é<HashMapEntry>  ArrayMapÄÚ²¿Ë«Êý×é
 
 µÚÈýÕÂ AndroidÎÊÌâ·ÖÎöºÍÓÅ»¯
 1.crash £¨±ÀÀ££©
-¹Ø¼ü×Ö£ºFATAL EXCEPTION   -----java´úÂë     Ó¢[?feit?l ?] ÖÂÃüµÄ
+¹Ø¼ü×Ö£ºFATAL EXCEPTION   -----java´úÂë 
                    fault ½ø³Ìpid¼°Ïß³ÌtidºÅ  backtrace¼°stackÐÅÏ¢
 2.anr£¨ÎÞÏìÓ¦£©
 ¹Ø¼ü×Ö£ºANR CPuÕ¼ÓÃÐÅÏ¢½Ï¸ß¿ÉÄÜËÀÑ­»·£¬½ÏµÍ¿ÉÄÜÊÇIOWait
@@ -430,27 +420,92 @@ $XXX ´ú±í±äÁ¿ÄÚÈÝ $n ±íÊ¾µÚn¸ö²ÎÊý $0ÊÇ½Å±¾Ãû
 
 
 µÚÁùÕÂ gitÃüÁî
-git push -u origin master ÍÆËÍ±¾µØ´úÂëµ½ÔÆ¶Ë
+Ö»ÓÐÈýÖÖ×´Ì¬£ºÒÑÌá½»£¨committed£©£¬ÒÑÐÞ¸Ä£¨modified£©ºÍÒÑÔÝ´æ£¨staged£©¡£
+
+git diff (--staged)²»¼Ó²ÎÊý±íÊ¾stagedÌá½»ºóµÄÐÞ¸Ä£¬¼Ó²ÎÊý±íÊ¾stagedµÄÐÞ¸Ä
+
+¸ÄÃû»òÒÆ¶¯Î»ÖÃ
+git mv file_from file_to 
+
+²é¿´Ìá½»ÀúÊ·
+git log ¨Cp -2³£ÓÃ -p Ñ¡ÏîÕ¹¿ªÏÔÊ¾Ã¿´ÎÌá½»µÄÄÚÈÝ²îÒì£¬ÓÃ -2 Ôò½öÏÔÊ¾×î½üµÄÁ½´Î¸üÐÂ
+Í¼ÐÎ»¯¹¤¾ß gitk
+
+Git ÃüÁî±ðÃû
+$ git config --global alias.co checkout
+
+¸ú×Ù·ÖÖ§
+git checkout -b [·ÖÖ§Ãû] [Ô¶³ÌÃû]/[·ÖÖ§Ãû]¡£Èç¹ûÄãÓÐ 1.6.2 ÒÔÉÏ°æ±¾µÄ Git£¬»¹¿ÉÒÔÓÃ --track Ñ¡Ïî¼ò»¯£º
+$ git checkout --track origin/serverfix
+
 Ç¿ÖÆ¸²¸ÇÏÂÔØ
 git fetch --all
 git reset --hard origin/master
+
 »ØÍË£º
 git log 
 git reset --hard fc1cf2a323642e16579e4eb681c5f98ac443a58f
+
 push´úÂë£º
 git commit --amend
 git pull --rebase
-gitÅäÖÃ£º
+
+µÚ1½Ú stash
+git stash (save Ãû×Ö) ÔÝ´æÐÞ¸Ä
+git stash pop|apply Ç°Õß»Ö¸´²¢É¾³ý×îºóÒ»¸östaged,ºóÕß»Ö¸´ËùÓÐµ«²»É¾³ý(¿ÉÖ¸¶¨Ãû×ÖÖ»»Ö¸´Ò»¸ö)
+git stash (drop Ãû×Ö|clear)É¾³ýstaged
+git stash list
+git stash show Ãû×Ö (-p) ÏÔÊ¾²î±ð£¬¼Ó²ÎÊýÏÔÊ¾ÏêÇé
+git stash branch testchanges ´´½¨branch²¢»Ö¸´ËùÓÐ
+
+µÚ2½Ú gitÅäÖÃ£º
 git config --global user.name jinlong.liang
 git config --global user.email mywokemail@163.com
 ssh-keygen
 cat ~/.ssh/id_rsa.pub
 
+µÚ3½Ú addÖÐÒÆ³ýÎÄ¼þ
+git rm (--cached) readme.txt Ä¬ÈÏÉ¾³ýÎÄ¼þ£¬¼Ó²ÎÊýºó½öÊÇ²»ÔÙtrack
+git reset HEAD benchmarks.rb ½«add×´Ì¬È¡Ïû
 
-µÚÆßÕÂ ÃîÓïÁ¬Öé
+µÚ4½Ú Ìá½»¸üÐÂ
+git commit -m "Story 182: Fix benchmarks for speed"
+git commit -a -m 'added new benchmarks'Ìø¹ýÊ¹ÓÃÔÝ´æÇøÓò£¬ËùÓÐtrackedµÄÐÞ¸Ä
+git commit --amend ÐÞ¸Ä×îºóÒ»´ÎÌá½»
 
+µÚ5½Ú ·ÖÖ§(ºÏ²¢--ÑÜºÏµ½)
+git checkout master    ÇÐ»»·ÖÖ§
+git merge hotfix       masterºÏ²¢hotfit
+git branch -d hotfix   É¾³ý·ÖÖ§£¬´óÐ´µÄDÇ¿ÖÆÉ¾³ý£¬¼´Ê¹ÊÇÎ´mergedµÄbranch
 
-µÚ°ËÕÂ ËÙ¼Çµ¥Ôª
+µÚ6½Ú ÑÜºÏ»ù´¡
+½«±ä»¯²¹¶¡ÖØÐÂÆäËû·ÖÖ§´òÒ»±é¡£ÔÚ Git Àï£¬ÕâÖÖ²Ù×÷½Ð×öÑÜºÏ£¨rebase£©
+×¢: git checkout experiment
+git rebase master ÑÜºÏµ½master
+git rebase master server ºóÕß¿ÉÄ¬ÈÏÎªµ±Ç°ËùÔÚbranch
+
+git rebase --onto master server client
+Ê¹ÓÃ git rebase µÄ --onto Ñ¡ÏîÀ´½ØÈ¡²¿·ÖÐÞ¸Äµ½master
+
+µÚ7½Ú ³åÍ»µÄºÏ²¢
+É¾³ý <<<<<<<£¬=======£¬ºÍ>>>>>>> ÕâÐ©ÐÐ¡£ÔËÐÐ git add ½«°ÑËüÃÇ±ê¼ÇÎªÒÑ½â¾ö£¨resolved£©¡£È»ºócommit
+Í¼ÐÎ½çÃæ£ºgit mergetool
+
+µÚ8½Ú ÍÆËÍ
+git push origin serverfix ÍÆËÍµ½Ä¬ÈÏ·ÖÖ§
+git push origin serverfix:awesomebranch ÍÆËÍ²¢ÐÂ½¨·ÖÖ§awesomebranchÔÚ·þÎñÆ÷
+git push [Ô¶³Ì²Ö¿âÃû] [±¾µØ·ÖÖ§]:[Ô¶³Ì·ÖÖ§] 
+Èç¹ûÊ¡ÂÔ [±¾µØ·ÖÖ§]£¬ÄÇ¾ÍµÈÓÚÊÇÔÚËµ¡°ÔÚÕâÀïÌáÈ¡¿Õ°×È»ºó°ÑËü±ä³É[Ô¶³Ì·ÖÖ§]¡±£¬É¾³ýÔ¶³Ì·ÖÖ§¡£
+
+µÚ9½Ú .ignoreÎÄ¼þ
+# ´ËÎª×¢ÊÍ ¨C ½«±» Git ºöÂÔ
+*.a # ºöÂÔËùÓÐ .a ½áÎ²µÄÎÄ¼þ
+!lib.a # µ« lib.a ³ýÍâ
+/TODO # ½ö½öºöÂÔÏîÄ¿¸ùÄ¿Â¼ÏÂµÄ TODO ÎÄ¼þ£¬²»°üÀ¨ subdir/TODO
+build/ # ºöÂÔ build/ Ä¿Â¼ÏÂµÄËùÓÐÎÄ¼þ
+doc/*.txt # »áºöÂÔ doc/notes.txt µ«²»°üÀ¨ doc/server/arch.txt
+
+µÚÆßÕÂ ËÙ¼Çµ¥Ôª
 ¿ì½Ý¼ü
 Win+L ËøÆÁ£¬Win+E ÏÔÊ¾×ÊÔ´¹ÜÀíÆ÷£¬Win+D ÏÔÊ¾×ÀÃæ(ledµÆ)
 Eclipse:a2²åÈëÉÏÏÂ,c5 hedoÉ¾×¢ÊÍ,as°®ÊÇÈç´Ëpm,acl¸ñÊ½»¯
@@ -460,9 +515,13 @@ Eclipse:a2²åÈëÉÏÏÂ,c5 hedoÉ¾×¢ÊÍ,as°®ÊÇÈç´Ëpm,acl¸ñÊ½»¯
 ÊÇ·­Òë¹Ù¾ç×é£º¡÷ÐéÊµÏß£¬¾Ö²Î¾²·½Ðé¼ýÍ·£¬Êµ¼ýÓÐ¸öÊý£¬ÁâÐÎÊµ¼ý×Ü·ÖÏÖ£¬×éºÏ²»¹²Ïí
 µÚ4½Ú ±à³Ì¸ÐÎò
 Ìí¼ÓÖ®Ç°ÏÈÇå¿Õ£¬Ê¹ÓÃÖ®Ç°ÏÈÅÐÓÐ(null»òsize)£¬ÏÈ¿ò¼ÜºóÂß¼­£¬²¼¾Ö²ÎÊýXMl»¯£¬Ñ¡´óÈ¡Ð¡ÓÃMath
+µÚ5½Ú ÈËÐÔµÄÈõµã
+¶ÔÊÂ£ºÖÐÁ¢Ë¼¿¼£¬Ô¤²â×î»µ²¢¸ÄÉÆ
+¶Ô¼º£ºÓÐÐò£¬ÀÍÉí£¬ÏíµÃ£»¾Ü±ç£¬Ì¸¼º£¬ÈÏ´í(ÐìÀÏµÄ±ç¼º´í)
+¶ÔÈË£ºÌý£¬Ó­£¬¿ä£¬Ë¡£¬Ð¦
+ÖØÒªÐÔ£¬Ãû×Ö£¬·þÎñÒâÊ¶£¬ÐéÐÄÇë½Ì£¬¸ßÉÐ¶¯»úºÍÈ¡Ê¤ÓûÍû
 
-
-µÚ¾ÅÕÂ ÏµÍ³bug¼°ÐèÇó
+µÚ°ËÕÂ ÏµÍ³bug¼°ÐèÇó
 »ñÈ¡ÊÖ»úÊôÐÔ
 adb shell getprop ro.cda.skuid.id_final »ñÈ¡µ±Ç°SKUID
 adb shell getprop >a.prof  µ¼³öÊÖ»úÏµÍ³ÊôÐÔÖµ
@@ -520,8 +579,7 @@ REQ:µ¼³öwifiÕËºÅÃÜÂë|ËøÆÁÃÜÂë
 adb shell cat /data/misc/wifi/wpa_supplicant.conf
 adb shell ls data/system/gatekeeper.pattern.key
 
-µÚÊ®ÕÂ ËÄ¼¶µ¥´Ê
-special/specify  ÌØÊâµÄ£¬×¨ÃÅµÄ---Ã÷È·ËµÃ÷£¬¾ßÌåÖ¸¶¨
+µÚ¾ÅÕÂ ËÄ¼¶µ¥´Ê
 function/fiction/firction  ¹¦ÄÜº¯Êý--Ð¡ËµÐé¹¹---²»ºÍµÖ´¥
 aspect--perspective   ·½Ãæ---¹ÛµãÊÓ½Ç
 
@@ -626,8 +684,6 @@ curl curb cure ¾í·¢Åª¾í--ÖÆÖ¹--ÖÎÓúÖÎÁÆ
 pilot  plot  ¹ÊÊÂÇé½Úi·ÉÐÐÔ±¼ÝÊ»
 shift gift shirt  ×ªÒÆÀñÎï³ÄÉÀ
 launch  lunch  bunch Îç²Í¼Óa¾Í·¢Éä Êø£¬Ê¹³ÉÒ»Êø£¬ÈºµÈ
-
-loyal--royal ÖÒ³ÏµÄ--ÍõÊÒµÄ
 towel--tower Ã«½í£¬ÓÃÃ«½íéß--Ëþ£¬Òªº¦
 convince--province  Ê¹ÐÅ·þ£¬Ê¹ÐÅÈÎ--Ê¡ ÁìÓò
 drag--drug  ÍÏ--¶¾Æ·£¬Ê¹·þÓÃÂé×íÒ©
@@ -639,8 +695,6 @@ repent/repeat/recent  ºó»Ú--ÖØ¸´Ëµ×ö--×î½üµÄ
 sole/pole/hole/role  Î¨Ò»µÄ£¬½Åµ×--¸Ë£¬µç¼«--¶´£¬Â©¶´£¬¾½¾³--½ÇÉ«£¬×÷ÓÃ
 reward/award/toward/ward/inward ±¨´ð£¬½±ÉÍ--ÊÚÓè£¬½±½ð--³¯£¬½Ó½ü--²¡·¿ÐÐÕþÇø£¬µ²×¡--ÄÚÐÄµÄÀïÃæµÄ
 drain/brain/grain/train/pain/plain  ÅÅË®£¬ÅÅË®¹µ--ÄÔ£¬ÖÇ»Û--¹ÈÎï£¬ÉÙÁ¿--»ð³µ£¬Ò»ÏµÁÐ--Í´¿à£¬Ê¹ÐÄÍ´--ÇåÎúµØ£¬Æ½Ô­
-
-enquiry  £¨inquiryÒü¿ìÈð£©²éÑ¯£¬´òÌý
 torture  £¨ÍÑÈ´£©ÕÛÄ¥£¬¿½ÎÊ
 ratio£¨ÈðÐã£©±ÈÂÊ----radio(ÊÕÒô»ú£¬ÎÞÏßµç´«ËÍ)----generate£¨²úÉúÄÜÁ¿£¬µ¼ÖÂ£©
 illustrate£¨ÒÔÀàËÆ´Þß¯£©ËµÃ÷£¬¸ø...×ö²åÍ¼ËµÃ÷
@@ -673,309 +727,11 @@ shame/same/scheme Ðß³ÜÊ¹¶ªÁ³--ÏàÍ¬µÄ--¼Æ»®ÒõÄ±£¨ËÀŒ¡Ã´£©
 gloomy--bloom ÓÇÓôµÄ--¿ª»¨£¬¿ª»¨ÆÚ
 shield/field/yield »¤ÕÖ£¬±£»¤--ÌïµØÊÓÒ°--Çü·þ²úÉúÈÃ³ö²úÁ¿
 convention/convenient/conversion  £¨¿ÏÎÂÜ°£©Ï°Ë×´ó»á--½ü±ãµÄÊ¡Á¦µÄ£¨¿ÏÎªÄãÑ¾µÄ£©-×ª±äÐÅÑö
-earnest ÈÏÕæµÄÕæÖ¿µÄ(¶ú¶äµÄÄñÎÑ)
 hare/care/fare/rare/dare/here Ò°ÍÃ--¹ØÐÄ--Æ±¼Û--ÕäÆæµÄ--¸Ò--ÔÚÕâÀï
 
-µÚÊ®¶þÕÂ ÈËÐÔµÄÈõµã
-µÚ1½Ú ´ýÈË´¦ÊÀµÄ»ù±¾¼¼ÇÉ
-ËùÎ½ÀñÃ²£¬¾ÍÊÇ±Ë´Ëµ÷½Úµ½ÊÊµ±µÄ¾àÀë¡£
-1¡¢ÈçÓû²ÉÃÛ£¬Îðõí·ä·¿£¨²»ÒªÅúÆÀ¡¢Ôð¹Ö»ò±§Ô¹ËûÈË£©¡£
-ÈË¾ÍÊÇÕâÑù£¬×ö´íÊÂµÄÊ±ºòÖ»»áÔ¹ÌìÓÈÈË£¬¾ÍÊÇ²»È¥Ôð¹Ö×Ô¼º¡£ÉÆ½âÈËÒâºÍ¿íË¡ËûÈË£¬ÐèÒªÓÐÐÞÑø×ÔÖÆµÄ¹¦·ò¡£
-2¡¢Õæ³ÏµØÔÞÉÍËûÈË¡£
-ÈËÀà±¾ÖÊÀï×îÉîÔ¶µÄÇý¶¯Á¦¾ÍÊÇ¡°Ï£Íû¾ßÓÐÖØÒªÐÔ¡±¡£Ììµ×ÏÂÖ»ÓÐÒ»ÖÖ·½·¨¿ÉÒÔ´ÙÊ¹ËûÈËÈ¥×öÈÎºÎÊÂ¡£ÄÇ¾ÍÊÇ¸øËûÏëÒªµÄ¶«Î÷¡£
-3¡¢ÒªÏëµöµ½Óã£¬µÃÎÊÓã¶ù³ÔÊ²Ã´£¨Ê×ÏÈÏëµ½ËûÈËµÄÐèÇó£©¡£
-³É¹¦µÄÈË¼Ê¹ØÏµÔÚÓÚÄãÄÜ²¶×½¶Ô·½¹ÛµãµÄÄÜÁ¦£»»¹ÓÐ£¬¿´Ò»¼þÊÂÐë¼æ¹ËÄãºÍ¶Ô·½µÄ²»Í¬½Ç¶È¡£
-Ììµ×ÏÂÖ»ÓÐÒ»ÖÖ·½·¨¿ÉÒÔÓ°ÏìËûÈË£¬ÄÇ¾ÍÊÇÌá³öËûÃÇµÄÐèÒª£¬²¢ÈÃËûÃÇÖªµÀÔõÑùÈ¥»ñµÃ¡£
-ÄÜÉèÉí´¦µØÎªËûÈË×ÅÏë£¬ÁË½â±ðÈËÐÄÀïÏëÐ©Ê²Ã´µÄÈË£¬ÓÀÔ¶²»ÓÃµ£ÐÄÎ´À´¡£
-
-µÚ2½Ú Æ½°²¿ìÀÖµÄÒª¾÷
-ÓµÓÐºÃÐÄ¾³µÄÈË£¬²ÅÊÇÕæÕýµÄ¸»ÓÐÕß¡£
-4¡¢±£³Ö×ÔÎÒ±¾É«£¨²»ÒªÃ¤Ä¿Ä£·Â£©¡£
-¼ÈÈ»ÄãÒÑÀ´µ½ÊÀÉÏ£¬¾ÍÓ¦ÇìÐÒ×Ô¼ºÔÚÊÀÉÏÊÇ¶ÀÒ»ÎÞ¶þµÄ£¬²¢°Ñ×Ô¼ºµÄÙ÷¸³·¢»Ó³öÀ´¡£
-ÎÒÃÇÃ¿¸öÈËµÄÉú»îÃæÃ²¶¼ÊÇ×Ô¼ºËÜÔì¶ø³ÉµÄ£¬Èç¹ûÎÒÃÇÄÜÑ§»á½ÓÊÜ×Ô¼º£¬¿´Çå×Ô¼ºµÄ³¤´¦£¬Ã÷°××Ô¼ºµÄ¶Ì´¦£¬±ãÄÜÌ¤ÎÈ½Å²½£¬´ïµ½Ä¿±ê¡£
-ÇóÖ°ÕßÍ¨³£·¸ÏÂµÄÊÇ´ó´íÎó£¬¾ÍÊÇ²»ÄÜ±ü³Ö±¾É«¡£ËûÃÇ×ÜÊÇ´§²â¶Ô·½ÆÚÍûµÃµ½Ê²Ã´ÑùµÄ´ð°¸£¬¶ø²»ÊÇÖ±½ØÁËµ±µØ½²³ö×Ô¼ºµÄÏë·¨¡£
-5¡¢¸Ä±ä²»Á¼µÄ¹¤×÷Ï°¹ß£¨Ñø³ÉÁ¼ºÃµÄ¹¤×÷Ï°¹ß£©
-ÈËÓÐÁ½ÖÖÄÜÁ¦ÊÇÇ§½ðÄÑÇóµÄÎÞ¼ÛÖ®±¦£­£­Ò»ÊÇË¼¿¼ÄÜÁ¦£¬¶þÊÇ·ÖÇåÊÂÇéµÄÇáÖØ»º¼±²¢Í×µ±´¦ÀíµÄÄÜÁ¦¡£
-¿ìÀÖ²¢·ÇÈ¡¾öÓÚÄãÊÇÊ²Ã´ÈË£¬»òÄãÓµÓÐÊ²Ã´£¬ËüÍêÈ«À´×ÔÓÚÄãµÄË¼Ïë¡£
-°´²¿¾Í°àµØ×öÊÂ·½·¨£¬×Ü±ÈÏëµ½Ê²Ã´¾Í×öÊ²Ã´ÒªºÃµÃ¶à¡£
-6¡¢Ñ§»á·ÅËÉ£¬½â³ýÆ£ÀÍ£¨·ÅËÉ×Ô¼º£¬Ïû³ýÆ£ÀÍ£©
-½ôÕÅÊÇÒ»ÖÖÏ°¹ß£¬·ÅËÉÒ²ÊÇÒ»ÖÖÏ°¹ß¡£
-½öÖ»ÀÍÐÄµÄ¹¤×÷£¬²¢²»»áÈÃÈË¸Ðµ½Æ£ÀÍ¡£´ó¶àÊýÆ£ÀÍÏÖÏóÔ´ÓÚ¾«Éñ»òÇéÐ÷µÄÌ¬¶È¡£
-½¡¿µÇé¿öÁ¼ºÃ¶ø³£×ø×Å¹¤×÷µÄÈË£¬ËûÃÇµÄÆ£ÀÍ100%ÊÇÓÉÓÚÐÄÀïÒòËØ£¬»òÊÇÎÒÃÇËùËµµÄÇéÐ÷ÒòËØ¡£
-7¡¢¾ëµ¡µ¼ÖÂÉíÌåµÄÆ£ÀÍ£¨²»Òª¶ÔÊÂÇé¸Ðµ½¾ëµ¡£¬¶øÓ¦Ê¹Ö®³äÂúÀÖÈ¤£©¡£
-ÒýÆðÆ£ÀÍµÄÖ÷ÒªÔ­ÒòÖ®Ò»ÊÇ¾ëµ¡¸Ð¡£
-Èç¹ûÄã¡°¼Ù×°¡±¶Ô¹¤×÷¸ÐÐËÈ¤£¬Ò²ÐíÕâÖÖÌ¬¶È»áÊ¹ÄãµÄÐËÈ¤Åª¼Ù³ÉÕæ¡£
-Ã¿Ìì¸ú×Ô¼ºÊ±Ê±½»Ì¸£¬ÕâÑù¿ÉÒÔÒýµ¼×Ô¼ºË¼¿¼Ê²Ã´ÊÇÓÂÆøºÍÐÒ¸££¬Ê²Ã´ÊÇÆ½°²ºÍÁ¦Á¿£»Ã¿Ìì¸ú×Ô¼ºÌ¸Ð©ÐèÒª¸ÐÐ»µÄÊÂ£¬ÕâÑù£¬ÄãµÄÐÄÁé¾Í»áº£À«Ìì¿Õ£¬¿ìÀÖ»¶³ª¡£
-8¡¢²»ÒªÒÔÎª×Ô¼ºÒ»ÎÞËùÓÐ£¨ËãËãÄãÓµÓÐµÄÐÒ¸££¬¶ø·Ç·³ÄÕ£©¡£
-ÉúÃüÖÐÖ»ÓÐÁ½¸öÄ¿±ê£ºÆäÒ»£¬×·ÇóÄãËùÒªµÄ£»Æä¶þ£¬ÏíÊÜÄãËù×·Çóµ½µÄ¡£Ö»ÓÐ×î´ÏÃ÷µÄÈË¿ÉÒÔ´ïµ½µÚ¶þ¸öÄ¿±ê¡£
-ÔÚÎÒÃÇµÄÉú»îµ±ÖÐ£¬Ô¼ÓÐ90%µÄÊÂÇéÊÇºÃµÄ£¬10%µÄÊÂÇéÊÇ²»ºÃµÄ¡£Èç¹ûÄãÏë¹ýµÃ¿ìÀÖ£¬¾ÍÓ¦¸Ã°Ñ¾«Éñ·ÅÔÚÕâ90%µÄºÃÊÂÉÏÃæ¡£
-ÒªÎªËùÓÐ¶øÏ²£¬²»ÎªËùÎÞ¶øÓÇ¡£·²ÊÇÍùºÃµÄÒ»ÃæÈ¥Ïë£¬ÕâÖÖÏ°¹ß±ÈÊÕÈëÇ§°÷»¹ºÃ¡£
-9¡¢Ã»ÓÐÈËÈ¥ÌßÒ»Ö»ËÀ¹·£¨²»ÓÃÀíËü£¬ÒòÎªÃ»ÓÐÈË»áÌßÒ»Ö»ËÀ¹·£©¡£
-ÔÚÏÖÊµÖÐ£¬ÓúÊÇÏÔµÃÖØÒªµÄ¹·£¬ÈËÃÇÌßÆðÀ´Óú¸Ðµ½ÐÄÂúÒâ×ã¡£
-ÎÞ¼ûÊ¶µÄÃñÖÚÏ²»¶Ìô´óÈËÎïµÄÃ«²¡£¬ÒòÎªËûÃÇ¿ÉÒÔ´ÓÖÐ»ñµÃºÜ´óµÄÀÖÈ¤¡£
-10¡¢²»ÒªÈÃÅúÆÀÖ®¼ýÉäÖÐ×Ô¼º£¨¾¡¼ºËùÄÜ£¬³ÅÆðÓêÉ¡£¬ÈÃÅúÆÀÖ®Óê´ò²»µ½Äã¾±±³ÉÏ£©¡£
-ËäÈ»ÎÒÃÇ²»ÄÜ±ÜÃâ±ðÈËµÄ¶ñÒâ¹¥»÷£¬È´ÄÜ×öÒ»¼þºÜÖØÒªµÄÊÂ£ºÊÇ·ñÈÃ±ðÈËµÄ¹¥»÷¸ÉÈÅÎÒÃÇÕý³£µÄ¹¤×÷ºÍÉú»î¡£
-±ÜÃâ±ðÈË¹¥»÷µÄÎ¨Ò»·½·¨¾ÍÊÇ£¬ÄãµÃÏñÒ»Ö»ÓÐ¼ÛÖµµÄ¾«ÃÀ´ÉÆ÷£¬ÓÐ·ç¶ÈµØÁ¢ÓÚ¼Ü×ÓÖ®ÉÏ¡£
-µÚ3½Ú ÈçºÎÊ¹ÈËÏ²»¶Äã
-½»ÅóÓÑµÄÎ¨Ò»·½·¨ÊÇÄã×Ô¼ºÊ×ÏÈÒª¹»ÅóÓÑ¡£
-11¡¢Ñ§»áÕæ³ÏµØ¹ØÐÄËûÈË
-Èç¹ûÎÒÃÇÏë½á½»ÅóÓÑ£¬¾ÍÒªÏÈÎª±ðÈË×öÐ©ÊÂÇé£­£­ÄÇÐ©ÐèÒª»¨Ê±¼ä¡¢¾«Á¦¡¢ÌåÌù¡¢·îÏ×²ÅÄÜ×öµ½µÄÊÂ¡£
-¹ØÐÄËûÈËÓëÆäËûµÄÈË¼Ê¹ØÏµÔ­ÔòÒ»Ñù£¬±ØÐë³öÓÚÕæ³Ï¡£
-Ö»ÓÐÄãÕæÕý¹ØÐÄËûÈË£¬²ÅÄÜÓ®µÃËûÈËµÄ×¢Òâ¡¢°ïÃ¦ÓëºÏ×÷£¬ÉõÖÁ×îÃ¦ÂµµÄÖØÒªÈËÎïÒ²²»ÀýÍâ¡£
-Èç¹ûÎÒÃÇÖ»ÊÇÒýÆð±ðÈËµÄ×¢Òâ£¬ÏëÈÃ±ðÈËÁôÏÂÓ¡Ïó£¬¾Í²»¿ÉÄÜ½»µ½Ðí¶àÕæÐÄ¡¢³Ï¿ÒµÄÅóÓÑ¡£
-12¡¢²»ÒªÍü¼ÇÎ¢Ð¦£¨±£³ÖÎ¢Ð¦£©
-Î¢Ð¦Ò²²»ÄÜÆÛÆ­ËûÈË¡£
-Èç¹ûÄãÏ£Íû±ðÈËºÜ¸ßÐËµØ¼ûµ½Äã£¬Äã±ØÐë¸ßÐËµØ»á¼û±ðÈË¡£
-ÊÀÉÏÈËÈË¶¼ÔÚÑ°Çó¿ìÀÖ£¬µ«Ö»ÓÐÒ»¸öÈ·ÊµÓÐÐ§µÄ·½·¨£¬ÄÇ¾ÍÊÇ¿ØÖÆÄãµÄË¼Ïë¡£
-¶àÊýÈËµÄ¿ìÀÖÍ¬ËûÃÇËù¾öÒâÒªµÃµ½µÄÏà²î²»¶à¡£
-13¡¢Ç§Íò±ðÍü¼ÇËûÈËµÄÐÕÃû£¨¼Ç×¡ËûÈËµÄÐÕÃû£¬ËüÊÇÓïÑÔµ±ÖÐ×îÌðÃÛ×îÖØÒªµÄÉùÒô£©
-¼ÇÒäÐÕÃûµÄÄÜÁ¦ÔÚÊÂÒµÓë½»¼ÊÉÏµÄÖØÒªÐÔ£¬Í¬ÔÚÕþÖÎÉÏ²î²»¶àÍ¬µÈÖØÒª¡£
-ÈËÃÇ¼«ÖØÊÓËûÃÇµÄÃû×Ö£¬Òò¶øËûÃÇ½ßÁ¦Éè·¨Ê¹Ö®ÑÓÐø£¬¼´Ê¹ÎþÉüÒ²ÔÚËù²»Ï§¡£
-¶àÊýÈË²»¼ÇµÃÐÕÃû£¬Ö»ÒòÎªËûÃÇÃ»ÓÐÏÂ±ØÒªµÄ¹¦·òÓë¾«Á¦°Ñ±ðÈËµÄÐÕÃûÀÎ¼ÇÔÚÐÄ¡£ËûÃÇ¸ø×Ô¼ºÕÒ½è¿Ú£ºËûÃÇÌ«Ã¦¡£
-14¡¢Ñ§»áÇãÌýËûÈË½²»°£¨×öÒ»¸öÉÆÓÚÇãÌýµÄÈË£¬¹ÄÀø±ðÈËÌ¸ÂÛËûÃÇ×Ô¼º£©
-Èç¹ûÄãÏë³ÉÎªÒ»¸öÉÆÓÚÌ¸»°µÄÈË£¬ÄÇ¾ÍÏÈ×öÒ»¸ö×¢Òâ¾²ÌýµÄÈË¡£
-Ê¼ÖÕÌôÌÞµÄÈË£¬ÉõÖÁ×î¼¤ÁÒµÄÅúÆÀÕß£¬³£»áÔÚÒ»¸öÈÌÄÍ¡¢Í¬ÇéµÄ¾²ÌýÕßÃæÇ°Èí»¯½µ·þ¡£
-Èç¹ûÄãÒªÖªµÀÈçºÎÊ¹ÈË¶ã±ÜÄã£¬±³ºóÐ¦Äã£¬ÉõÖÁÇáÊÓÄã£¬ÕâÀïÓÐÒ»¸ö×îºÃµÄ°ì·¨£­£­¾ö²»¾²Ìý±ðÈËËµ»°£¬²»¶ÏµØÌ¸ÂÛÄã×Ô¼º¡£
-15¡¢Ó­ºÏËûÈËµÄÐËÈ¤£¨Ì¸ÂÛ±ðÈË¸ÐÐËÈ¤µÄ»°Ìâ£©
-ÓëÈË¹µÍ¨µÄ¾÷ÇÏ¾ÍÊÇ£ºÌ¸ÂÛËûÈË×îÒÔÎª¹óµÄÊÂÇé¡£
-16¡¢ÈÃËûÈË¸Ðµ½×Ô¼ºÖØÒª£¬¶øÇÒÒªÕæ³Ï¶øÎª
-ÈËÀàÐÐÎªÓÐ¸ö¼«ÎªÖØÒªµÄ·¨Ôò£­£­Ê±Ê±ÈÃ±ðÈË¸Ðµ½ÖØÒª¡£
-²î²»¶àÄãËùÓö¼ûµÄÃ¿Ò»¸öÈË¶¼×ÔÒÔÎªÔÚÄ³Ð©µØ·½±ÈÄãÓÅÐã¡£ËùÒÔ£¬Òª´ò¶¯ËûÃÇÄÚÐÄµÄ×îºÃ·½·¨£¬¾ÍÊÇÇÉÃîµØ±íÏÖÄãÖÔÐÄµØÈÏÎªËûÃÇºÜÖØÒª¡£
-ÓëËûÈËÌ¸Ì¸ËûÃÇ×Ô¼º£¬ËûÃÇ»áÔ¸ÒâÌýÉÏºÃ¼¸¸öÖÓÍ·¡£
-µÚ4½Ú ÈçºÎÊ¹ÈËÐÅ·þÄã
-ÎÒÃÇ¾­³£ÊÇÓÉÓÚ×ÔÉíµÄÈ±µã¶ø²»ÊÇÓÅµãÕÐÈËÏ²»¶¡£
-17¡¢²»ÒªÕùÂÛ²»ÐÝ£¨±ÜÃâ±çÂÛ£©
-ÎÒÃÇ¾ø²»¿ÉÄÜ¶ÔÈÎºÎÈË£­£­ÎÞÂÛÆäÖÇÁ¦µÄ¸ßµÍ£­£­ÓÃ¿ÚÍ·µÄÕù¶·¸Ä±äËûµÄË¼Ïë¡£
-¡°²»Òª±çÂÛ£¡¡±ÕæÕýµÄÍÆÏúÊõ£¬²»ÊÇ±çÂÛ£¬Ò²²»ÒªÀàËÆÓÚ±çÂÛ¡£ÈËÀàµÄË¼Ïë²»ÊÇÍ¨¹ý±çÂÛ¾Í¿ÉÒÔ¸Ä±äµÄ¡£
-Èç¹ûÄã±çÂÛ¡¢ÕùÇ¿¡¢·´¶Ô£¬Äã»òÐíÓÐÊ±»ñµÃÊ¤Àû£»µ«ÕâÖÖÊ¤ÀûÊÇ¿Õ¶´µÄ£¬ÒòÎªÄãÓÀÔ¶µÃ²»µ½¶Ô·½µÄºÃ¸ÐÁË¡£
-18¡¢×ðÖØËûÈËµÄÒâ¼û£¨¶Ô±ðÈËµÄÒâ¼û±íÊ¾×ðÖØ¡£Ç§Íò±ðËµ¡°Äã´íÁË¡±¡££©
-Èç¹ûÄã¹ýÓÚÖ±ÂÊµØÖ¸³ö±ðÈËµÄ´íÎó£¬ÔÙºÃµÄÒâ¼ûÒ²²»»á±»ÈË½ÓÊÜ£¬ÉõÖÁ»áÊÜµ½ºÜ´óµÄÉËº¦¡£
-ÄãÔÚ½ÌÈËµÄÊ±ºò£¬ÒªºÃÏñÈôÎÞÆäÊÂÒ»Ñù¡£ÊÂÇéÒª²»Öª²»¾õµØÌá³öÀ´£¬ºÃÏó±»ÈËÒÅÍüÒ»Ñù¡£
-Äã¿ÉÒÔÀûÓÃÑÛÉñ¡¢Òôµ÷£¬»òÊÖÊÆÀ´Ö¸Ôð±ðÈËµÄ´íÎó£¬ÕâÓëÑÔ´Ç±í´ïÒ»ÑùÓÐÁ¦¡£
-19¡¢Èç¹û´íÁË£¬µ±¼´³ÐÈÏ£¨Èç¹ûÄã´íÁË£¬Ñ¸ËÙ¶øÕæ³ÏµÄ³ÐÈÏ£©
-¼ÙÈçÎÒÃÇÖªµÀ×Ô¼ºÊÆ±ØÔâÊÜÔð±¸Ê±ÏÈ·¢ÖÆÈË£¬×Ô¼ºÔð±¸×Ô¼º£¬ÕâÑùÆñ²»±ÈÈÃ±ðÈËÔð±¸ºÃµÃ¶à£¿Ìý×Ô¼ºµÄÅúÆÀ£¬²»±ÈÈÌÊÜ±ðÈËµÄ³âÔðÈÝÒ×µÃ¶àÂð£¿
-ÈÎºÎÓÞ´ÀµÄÈË¶¼»á¾¡Á¦Îª×Ô¼ºµÄ´íÎó½øÐÐ±ç»¤£­£­¶øÇÒ¶àÊýÓÞ´ÀµÄÈË¶¼»áÕâÑùÈ¥×ö£­£­Ëû³ÐÈÏ×Ô¼ºµÄ´íÎó£¬Ê¹ÈË³öÖÚ£¬²¢¸øÈËÒ»ÖÖ×ð¹ó¸ßÉÐµÄ¸Ð¾õ¡£
-ÓÃÕù¶áµÄ·½·¨£¬ÄãÓÀÔ¶µÃ²»µ½Âú×ã£¬µ«ÓÃÈÃ²½µÄ·½·¨£¬Äã¿ÉµÃµ½±ÈÄãËùÆÚÍûµÄ¸ü¶à¡£
-20¡¢ÓÑÉÆµØ¶Ô´ýËûÈË£¨ÒÔÓÑÉÆµÄ·½Ê½¿ªÊ¼£©
-ÈËµÄË¼Ïë²»Ò×¸Ä±ä¡£Äã²»ÄÜÇ¿ÆÈËûÃÇÍ¬ÒâÓÚÄã£¬µ«ÄãÍêÈ«ÓÐ¿ÉÄÜÒýµ¼ËûÃÇ£¬Ö»ÒªÄãÎÂºÍÓÑÉÆ¡£
-Ò»µÎ·äÃÛÒª±ÈÒ»¼ÓÂØµ¨Ö­ÄÜÕÐÒý¸ü¶àµÄ²ÔÓ¬¡£Èç¹ûÄãÏëÓ®µÃÈËÐÄ£¬Ê×ÏÈÒªÈÃËûÈËÏàÐÅÄãÊÇ×îÕæ³ÏµÄÅóÓÑ¡£ÄÇÑù¾ÍÏñÓÐÒ»µÎ·äÃÛÎüÒý×¡ËûµÄÐÄ£¬Ò²¾ÍÓÐÒ»ÌõÌ¹È»´óµÀ£¬Í¨ÍùËûµÄÀíÐÔ¡£
-21¡¢ÈÃ¶Ô·½¿ª¿ÚËµ¡°ÊÇ¡±£¨Ê×ÏÈÈÃ±ðÈËËµ¡°ÊÇ£¬ÊÇµÄ¡±£©
-¶®µÃËµ»°¼¼ÇÉµÄÈË£¬»áÔÚ¿ªÊ¼¾ÍµÃµ½Ðí¶à¡°ÊÇ¡±µÄ´ð¸´¡£
-ÈÎºÎÈÃ¶Ô·½Ò»¿ª¿Ú¾Í³¯×Å¿Ï¶¨µÄ·½Ïò×÷³ö·´Ó¦£¬Õâ¶ÔÄãÃÇµÄ½á¹ûÊÇºÜÖØÒªµÄ¡£
-µ±ÄãÓë±ðÈË½»Ì¸µÄÊ±ºò£¬²»ÏÈÌÖÂÛÄã²»Í¬ÒâµÄÊÂ£¬ÒªÏÈÇ¿µ÷£­£­¶øÇÒ²»Í£µØÇ¿µ÷ÄãËùÍ¬ÒâµÄÊÂ¡£
-¡°ÊÇ¡±µÄ·´Ó¦ÆäÊµÊÇÒ»ÖÖºÜ¼òµ¥µÄ¼¼Êõ£¬È´Îª´ó¶àÊýÈËËùºöÂÔ¡£
-22¡¢¸øËûÈËËµ»°µÄ»ú»á£¨ÈÃ¶Ô·½¶àËµ»°£©
-ºÜ¶àÈËÎªÁËÈÃ±ðÈËµÄÒâ¼ûÍ¬×Ô¼º±£³ÖÒ»ÖÂ£¬ËûÃÇÍùÍù²ÉÓÃÒ»ÖÖ´íÎóµÄ²ßÂÔ£ºËµ»°Ì«¶à¡£
-µ±ÎÒÃÇµÄÅóÓÑÊ¤¹ýÎÒÃÇÊ±£¬ËûÃÇ»ñµÃÁËÒ»ÖÖ×ÔÖØ¸Ð£»µ«µ±ÎÒÃÇÊ¤¹ýËûÃÇÊ±£¬ËûÃÇ»á²úÉúÒ»ÖÖ×Ô±°¸Ð£¬²¢ÒýÆð²Â¼ÉÓë¼µ¶Ê¡£
-²»ÒªÊ±Ê±ÏòËûÈË¿ä´ó×Ô¼ºµÄ³É¾Í£¬ÎÒÃÇÒªÇ«Ñ·£¬ÕâÑùÓÀÔ¶ÄÜÊ¹ÈËÏ²»¶Äã¡£
-23¡¢±ð½«×Ô¼ºµÄÒâ¼ûÇ¿¼ÓÓÚÈË£¨ÈÃ±ðÈË¾õµÃÄÇÊÇËûÃÇµÄ×¢Òâ£©
-Ã»ÓÐÈËÏ²»¶½ÓÊÜÍÆÏú£¬»ò±»ÈËÇ¿ÆÈÈ¥×öÒ»¼þÊÂ¡£
-24¡¢ÉÆÓÚ´ÓËûÈË½Ç¶È¿¼ÂÇÎÊÌâ£¨Õæ³ÏµØ¾¡Á¦´Ó¶Ô·½µÄ½Ç¶È¿´ÊÂÇé£©
-¶Ô·½ÎªÊ²Ã´»áÓÐÄÇÑùµÄË¼ÏëºÍÐÐÎª£¬ÆäÖÐ×ÔÓÐÒ»¶¨µÄÔ­Òò¡£
-ÔÚÓëÈË»áÌ¸ÒÔÇ°£¬Èç¹û¶ÔÓÚÎÒËùÒªËµµÄ£¬¼°ËûËÆºõÒª»Ø´ðµÄ¶«Î÷Ã»ÓÐÒ»¸ö¼«Çå³þµÄ¹ÛÄî£¬ÎÒÇéÔ¸ÔÚÄÇÈË°ì¹«ÊÒµÄÈËÐÐµÀÉÏõâÉÏÁ½¸öÐ¡Ê±¡£¶ø²»Ô¸×ß½øËûµÄ°ì¹«ÊÒ¡£
-25¡¢Í¬Çé¶Ô·½µÄÒâÔ¸£¨Í¬Çé¶Ô·½µÄÒâÄî¼°ÓûÍû£©
-ÈËÀàÆÕ±éµØ×·ÇóÍ¬Çé¡£
-ÎªÕæÊµµÄ»òÏëÏñµÄ²»ÐÒ¶ø¸Ðµ½¡°×ÔÁ¯¡±£¬Õâ²î²»¶àÊÇÈËÀàµÄÒ»ÖÖ¹²Í¬Ï°¹ß¡£
-26¡¢¼¤·¢ËûÈËÈ¥²úÉúÒ»ÖÖ¸ßÉÐµÄ¶¯»ú
-ÎÒÃÇÃ¿Ò»¸öÈËÔÚÄÚÐÄ¶¼°Ñ×Ô¼ºÀíÏë»¯£¬¶¼Ï²»¶°Ñ×Ô¼ºÐÐÎªµÄ¶¯»ú¸³ÓèÒ»ÖÖÁ¼ºÃµÄ½âÊÍ¡£Òò´Ë£¬Èç¹ûÎÒÃÇÏë¸Ä±äËûÈË£¬¾ÍÓ¦¸ÃÊ¹Ö®²úÉúÒ»ÖÖ¸ßÉÐµÄ¶¯»ú¡£
-27¡¢Ê¹×Ô¼ºµÄÒâÍ¼Ï·¾ç»¯£¨½«ÄãµÄÒâÍ¼±íÑÝ³öÀ´£©
-ÕæÀíÐèÒªÎÒÃÇÊ¹Ö®¸üÉú¶¯¡¢¸üÓÐÈ¤¡¢¸ü¼ÓÏ·¾ç»¯£¬Äã±ØÐëÇ¡µ±ÔËÓÃ±íÑÝµÄÒÕÊõ¡£
-28¡¢ÈÃËûÈË²»¶ÏÃæÁÙÌôÕ½£¨ÏòËûÌá³öÒ»¸öÌôÕ½£©
-¼¤·¢ËûÈË²úÉúÒ»ÖÖÏòÉÏµÄ¾«Éñ£­£­Ò»ÖÖÈ·ÊµÓÐÐ§µÄ·½·¨£¡
-Òª×ö³ÉÊÂÇéµÄ°ì·¨£¬ÊÇ¼¤Æð¾ºÕù¡£µ±È»²»ÊÇ¹´ÐÄ¶·½ÇµÄ¾ºÕù£¬¶øÊÇÏà»¥È¡Ê¤µÄÓûÍû¡£
-µÚ5½Ú ÈçºÎ¸üºÃµØËµ·þËûÈË
-Èç¹ûÁ½¸öÈËÒâ¼ûÊ¼ÖÕÒ»ÖÂµÄ»°£¬ÄÇÃ´ÆäÖÐµÄÒ»¸öÊÇÊôÓÚ²»±Ø´æÔÚµÄÈË¡£
-29¡¢³ÆÔÞ²¢ÐÀÉÍËûÈË£¨´Ó³ÆÔÞÓãÕæ³ÏµÄÐÀÉÍ¿ªÊ¼£©
-µ±ÎÒÃÇÌýµ½ËûÈË¶Ô×Ô¼ºµÄÓÅµã¼ÓÒÔ³ÆÔÞÒÔºó£¬ÔÙÈ¥ÌýÒ»Ð©²»Óä¿ìµÄ»°£¬×ÔÈ»ºÃÊÜÒ»Ð©¡£
-³¤Í¾µç»°£¬±çÂÛ£¡¼¤ÁÒµÄÌ¸»°£¡¶¼Ã»ÓÐÓÃ¡£
-30¡¢¼ä½ÓÎ¯ÍñµØÖ¸³öËûÈËµÄ´íÎó
-ÓÐÐí¶àÈËÔÚÕæ³ÏµØÔÞÃÀËûÈËÖ®ºó£¬Ï²»¶¹ÕÍäÄ¨½ÇµØ¼ÓÉÏ¡°µ«ÊÇ¡±Á½¸ö×Ö£¬È»ºó¿ªÊ¼Ò»Á¬´®µÄÅúÆÀ¡£
-¼ä½ÓÌá³ö±ðÈËµÄ´íÊ§£¬Òª±ÈÖ±½ÓËµ³ö¿ÚÀ´µÃÎÂºÍ£¬ÇÒ²»»áÒýÆð±ðÈËµÄÇ¿ÁÒ·´¸Ð¡£
-31¡¢²»Òª×ÜÊÇÔð¹ÖËûÈË£¨ÔÚÖ¸Ôð±ðÈËÇ°£¬ÏÈÏëÏë×Ô¼ºµÄ´íÎó£©
-³ÐÈÏÒ»¸öÈË±¾ÉíµÄ´íÎó£­£­¾ÍËãÄã»¹Ã»ÓÐ¸ÄÕý¹ýÀ´£­£­Ò²¿ÉÒÔ°ïÖú¸ÄÉÆÐÐÎª¡£
-32¡¢Ã»ÓÐÈËÏ²»¶ÊÜÈËÖ¸Ê¹£¨ÒÔÌáÎÊµÄ·½Ê½´úÌæÃüÁî£©
-¸øËûÒ»ÖÖ×ÔÖØ¸Ð£¬ÕâÑùËû¾Í»áÓëÄã±£³ÖºÏ×÷£¬¶ø²»ÊÇ±³ÅÑ¡£
-ÒÔÌáÎÊµÄ·½Ê½À´´úÌæÃüÁî¡£
-33¡¢±£È«ËûÈËµÄÃæ×Ó
-±£ÁôËûÈËµÄÃæ×Ó£¡ÕâÊÇÒ»¸öºÎµÈÖØÒªµÄÎÊÌâ£¡¶øÎÒÃÇÈ´ºÜÉÙ»á¿¼ÂÇµ½Õâ¸öÎÊÌâ¡£
-×ÝÊ¹±ðÈË·¸´í£¬¶øÎÒÃÇÊÇ¶ÔµÄ£¬Èç¹ûÃ»ÓÐÎª±ðÈË±£ÁôÃæ×Ó£¬¾Í»á»ÙÁËÒ»¸öÈË¡£
-34¡¢¼¤ÀøËûÈË»ñµÃ³É¹¦£¨³ÆÔÞËûÈËµÄÃ¿¸ö½ø²½£¬¼´Ê¹Ê®·ÖÎ¢Ð¡£¬Òª¡°³ÏÓÚ¼ÎÐí£¬¿íÓÚ³ÆµÀ¡£¡±£©
-½²µ½¸Ä±äÈË£¬¼ÙÈçÄãÎÒÒª¼¤ÀøÎÒÃÇËù½Ó´¥µÄÈË£¬ÈÏÊ¶ËûÃÇËù¾ßÓÐµÄ±¦²Ø£¬ÎÒÃÇËùÄÜ×öµÄ£¬±ÈÊµ¼ÊÉÏ¸Ä±äµÄÈË»¹¶à¡£ÎÒÃÇÕæÄÜ¸Ä±äËûÃÇ¡£
-35¡¢Ñ§»á¸øÈË¡°´÷¸ßÃ±¡±£¨¸øÈËÒ»¸öÃÀÃû£¬²¢Ê¹Ö®Å¬Á¦±£È«£©
-Èç¹ûÄãÒªÔÚÄ³·½Ãæ¸Ä½øÒ»¸öÈË£¬¾ÍÒª×öµÃºÃÏñÄÇÖÖÌØµãÒÑ¾­ÊÇËûµÄÏÔÖøÌØÐÔÖ®Ò»¡£
-²î²»¶àÃ¿Ò»¸öÈË£­£­¸»ÈË¡¢ÇîÈË¡¢ÆòØ¤¡¢µÁÔô£­£­±£È«Ëù´ÍÓèËûµÄÕâ³ÏÊµµÄÃûÓþ¡£
-36¡¢¹ÄÀø¸üÒ×Ê¹ÈË¸ÄÕý´íÎó
-Èç¹ûÄã¸æËß×Ô¼ºµÄº¢×Ó¡¢ÕÉ·ò»òËûÈË£¬ËûÔÚÄ³¼þÊÂÉÏÕæÊÇÓÞ±¿£¬Ëû¶ÔÄ³ÊÂÃ»ÓÐÌì¸³£¬»òÕßËû×öµÄ¶¼´íÁË¡­¡­ÄÇÃ´Äã¾Í²î²»¶àÏû³ýÁËËûÒª×÷³ö¸Ä½øµÄ¸÷ÖÖ¶¯Á¦¡£µ«Èç¹ûÎÒÃÇÓÃÏà·´µÄ°ì·¨£¬¿íÈÝËûÈË¡¢¹ÄÀøËûÈË£¬Ê¹ÊÂÇéºÃÏñÈÝÒ×È¥×ö£¬Ê¹¶Ô·½ÖªµÀÄãÏàÐÅËûÓÐÄÜÁ¦È¥×ö£¬Ëû¶ÔÕâÊÂÓÐÉÐÎ´·¢¾òµÄ²Å¸É£­£­ËûÎªÁËÕùÊ¤¾Í»áÖÕÒ¹Á·Ï°¡£
-37¡¢¸øËûÈËÊÚÓèÒ»ÖÖÈ¨Íþ
-ÓÀÔ¶Ê¹¶Ô·½ÀÖÓÚ×öÄãËùÌáÒéµÄÊÂ¡£
-»ñµÃÈ¨Íþ¸Ð£¬ÕâÊÇÈËÀàµÄÒ»ÖÖÌìÐÔ¡£
-µÚ6½Ú ÈÃÄãµÄ¼ÒÍ¥Éú»îÐÒ¸£¿ìÀÖ
-ÐÒ¸£ÔÚÄÄÀï£¿ÐÒ¸£¾ÍÊÇÔÚÌ«¶àºÍÌ«ÉÙÖ®¼äµÄÒ»Õ¾¡£
-38¡¢ÇÐÎðà©à©²»ÐÝ
-Ðí¶à×öÆÞ×ÓµÄ£¬²»¶ÏµØÒ»µãÒ»µãµØÍÚ¾ò£¬Ôì³ÉËýÃÇ×Ô¼º»éÒöµÄ·ØÄ¹¡£
-ÔÚËùÓÐÒ»ÇÐÁÒ»ðÖÐ£¬µØÓüÄ§¹íËù·¢Ã÷µÄÄü¶ñµÄ»ÙÃð°®ÇéµÄ¼Æ»®£¬à©à©²»ÐÝÊÇ×îÖÂÃüµÄ¡£ËüÏñ¶¾ÉßµÄ¶¾Ö­Ò»Ñù£¬ÓÀÔ¶½þÊ´×ÅÈËÃÇµÄÉúÃü¡£
-39¡¢²»ÒªÊÔÍ¼¸ÄÔì¶Ô·½£¨²»Òª¸ÄÔìÄãµÄÅäÅ¼£©
-ÓëÈË½»Íù£¬µÚÒ»¼þÓ¦Ñ§µÄÊÂÇé¾ÍÊÇ²»Òª¸ÉÉæËûÃÇ×Ô¼º¿ìÀÖµÄÌØÊâ·½·¨£¬Èç¹ûÄÇÐ©·½·¨²»¼¤ÁÒµØÓëÎÒÃÇÏà³åÍ»µÄ»°¡£
-40¡¢²»ÒªÅúÆÀ¶Ô·½£¨²»ÒªÅúÆÀÄãµÄÕÉ·ò»òÆÞ×Ó£©
-ÔÚËùÓÐ»éÒöÖÐ£¬ÓÐÒ»°ëÒÔÉÏÊÇÊ§°ÜµÄ£»ËýÖªµÀÊ¹Ðí¶àÀËÂþÖ®ÃÎ×²»÷»éÒö½¸Ê¯µÄÒ»¸öÔ­Òò£¬¾ÍÊÇÒòÎªÅúÆÀ£­£­ÎÞÓÃµÄ¡¢ÁîÈËÐÄËéµÄÅúÆÀ¡£
-41¡¢Õæ³ÏµØÐÀÉÍ¶Ô·½£¨¸øÓè¶Ô·½Õæ³ÏµÄÐÀÉÍ£©
-ÄÐÐÔ¶ÔÓÚÅ®ÐÔ×·ÇóÃÀ¹Û¼°×°ÊøµÃÌåµÄÅ¬Á¦Ó¦±íÊ¾ÐÀÉÍ¡£ËùÓÐµÄÄÐÈË¶¼ÍüÁË£¬Èç¹ûËûÃÇÔøÓÐ¹ý¾õ²ìµÄ»°£¬½«ÖªµÀÅ®ÐÔÊÇÈçºÎ×¢ÖØ×Ô¼ºµÄÒÂ×Å¡£
-¶ÔºÜ¶àÄÐÈËÀ´½²£¬ËûÃÇÒ²ÐíÏë²»Æð×Ô¼ºÎåÄêÇ°´©µÄÊ²Ã´ÒÂ·þ¡¢Ê²Ã´³ÄÉÀ£¬ËûÃÇÒ²Ë¿ºÁÃ»ÓÐÒâË¼È¥¼Ç×¡ËüÃÇ£¬µ«Å®ÈËÔò²»Í¬¡£
-42¡¢×¢ÖØÉú»îÖÐµÄÐ¡ÊÂ£¨×¢ÖØÄÇÐ©¿´ËÆÐ¡ÊÂµÄÊÂÇé£©
-Å®ÈË¶ÔÉúÈÕ¼°¼ÍÄîÈÕºÜÖØÊÓ£¬ÕâÓÀÔ¶ÊÇÒ»ÖÖÅ®ÐÔµÄÉñÃØ¡£
-ÔÚºÜ¶à»éÒöÆÆÁÑµÄÊÂ¼þÖÐ£¬²¢·ÇËùÓÐµÄ¼ÒÍ¥¶¼ÊÇÒòÎªÒ»Ð©ÖØ´óµÄÊÂ¼þ¶ø¹ý²»ÏÂÈ¥£¬Ïà·´£¬´ó¶àÊýÈËÍùÍùÊÇÓÉÓÚÒ»Ð©Ð¡Ð¡µÄÊÂÇé¡£
-43¡¢¼ÒÍ¥ÄÚ²¿Ò²Ó¦ÓÐÀñ£¨¶ÔÄãµÄÆÞ×Ó/ÕÉ·òÒªÓÐÀñÃ²£©
-ÎÞÀñ£¬ÕâÊÇ½þÊ´°®ÇéµÄ»öË®¡£
-»éÒöÐÒ¸£µÄÆÕÍ¨ÈË£¬±ÈÓÄ¾ÓµÄÌì²Å¿ìÀÖµÃ¶à¡£
-´ó·²ÄÐÈË¶¼ÖªµÀ£¬Ëû¿ÉÏÈÈÃÆÞ×Ó¿ìÀÖ£¬È»ºóÊ¹Ëý×öÈÎºÎÊÂ£¬²¢ÇÒ²»Ðè±¨³ê¡£
-44¡¢ÈçºÎÓëÅ®ÐÔÏà´¦£¨Ñ§»áÓëËýÏà´¦£©
-ÄÐÈËÏ²»¶¸Ðµ½±»°®£¬Å®ÈËÔòÏ²»¶Äã¸æËßËý¡£
-ÒªÏëÓ®µÃÅ®ÈËµÄÐÄ£¬²¢Ô¸ÒâÓÀÔ¶²»´ÇÐÁÀÍµØÈ¡ÔÃ×Ô¼º£¬×îºÃ¡¢×îÓÐÓÃ¡¢Ò²×î²»»áÊ§°ÜµÄ·½·¨£¬±ãÊÇÊ±Ê±È«ÐÄÈ«ÒâµØ¸ÐÐ»Ëý¡¢ÔÞÃÀËý¡£
-ÓÐÐ©ÄÐÐÔ¿ÉÄÜÈÏÎª¶ÔÅ®ÈË¼ÒµÄÊÂÎñ±íÊ¾ÐËÈ¤£¬»áËð¼°´óÄÐÈËµÄ×ðÑÏ¡£
-±»°®ÊÇÅ®ÐÔ³É¹¦µÄÖØÒªÒòËØ£¬Òò´Ë£¬ÕÉ·òÔÚ´ËËù°çÑÝµÄ½ÇÉ«Ê®·ÖÖØÒª¡£
-45¡¢ÈçºÎÓëÄÐÐÔÏà´¦£¨Ñ§»áÓëËûÏà´¦£©
-ÄÐÐÔÔÚÕÒÑ°ÁíÒ»°ëµÄÊ±ºò£¬×î×¢ÒâµÄÊÇ¶Ô·½ÊÇ·ñÓÐºÃÆ¢ÐÔ¡£
-ÄÐÈËÄþÔ¸ÔÚ»¶ÓäµÄÆø·ÕÖÐ³Ô¹ÞÍ·Ê³Æ·£¬Ò²²»Ô¸ºÍÒ»¸ößëß¶¡¢·³Ôê¡¢ÀÎÉ§Âú¸¹µÄÅ®ÐÔÒ»µÀ³ÔÅ£ÅÅ¡£
-ÈÏÎª¡°¸Ä±ä¸öÐÔ¡±¿ÉÒÔ×¥×¡ÄÐÈËµÄÐÄ£¬»òÊÇ¸Ä±ä×±°ç£­£­´©¼þÆ¯ÁÁµÄÐÂÒÂ»òÊá¸öÃÔÈËµÄ·¢ÐÍ£­£­Õâ¶¼ÊÇ²»³ÉÊìµÄÏë·¨¡£ÄÐÈË¾ø²»»áÒò´Ë¶ø±»´ßÃß£¬ÍêÈ«Íü¼ÇÎ©¶ÀÔ­À´µÄÕæÃæÄ¿¡£
-46¡¢²»Òª×ö»éÒöµÄÎÄÃ¤£¨ÁË½âÒ»Ð©±Ø±¸µÄÐÔÖªÊ¶£©
-¡°ÐÔ¡±ÊÇÖÚËù¹«ÈÏµÄÉú»îÖÐ×îÖØÒªµÄÎÊÌâ¡£ÎÞÒÉµØ£¬ÄÇÊÇÔì³ÉÄÐÅ®¿ìÀÖÆÆÁÑÔ­ÒòµÄ¶«Î÷¡£
-¿ìÀÖµÄ»éÒö£¬ºÜÉÙÊÇ»ú»áµÄ²úÎï£¬ËýÃÇÏñ½¨ÖþËÆµÄ£¬±ØÐèÓÐÀíÖÇµÄ£¬ÓÃÐÄÈ¥Éè¼Æ¹ýµÄ¡£
-¡°ÐÔ¡±²»¹ýÊÇÔÚ½á»éÉú»îÖÐµÄ¶àÖÖÂúÒâÖÐµÄÒ»ÖÖ£¬µ«³ý·ÇÕâÖÖ¹ØÏµÊÊµ±£¬Ã»ÓÐ±ðµÄÊÂ»áÊÊµ±µÄ¡£
-µÚ7½Ú ÈçºÎÊ¹Äã±äµÃ¸ü¼Ó³ÉÊì
-ÈËÉúÖ®Â·ÓÉÎÞÊýµÀÃÅ¹¹³É£¬¿´ÄãÈçºÎ×ß³öºÍ½øÈë¡£
-47¡¢²»Òª¹âÌßÒÎ×Ó£¨Òª³Ðµ£×Ô¼ºÐÐÎªµÄºó¹û£¬ÒªÎª×Ô¼ºµÄÐÐÎª¸ºÔð£¬¶ø²»ÊÇ¹âÌßÒÎ×Ó£©
-Ò»¸öÈËÂõÏò³ÉÊìµÄµÚÒ»²½Ó¦¸ÃÊÇ¸ÒÓÚ³Ðµ£ÔðÈÎ¡£
-Ôð¹Ö±ðÈË±È×Ô¼ºµ£¸ºÔðÈÎ¿Ï¶¨ÒªÈÝÒ×µÃ¶à¡£
-¶ÔÄÇÐ©²»³ÉÊìµÄÈËÀ´Ëµ£¬ËûÃÇÓÀÔ¶¶¼¿ÉÒÔÕÒµ½Ò»Ð©ÀíÓÉÒÔ½âÍÑËûÃÇ×ÔÉíµÄÄ³Ð©È±µã»ò²»ÐÒ¡£
-°ÑÈËµÄÉú»î¸ÄÔìµÃ¸üÃÀºÃ²ÅÖØÒª£¬¶ø²»ÊÇÕûÈÕ³ÁÄçÔÚ×ÔÁ¯µÄÉîÔ¨¡£
-48¡¢À§ÄÑ²¢²»ÒâÎ¶×Å²»ÐÒ£¨²»ÒªÔÚºõÀ§ÄÑ£¬Ò²ÐíËûÊÇÒ»ÖÖÐÒ¸£µÄ¿ªÊ¼£©
-¶ÔÏ²»¶ÌÓ±ÜÔðÈÎµÄÈËÀ´Ëµ£¬À§ÄÑÔò³ÉÁË×îºÃµÄµ²¼ýÅÆ¡£
-¾ßÓÐ³ÉÊìÐÄÁéµÄÈË£¬²»»áÏÝÓÚ×Ô¼ºµÄÀ§ÄÑµ±ÖÐ£¬¶øÊÇÓÂ¸ÒµØÈ¥Ãæ¶ÔËü¡¢½ÓÊÜËü£¬È»ºóÏë°ì·¨¼ÓÒÔ¿Ë·þ¡¢½â¾ö¡£ËûÃÇ²»»áÈ¥ÆòÁ¯¡¢²»»á¾øÍû£¬Ò²²»»áÈ¥ÕÒ½è¿ÚÌÓ±Ü¡£
-²»³ÉÊìµÄÈËËæÊ±¿ÉÒÔ°Ñ×Ô¼ºÓëÖÚ²»Í¬µÄµØ·½¿´³ÉÊÇÈ±ÏÝ¡¢ÊÇÕÏ°­£¬È»ºóÆÚÍû×Ô¼ºÄÜÊÜµ½ÌØ±ðµÄ´ýÓö£¬³ÉÊìµÄÈËÔò²»È»¡£
-49¡¢°ÚÍÑÉú»îµÄ²»ÐÒ£¨Ñ§»á°ÚÍÑÉúÃüÖÐµÄ²»ÐÒ£©
-ÉúÃü²¢²»ÊÇÒ»·«·çË³µÄÐÒ¸£Ö®ÂÃ£¬¶øÊÇÊ±Ê±°Ú¶¯ÔÚÐÒÔËÓë²»ÐÒ¡¢³ÁÓë¸¡¡¢¹âÃ÷ÓëºÚ°µÖ®¼äµÄÄ£Ê½Àï¡£
-Ö»ÓÐÒ»¸ö·½·¨¿ÉÒÔÈÃÎÒÃÇÃæ¶Ô²»ÐÒ£­£­¾ÍÊÇ½ÓÊÜËü¡£µ±ÎÒÃÇµÄÉú»î±»²»ÐÒµÄÔâÓö·Ö¸îµÃÖ§ÀëÆÆËéµÄÊ±ºò£¬Ö»ÓÐÊ±¼ä¿ÉÒÔ°ÑÕâÐ©ÆÆÆ¬¼ñÊ°ÆðÀ´£¬²¢ÖØÐÂ¸§Æ½¡£
-²»ÐÒÔâÓö²¢·Ç¾ÍÊÇÊÀ½çÄ©ÈÕ¡£ÓÐÊ±ºò£¬Ëü»¹ÊÇ´ÙÊ¹ÎÒÃÇ²ÉÈ¡ÐÐ¶¯µÄ´ß»¯¼Á£¬¶Ô¸ÄÉÆ×´¿ö´óÓÐ±ØÒª¡£ËüÄÜÊ¹ÎÒÃÇµÄ²ÅÖÇ±äµÃÁéÃô£¬ÒÔ°ïÖúÎÒÃÇ½â¾öÎÊÌâ¡£
-ÒªÏë°ÚÍÑ²»ÐÒµÄÒõÓ°£¬×îºÃµÄÒ»ÖÖ·½·¨±ãÊÇÌáÉýÎÒÃÇ×Ô¼ºÈ¥°ïÖú±ðÈË¡£
-50¡¢ÓµÓÐ×Ô¼ºµÄÐÅÑö£¬²¢¸¶ÖîÐÐ¶¯
-ÎÒÃÇ±ØÐëÐÅÑöÄ³Ð©ÊÂÎï£¬µ«ÊÇ£¬¼ÙÈçÎÒÃÇÃ»ÓÐ¾Í´ËÐÅÑöÈ¥²ÉÈ¡ÐÐ¶¯£¬Ò»ÇÐÈÔÈ»ÎÞÓÃ¡£Ö»ÓÐÐÅÐÄ¶øÃ»ÓÐ×÷ÎªÊÇÎÞ¼ÃÓÚÊÂµÄ¡£
-¹âÖ»ÐÅÑö²¢²»×ãÒÔÈÃÎÒÃÇ±äµÃ³ÉÊì¡£ÐÅÑöµÄºÃ´¦ÊÇÄÜÔö¼ÓÓÂÆø¡£Ê¹ÎÒÃÇÔÚ½ÓÊÜ¿¼ÑéµÄÊ±ºò£¬²»ÖÂÁÙÕóÍËÈ´¡£ÓÐÊ±ºò£¬ÎÒÃÇµÄÐÐ¶¯ºÍÐÅÑöÒ²»áÓÐÃ¬¶ÜµÄµØ·½¡£
-51¡¢ÄãÊÇ¶ÀÒ»ÎÞ¶þµÄ
-ÐË·ÜµÄÆ·ÖÊÊÇÎÒÃÇ¹¤×÷ÄÜ·ñ³É¹¦µÄ¼«ÖØÒªÒòËØ£¬Òò´ËÇéÐ÷µÄ¶¯Á¦ÊÇ´Ù³ÉÎÒÃÇÏòÇ°µÄÁ¦Á¿¡£
-ÈËµÄ¸öÐÔËä²»ÄÜ¸Ä±ä£¬µ«¿ÉÒÔ½èÓÉÄ³Ð©ÐÐÎª³ÊÏÖ³öÀ´¡£
-ÐÄÁéµÄ³ÉÊì¹ý³Ì£¬ÊÇ³ÖÐø²»¶ÏµÄ×ÔÎÒ·¢ÏÖ¡¢×ÔÎÒÌ½ÏÕµÄ¹ý³Ì¡£
-52¡¢Ñ§»áÏ²»¶Äã×Ô¼º£¨ÁË½â²¢Ï²»¶Äã×Ô¼º£©
-³ÉÊìµÄÈË²»»áÔÚÍí¼äÌÉÔÚ´²ÉÏ¼ÆËã×Ô¼ººÍ±ðÈË²»Í¬µÄµØ·½¡£
-°Ñ×¢ÒâÁ¦·ÅÔÚÎÒÃÇ×ÔÉíµÄÓÅÐãÆ·ÖÊÉÏ£¬ÅàÑøÓÅµã£¬ÍüÈ´Èõµã£¬Èç´Ë²ÅÄÜ²»¶Ï½ø²½²¢×ÔÎÒÊµ¼ù¡£µ±È»£¬ÎÒÃÇÒ²»áËæÊ±¸ÄÕý´íÊ§£¬È´²»±ØÒ»Ö±·ÅÔÚÐÄÉÏ¡£
-ÉíÎªÒ»¸öÈË£¬ÍêÃÀÖ÷ÒåÕßÒ²ÈçÍ¬Ò»°ãÈËÒ»Ñù»á·¸´í¡¢»áÊ§°Ü¡£Ç§Íò±ðÕâÃ´¿Á´ý×Ô¼º¡£
-53¡¢²»ÒªÒòÑ­ÊØ¾É£¨²»ÒªÃ¤´ÓÒòÏ®£©
-Ð¡º¢Ï²»¶ÓëÍ¬ÁäµÄÈË×öÏàÍ¬µÄÊÂ£¬ËûÃÇºÜÔÚºõÅóÓÑ»òÍ¬°é¶Ô×Ô¼ºµÄ¿´·¨¡£ËûÃÇÐèÒª±»×Ô¼ºµÄÍ¬°é½ÓÊÜ£­£­ÕâÊÇËû´æÔÚµÄ×îÖØÒªµÄÖ¤¾Ý¡£
-µ±ÎÒÃÇÉí´¦²»ÊìÏ¤µÄ»·¾³£¬ÓÖÃ»ÓÐÒÔÍùµÄ¾­Ñé¿ÉÒÔ²Î¿¼µÄÊ±ºò£¬×îºÃµÄ·½·¨±ãÊÇË³Ó¦Ò»°ãÈËµÄ±ê×¼¡£
-¼á³ÖÒ»Ïî²¢²»»ñÈËÖ§³ÖµÄÔ­Ôò£¬»ò²»Ëæ±ãÇ¨¾ÍÒ»ÏîÆÕ±éÎªÈËÖ§³ÖµÄÔ­Ôò£¬¶¼²»ÊÇ¼þÈÝÒ×µÄÊÂ¡£
-ÈËÃÇÖ»ÓÐÔÚÕÒµ½×ÔÎÒµÄÊ±ºò£¬²Å»áÃ÷°××Ô¼ºÎªÊ²Ã´»áµ½Õâ¸öÊÀ½çÉÏÀ´¡¢Òª×öÐ©Ê²Ã´ÊÂ¡¢ÒÔºóÓÖÒªµ½Ê²Ã´µØ·½È¥µÈÕâÀàÎÊÌâ¡£
-54¡¢²»ÒªÁîÈËÉúÑá£¨Ê±Ê±×¢Òâ×Ô¼ºÉíÉÏµÄÄÇÐ©ÁîÈËÌÖÑáÖ®¾Ù£©
-ºÜ¶àÈË×ÜÊÇÔÚ²»¶ÏµØ¸øÈËÖÆÔì·¦Î¶£¬ÈÃÈËÉúÑá£¬ÕâÖÖÈËËµ²»ÉÏÊ²Ã´×ï¹ý£¬Ò²Ëã²»ÉÏÊ²Ã´²»¹ìÐÐÎª£¬È´¶ÔËûÈËÓÐ×Å¼«´óµÄÎ£º¦¡£
-Æ®ºöµÄÑÛÉñÒ²ÊÇÒ»Ïî²»¿ÉºöÂÔµÄ¾¯Ê¾£¬ÄÇÊÇ¶Ô·½¶ÔÄ¿Ç°µÄ»°Ìâ²»¸ÐÐËÈ¤µÄ±íÊ¾¡£
-ÑÔÓï·¦Î¶ÊÇÈË¸ñÉú²¡µÄÒ»ÖÖÖ¢×´£¬Ò²ÊÇÈË¸ñ²»ÔÙ³É³¤µÄÒ»ÖÖÏÖÏó¡£
-ÈËÈôÊÇÐÄÁé³ÉÊì£¬»òÐÄÖÇ¼ÌÐø³É³¤£¬¾ÍÄÜÓëÈËÌÖÂÛÈÎºÎÊÂÇé¶ø²»ÖÂÒýÈËÉúÑá¡£
-55¡¢ÎªÊ²Ã´±ðÈËÒªÏ²»¶Äã£¨ÒªÈÃ±ðÈËÏ²»¶Äã£¬ÏÈµÃÊ¹×Ô¼ºÈÃÈËÏ²»¶£©
-°®ÊÇÈËÀàÄÜ¹»½ø²½µÄ»ù´¡£¬Ò²ÊÇÎÒÃÇÓëËûÈË½»ÍùµÄÇÅÁº£¬¸üÊÇºâÁ¿Ò»¸öÈËÊÇ·ñ³ÉÊìµÄÒÀ¾Ý¡£
-×îÖØÒªµÄ£¬²»ÊÇ±ðÈËÓÐÃ»ÓÐ°®ÎÒÃÇ£¬¶øÊÇÎÒÃÇÖµ²»ÖµµÃ±»°®¡£
-µÚ8½Ú ×ß³ö¹Â¶ÀÓÇÂÇµÄÈËÉú
-¹Â¶ÀÕßÓÐ¸öÌØµã£¬Ëû²»°®±ðÈËµÄÍ¬Ê±»¹²»Ô¸½ÓÊÜ±ðÈËµÄ°®¡£
-56¡¢¹Â¶À£­£­ÏÖ´úÈËµÄÍ¨²¡
-Ò»¸öÈËÒªÏëÊÜµ½ËûÈËµÄ»¶Ó­£¬»ò±»ÈË½ÓÄÉ£¬Ò»¶¨Òª¸¶³öÐí¶àÅ¬Á¦ºÍ´ú¼Û¡£ÒªÏëÈÃ±ðÈËÏ²»¶ÎÒÃÇ£¬µÄÈ·ÐèÒª¾¡µãÐÄÁ¦¡£
-ÎÒÃÇÈôÏë¿Ë·þ¹Â¼Å£¬¾Í±ØÐëÔ¶Àë×ÔÁ¯µÄÒõÓ°£¬ÓÂ¸Ò×ßÈë³äÂú¹âÁÁµÄÈËÈºÀï¡£
-ÐÒ¸£²¢²»ÊÇ¿¿±ðÈËÀ´²¼Ê©£¬¶øÊÇÒª×Ô¼ºÈ¥Ó®È¡±ðÈË¶ÔÄãµÄÐèÇóºÍÏ²°®¡£
-57¡¢ÈÃÃ¦ÂµÏû³ýÄãµÄÓÇÂÇ£¨ÈÃ×Ô¼ºÒ»Ö±²»Í£µØÃ¦×Å£©
-ÓÇÂÇ×îÄÜÉËº¦µ½ÄãµÄÊ±ºò£¬²»ÊÇÔÚÄãÓÐËùÐÐ¶¯µÄÊ±ºò£¬¶øÊÇÔÚÒ»ÌìµÄ¹¤×÷×öÍêÁËÖ®ºó¡£
-ÈÃÈË³î¿àµÄÃØÃÜ¾ÍÊÇ£¬ÓÐ¿ÕÏÐÀ´ÏëÏë×Ô¼ºµ½µ×¿ì²»¿ìÀÖ¡£
-58¡¢²»ÒªÎªÐ¡ÊÂ´¹Í·É¥Æø£¨²»ÒªÈÃ×Ô¼ºÒòÎªÒ»Ð©Ó¦¸ÃÅ×¿ªºÍÍü¼ÇµÄÐ¡ÊÂ·³ÐÄ£©
-·¨ÂÉ²»»áÈ¥¹ÜÄÇÐ©Ð¡ÊÂÇé¡£Ò»¸öÈËÒ²²»¸ÃÎªÕâÐ©Ð¡ÊÂÓÇÂÇ£¬Èç¹ûËûÏ£ÍûÇóµÃÐÄÀíÆ½¾²µÄ»°¡£
-59¡¢½ÓÊÜ²»¿É±ÜÃâµÄÊÂÊµ£¨²»ÒªÊÔÍ¼¸Ä±äÄÇÐ©²»¿É±ÜÃâµÄÇé¿ö£¬¶øÓ¦È¥¾¡Á¦µÄÊÊÓ¦Ëü£©
-ÒªÀÖÓÚ³ÐÈÏÊÂÇé¾ÍÊÇÕâÑùµÄ¡£ÄÜ¹»½ÓÊÜ·¢ÉúµÄÊÂÊµ£¬¾ÍÊÇÄÜ¿Ë·þËæÖ®¶øÀ´µÄÈÎºÎ²»ÐÒµÄµÚÒ»²½¡£
-µ±ÎÒÃÇ²»ÔÙ·´¿¹ÄÇÐ©²»¿É±ÜÃâµÄÊÂÊµÖ®ºó£¬ÎÒÃÇ¾ÍÄÜ½ÚÊ¡ÏÂ¾«Á¦£¬´´Ôì³öÒ»¸ö¸ü¼Ó·á¸»µÄÉú»î¡£
-60¡¢½â³ýÓÇÂÇµÄÍòÄÜ¹«Ê½£¨ÔËÓÃ¿¨Î¬¶ûÍòÄÜ¹«Ê½£¬×öÒ»¸öÎÞÓÇÎÞÂÇµÄÈË£©
-µÚÒ»²½£ºÎÊÄã×Ô¼º£º¡°¿ÉÄÜ·¢ÉúµÄ×î»µÇé¿öÊÇÊ²Ã´£¿¡±
-µÚ¶þ²½£ºÈç¹ûÄã±ØÐë½ÓÊÜµÄ»°£¬¾Í×¼±¸½ÓÊÜËü¡£
-µÚÈý²½£ººÜÕò¶¨µØÏë°ì·¨¸ÄÉÆ×î»µµÄÇé¿ö¡£
-µÚ9½Ú¡¢²»ÒªÎª½ðÇ®ºÍ¹¤×÷¶ø·³ÄÕ
-61¡¢Ò»Éú×îÖØÒªµÄ¾ö¶¨
-£¨1£©µ±Äãµ½ÁËÊ®°ËËêÊ±£¬Äã¿ÉÄÜÃæÁÙ×ÅÁ½¸öÖØ´óµÄ¾ö¶¨£ºÄã½«ÈçºÎÄ±Éú£¿ÄãÑ¡ÔñÒ»¸öÊ²Ã´ÑùµÄÈËÉú°éÂÂ£¿
-£¨2£©Ò»¸öÈËÖ»ÒªÎÞÏÞÈÈ°®×Ô¼ºµÄ¹¤×÷£¬Ëû¾Í¿ÉÄÜ»ñµÃ³É¹¦¡£
-£¨3£©Ñ¡ÔñÒ»¸öºÏÊÊµÄ¹¤×÷£¬Õâ¶ÔÄãµÄ½¡¿µÊ®·ÖÖØÒª¡£
-£¨4£©ÈÃÎÒÃÇÎªÄÇÐ©ÕÒµ½×Ô¼ºÐÄ°®¹¤×÷µÄÈË×£¸££¬ËûÃÇÎÞÐèÆíÇóÆäËüÐÒ¸£ÁË¡£
-£¨5£©¼Ç×¡£ºÄãÏòÄ³ÈËÇë½Ì£¬µÈÓÚÊÇ¸øËûÈÙÓþ¡£¶ÔÓÚÄãµÄÇëÇó£¬Ëû»áÓÐÒ»ÖÖ±»·î³ÐµÄ¸Ð¾õ¡£¼Ç×¡£º³ÉÄêÈËÒ»ÏòÊÇºÜÏ²»¶ÏòÄêÇáµÄÄÐÅ®Ìá³öÖÒ¸æµÄ¡£
-Ïû³ý½ðÇ®ºÍ¹¤×÷·³ÄÕµÄµÚÒ»´óÔ­ÔòÊÇ£ºÉ÷ÖØ×÷³öÖØ´óµÄ¾ö¶¨¡£
-62¡¢70%µÄ·³ÄÕÓë½ðÇ®ÓÐ¹Ø
-£¨1£©Áî¶àÊýÈË¸Ðµ½·³ÄÕµÄ£¬²¢²»ÊÇËûÃ»ÓÐ×ã¹»µÄÇ®£¬¶øÊÇ²»ÖªµÀÈçºÎÖ§ÅäÊÖÖÐÒÑÓÐµÄÇ®¡£
-£¨2£©¼´Ê¹ÎÒÃÇÓµÓÐÕû¸öÊÀ½ç£¬ÎÒÃÇÒ»ÌìÒ²Ö»ÄÜ³ÔÈý²Í£¬Ò»´ÎÒ²Ö»ÄÜË¯Ò»ÕÅ´²---¼´Ê¹Ò»¸öÍÚË®¹µµÄÈËÒ²ÄÜ×öµ½ÕâÒ»µã£¬Ò²ÐíËûÃÇ±ÈÂå¿Ë·ÆÀÕ³ÔµÃ¸ü½ò½òÓÐÎ¶£¬Ë¯µÃ¸ü°²ÎÈ¡£
-£¨3£©µ±Ç£Éæµ½ÄãµÄ½ðÇ®Ê±£¬Äã¾ÍµÈÓÚÊÇÔÚÎª×Ô¼º¾­ÓªÊÂÒµ¡£ÈçºÎ¿ªÕ¹Ô¤ËãºÍ¼Æ»®£¿Çë¼Ç×¡£º
-A¡¢°ÑÊÂÊµ¼ÇÔÚÖ½ÉÏ£»
-B¡¢Äâ³öÒ»¸öÕæÕýÊÊºÏÄãµÄÔ¤Ëã£»
-C¡¢Ñ§Ï°ÈçºÎ´ÏÃ÷µØ»¨Ç®£»
-D¡¢²»ÒªÒòÄãµÄÊÕÈë¶øÔö¼ÓÍ·Í´£»
-E¡¢Èç¹ûÄã±ØÐë½è´û£¬Éè·¨ÕùÈ¡ÒøÐÐ´û¿î£»
-F¡¢Í¶±£Ò½Ò©¡¢»ðÔÖ£¬ÒÔ¼°½ô¼±¿ªÏúµÄ±£ÏÕ£»
-G¡¢²»ÒªÈÃ±£ÏÕ¹«Ë¾ÒÔÏÖ½ð½«ÄãµÄÈËÊÙ±£ÏÕ¸¶¸øÄãµÄÊÜÒæÈË£»
-H¡¢½Ìµ¼×ÓÅ®Ñø³É¶Ô½ðÇ®¸ºÔðµÄÌ¬¶È£»
-I¡¢Èç¹ûÄãÊÇ¼ÒÍ¥Ö÷¸¾£¬Ò²Ðí¿ÉÔÚ¼ÒÖÐ×¬Ò»µãÍâ¿ì£»
-J¡¢²»Òª¶Ä²©£¬ÓÀÔ¶²»Òª£»
-K¡¢Èç¹ûÎÒÃÇÎÞ·¨¸ÄÉÆÎÒÃÇµÄ¾­¼ÃÇé¿ö£¬²»·Á¿íË¡×Ô¼º¡£
-Ïû³ý½ðÇ®ºÍ¹¤×÷·³ÄÕµÄµÚ¶þ´óÔ­ÔòÊÇ£º²»Òª×ÜÎª¹¤×÷ºÍ½ðÇ®·¢³î¡£
-63¡¢·òÆÞ¼äµÄÖ°Òµ³åÍ»
-£¨1£©×îÊÊºÏÄ³¸öÈËµÄ¹¤×÷£¬»òÄÜ¹»Ê¹Ëû¸Ðµ½¿ìÀÖµÄ¹¤×÷£¬²¢²»Ò»¶¨¾Í»áÊ¹Ëû¸»ÓÐ»ò¹ýÉÏºÃÈÕ×Ó¡£
-£¨2£©ÒÉÂÇÊÇÎÒÃÇÐÄÖÐµÄÅÑÄæÕß£¬ÓÉÓÚº¦ÅÂÈ¥×·Çó£¬½«»áÊ¹ÎÒÃÇÊ§È¥ÎÒÃÇÍ¨³£ÄÜ¹»Ó®µÃµÄ¶«Î÷¡£
-£¨3£©ÉÏµÛµÄÈ·Æ«°®ÓÂ¸ÒºÍ¼áÇ¿µÄÐÄÁé¡£
-Ïû³ý½ðÇ®ºÍ¹¤×÷·³ÄÕµÄµÚÈý´óÔ­ÔòÊÇ£º´¦ÀíºÃ·òÆÞ¼äµÄÖ°Òµ³åÍ»¡£
-64¡¢²»ÒªÈë²»·ó³ö
-£¨1£©Ã»ÓÐ¼Æ»®µØ»¨Ç®£¬¾ÍµÈµ½ÓÚÈÃÈâ··¡¢·þ×°ÉÌ¡¢¼Ò¾ßµê¡£¡£¡£¡£¡£¡£¶¼À´·ÖÏíÄãµÄÊÕÈë¡£
-£¨2£©ÓÐ¼Æ»®µÄ£¬»òÊÇÓÐÔ¤ËãµÄ»¨·Ñ£¬¿ÉÒÔ±£Ö¤ÄãºÍ¼ÒÈËÄÜ¹»´ÓÄãµÄÊÕÈëÀïµÃµ½¹«Æ½µÄ·ÖÏí¡£
-£¨3£©Ô¤ËãÊÇÒ»ÕÅÀ¶Í¼¡¢Ò»¸ö¾­¹ý¼Æ»®µÄ·½·¨£¬ÓÃÒÔ°ïÖúÄã´ÓÄãµÄÊÕÈëÖÐµÃµ½¸ü´óµÄºÃ´¦¡£
-£¨4£©ÔõÑùÍê³ÉÄãµÄ¼ÒÍ¥Ô¤Ëã¼Æ»®£¿
-A¡¢¼ÇÂ¼Ã¿Ò»¼þ¿ªÏú£¬Ê¹Äã¶ÔÓÚÄãµÄÖ§³öÇéÐÎÓÐ¸öÇå³þµÄÁË½â£»
-B¡¢¸ù¾Ý¼ÒÍ¥µÄÌØÊâÐèÒª£¬Éè¼Æ³ö×Ô¼ºµÄÔ¤Ëã¡£
-C¡¢ÖÁÉÙÒª°ÑÃ¿ÄêÊÕÈëµÄ10 % ´¢ÐîÆðÀ´£»
-D¡¢×¼±¸Ò»±ÊÒâÍâ»ò½ô¼±ÓÃÍ¾µÄ×Ê½ð£»
-E¡¢Ê¹Ô¤Ëã¼Æ»®³ÉÎªÈ«¼ÒÈËµÄÊÂ£»
-F¡¢Òª¿¼ÂÇÈËÊÙ±£ÏÕµÄÊÂ£»
-Ïû³ý½ðÇ®ºÍ¹¤×÷·³ÄÕµÄµÚËÄ´óÔ­ÔòÊÇ£ººÏÀí¿ªÖ§£¬²»ÒªÈë²»·ó³ö¡£
-µÚ10½Ú ·ÀÖ¹Æ£ÀÍ£¬ÓÀÝá»îÁ¦
-65¡¢±£³ÖÃ¿ÈÕ¶àÇåÐÑÒ»Ð¡Ê±
-£¨1£©·ÀÖ¹Æ£ÀÍºÍÓÇÂÇµÄµÚÒ»Ìõ¹æÔòÊÇ£º¾­³£ÐÝÏ¢£¬ÔÚÄã¸Ðµ½Æ£¾ëÒÔÇ°¾ÍÐÝÏ¢¡£
-£¨2£©°®µÏÉúÈÏÎªËûÎÞÇîµÄ¾«Á¦ºÍÄÍÁ¦£¬¶¼À´×ÔÓÚËûÄÜËæÊ±ÏëË¯¾ÍË¯µÄÏ°¹ß¡£
-£¨3£©ÐÝÏ¢²¢²»ÊÇ¾ø¶ÔÊ²Ã´ÊÂ¶¼²»×ö£¬ÐÝÏ¢¾ÍÊÇ¡°ÐÞ²¹¡±¡£
-£¨4£©ÔÚÄã¸Ðµ½Æ£ÀÍÖ®Ç°ÏÈÐÝÏ¢£¬ÕâÑùÄãÃ¿ÌìÇåÐÑµÄÊ±¼ä£¬¾Í¿ÉÒÔ¶àÔö¼ÓÒ»Ð¡Ê±¡£
-·ÀÖ¹Æ£ÀÍºÍÓÇÂÇµÄµÚÒ»´ó¹æÔòÊÇ£º¾­³£ÐÝÏ¢£¬ÔÚÄã¸Ðµ½Æ£¾ëÒÔÇ°¾ÍÐÝÏ¢¡£
-66¡¢ÈËÎªÊ²Ã´»á²úÉúÆ£ÀÍ
-£¨1£©ÎÒÃÇËù¸Ðµ½µÄÆ£ÀÍ¾ø´ó²¿·ÖÊÇÓÉÓÚÐÄÀíµÄÓ°Ïì¡£ÊÂÊµÉÏ£¬´¿´âÓÉÉúÀíÒýÆðµÄÆ£ÀÍÊÇºÜÉÙ¼ûµÄ¡£
-£¨2£©Ò»¸ö×ø×Å¹¤×÷µÄÈË£¬Èç¹û½¡¿µÇéÐÎÁ¼ºÃµÄ»°£¬ËûµÄÆ£ÀÍ100 % ÊÇÊÜÐÄÀíÒòËØ£¬Ò²¾ÍÊÇÇé¸ÐÒòËØµÄÓ°Ïì¡£
-£¨3£©À§ÄÑµÄ¹¤×÷±¾ÉíºÜÉÙÔì³ÉºÃºÃÐÝÏ¢Ö®ºó²»ÄÜÏû³ýµÄÆ£ÀÍ¡£¡£¡£ÓÇÂÇ¡¢½ôÕÅºÍÇéÐ÷²»°²£¬²ÅÊÇ²úÉúÆ£ÀÍµÄÈý´óÔ­Òò¡£
-£¨4£©ÄãÔÚÈÎºÎÊ±ºò¶¼ÄÜ·ÅËÉ£¬ÈÎºÎµØ·½Ò²ÄÜ·ÅËÉ£¬Ö»ÊÇ²»Òª»¨·ÑÁ¦ÆøÈ¥ÈÃ×Ô¼ºÈ¥·ÅËÉ¡£
-·ÀÖ¹Æ£ÀÍºÍÓÇÂÇµÄµÚ¶þ´ó¹æÔòÊÇ£ºÑ§»á·ÅËÉ×Ô¼º¡£
-67¡¢Ëµ³öÄãµÄÐÄÊÂ
-£¨1£©Ö»ÒªÒ»¸ö²¡ÈËÄÜ¹»Ëµ»°---µ¥µ¥Ëµ³öÀ´£¬¾ÍÄÜ¹»½â³ýËûÐÄÖÐµÄÓÇÂÇ¡£
-£¨2£©²»ÒªÎª±ðÈËµÄÈ±µã¹ýÓÚ²ÙÐÄ¡£
-£¨3£©½ñÍíÉÏ´²Ö®Ç°£¬ÏÈ°²ÅÅºÃÃ÷Ìì¹¤×÷µÄ³ÌÐò¡£
-£¨4£©¼õÇáÓÇÂÇµÄ×îºÃµÄÒ©¾ÍÊÇ£º¡°¸úÐÅÈÏµÄÈËÌ¸ÂÛÄãµÄÎÊÌâ¡±¡£
-£¨5£©Ïû³ýÓÇÂÇºÍÆ£ÀÍ£¬Çë¼Ç×¡ÏÂÁÐ¼¸µã£º
-A¡¢×¼±¸Ò»±¾¡°¹©¸øÁé¸Ð¡±µÄ¼ôÌù±¡£»
-B¡¢²»ÒªÎª±ðÈËµÄÈ±µã²ÙÐÄ£»
-C¡¢¶ÔÄãµÄÁÚ¾Ó¸ÐÐËÈ¤£»
-D¡¢½ñÍíÉÏ´²Ö®Ç°£¬ÏÈ°²ÅÅºÃÃ÷Ìì¹¤×÷µÄ³ÌÐò£»
-E¡¢±ÜÃâ½ôÕÅºÍÆ£ÀÍµÄÎ¨Ò»·½·¨¾ÍÊÇ£º·ÅËÉ£»
-·ÀÖ¹Æ£ÀÍºÍÓÇÂÇµÄµÚÈý´ó¹æÔòÊÇ£ºÏòÐÅÈÎµÄÈËËµ³öÄãµÄÐÄÊÂ¡£
-68¡¢Ïû³ý·³ÃÆÐÄÀí
-£¨1£©µ±ÎÒÃÇÔÚ×öÒ»Ð©ÓÐÐËÈ¤Ò²ºÜÁîÈËÐË·ÜµÄÊÂÇéÊ±£¬ºÜÉÙ¸Ðµ½Æ£¾ë¡£
-£¨2£©ÎÒÃÇµÄÆ£¾ëÍ¨³£²»ÊÇÒòÎª¹¤×÷£¬¶øÊÇÓÉÓÚÓÇÂÇ¡¢½ôÕÅºÍ²»¿ì¡£
-£¨3£©Èç¹ûÄã¼Ù×°¶Ô¹¤×÷ÓÐÐËÈ¤£¬Ò»µãµãµÄ¼Ù×°¾Í»áÊ¹ÄãµÄÐËÈ¤³ÉÕæ£¬Ò²¿ÉÒÔ¼õÉÙÄãµÄÆ£ÀÍ¡¢½ôÕÅºÍÓÇÂÇ¡£
-·ÀÖ¹Æ£ÀÍºÍÓÇÂÇµÄµÚËÄ´ó¹æÔòÊÇ£ºÏû³ý·³ÃÆµÄÐÄÀí¡£
-68¡¢²»ÔÙÎªÊ§Ãß¶øÓÇÂÇ
-£¨1£©ÎªÊ§ÃßÖ¢¶øÓÇÂÇ£¬¶ÔÄãÉËº¦µÄ³Ì¶È£¬Ô¶Ô¶³¬¹ýÊ§ÃßÖ¢±¾Éí¡£
-£¨2£©ÖÎÁÆÖ¢µÄ×îºÃ°ì·¨ÊÇ£ºÊ¹Äã×Ô¼ºµÄÌåÁ¦ÀÍ¶¯µ½Æ£¾ëµÄ³Ì¶È¡£
-ÒªÏë²»ÎªÊ§ÃßÖ¢¶øÓÇÂÇ£¬Çë¼Ç×¡µÚÎå´ó¹æÔò£º
-A¡¢Èç¹ûË¯²»×Å£¬¾ÍÆðÀ´¹¤×÷»ò¿´Êé£¬Ö±µ½ÄãÏëË¯ÎªÖ¹£»
-B¡¢´ÓÀ´Ã»ÓÐÈËÒòÎªÈ±·¦Ë¯Ãß¶øËÀ£»
-C¡¢ÊÔ×ÅÆíµ»£»
-D¡¢±£³ÖÈ«Éí·ÅËÉ£»
-E¡¢¼ÓÇ¿ÔË¶¯¡£
+earnest ÈÏÕæµÄÕæÖ¿µÄ(¶ú¶äµÄÄñÎÑ)
+stable/stale ÎÈ¶¨µÄ/²»ÐÂÏÊµÄ
+cure/recure/recurisive ÖÎÓú/È¬Óú/µÝ¹éµÄ
+loyal--royal ÖÒ³ÏµÄ--ÍõÊÒµÄ
+well/swell/flatten ºÃµÄ/Ö×/´ò±â´òµ¹
+special/specify  ÌØÊâµÄ£¬×¨ÃÅµÄ---Ã÷È·ËµÃ÷£¬¾ßÌåÖ¸¶¨

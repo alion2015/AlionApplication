@@ -16,6 +16,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <receiver android:name="com.alion.widget.Appwidget" >
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/app_widget_config" />
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.alion.timeclick" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

@@ -1,6 +1,7 @@
 package com.example.wutong.ContentObserver;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.database.ContentObserver;
 import android.net.Uri;
 import android.os.Handler;
@@ -24,38 +25,23 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        new TimeCount(5000, 200, new TimeCount.TimerCallback() {
-            @Override
-            public void onFinish() {
-                Log.i(TAG, "onFinish" + 1);
-            }
 
-            @Override
-            public void onTick(long millisUntilFinished) {
-                Log.i(TAG, "onTick" + (1-millisUntilFinished/5000f));
-                getContentResolver().notifyChange(uri, null);
-            }
-        }).start();
-        observer = new ContentObserver(new Handler()) {
-
-            @SuppressLint("NewApi") @Override
-            public void onChange(boolean selfChange, Uri uri) {
-                // TODO Auto-generated method stub
-                super.onChange(selfChange, uri);
-                Log.i(TAG, "DB Chang " + uri.toString());
-            }
-
-            @Override
-            public void onChange(boolean selfChange) {
-                Log.i(TAG, "DB Chang");
-                super.onChange(selfChange);
-            }
-        };
-        getContentResolver().registerContentObserver(uri,false/*false通知父类和本身更新,true包含子类*/,observer);
         findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getContentResolver().notifyChange(uri, null);
+                new TimeCount(500000, 1000, new TimeCount.TimerCallback() {
+                @Override
+                public void onFinish() {
+                    Log.i(TAG, "onFinish" + 1);
+                }
+
+                @Override
+                public void onTick(long millisUntilFinished) {
+                    Log.i(TAG, "onTick" + (1-millisUntilFinished/5000f));
+
+                    sendBroadcast(new Intent("com.alion.timeclick"));
+                }
+            }).start();
             }
         });
     }

@@ -12,4 +12,23 @@
         android:layout_height="wrap_content"
         android:text="Button" />
 
+    <TextView
+        android:id="@+id/tvResult"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:paddingLeft="10dip"
+        android:paddingRight="10dip"
+        android:text="Baby RoomahsRRoRoomahsiduhwoihfdiewhjoifd;hjewo;faies8jfci;dsifc;asfeiusao;fujcoes;jovcjslaijvoihjoeihjwfcJOEIJFOIhofOHJWFIAOEWjfoajdomahsiduhwoihfdiewhjoifd;hjewo;faies8jfci;dsifc;asfeiusao;fujcoes;jovcjslaijvoihjoeihjwfcJOEIJFOIhofOHJWFIAOEWjfoajdoomahsiduhwoihfdiewhjoifd;hjewo;faies8jfci;dsifc;asfeiusao;fujcoes;jovcjslaijvoihjoeihjwfcJOEIJFOIhofOHJWFIAOEWjfoajdidRRoomahsiduhwoihfdiewhjoifd;hjewo;faies8jfci;dsifc;asfeiusao;fujcoes;jovcjslaijvoihjoeihjwfcJOEIJFOIhofOHJWFIAOEWjfoajdoomaRooRoomahsiduhwoihfdiewhjoifd;hjewo;faies8jfci;dsifc;asfeiusao;fujcoes;jovcjslaijvoihjoeihjwfcJOEIJFOIhofOHJWFIAOEWjfoajdmaRoomahsiduhwoihfdiewhjoifd;hjewo;faies8jfci;dsifc;asfeiusao;fujcoes;jovcjslaijvoihjoeihjwfcJOEIJFOIhofOHJWFIAOEWjfoajdhsiduhwoihfdiewhjoifd;hjewo;faies8jfci;dsifc;asfeiusao;fujcoes;jovcjslaijvoihjoeihjwfcJOEIJFOIhofOHJWFIAOEWjfoajdhsiduhwoihfdiewhjoifd;hjewo;faies8jfci;dsifc;asfeiusao;fujcoes;jovcjslaijvoihjoeihjwfcJOEIJFOIhofOHJWFIAOEWjfoajduhwoihfdiewhjoifd;hjewo;faies8jfci;dsifc;asfeiusao;fujcoes;jovcjslaijvoihjoeihjwfcJOEIJFOIhofOHJWFIAOEWjfoajdoi"
+        android:textColor="#ffff0000"
+        android:singleLine="true"
+        android:ellipsize="marquee"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:scrollHorizontally="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+        <requestFocus
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:duplicateParentState="true"/>
+    </TextView>
 </android.support.constraint.ConstraintLayout>

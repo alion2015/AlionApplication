@@ -15,6 +15,8 @@ import android.widget.RemoteViews;
 
 import com.example.wutong.ContentObserver.R;
 
+import static android.view.View.INVISIBLE;
+
 /**
  * AppWidget学习demo
  * 个人心得：
@@ -44,11 +46,16 @@ public class Appwidget extends AppWidgetProvider {
                 .getInstance(context);
 
         //通过接收广播的Intent来进行widget的UI操作
-        if (intent.getAction().equals(ACTION)) {
-            views.setTextViewText(R.id.tvResult, "result = " + i);
+        if (intent.getAction().equals(ACTION) /*&& i<3*/) {
+            views.setTextViewText(R.id.tvResult, i+"result = 乔恩道奇酷威恢复库的话我OIQLUEAKBWDUQH👊BNQAKUDHWQLKDHKQL我🐯ankudqhewkufdqwe" + i);
             Log.d("alion", "onReceive: i=="+i);
             i++;
-        }
+            /*if(i>3){
+                views.setViewVisibility(R.id.tvResult,INVISIBLE);
+            }*/
+        }/*else{
+            views.setViewVisibility(R.id.tvResult,INVISIBLE);
+        }*/
 
         //更新AppWidget
         appWidgetManager.updateAppWidget(thisWidget, views);

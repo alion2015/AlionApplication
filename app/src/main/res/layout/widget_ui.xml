@@ -12,9 +12,23 @@
 
     <TextView
         android:id="@+id/tvResult"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="result = 0"/>
+        android:layout_width="wrap_content"
+        android:paddingLeft="10dip"
+        android:paddingRight="10dip"
+        android:text="Baby Room"
+        android:textColor="@android:color/white"
+        android:singleLine="true"
+        android:ellipsize="marquee"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:scrollHorizontally="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+        <requestFocus
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:duplicateParentState="true"/>
+    </TextView>
 
     <Button
         android:id="@+id/btnAdd"

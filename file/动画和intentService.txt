@@ -319,23 +319,24 @@ synchronized 方法和块
 子类的泛型类型是无法使用父类的泛型类型接收，例如：Info <String>不能使用Info<Object> 
 类名称<? (extends/super 类)> 对象名称   分别定义了通配/上限/下限 <? extends Object> 相当于没有限制
 
-StringBuffer   append|indexOf|insert(o,s)|reverse反转|replace(s,e,s)|delete(s,e)|substring      adsir2
+Math
+Random nextXXX(Y) 
+
+StringBuffer   append|insert(o,s)|delete(s,e)|indexOf|replace(s,e,s)|reverse反转|substring      添删查改反取
+Arrays fill|sort|binarySearch 填充数组，排序(Comparable|Comparator)，检索(前包含)
+Collections  sort|混排Shuffling|反转Reverse|替换所有的元素(Fill)|拷贝(Copy)|min/max|Rotate定距离循环元素
+
 Runtime   getRuntime()|gc|exec("notepad.exe")
-Locale获取当前国家语音信息。ResourceBundle一起实现多国语言自动切换
 System exit(0)|currentTimeMillis 毫秒级系统时间|getProperties 属性
+
 new Date().getHours());  
 Calendar.getInstance().get(Calendar.HOUR); 
 new SimpleDateFormat("EE-yyyy-MM-dd HH:mm:ss").format(new Date());EE表示星期    Date/Calendar/SimpleDateFormat
-Math 静态方法求绝对值三角函数等
-Random nextXXX(Y) 
-new DecimalFormat("0.0").format(12.34);//10进制格式化
-BigInteger //比long长的int
-BigDecimal //大数据的精准计算
-Arrays fill|sort||binarySearch 填充数组，排序(Comparable|Comparator)，检索         fsb
+    
 Observable类和Observer接口 addObserver|deleteObserver|setChanged|notifyObservers
 Timer.scheduleAtFixedRate 固定频率执行
 
-File createNewFile()|mkdir()|delete|exists|isDirectory|length|list|listFiles|     创存删长 isDirectory list(Files)
+File createNewFile()|mkdir()|delete|exists|isDirectory|length|list|listFiles|  
 FileOutputStream(file,append文件尾追加) write|flush|close 
 FileInputStream available(文件大小)|read|close
 FileWriter|FileReader(OutputStreamWriter|InputStreamReader) 字符流转换为字节流
@@ -343,17 +344,13 @@ ByteArrayInputStream|ByteArrayOutputStream 内存操作流
 BufferedReader（InputStreamReader（FileInputStream）） readLine == Scanner（FileInputStream）
 Scanner  hasNextXXX|nextXXX|useDelimiter（设置分隔符）|nextLine       (has)NextXXX(Line)|useDelimiter
 
-Collection   clear| contains|equals| isEmpty|size| toArray       等于包含size不空clear toarray
-List   get/set   lastIndexOf  subList    设得子list 最后index
-Collections  sort|混排Shuffling|反转Reverse|替换所以的元素(Fill)|拷贝(Copy)|min/max|Rotate定距离循环元素
-Stack pop|push|peek|empty|search
 枚举(enum)类也可以实现一个接口，枚举中可以定义抽象方法----每个元素都必须分别实现此抽象方法。
 
 第2节 数组和链表(注: all vs  --- hashtable arraymap)
 1.ArrayList 是一个数组队列，相当于动态数组。它由数组实现，随机访问效率高，随机插入、随机删除效率低。
 　　LinkedList 是一个双向链表。它也可以被当作堆栈、队列或双端队列进行操作。LinkedList随机访问效率低，但随机插入、随机删除效率高。
 　　Vector 是矢量队列，和ArrayList一样，它也是一个动态数组，由数组实现。但是ArrayList是非线程安全的，而Vector是线程安全的。
-　　Stack 是栈，它继承于Vector。它的特性是：先进后出(FILO, First In Last Out)。
+　　Stack(pop|push|peek|empty|search) 是栈，它继承于Vector。它的特性是：先进后出(FILO, First In Last Out)。
 HashSet|LinkedHashSet|TreeSet(随机高|遍历好|有序) 
 HashTable相对HashMap区别是同步 线程安全
 HashMap内部一个数组<HashMapEntry>  ArrayMap内部双数组

@@ -527,10 +527,9 @@ public class FoldView extends View {
 
         switch (event.getAction() & MotionEvent.ACTION_MASK) {
             case MotionEvent.ACTION_UP:// 手指抬起时候
-                if (isNextPage) {
-
+                if(!isLastPage) {  //仅在非最后一页操作
                     /*
-                     * 如果当前事件点位于左侧自滑区域
+                     * up在AutoAreaLeft
                      */
                     if (x < mAutoAreaLeft) {
                         // 当前为往左下滑
@@ -538,25 +537,24 @@ public class FoldView extends View {
 
                         // 摩擦吧骚年！
                         justSlide(x, y);
-                    }/*
-                     * 如果当前事件点位于右下自滑区域
-                     */
-                    else if (/*x > mAutoAreaRight && y > mAutoAreaButtom*/true) {
-                        // 当前为往右下滑
-                        mSlide = Slide.RIGHT_BOTTOM;
-
-                        // 摩擦吧骚年！
-                        justSlide(x, y);
+                        break;
                     }
+                    // 当前为往右下滑
+                    mSlide = Slide.RIGHT_BOTTOM;
 
+                    // 摩擦吧骚年！
+                    justSlide(x, y);
                 }
                 break;
             case MotionEvent.ACTION_DOWN:
+                if(!((x<mAutoAreaLeft&&y>mAutoAreaButtom) || (x>mAutoAreaRight&&y>mAutoAreaButtom))){
+                    return false;//表示控件不受理该系列事件
+                }
                 isSlide = false;
                 /*
                  * 如果事件点位于回滚区域
                  */
-                if (x < mAutoAreaLeft) {
+                if (x < mAutoAreaLeft && y>mAutoAreaButtom) {
                     // 那就不翻下一页了而是上一页
                     isNextPage = false;
                     mPageIndex--;

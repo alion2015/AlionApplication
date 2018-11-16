@@ -9,14 +9,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.example.wutong.ContentObserver.MainActivity">
+        <!--<activity android:name="com.example.wutong.ContentObserver.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>-->
+        <!--<activity android:name="com.alion.myviews.PictureTestActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>-->
+        <activity android:name="com.alion.pageanimation.ViewTest">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
-        <receiver android:name="com.alion.widget.Appwidget" >
+       <!-- <receiver android:name="com.alion.widget.Appwidget" >
             <meta-data
                 android:name="android.appwidget.provider"
                 android:resource="@xml/app_widget_config" />
@@ -24,7 +36,7 @@
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
                 <action android:name="com.alion.timeclick" />
             </intent-filter>
-        </receiver>
+        </receiver>-->
     </application>
 
 </manifest>

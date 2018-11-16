@@ -313,25 +313,12 @@ public class TestActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onMultiWindowModeChanged(boolean isInMultiWindowMode, Configuration newConfig) {
-        Log.d(TAG, "onMultiWindowModeChanged: enter");
-        super.onMultiWindowModeChanged(isInMultiWindowMode, newConfig);
-        Log.d(TAG, "onMultiWindowModeChanged: exit");
-    }
-
-    @Override
     public void onMultiWindowModeChanged(boolean isInMultiWindowMode) {
         Log.d(TAG, "onMultiWindowModeChanged: enter");
         super.onMultiWindowModeChanged(isInMultiWindowMode);
         Log.d(TAG, "onMultiWindowModeChanged: exit");
     }
 
-    @Override
-    public void onPictureInPictureModeChanged(boolean isInPictureInPictureMode, Configuration newConfig) {
-        Log.d(TAG, "onPictureInPictureModeChanged: enter");
-        super.onPictureInPictureModeChanged(isInPictureInPictureMode, newConfig);
-        Log.d(TAG, "onPictureInPictureModeChanged: exit");
-    }
 
     @Override
     public void onPictureInPictureModeChanged(boolean isInPictureInPictureMode) {

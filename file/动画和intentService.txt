@@ -2,6 +2,7 @@
 识别第X章第X节
 duokan/downloads/micloudbooks
 regedit
+1080*720*192
 
 ScrollView边界阴影fadingEdge
 onCreateOptionMenu-->menu.add(组,id,排序,名字)-->onOptionsItemSeleted(item.getItemId)
@@ -186,10 +187,10 @@ ViewPagerIndicator引入：
 LayoutInflater.from(mContext).inflate(R.layout.it,parent,false);
 其中LayoutInflater的Inflate的三个参数意思为：(布局文件，父类布局，是否加载在父类上(可省略))
 
-第9节 常见intent-filter中的actioin
-<action android:name="android.intent.action.MAIN" />                               决定启动的主activity
-<category android:name="android.intent.category.LAUNCHER" />                在luncher中显示图标(与上面的一起使用)
-<category android:name="android.intent.category.DEFAULT" />                   决定该Activity接收隐式Intent
+第9节 常见intent-filter中的actioin(MLDH)
+<action android:name="android.intent.action.MAIN" /> 决定启动的主activity
+<category android:name="android.intent.category.LAUNCHER" />在luncher中显示图标(与上面的一起使用)
+<category android:name="android.intent.category.DEFAULT" />决定该Activity接收隐式Intent
 <category android:name="android.intent.category.HOME" /> 设置该组件为Home Activity
 
 第10节 gc reason
@@ -202,11 +203,6 @@ GC_EXPLICIT：显示的GC，例如调用System.gc()（应该避免调用显示的GC，信任GC会在需要
 GC_HPROF_DUMP_HEAP：请求创建 HPROF 文件来分析堆内存时出现的GC。
 GC_EXTERNAL_ALLOC：仅适用于 API 级别小于等于10 ，用于外部分配内存的GC。
 
-第11节 dumpsys命令 dumpsys activity XXXs
-intents 待处理的intent(PendingIntentRecord)
-broadcasts all注册的broadcasts
-providers ContentProviderRecord
-activities, Stack-->task{TaskRecord}-->Activity{ActivityRecord}
 
 第12节 TextureView和SurfaceView
 SurfaceView{ 绘制会有独立窗口， TextureView 没有独立的窗口}
@@ -416,6 +412,15 @@ adb logcat |grep -E "Bluetooth|BtOpp"(log多筛选)
 Adb logcat –s XXX
 adb logcat -s *:E > a.log  将所有elog写入
 
+第1节 dumpsys命令 dumpsys activity XXXs
+intents 待处理的intent(PendingIntentRecord)
+broadcasts all注册的broadcasts
+providers ContentProviderRecord
+activities, Stack-->task{TaskRecord}-->Activity{ActivityRecord}
+第1节 pm命令
+pm clear <packagename> 清除应用数据
+pm path <package>: 打印给定包名的apk路径
+
 第五章 Ubuntu使用
 gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize' 双击最小化
 终端内多个标签   shift+ctrl+T
@@ -436,8 +441,6 @@ echo
 et/profile 环境变量 home/XXX/.bashrc 开机启动 source XX快速生效
 ln -s 原路径 快捷方式路径
 $XXX 代表变量内容 $n 表示第n个参数 $0是脚本名
-
-
 
 第六章 git命令
 只有三种状态：已提交（committed），已修改（modified）和已暂存（staged）。
@@ -466,10 +469,6 @@ git reset --hard origin/master
 git log 
 git reset --hard fc1cf2a323642e16579e4eb681c5f98ac443a58f
 
-push代码：
-git commit --amend
-git pull --rebase
-
 第1节 stash
 git stash (save 名字) 暂存修改
 git stash pop|apply 前者恢复并删除最后一个staged,后者恢复所有但不删除(可指定名字只恢复一个)
@@ -479,8 +478,9 @@ git stash show 名字 (-p) 显示差别，加参数显示详情
 git stash branch testchanges 创建branch并恢复所有
 
 第2节 git配置：
-git config --global user.name jinlong.liang
-git config --global user.email mywokemail@163.com
+git config --global user.name p_jlonliang
+git config --global user.email p_jlonliang@tencent.com
+
 ssh-keygen
 cat ~/.ssh/id_rsa.pub
 
@@ -524,6 +524,15 @@ git push [远程仓库名] [本地分支]:[远程分支]
 /TODO # 仅仅忽略项目根目录下的 TODO 文件，不包括 subdir/TODO
 build/ # 忽略 build/ 目录下的所有文件
 doc/*.txt # 会忽略 doc/notes.txt 但不包括 doc/server/arch.txt
+
+第10节 patch
+生成patch的命令
+git diff  > patch//本地变更  git diff 的内容，生成patch文件
+git diff  branchname --cached > patch //branch 之间差分生成patch文件
+使用patch
+git apply patch //将patch文件内容差分到本地
+测试是否可以将patch完美打入本地src
+git apply --check patch
 
 第七章 速记单元
 进程和线程的区别(先进递增)
@@ -604,8 +613,6 @@ adb shell ls data/system/gatekeeper.pattern.key
 
 第九章 英语单词
 function/fiction/firction  功能函数--小说虚构---不和抵触
-aspect--perspective   方面---观点视角
-
 cave/pave/care/carve 山洞洞穴--铺路--关心--切，雕刻
 assess/process/possess  进行评估评价--过程程序--占有，拥有
 interest/internet/internal  兴趣利息--互联网--内部的
@@ -754,4 +761,5 @@ abandon---abundant抛弃/大量的(啊板凳特)
 character 性格，人物，字符(字符扮演者)
 money（钱）----monetary（嘛呢特瑞）金融的，货币的
 reveal（瑞未有）揭露，泄露----reverse（瑞我是）使翻转，倒退
-storey/story  楼层/故事，报道，楼层
+store/storey/story  商店/楼层/故事，报道，楼层
+aspect--perspective   方面---观点视角

@@ -5,7 +5,10 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 
+import com.alion.annotation.TestAinit;
+import com.alion.annotation.UserFactory;
 import com.example.wutong.ContentObserver.R;
 
 import java.util.ArrayList;
@@ -28,5 +31,8 @@ public class ViewTest extends AppCompatActivity {
         mBitmaps.add(BitmapFactory.decodeResource(getResources(),R.mipmap.mid6));
         mBitmaps.add(BitmapFactory.decodeResource(getResources(),R.mipmap.mid7));
         myView.setBitmaps(mBitmaps);
+        TestAinit testAinit = UserFactory.create();
+        Log.d("alionlog", "onCreate: "+testAinit.getName());
+        Log.d("alionlog", "onCreate: "+testAinit.getAge());
     }
 }

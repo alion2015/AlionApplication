@@ -3,10 +3,17 @@
 duokan/downloads/micloudbooks
 regedit
 1080*720*192
+aadd amod adel csxg
+amk amon rml apl
+StackTraceElement[] elements = Thread.currentThread().getStackTrace();
+在UI Thread中去做一个loop不断地往message queue中压入消息时，我们的UI Thread是不会去处理这些message的，直到loop结束为止，这就是为什么我们在while中不断调用invalidate()的时候你只会看到最后的结果而不会得到中间过程的变化
+AppCompatActivity 继承FragmentActivity可用actionbar
+ContextCompat.checkSelfPermission(mContext, permission) ==  PackageManager.PERMISSION_DENIED;
+ActivityCompat.shouldShowRequestPermissionRationale(
 
 ScrollView边界阴影fadingEdge
 onCreateOptionMenu-->menu.add(组,id,排序,名字)-->onOptionsItemSeleted(item.getItemId)
-radioGroup.OnCheckedChangeListener()-->checkBox用CompoundButton
+radioGroup-->checkBox用CompoundButton.OnCheckedChangeListener()
 Toast.makeText(xx.this,”内容”,Toast.LENGTH_SHORT).show()
 progressBar-->
 style/incrementProgressBarBy()/setProgress()
@@ -19,27 +26,30 @@ SAX解析XML文件
 实现Document/Element/Characters的解析-->调用SAXparserFactory.
           newInstance().newSAXParser().getXMLReader()生成解析器对象
 WIFI使用(WiFiManger)context.getSystemService(Service.WIFI_SERVICE).setWifiEnabled(){在SystemServiceRegistry中查找}
+
 Spinner 下拉框
 DatePickerDialog用于选择日期
-AutoCompleteTextView
-提供热点快速输入功能
+AutoCompleteTextView 提供热点快速输入功能
 SeekBar有滑块的进度条；RatingBar评价
+DrawerLayout替代sideMenu实现侧边菜单栏功能
+HorizontalScrollView  横向滑动view
+
 ListView  ArrayAdapter-----SimpleAdapter
 android:parentActivityName  界面左上角添加< 可以直接跳回指定的窗口
-Transaction  事务将操作封装为原子操作
+
+Transaction  事务将操作封装为原子操作,
+在ContentProvider中将ContentProviderOperation参数list传入并执行getContentResolver().applyBatch(LauncherProvider.AUTHORITY, ops)
+db.beginTransaction();db.setTransactionSuccessful();db.endTransaction();
 
 4.drawable的padding需要setBounds
-5.bat命令的判断(空格)
-if '%1'=='' (
-) else (
-)
+
 6.线程池执行传入runable的run方法
 10.mLocalBroadcastManager = LocalBroadcastManager.getInstance(this);//获得实例  mLocalBroadcastManager.registerReceiver(receiver, filter);//注册监听
 Context.registerReceiver(mBroadcastReceiver, intentFilter);  //全局广播的注册方式
 20.边距的不同(mp内外)
 margin是外边距在border外面，而padding是内边距，在border内部
 31.无缝合并多个文件copy /b 1.jpg+dz.rar mypic.jpg 
-1.aadd amod adel csxg
+
 3.外部类.this.成员变量|成员方法
 6.LinearLayout 对比 RelativeLayout  无法降低层级深度或子view高度与group不同时优先使用Linerlayout
 7.ANR：应用在5秒内未响应用户的输入事件（如按键或者触摸）；BroadcastReceiver未在10秒内完成相关的处理；Service在特定的时间内无法处理完成 20秒
@@ -48,6 +58,7 @@ margin是外边距在border外面，而padding是内边距，在border内部
 11.postdelayed 
 looper中  MessageQueue.next 进入时判定当前msg是否有延迟，有的话就阻塞nativePollOnce
 MessageQueue.enqueueMessage 判断与当前msg.when 若更短且线程阻塞就唤醒
+MessageQueue中的消息都是按照Message的开始执行时间来排序的.
 12.在使用高于minSdkVersion API level的方法需要:
 用@TargeApi(9) 使可以编译通过;
 if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD) 
@@ -56,18 +67,94 @@ if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD)
  	回调onFinish|onTick    记得操作前判定activity存在，且在onDestory中timer.cancle()
 
 18.一个数左移N位表示乘以2的n次方，右移表示除以
-19. 获取屏幕密度值
-final float scale = context.getResources().getDisplayMetrics().density; 单位是sp
-21. Lp Hv横竖(laopo)
-22.callback实现是本身定义了interface和具体调用流程，对方通过实现interface来接入。便于信息回传 && 区别callbacks
+  |=    -----------   &= ~  用于添加和剥离标志位(或等与等非)
+  异或两次同一个对象等于没有操作
 
-24.DrawerLayout替代sideMenu实现侧边菜单栏功能
-android.support.v4.widget.DrawerLayout   DrawerListener  | ActionBarDrawerToggle(有actionbar时有优先)  setDrawerLockMode
-android.support.design.widget.NavigationView (headerLayout,menu)  setNavigationItemSelectedListener()
+21. Lp Hv横竖(laopo)
+
+22.callback实现是本身定义了interface和具体调用流程，对方通过实现interface来接入。便于信息回传 && 区别callbacks
+27.接口定义类似abstract定义的抽象类，必须全部实现
+
+
+
+1.抽象、继承、封装、多态性
+随机生成 a 到 b (不包含b)的整数:
+(int)(Math.random()*(b-a))+a; (int)(Math.random()*(b-a+1))+a;
+
+数组属于引用类型，父类object     AdView [] adViews=new AdView[N];
+
+类首常大包全小  Eclipse  interface 
+implements/extends abstract instanceof 
+static 实例个数及自动命名
+final 常量不可改
+String.equal() 
+Integer.parseInt() finish() 
+str.getBytes()
+
+Overloading 类中重载    Overriding 继承时覆写
+
+throws 方法前，方法不处理异常
+
+thread run start   |   runable run thread start 资源共享
+synchronized 方法和块
+类锁和对象锁：静态方法或者一个类的class对象上的为对象锁
+有synchronized修饰的方法称为同步方法，同步方法必须在持有锁时，才能够执行。synchronized修饰的静态方法必须持有类锁，非静态方法必须持有对象锁，才能够执行。执行的时候，会一直持有这个锁，执行完了就会释放这个锁。 一个类只有一把类锁，一个对象实例只有一把对象锁。同步方法，谁拿着锁，谁就可以执行，拿不到的就只能等
+阻塞就是等待过程中不可以去干别的事情
+lock函数是阻塞的，因为它调用WaitForSingleObject函数时传递的第二个参数是INFINITE，表示无限等待下去，所以是阻塞的。 
+tryLock函数时非阻塞的，调用后立即返回。因为它调用WaitForSingleObject函数时传递的第二个参数是0，表示不等待，立即返回。 
+调用lock或者tryLock后，都需要调用unlock来解锁。
+
+子类的泛型类型是无法使用父类的泛型类型接收，例如：Info <String>不能使用Info<Object> 
+类名称<? (extends/super 类)> 对象名称   分别定义了通配/上限/下限 <? extends Object> 相当于没有限制
+
+Math
+Random nextXXX(Y) 
+
+StringBuffer   append|insert(o,s)|delete(s,e)|indexOf|replace(s,e,s)|reverse反转|substring      添删查改反取
+
+Arrays fill|sort|binarySearch 填充数组，排序(Comparable|Comparator)，检索(前包含) (Arrays.asList将数组转list，list.toArray转为数组)
+Collections  sort|混排Shuffling|反转Reverse|替换所有的元素(Fill)|拷贝(Copy)|min/max|Rotate定距离循环元素
+
+Runtime   getRuntime()|gc|exec("notepad.exe")
+System exit(0)|currentTimeMillis 毫秒级系统时间|getProperties 属性
+
+new Date().getHours());  
+Calendar.getInstance().get(Calendar.HOUR); 
+new SimpleDateFormat("EE-yyyy-MM-dd HH:mm:ss").format(new Date());EE表示星期    Date/Calendar/SimpleDateFormat
+    
+Observable类和Observer接口 addObserver|deleteObserver|setChanged|notifyObservers
+Timer.scheduleAtFixedRate 固定频率执行
+
+File createNewFile()|mkdir()|delete|exists|isDirectory|length|list|listFiles|  
+FileOutputStream(file,append文件尾追加) write|flush|close 
+FileInputStream available(文件大小)|read|close
+FileWriter|FileReader(OutputStreamWriter|InputStreamReader) 字符流转换为字节流
+ByteArrayInputStream|ByteArrayOutputStream 内存操作流
+BufferedReader（InputStreamReader（FileInputStream）） readLine == Scanner（FileInputStream）
+Scanner  hasNextXXX|nextXXX|useDelimiter（设置分隔符）|nextLine       (has)NextXXX(Line)|useDelimiter
+
+枚举(enum)类也可以实现一个接口，枚举中可以定义抽象方法----每个元素都必须分别实现此抽象方法。
+
+第2节 数组和链表(注: all vs  --- hashtable arraymap)
+1.ArrayList 是一个数组队列，相当于动态数组。它由数组实现，随机访问效率高，随机插入、随机删除效率低。
+　　LinkedList 是一个双向链表。它也可以被当作堆栈、队列或双端队列进行操作。LinkedList随机访问效率低，但随机插入、随机删除效率高。
+　　Vector 是矢量队列，和ArrayList一样，它也是一个动态数组，由数组实现。但是ArrayList是非线程安全的，而Vector是线程安全的。
+　　Stack(pop|push|peek|empty|search) 是栈，它继承于Vector。它的特性是：先进后出(FILO, First In Last Out)。
+HashSet|LinkedHashSet|TreeSet(随机高|遍历好|有序) 
+HashTable相对HashMap区别是同步 线程安全
+HashMap内部一个数组<HashMapEntry>  ArrayMap内部双数组
+数据量小，且需频繁存储数据时，推荐ArrayMap。而量较大时，推荐HashMap。
+
+
+24.bat命令的判断(空格)
+@echo off
+if '%1'=='' (
+adb shell ps|findstr monkey
+) else (
+adb shell kill %1
+)
 25.jar -cvf android.jar .  //打包当前内容到jar包(用于合并java包)
 26.点9切图使用方法：将图命名.9.png-->做普通图使用
-27.接口定义类似abstract定义的抽象类，必须全部实现
-28.|=    -----------   &= ~  用于添加和剥离标志位(或等与等非)
 30.Ctrl+G 转到相应的行  记事本也可以
 31.C盘不足：删除 widows/temp文件夹
 32.PS圆角矩形及录制动作：选择-->修改-->平滑 选择7
@@ -75,12 +162,9 @@ android.support.design.widget.NavigationView (headerLayout,menu)  setNavigationI
 34.飞机发票：机票30天内可以补打发票
 35.黄金比例：黄金分割6.18
 
-第1节 重绘
-处于GONE的view不会引起页面的重绘
-postInvalidate() 方法在非 UI 线程中调用，通知 UI 线程重绘。invalidate() 方法在 UI 线程中调用，重绘当前 UI。
-调用invalidate方法只会执行onDraw方法；
-调用requestLayout方法只会执行onMeasure方法和onLayout方法，并不会执行onDraw方法。
-measure()会回调onMeasure()给mMeasuredWidth赋值{setMeasuredDimension}父类指定的可以直接设置，在MeasureChild前可以设置child.setPadding()
+LiveData实现基本的Android Activity/Fragment生命周期感知，本身其持有可观察数据，开发者可用LiveData的onActive/onInactive实现与Android生命周期解耦/耦合，进而通过LiveData的postValue或者setValue方法，通知观察者Observer数据的变化并请可观察的变化数据通过Observer的onChanged传导出来。
+Lifecycle要做的内容主要是实现LifecycleObserver接口，然后通过实现了LifecycleOwner接口的对象进行注册，以监听其生命周期，后续就是坐等通知了
+ViewModel是用来管理和UI组件有关的数据的，而LiveData又是这些数据的持有类，所以在使用LiveData的时候，就自然想到要使用ViewModel了。另外从ViewModel的定义，我们也能看到ViewModel还可以用于UI组件间的通信，回想下当初面试官问你Fragment之间怎么通信的问题，掌握ViewModel后就多了一种高逼格的回答了
 
 第2节 启动模式
 standard|singleTop 可多实例，默认在发送的task ，后者在仅在栈顶时不新建
@@ -164,6 +248,21 @@ getContentResolver().registerContentObserver(Settings.System.getUriFor(KEY_THEME
 1.bugly  腾讯方案 解决应用热更新和ANR日志回传
 3.LeakCanary 代替mat进行内存检测
 4.ButterKnife(快速资源事件绑定)
+Bind标签在8.0.0之后变成了BindView，8.7.0之后要用R2.id.XXX
+所有资源和下列事件(选中文本焦点)
+OnTouch  OnEditorAction
+OnClick  OnLongClick
+OnItemClick  OnItemLongClick  OnItemSelected
+OnCheckedChanged OnTextChanged 
+OnFocusChange OnPageChange
+
+unbinder = ButterKnife.bind(this, view);  
+unbinder.unbind();  
+ButterKnife.bind(this, view);  //ViewHolder中传入view来绑定
+
+apply立即对列表中的所有视图进行操作。Action和Setter接口允许指定简单的行为。
+ButterKnife.apply(nameViews, ENABLED, false);  
+ButterKnife.apply(nameViews, View.ALPHA, 0.0f);//一个Android属性也可以用于应用的方法。
 5.jitpack 开源库的创建与使用
 6.Glide
 Glide Glide.with(this).load(url).into(imageView);
@@ -179,13 +278,6 @@ ViewPagerIndicator引入：
 实例化TabPageIndicator，indicator.setViewPager(pager); 
 在Indicator上设置OnPagerChangeListner监听器
 
-第8节 获得 LayoutInflater 实例的三种方式
-1. LayoutInflater inflater = getLayoutInflater();//调用Activity的getLayoutInflater() 
-2. LayoutInflater inflater = LayoutInflater.from(context);  
-3. LayoutInflater inflater =  (LayoutInflater)context.getSystemService (Context.LAYOUT_INFLATER_SERVICE);
-平时ListView加载item中，adapter的getView方法中，我们经常用到：
-LayoutInflater.from(mContext).inflate(R.layout.it,parent,false);
-其中LayoutInflater的Inflate的三个参数意思为：(布局文件，父类布局，是否加载在父类上(可省略))
 
 第9节 常见intent-filter中的actioin(MLDH)
 <action android:name="android.intent.action.MAIN" /> 决定启动的主activity
@@ -254,7 +346,53 @@ AppWidgetProviderInfo-->LauncherAppWidgetProviderInfo{providerinfo}
 	后者LauncherModel.getWidgetProviders(contex,user)获取
 ResolveInfo 通过PM.queryIntentActivities查询得到在mannifest中采集的信息
 
-第15节 动画相关
+第16节 IntentService
+Thread拥有Looper，Looper对象持有一个消息队列MessageQueue.
+Handler仅是拥有引用，会在子线程中执行HandleMessage
+IntentService ServiceHandler(onHandleIntent) HandlerThread
+
+Looper对象获得消息后用其传入的target执行了dispatchMessage(调用handleMessage)
+HandlerThread:在getLooper如果为空就wait--在run中赋值唤醒;
+			  退出时looper-->MessageQueue.quit发现消息不为空就唤醒
+ServiceHandler：IntentService的内部类，在handleMessage中调用onHandleIntent并stopself
+
+消息的处理首先时msg本身回调，
+没有时执行mCallback的handleMessage，
+为false时才执行子类实现的handleMessage
+
+
+第二章 自定义View
+第1节 重绘
+处于GONE的view不会引起页面的重绘
+postInvalidate() 方法在非 UI 线程中调用，通知 UI 线程重绘。invalidate() 方法在 UI 线程中调用，重绘当前 UI。
+调用invalidate方法只会执行onDraw方法；
+调用requestLayout方法只会执行onMeasure方法和onLayout方法，并不会执行onDraw方法。
+measure()会回调onMeasure()给mMeasuredWidth赋值{setMeasuredDimension}父类指定的可以直接设置，在MeasureChild前可以设置child.setPadding()
+第2节 获得 LayoutInflater 实例的三种方式
+1. LayoutInflater inflater = getLayoutInflater();//调用Activity的getLayoutInflater() 
+2. LayoutInflater inflater = LayoutInflater.from(context);  
+3. LayoutInflater inflater =  (LayoutInflater)context.getSystemService (Context.LAYOUT_INFLATER_SERVICE);
+平时ListView加载item中，adapter的getView方法中，我们经常用到：
+LayoutInflater.from(mContext).inflate(R.layout.it,parent,false);
+其中LayoutInflater的Inflate的三个参数意思为：(布局文件，父类布局，是否加载在父类上(可省略))
+第3节 canvas和Path绘图
+//DIFFERENCE是第一次不同于第二次的部分显示出来
+//REPLACE是显示第二次的
+//REVERSE_DIFFERENCE 是第二次不同于第一次的部分显示
+//INTERSECT交集显示
+//UNION全部显示
+//XOR补集 就是全集的减去交集剩余部分显示
+
+Path 不是立即操作
+moveTo影响的是后面操作的起点位置，不会影响之前的操作；而 setLastPoint改变前一步操作最后一个点的位置，不仅影响前一步操作，同时也会影响后一步操作！
+
+每次调用canvas.drawXXXX系列函数来绘图进，都会产生一个全新的透明的Canvas画布。
+save/restore 均是栈操作
+saveLayer会创建一个全新透明的bitmap，大小与指定保存的区域一致，其后的绘图操作都放在这个bitmap上进行。在绘制结束后，会直接盖在上一层的Bitmap上显示。只有当调用restore()、resoreToCount()函数以后，才会返回到原始画布上绘制。 
+
+quadTo、cubicTo分别是二阶和三阶贝塞尔曲线
+
+第4节 动画相关
 alpha-scale-rotate-translate-set
 valueAnimator -- >objectAnimator
 AnimatorUpdateListener   AnimatorListener
@@ -274,85 +412,15 @@ AnimatorSet play|after|before|with
 
 ViewPropertyAnimator  直接btnShow.animate().setDuration(2000).translationX(300).rotation(360).start();
 
-第16节 IntentService
-Thread拥有Looper，Looper对象持有一个消息队列MessageQueue.
-Handler仅是拥有引用，会在子线程中执行HandleMessage
-IntentService ServiceHandler(onHandleIntent) HandlerThread
 
-Looper对象获得消息后用其传入的target执行了dispatchMessage(调用handleMessage)
-HandlerThread:在getLooper如果为空就wait--在run中赋值唤醒;
-			  退出时looper-->MessageQueue.quit发现消息不为空就唤醒
-ServiceHandler：IntentService的内部类，在handleMessage中调用onHandleIntent并stopself
+第5节 获取屏幕密度值和宽高值
+onsizechange会传入计算后的宽高值，自定义view传入xml设置值
 
-消息的处理首先时msg本身回调，
-没有时执行mCallback的handleMessage，
-为false时才执行子类实现的handleMessage
-
-MessageQueue中的消息都是按照Message的开始执行时间来排序的.
-
-第二章 java基础
-1.抽象、继承、封装、多态性
-随机生成 a 到 b (不包含b)的整数:
-(int)(Math.random()*(b-a))+a; (int)(Math.random()*(b-a+1))+a;
-
-数组属于引用类型，父类object     AdView [] adViews=new AdView[N];
-
-类首常大包全小  Eclipse  interface 
-implements/extends abstract instanceof 
-static 实例个数及自动命名
-final 常量不可改
-String.equal() 
-Integer.parseInt() finish() 
-str.getBytes()
-
-Overloading 类中重载    Overriding 继承时覆写
-
-throws 方法前，方法不处理异常
-
-thread run start   |   runable run thread start 资源共享
-synchronized 方法和块
-
-子类的泛型类型是无法使用父类的泛型类型接收，例如：Info <String>不能使用Info<Object> 
-类名称<? (extends/super 类)> 对象名称   分别定义了通配/上限/下限 <? extends Object> 相当于没有限制
-
-Math
-Random nextXXX(Y) 
-
-StringBuffer   append|insert(o,s)|delete(s,e)|indexOf|replace(s,e,s)|reverse反转|substring      添删查改反取
-Arrays fill|sort|binarySearch 填充数组，排序(Comparable|Comparator)，检索(前包含)
-Collections  sort|混排Shuffling|反转Reverse|替换所有的元素(Fill)|拷贝(Copy)|min/max|Rotate定距离循环元素
-
-Runtime   getRuntime()|gc|exec("notepad.exe")
-System exit(0)|currentTimeMillis 毫秒级系统时间|getProperties 属性
-
-new Date().getHours());  
-Calendar.getInstance().get(Calendar.HOUR); 
-new SimpleDateFormat("EE-yyyy-MM-dd HH:mm:ss").format(new Date());EE表示星期    Date/Calendar/SimpleDateFormat
-    
-Observable类和Observer接口 addObserver|deleteObserver|setChanged|notifyObservers
-Timer.scheduleAtFixedRate 固定频率执行
-
-File createNewFile()|mkdir()|delete|exists|isDirectory|length|list|listFiles|  
-FileOutputStream(file,append文件尾追加) write|flush|close 
-FileInputStream available(文件大小)|read|close
-FileWriter|FileReader(OutputStreamWriter|InputStreamReader) 字符流转换为字节流
-ByteArrayInputStream|ByteArrayOutputStream 内存操作流
-BufferedReader（InputStreamReader（FileInputStream）） readLine == Scanner（FileInputStream）
-Scanner  hasNextXXX|nextXXX|useDelimiter（设置分隔符）|nextLine       (has)NextXXX(Line)|useDelimiter
-
-枚举(enum)类也可以实现一个接口，枚举中可以定义抽象方法----每个元素都必须分别实现此抽象方法。
-
-第2节 数组和链表(注: all vs  --- hashtable arraymap)
-1.ArrayList 是一个数组队列，相当于动态数组。它由数组实现，随机访问效率高，随机插入、随机删除效率低。
-　　LinkedList 是一个双向链表。它也可以被当作堆栈、队列或双端队列进行操作。LinkedList随机访问效率低，但随机插入、随机删除效率高。
-　　Vector 是矢量队列，和ArrayList一样，它也是一个动态数组，由数组实现。但是ArrayList是非线程安全的，而Vector是线程安全的。
-　　Stack(pop|push|peek|empty|search) 是栈，它继承于Vector。它的特性是：先进后出(FILO, First In Last Out)。
-HashSet|LinkedHashSet|TreeSet(随机高|遍历好|有序) 
-HashTable相对HashMap区别是同步 线程安全
-HashMap内部一个数组<HashMapEntry>  ArrayMap内部双数组
-数据量小，且需频繁存储数据时，推荐ArrayMap。而量较大时，推荐HashMap。
-
+final float scale = context.getResources().getDisplayMetrics().density; 单位是sp
+DisplayMetrics().widthPixels  DisplayMetrics().heightPixels
 第三章 Android问题分析和优化
+
+动画要cancel，没有GONE还是可以点击
 1.crash （崩溃）
 关键字：FATAL EXCEPTION   -----java代码 
                    fault 进程pid及线程tid号  backtrace及stack信息
@@ -376,8 +444,8 @@ THREAD_VMWAIT = 8, /* 等待VM资源*/
 iowait、ContentResolver.query、onPostExecute
 2. 在UI线程进行网络数据的读写
 3. 内存不足导致block在创建bitmap上
-atdalvik.system.VMRuntime.trackExternalAllocation(NativeMethod)
-atandroid.graphics.Bitmap.createBitmap(Bitmap.java:468)
+at dalvik.system.VMRuntime.trackExternalAllocation(NativeMethod)
+at android.graphics.Bitmap.createBitmap(Bitmap.java:468)
 4.HandleMessage回调函数执行超过10秒，BroadcasterReciver里的onRecive（）方法处理超过10秒
 5.等待获取对象锁(多是同步sync导致waiting to lock)
 6.service binder的数量达到上限
@@ -411,6 +479,12 @@ log过滤
 adb logcat |grep -E "Bluetooth|BtOpp"(log多筛选)
 Adb logcat –s XXX
 adb logcat -s *:E > a.log  将所有elog写入
+获取手机属性
+adb shell getprop ro.cda.skuid.id_final 获取当前SKUID
+adb shell getprop >a.prof  导出手机系统属性值
+REQ:导出wifi账号密码|锁屏密码 
+adb shell cat /data/misc/wifi/wpa_supplicant.conf
+adb shell ls data/system/gatekeeper.pattern.key
 
 第1节 dumpsys命令 dumpsys activity XXXs
 intents 待处理的intent(PendingIntentRecord)
@@ -554,12 +628,6 @@ Eclipse:a2插入上下,c5 hedo删注释,as爱是如此pm,acl格式化
 重要性，名字，服务意识，虚心请教，高尚动机和取胜欲望
 
 第八章 系统bug及需求
-获取手机属性
-adb shell getprop ro.cda.skuid.id_final 获取当前SKUID
-adb shell getprop >a.prof  导出手机系统属性值
-
-bug ：获取当前android版本号
-int sysVersion = Integer.parseInt(VERSION.SDK);  
 
 REQ：保持屏幕不暗不锁
 getWindow().setFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON, WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
@@ -607,9 +675,7 @@ qemu.hw.mainkeys=1
 BUG：HorizontalScrollView存在多余的导航条
 android:scrollbars="none"
 
-REQ:导出wifi账号密码|锁屏密码 
-adb shell cat /data/misc/wifi/wpa_supplicant.conf
-adb shell ls data/system/gatekeeper.pattern.key
+
 
 第九章 英语单词
 function/fiction/firction  功能函数--小说虚构---不和抵触

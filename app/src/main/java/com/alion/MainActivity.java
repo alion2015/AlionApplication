@@ -1,4 +1,4 @@
-package com.example.wutong.ContentObserver;
+package com.alion;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 
 import com.alion.countdowntimer.TimeCount;
+import com.alion.myapplication.R;
 
 /**
  * ContentObserver 可以用来监听任何数据的变化
@@ -19,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
     private String TAG = "MainActivity";
     private ContentObserver observer;
-    private Uri uri = Uri.parse("content://alion.test.a");  ;
+    private Uri uri = Uri.parse("content://.test.a");  ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

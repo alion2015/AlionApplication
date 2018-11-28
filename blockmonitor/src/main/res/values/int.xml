@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="block_threshold">2000</integer>
+    <integer name="maxcount_lrulist">10</integer>
+    <bool name="stop_when_debugging">false</bool>
+</resources>

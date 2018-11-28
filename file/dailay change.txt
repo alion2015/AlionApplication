@@ -17,10 +17,6 @@ radioGroup-->checkBox用CompoundButton.OnCheckedChangeListener()
 Toast.makeText(xx.this,”内容”,Toast.LENGTH_SHORT).show()
 progressBar-->
 style/incrementProgressBarBy()/setProgress()
-BufferedReader
-buf=new BufferedReader(new InputStreamReader(System.in))
-          While((line=buf.readline())!=null) 
-          sb.append(line);
 使用HttpURLconnection(URL.openConnection得到).getinputStream()下载文件
 SAX解析XML文件
 实现Document/Element/Characters的解析-->调用SAXparserFactory.
@@ -48,7 +44,6 @@ db.beginTransaction();db.setTransactionSuccessful();db.endTransaction();
 Context.registerReceiver(mBroadcastReceiver, intentFilter);  //全局广播的注册方式
 20.边距的不同(mp内外)
 margin是外边距在border外面，而padding是内边距，在border内部
-31.无缝合并多个文件copy /b 1.jpg+dz.rar mypic.jpg 
 
 3.外部类.this.成员变量|成员方法
 6.LinearLayout 对比 RelativeLayout  无法降低层级深度或子view高度与group不同时优先使用Linerlayout
@@ -98,7 +93,7 @@ throws 方法前，方法不处理异常
 thread run start   |   runable run thread start 资源共享
 synchronized 方法和块
 类锁和对象锁：静态方法或者一个类的class对象上的为对象锁
-有synchronized修饰的方法称为同步方法，同步方法必须在持有锁时，才能够执行。synchronized修饰的静态方法必须持有类锁，非静态方法必须持有对象锁，才能够执行。执行的时候，会一直持有这个锁，执行完了就会释放这个锁。 一个类只有一把类锁，一个对象实例只有一把对象锁。同步方法，谁拿着锁，谁就可以执行，拿不到的就只能等
+有synchronized修饰的方法称为同步方法，同步方法必须在持有锁时，才能够执行。synchronized修饰的静态方法必须持有类锁，非静态方法必须持有对象锁。执行的时候，会一直持有这个锁，执行完了就会释放这个锁。 一个类只有一把类锁，一个对象实例只有一把对象锁。同步方法，谁拿着锁，谁就可以执行，拿不到的就只能等
 阻塞就是等待过程中不可以去干别的事情
 lock函数是阻塞的，因为它调用WaitForSingleObject函数时传递的第二个参数是INFINITE，表示无限等待下去，所以是阻塞的。 
 tryLock函数时非阻塞的，调用后立即返回。因为它调用WaitForSingleObject函数时传递的第二个参数是0，表示不等待，立即返回。 
@@ -131,6 +126,9 @@ FileInputStream available(文件大小)|read|close
 FileWriter|FileReader(OutputStreamWriter|InputStreamReader) 字符流转换为字节流
 ByteArrayInputStream|ByteArrayOutputStream 内存操作流
 BufferedReader（InputStreamReader（FileInputStream）） readLine == Scanner（FileInputStream）
+BufferedReader buf=new BufferedReader(new InputStreamReader(System.in))
+          While((line=buf.readline())!=null) 
+          sb.append(line);
 Scanner  hasNextXXX|nextXXX|useDelimiter（设置分隔符）|nextLine       (has)NextXXX(Line)|useDelimiter
 
 枚举(enum)类也可以实现一个接口，枚举中可以定义抽象方法----每个元素都必须分别实现此抽象方法。
@@ -161,6 +159,7 @@ adb shell kill %1
 33.火车退票：48--5%；24--10%；20%。两天五一天十，不到整天扣20
 34.飞机发票：机票30天内可以补打发票
 35.黄金比例：黄金分割6.18
+31.无缝合并多个文件copy /b 1.jpg+dz.rar mypic.jpg 
 
 LiveData实现基本的Android Activity/Fragment生命周期感知，本身其持有可观察数据，开发者可用LiveData的onActive/onInactive实现与Android生命周期解耦/耦合，进而通过LiveData的postValue或者setValue方法，通知观察者Observer数据的变化并请可观察的变化数据通过Observer的onChanged传导出来。
 Lifecycle要做的内容主要是实现LifecycleObserver接口，然后通过实现了LifecycleOwner接口的对象进行注册，以监听其生命周期，后续就是坐等通知了
@@ -462,7 +461,7 @@ Eventslog ：am_finish_activity  结束activity
  java.lang.SecurityException: Permission Denial
 8.内存泄露
 单例或静态变量持有contex应使用applicationContext
-非静态内部类和匿名类内部类都会潜在持有它们所属的外部类的引用，但是静态内部类却不会。内部类不可生成静态对象，匿名类(AsyncTask，handler，runable)益封装为静态类
+非静态内部类创建静态对象：非静态内部类和匿名类内部类都会潜在持有它们所属的外部类的引用，但是静态内部类却不会。内部类不可生成静态对象，匿名类(AsyncTask，handler，runable)益封装为静态类
 BraodcastReceiver，ContentObserver，File，Cursor，Stream，Bitmap等资源，应该在Activity销毁时及时关闭或者注销，Timer Timertask需要cancel，cancel掉属性动画
 使用ListView在构造Adapter时，使用缓存的convertView。
 集合容器（比如ArrayList）在退出程序之前，将集合里的东西clear，然后置为null，再退出程序。

@@ -13,7 +13,7 @@ import android.content.Intent;
 import android.util.Log;
 import android.widget.RemoteViews;
 
-import com.example.wutong.ContentObserver.R;
+import com.alion.myapplication.R;
 
 import static android.view.View.INVISIBLE;
 

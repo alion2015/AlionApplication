@@ -9,7 +9,7 @@ import android.util.Log;
 
 import com.alion.annotation.TestAinit;
 import com.alion.annotation.UserFactory;
-import com.example.wutong.ContentObserver.R;
+import com.alion.myapplication.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,8 +31,5 @@ public class ViewTest extends AppCompatActivity {
         mBitmaps.add(BitmapFactory.decodeResource(getResources(),R.mipmap.mid6));
         mBitmaps.add(BitmapFactory.decodeResource(getResources(),R.mipmap.mid7));
         myView.setBitmaps(mBitmaps);
-        TestAinit testAinit = UserFactory.create();
-        Log.d("alionlog", "onCreate: "+testAinit.getName());
-        Log.d("alionlog", "onCreate: "+testAinit.getAge());
     }
 }

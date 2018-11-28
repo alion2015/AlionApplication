@@ -33,7 +33,7 @@ import android.view.SearchEvent;
 import android.view.View;
 import android.view.WindowManager;
 
-import com.example.wutong.ContentObserver.R;
+import com.alion.myapplication.R;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

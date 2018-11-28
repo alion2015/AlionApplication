@@ -7,7 +7,7 @@ import com.alion.blockcanary.internal.LruLinkedList;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Created by XiongFangyu on 2018/6/11.
+ * Created by alion on 2018/11/28.
  */
 class FrameCallbackImpl implements Choreographer.FrameCallback {
 

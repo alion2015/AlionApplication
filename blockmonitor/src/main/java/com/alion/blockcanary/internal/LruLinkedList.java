@@ -3,7 +3,7 @@ package com.alion.blockcanary.internal;
 import java.util.LinkedList;
 
 /**
- * Created by lenovo on 2018/11/28.
+ * Created by alion on 2018/11/28.
  */
 
 public class LruLinkedList<E> extends LinkedList<E> {

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.alion.textview.MyTextView
+        android:layout_width="match_parent"
+        android:id="@+id/textview"
+        android:layout_height="wrap_content"
+        android:text="hahahhshid"
+        android:textSize="64sp"
+        android:textColor="@color/colorRed"
+        />
+
+    <com.alion.textview.Yinpintu
+        android:layout_width="match_parent"
+        android:layout_height="418dp"
+        app:layout_constraintTop_toBottomOf="@+id/textview" />
+</android.support.constraint.ConstraintLayout>

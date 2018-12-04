@@ -1,0 +1,888 @@
+第一章 杂项
+识别第X章第X节
+duokan/downloads/micloudbooks
+regedit
+1080*720*192
+android.os.Process.killProcess(android.os.Process.myPid()); 自杀
+
+Handler：多线程间全局变量共享
+子线程创建handler需要Looper.prepare()-->new Handler -->Looper.loop()
+
+SharedPreferences:commit是原子提交到数据库，中间不可打断。apply是原子提交的内存,之后再异步提交到数据库，因此也不会有返回值。
+所有commit提交是同步过程，效率会比apply异步提交的速度慢。
+
+aadd amod adel csxg
+amk amon rml apl
+StackTraceElement[] elements = Thread.currentThread().getStackTrace();
+在UI Thread中去做一个loop不断地往message queue中压入消息时，我们的UI Thread是不会去处理这些message的，直到loop结束为止，这就是为什么我们在while中不断调用invalidate()的时候你只会看到最后的结果而不会得到中间过程的变化
+AppCompatActivity 继承FragmentActivity可用actionbar
+ContextCompat.checkSelfPermission(mContext, permission) ==  PackageManager.PERMISSION_DENIED;
+ActivityCompat.shouldShowRequestPermissionRationale(
+
+ScrollView边界阴影fadingEdge(法定边界)
+onCreateOptionMenu-->menu.add(组,id,排序,名字)-->onOptionsItemSeleted(item.getItemId)
+radioGroup-->checkBox用CompoundButton.OnCheckedChangeListener()
+Toast.makeText(xx.this,”内容”,Toast.LENGTH_SHORT).show()
+progressBar-->
+style/incrementProgressBarBy()/setProgress()
+使用HttpURLconnection(URL.openConnection得到).getinputStream()下载文件
+SAX解析XML文件
+实现Document/Element/Characters的解析-->调用SAXparserFactory.
+          newInstance().newSAXParser().getXMLReader()生成解析器对象
+WIFI使用(WiFiManger)context.getSystemService(Service.WIFI_SERVICE).setWifiEnabled(){在SystemServiceRegistry中查找}
+
+Spinner 下拉框
+DatePickerDialog用于选择日期
+AutoCompleteTextView 提供热点快速输入功能
+SeekBar有滑块的进度条；RatingBar评价
+DrawerLayout替代sideMenu实现侧边菜单栏功能
+HorizontalScrollView  横向滑动view
+
+ListView  ArrayAdapter-----SimpleAdapter
+android:parentActivityName  界面左上角添加< 可以直接跳回指定的窗口
+
+Transaction  事务将操作封装为原子操作,
+在ContentProvider中将ContentProviderOperation参数list传入并执行getContentResolver().applyBatch(LauncherProvider.AUTHORITY, ops)
+db.beginTransaction();db.setTransactionSuccessful();db.endTransaction();
+
+4.drawable的padding需要setBounds
+
+6.线程池执行传入runable的run方法
+10.mLocalBroadcastManager = LocalBroadcastManager.getInstance(this);//获得实例  mLocalBroadcastManager.registerReceiver(receiver, filter);//注册监听
+Context.registerReceiver(mBroadcastReceiver, intentFilter);  //全局广播的注册方式
+20.边距的不同(mp内外)
+margin是外边距在border外面，而padding是内边距，在border内部
+
+3.外部类.this.成员变量|成员方法
+6.LinearLayout 对比 RelativeLayout  无法降低层级深度或子view高度与group不同时优先使用Linerlayout
+7.ANR：应用在5秒内未响应用户的输入事件（如按键或者触摸）；BroadcastReceiver未在10秒内完成相关的处理；Service在特定的时间内无法处理完成 20秒
+
+9.android:largeHeap="true"
+11.postdelayed 
+looper中  MessageQueue.next 进入时判定当前msg是否有延迟，有的话就阻塞nativePollOnce
+MessageQueue.enqueueMessage 判断与当前msg.when 若更短且线程阻塞就唤醒
+MessageQueue中的消息都是按照Message的开始执行时间来排序的.
+12.在使用高于minSdkVersion API level的方法需要:
+用@TargeApi(9) 使可以编译通过;
+if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD) 
+13.倒计时CountDownTimer (long millisInFuture, long countDownInterval)  
+	extends CountDownTimer 总时长,刷新回调间隔
+ 	回调onFinish|onTick    记得操作前判定activity存在，且在onDestory中timer.cancle()
+
+18.一个数左移N位表示乘以2的n次方，右移表示除以
+  |=    -----------   &= ~  用于添加和剥离标志位(或等与等非)
+  异或两次同一个对象等于没有操作
+
+21. Lp Hv横竖(laopo)
+
+22.callback实现是本身定义了interface和具体调用流程，对方通过实现interface来接入。便于信息回传 && 区别callbacks
+27.接口定义类似abstract定义的抽象类，必须全部实现
+
+
+
+1.抽象、继承、封装、多态性
+随机生成 a 到 b (不包含b)的整数:
+(int)(Math.random()*(b-a))+a; (int)(Math.random()*(b-a+1))+a;
+
+数组属于引用类型，父类object     AdView [] adViews=new AdView[N];
+
+类首常大包全小  Eclipse  interface 
+implements/extends abstract instanceof 
+static 实例个数及自动命名
+final 常量不可改
+String.equal() 
+Integer.parseInt() finish() 
+str.getBytes()
+
+Overloading 类中重载    Overriding 继承时覆写
+
+throws 方法前，方法不处理异常
+
+thread run start   |   runable run thread start 资源共享
+synchronized 方法和块
+类锁和对象锁：静态方法或者一个类的class对象上的为对象锁
+有synchronized修饰的方法称为同步方法，同步方法必须在持有锁时，才能够执行。synchronized修饰的静态方法必须持有类锁，非静态方法必须持有对象锁。执行的时候，会一直持有这个锁，执行完了就会释放这个锁。 一个类只有一把类锁，一个对象实例只有一把对象锁。同步方法，谁拿着锁，谁就可以执行，拿不到的就只能等
+阻塞就是等待过程中不可以去干别的事情
+lock函数是阻塞的，因为它调用WaitForSingleObject函数时传递的第二个参数是INFINITE，表示无限等待下去，所以是阻塞的。 
+tryLock函数时非阻塞的，调用后立即返回。因为它调用WaitForSingleObject函数时传递的第二个参数是0，表示不等待，立即返回。 
+调用lock或者tryLock后，都需要调用unlock来解锁。
+
+子类的泛型类型是无法使用父类的泛型类型接收，例如：Info <String>不能使用Info<Object> 
+类名称<? (extends/super 类)> 对象名称   分别定义了通配/上限/下限 <? extends Object> 相当于没有限制
+
+Math
+Random nextXXX(Y) 
+
+StringBuffer   append|insert(o,s)|delete(s,e)|indexOf|replace(s,e,s)|reverse反转|substring      添删查改反取
+
+Arrays fill|sort|binarySearch 填充数组，排序(Comparable|Comparator)，检索(前包含) (Arrays.asList将数组转list，list.toArray转为数组)
+Collections  sort|混排Shuffling|反转Reverse|替换所有的元素(Fill)|拷贝(Copy)|min/max|Rotate定距离循环元素
+
+Runtime   getRuntime()|gc|exec("notepad.exe")
+System exit(0)|currentTimeMillis 毫秒级系统时间|getProperties 属性
+
+new Date().getHours());  
+Calendar.getInstance().get(Calendar.HOUR); 
+new SimpleDateFormat("EE-yyyy-MM-dd HH:mm:ss").format(new Date());EE表示星期    Date/Calendar/SimpleDateFormat
+    
+Observable类和Observer接口 addObserver|deleteObserver|setChanged|notifyObservers
+Timer.scheduleAtFixedRate 固定频率执行
+
+File createNewFile()|mkdir()|delete|exists|isDirectory|length|list|listFiles|  
+FileOutputStream(file,append文件尾追加) write|flush|close 
+FileInputStream available(文件大小)|read|close
+FileWriter|FileReader(OutputStreamWriter|InputStreamReader) 字符流转换为字节流
+ByteArrayInputStream|ByteArrayOutputStream 内存操作流
+BufferedReader（InputStreamReader（FileInputStream）） readLine == Scanner（FileInputStream）
+BufferedReader buf=new BufferedReader(new InputStreamReader(System.in))
+          While((line=buf.readline())!=null) 
+          sb.append(line);
+Scanner  hasNextXXX|nextXXX|useDelimiter（设置分隔符）|nextLine       (has)NextXXX(Line)|useDelimiter
+
+枚举(enum)类也可以实现一个接口，枚举中可以定义抽象方法----每个元素都必须分别实现此抽象方法。
+
+第2节 数组和链表(注: all vs  --- hashtable arraymap)
+1.ArrayList 是一个数组队列，相当于动态数组。它由数组实现，随机访问效率高，随机插入、随机删除效率低。
+　　LinkedList 是一个双向链表。它也可以被当作堆栈、队列或双端队列进行操作。LinkedList随机访问效率低，但随机插入、随机删除效率高。
+　　Vector 是矢量队列，和ArrayList一样，它也是一个动态数组，由数组实现。但是ArrayList是非线程安全的，而Vector是线程安全的。
+　　Stack(pop|push|peek|empty|search) 是栈，它继承于Vector。它的特性是：先进后出(FILO, First In Last Out)。
+HashSet|LinkedHashSet|TreeSet(随机高|遍历好|有序) 
+HashTable相对HashMap区别是同步 线程安全
+HashMap内部一个数组<HashMapEntry>  ArrayMap内部双数组
+数据量小，且需频繁存储数据时，推荐ArrayMap。而量较大时，推荐HashMap。
+
+
+24.bat命令的判断(空格)
+@echo off
+if '%1'=='' (
+adb shell ps|findstr monkey
+) else (
+adb shell kill %1
+)
+25.jar -cvf android.jar .  //打包当前内容到jar包(用于合并java包)
+26.点9切图使用方法：将图命名.9.png-->做普通图使用
+30.Ctrl+G 转到相应的行  记事本也可以
+31.C盘不足：删除 widows/temp文件夹
+32.PS圆角矩形及录制动作：选择-->修改-->平滑 选择7
+33.火车退票：48--5%；24--10%；20%。两天五一天十，不到整天扣20
+34.飞机发票：机票30天内可以补打发票
+35.黄金比例：黄金分割6.18
+31.无缝合并多个文件copy /b 1.jpg+dz.rar mypic.jpg 
+
+LiveData实现基本的Android Activity/Fragment生命周期感知，本身其持有可观察数据，开发者可用LiveData的onActive/onInactive实现与Android生命周期解耦/耦合，进而通过LiveData的postValue或者setValue方法，通知观察者Observer数据的变化并请可观察的变化数据通过Observer的onChanged传导出来。
+Lifecycle要做的内容主要是实现LifecycleObserver接口，然后通过实现了LifecycleOwner接口的对象进行注册，以监听其生命周期，后续就是坐等通知了
+ViewModel是用来管理和UI组件有关的数据的，而LiveData又是这些数据的持有类，所以在使用LiveData的时候，就自然想到要使用ViewModel了。另外从ViewModel的定义，我们也能看到ViewModel还可以用于UI组件间的通信，回想下当初面试官问你Fragment之间怎么通信的问题，掌握ViewModel后就多了一种高逼格的回答了
+
+第2节 启动模式
+standard|singleTop 可多实例，默认在发送的task ，后者在仅在栈顶时不新建
+singleTask|singleInstance 单例，后者独占task，前者会清空栈顶
+
+第3节 代理
+静态代理：代理和实体均继承接口并在代理中添加实体的引用，即可注入实体引用使用代理
+动态代理：运行时合成代理，需要实现接口的实体和实现InvocationHandler的代理基类，运用jdk动态反射java.lang.reflect.Proxy.newProxyInstance传入实体的classloader，实体的interface，代理基类
+1、定义抽象角色
+public interface Subject {
+public void Request();
+}
+2、定义真实角色
+public class RealSubject implements Subject {
+@Override
+public void Request() {
+System.out.println("RealSubject");
+}
+}
+3、定义代理角色
+public class DynamicSubject implements InvocationHandler {
+private Object sub;
+public DynamicSubject(Object obj){
+this.sub = obj;
+}
+@Override
+public Object invoke(Object proxy, Method method, Object[] args)
+throws Throwable {
+method.invoke(sub, args);
+return null;
+}
+}
+4、通过Proxy.newProxyInstance构建代理对象
+RealSubject realSub = new RealSubject();
+InvocationHandler handler = new DynamicSubject(realSub);
+Subject sub = (Subject)Proxy.newProxyInstance(handler.getClass().getClassLoader(),
+realSub.getClass().getInterfaces(), handler);      
+5、通过调用代理对象的方法去调用真实角色的方法。
+sub.Request();
+
+第4节 Androidstudio 相关
+1.todo  Editor下编辑todo和 Live Templates 后者用于快速插入代码，要注意abbreviation和template(需要todo大写)
+2. favorites可以收藏相关文件  bookmark在特定方法前加断点 
+3.localhistory 每次保存都会生成历史记录
+4.Eclipse快捷键
+a2插入上下,c5 hedo删注释,as爱是如此pm,acdl复制格式化
+
+插入操作：Alt+insert
+上下移动行：Alt+Up/Down
+
+和偶的代表
+全局搜索：Ctrl+H
+Recent File：Ctrl+E
+注释：Ctrl+/
+删除行：Ctrl+D
+快速Outline：Ctrl+O
+
+爱是如此PM
+重构-重命名：Alt+Shift+R 
+重构-改变方法名：Alt+Shift+C
+提取本地方法：alt+shift+m
+实现方法：alt+shift+p
+
+复制选中：Ctrl+Alt+Down 
+格式化代码：Ctrl+Alt+L
+
+第5节 ContentObserver
+getContentResolver().registerContentObserver (uri, boolean notifyForDescendants,  ContentObserver observer)
+ Uri.parse(XXX)  只需要uri唯一且注册和通知更新，可以监听任何数据
+getContentResolver().notifyChange(uri, null);
+getContentResolver().registerContentObserver(Settings.System.getUriFor(KEY_THEME_MONITOR), true, mContentObserver); 根据名字监听setting中数据
+
+
+第6节 开源控件使用
+2.XRecyclerView 一个支持下拉刷新和下拉加载的 RecyclerView。下拉刷新、上拉加载更多、RecyclerView头部
+3.EventBus
+父类中定义的订阅方法不能被重写
+订阅方法必须为public且有唯一参数
+事件的父类或实现的接口被订阅，则也可以监听到。
+线程通信，不支持跨进程
+4.UI卡顿监测框架BlockCanary
+应用发生卡顿，一定是在dispatchMessage中执行了耗时操作。我们通过给主线程的Looper设置一个Printer，打点统计dispatchMessage方法执行的时间，如果超出阀值，表示发生卡顿，则dump出各种信息，提供开发者分析性能瓶颈。
+2.SwipeBackLayout  右滑返回  
+3.greenDao 根据注释自动生成数据库及相关操作
+1.bugly  腾讯方案 解决应用热更新和ANR日志回传
+3.LeakCanary 
+leakcanary：原理：ActivityDestory之后将它放在一个WeakReference，将WR关联到一个ReferenceQueue，查看RQ中是否存在Activity的引用，如果存在就Dump出heap信息进行分析
+首先创建一个refWatcher启动activityRefWatcher，通过ActivityLifecycleCallbacks把Ondestory生命周期关联
+解析hprof文件并封装成snapshot，根据弱引用和key查找泄露对象，找到最短泄露路径
+
+4.ButterKnife(快速资源事件绑定)
+Bind标签在8.0.0之后变成了BindView，8.7.0之后要用R2.id.XXX
+所有资源和下列事件(选中文本焦点)
+OnTouch  OnEditorAction
+OnClick  OnLongClick
+OnItemClick  OnItemLongClick  OnItemSelected
+OnCheckedChanged OnTextChanged 
+OnFocusChange OnPageChange
+
+unbinder = ButterKnife.bind(this, view);  
+unbinder.unbind();  
+ButterKnife.bind(this, view);  //ViewHolder中传入view来绑定
+
+apply立即对列表中的所有视图进行操作。Action和Setter接口允许指定简单的行为。
+ButterKnife.apply(nameViews, ENABLED, false);  
+ButterKnife.apply(nameViews, View.ALPHA, 0.0f);//一个Android属性也可以用于应用的方法。
+5.jitpack 开源库的创建与使用
+6.Glide
+Glide Glide.with(this).load(url).into(imageView);
+7.okhttp和volley：
+volley  谷歌的网络请求框架.  RequestQueue -->XXXRequest-->queue.add(request)
+Response re = OkHttpClient.Builder().readTimeout(5, TimeUnit.SECONDS).build().newCall(new Request.Builder().url("http://www.baidu.com").get().build()).execute/enqueue();
+Call是将okhttpClient和Request封装，由内部的Dispatcher维护运行列表，异步丢入线程池。均执行getResponseWithInterceptorChain方法链式调用拦截器
+8.BlockCanary：原理：像Looper注入print，计算dispatchMsg前后时间差
+Looper.getMainLooper().setMessageLogging(mainLooperPrinter);
+
+第7节 ViewPager和ViewPagerIndicator
+ViewPager 和 PagerAdapter 后者需要实现instantiateItem在容器中添加itemView；在destoryItem中container.removeView;isViewFromObject中return view == object ;
+Viewpager.setOnPageChangeListener(new ViewPager.OnPageChangeListener()监听页面onPageScrolled和onPageSelected 
+ViewPagerIndicator引入：
+实例化TabPageIndicator，indicator.setViewPager(pager); 
+在Indicator上设置OnPagerChangeListner监听器
+
+第8节 内存分区和引用分类
+内存分为3部分：
+栈：基本类型和对象引用
+堆：对象及数组(GC管理)
+方法区(静态区)：CLASS对象和静态变量
+引用分类：
+强应用
+软引用 内存不足时GC考虑回收
+弱引用 GC发现就回收
+虚引用 基本不决定对象任何生命周期
+对象被GC回收，虚拟机就会把这个引用加入与之关联的引用队列中
+
+第9节 常见intent-filter中的actioin(MLDH)
+<action android:name="android.intent.action.MAIN" /> 决定启动的主activity
+<category android:name="android.intent.category.LAUNCHER" />在luncher中显示图标(与上面的一起使用)
+<category android:name="android.intent.category.DEFAULT" />决定该Activity接收隐式Intent
+<category android:name="android.intent.category.HOME" /> 设置该组件为Home Activity
+
+第10节 gc reason
+GC_CONCURRENT(同时发生的事) 当堆将要被填满的时候触发的gc
+GC_FOR_MALLOC(内存分配) 当应用的堆已经被填满且继续申请内存时gc。系统会杀死应用的进程并且回收所有内存
+
+I/art: <GC_Reason> <GC_Name> <Objects_freed>(<Size_freed>) AllocSpace Objects, <Large_objects_freed>(<Large_object_size_freed>) <Heap_stats> LOS objects, <Pause_time(s)>
+D/dalvikvm: <GC_Reason> <Amount_freed>, <Heap_stats>, <External_memory_stats>, <Pause_time>
+GC_EXPLICIT：显示的GC，例如调用System.gc()（应该避免调用显示的GC，信任GC会在需要时运行）。
+GC_HPROF_DUMP_HEAP：请求创建 HPROF 文件来分析堆内存时出现的GC。
+GC_EXTERNAL_ALLOC：仅适用于 API 级别小于等于10 ，用于外部分配内存的GC。
+
+
+第12节 TextureView和SurfaceView
+SurfaceView{ 绘制会有独立窗口， TextureView 没有独立的窗口}
+注: TextureView.setSurfaceTextureListener(new TextureView.SurfaceTextureListener()
+继承SurfaceView,并实现两个接口：SurfaceHolder.Callback和Runnable；
+getHolder()./*获取SurfaceHolder对象*/mHolder.addCallback(this);//注册SurfaceHolder的回调方法
+synchronized (mSurfaceHolder) {/**在这里加上线程安全锁**/ 
+mCanvas =mSurfaceHolder.lockCanvas();/**拿到当前画布 然后锁定**/ 
+draw();
+mSurfaceHolder.unlockCanvasAndPost(mCanvas); }/**绘制结束后解锁显示在屏幕上**/ 
+
+第13节 JSON创建与解析(Stringer-->Tokener-->nextValue)
+JSONStringer创建一个Json 文本，可以通过JSONTokener的nextValue()来
+获得JSONObject对象
+通过JSONObject与JSONArray的getInt，getString,getDouble,getJSONArray，getJSONObject等函数来解析json.
+
+第14节 Launcher相关
+sBgItemsIdMap--加载后桌面的所有item(icon和widget)
+sBgWorkspaceItems—–加载后桌面的所有icon
+sBgAppWidgets—–这里面放的widget
+2.环形发光二极管  mOccupied
+3.AppWidget体系
+RemoteViews：描述View的实体。如：创建View需要的资源ID和各个控件的事件响应方法。
+
+AppWidgetHost && AppWidgetHostView构成了客户端
+AppWidgetHost{hostid，handler，sService}是真正容纳AppWidget的地方，它的主要功能有两个：
+	监听来自AppWidgetService的事件：主要处理update和provider_changed两个事件更新widget。
+	创建AppWidgetHostView：1.先创建AppWidgetHostView;2.通过AppWidgetService查询appWidgetId对应的RemoteViews;3.updateAppWidget(RemoteViews).
+AppWidgetHostView是真正的View，但它只是一个容器，用来容纳根据RemoteViews的描述创建的view。remoteViews.apply创建了实际的View。
+AppWidgetService && AppWidgetManager构成服务器端
+manager是app与service交互的桥梁，内部binder和service交互；可根据widgetid查询widgetinfo；在AppwidgetProvider中将更新推送到service
+service使用host传入的callback发送更新消息；维护内部widget列表{从data/system/appwidgets.xml读取}
+WidgetManager.partiallyUpdateAppWidget 提交的修改会内部merge
+
+4.info总结(App,LauncherAppWidget,pendingAddWidget,AppWidgetProvider,Resolve)
+LauncheractivityInfoCompat-->AppInfo
+	前者需要launcherAppsCompat.getActivylist(pagename,user)
+	后者需要前者构造，包含intent,icon,componetName,makelaunchIntent(方法)
+LauncherAppWidgetInfo 代表widget实例
+	主要包含appwidgetId，hostview，ComponentName providername
+	appwidgetId = WidgetHost.allocateAppWidgetID()
+	绑定：AppWidgetManager.bindAppWidgetIdifAllowed(id,providerinfo{下面},options)
+pendingAddItemInfo-->pendingAddWidgetInfo
+	前者只是包含componetName的iteminfo，标志用于传递信息的info
+	后者包含previewImage,icon,providerinfo{下面},hostview,Bundle bindoptions
+	LauncherModel.getProviderinfo(contex,name,user)获取
+AppWidgetProviderInfo-->LauncherAppWidgetProviderInfo{providerinfo}
+	后者是前者的简单包装，代表widget类别
+	后者LauncherModel.getWidgetProviders(contex,user)获取
+ResolveInfo 通过PM.queryIntentActivities查询得到在mannifest中采集的信息
+
+第16节 IntentService
+Thread拥有Looper，Looper对象持有一个消息队列MessageQueue.
+Handler仅是拥有引用，会在子线程中执行HandleMessage
+IntentService ServiceHandler(onHandleIntent) HandlerThread
+
+Looper对象获得消息后用其传入的target执行了dispatchMessage(调用handleMessage)
+HandlerThread:在getLooper如果为空就wait--在run中赋值唤醒;
+			  退出时looper-->MessageQueue.quit发现消息不为空就唤醒
+ServiceHandler：IntentService的内部类，在handleMessage中调用onHandleIntent并stopself
+
+消息的处理首先时msg本身回调，
+没有时执行mCallback的handleMessage，
+为false时才执行子类实现的handleMessage
+
+
+第二章 自定义View
+第1节 重绘
+处于GONE的view不会引起页面的重绘
+postInvalidate() 方法在非 UI 线程中调用，通知 UI 线程重绘。invalidate() 方法在 UI 线程中调用，重绘当前 UI。
+调用invalidate方法只会执行onDraw方法；
+调用requestLayout方法只会执行onMeasure方法和onLayout方法，并不会执行onDraw方法。
+measure()会回调onMeasure()给mMeasuredWidth赋值{setMeasuredDimension}父类指定的可以直接设置，在MeasureChild前可以设置child.setPadding()
+第2节 获得 LayoutInflater 实例的三种方式
+1. LayoutInflater inflater = getLayoutInflater();//调用Activity的getLayoutInflater() 
+2. LayoutInflater inflater = LayoutInflater.from(context);  
+3. LayoutInflater inflater =  (LayoutInflater)context.getSystemService (Context.LAYOUT_INFLATER_SERVICE);
+平时ListView加载item中，adapter的getView方法中，我们经常用到：
+LayoutInflater.from(mContext).inflate(R.layout.it,parent,false);
+其中LayoutInflater的Inflate的三个参数意思为：(布局文件，父类布局，是否加载在父类上(可省略))
+第3节 canvas和Path绘图
+//DIFFERENCE是第一次不同于第二次的部分显示出来
+//REPLACE是显示第二次的
+//REVERSE_DIFFERENCE 是第二次不同于第一次的部分显示
+//INTERSECT交集显示
+//UNION全部显示
+//XOR补集 就是全集的减去交集剩余部分显示
+
+Path 不是立即操作
+moveTo影响的是后面操作的起点位置，不会影响之前的操作；而 setLastPoint改变前一步操作最后一个点的位置，不仅影响前一步操作，同时也会影响后一步操作！
+
+每次调用canvas.drawXXXX系列函数来绘图进，都会产生一个全新的透明的Canvas画布。
+save/restore 均是栈操作
+saveLayer会创建一个全新透明的bitmap，大小与指定保存的区域一致，其后的绘图操作都放在这个bitmap上进行。在绘制结束后，会直接盖在上一层的Bitmap上显示。只有当调用restore()、resoreToCount()函数以后，才会返回到原始画布上绘制。 
+
+quadTo、cubicTo分别是二阶和三阶贝塞尔曲线
+
+第4节 动画相关
+alpha-scale-rotate-translate-set
+valueAnimator -- >objectAnimator
+AnimatorUpdateListener   AnimatorListener
+						 AnimatorListenerAdapter
+animate() || getAnimatedValue()
+
+						 anim.addListener(new AnimatorListenerAdapter() 
+anim.addListener(new Animator.AnimatorListener()
+valueAnimator.addUpdateListener(new AnimatorUpdateListener()
+
+animator.getAnimatedValue();
+
+ObjectAnimator.ofFloat(mButton, "alpha", 1f, 0f, 1f);
+手动设置对象类属性的 set()&get() 扩展
+
+AnimatorSet play|after|before|with
+
+ViewPropertyAnimator  直接btnShow.animate().setDuration(2000).translationX(300).rotation(360).start();
+
+
+第5节 获取屏幕密度值和宽高值
+onsizechange会传入计算后的宽高值，自定义view传入xml设置值
+
+final float scale = context.getResources().getDisplayMetrics().density; 单位是sp
+DisplayMetrics().widthPixels  DisplayMetrics().heightPixels
+
+第6节 事件传递：
+1.AC是底板，GP包含view，AC和View默认拦截
+2.寻找newTarget，找到后判断：
+oldTarget!=null && oldTarget!=newTarget {
+	传递cancel直到oldTarget
+	传递event给AC
+}
+oldTarget = newTarget
+3.GP若是oldTarget，直接执行Touch，不访问拦截
+第7节 坐标
+MotionEvent提供getX/getY、getRawX/getRawY 前者是相对父控件坐标，后者相对手机屏幕
+view.getLocationInWindow(location); //获取在当前窗口内的绝对坐标，getLeft , getTop, getBottom, getRight,  这一组是获取相对在它父窗口里的坐标。
+view.getLocationOnScreen(location);//获取在整个屏幕内的绝对坐标，注意这个值是要从屏幕顶端算起，也就是包括了通知栏的高度。
+TouchSlop 滑动的最小距离  ViewConfiguration.get(getContext()).getScaledTouchSlop()
+
+第三章 Android问题分析和优化
+
+动画要cancel，没有GONE还是可以点击
+1.crash （崩溃）
+关键字：FATAL EXCEPTION   -----java代码 
+                   fault 进程pid及线程tid号  backtrace及stack信息
+2.anr（无响应）
+data/anr/traces.txt
+data/system/dropbox
+
+CPUusage ago/later  Sending signal. PID: 21404 SIG: 3
+如果CPU使用量接近100%，说明当前设备很忙，有可能是CPU饥饿导致了ANR(大量计算)
+如果CPU使用量很少，说明主线程被BLOCK：关注NATIVE网络等待
+如果CPU低且IOwait很高，可能是主线程在进行I/O操作造成的：关注wait中数据库操作
+user100% ：关注VMWAIT中内存相关VMRuntime.trackExternalAllocation内存不足
+
+ThreadState  sysTid=6472
+THREAD_WAIT = 4, /* 无参数的wait */  
+THREAD_MONITOR = 3, /* 阻塞，等待获取对象锁 */
+THREAD_NATIVE = 7, /* 在执行JNI本地函数 */
+THREAD_VMWAIT = 8, /* 等待VM资源*/
+
+1. 数据库操作I/O被阻塞
+iowait、ContentResolver.query、onPostExecute
+2. 在UI线程进行网络数据的读写
+3. 内存不足导致block在创建bitmap上
+at dalvik.system.VMRuntime.trackExternalAllocation(NativeMethod)
+at android.graphics.Bitmap.createBitmap(Bitmap.java:468)
+4.HandleMessage回调函数执行超过10秒，BroadcasterReciver里的onRecive（）方法处理超过10秒
+5.等待获取对象锁(多是同步sync导致waiting to lock)
+6.service binder的数量达到上限
+
+4.闪屏
+Log: activityManager: Process com.android.settings (pid 7413) has died ----关闭
+Log:ActivityManager: Start proc 8372:com.android.settings/1000 for activity
+5.界面多次跳转
+搜索关键字：start u
+6.Forse close
+Kernellog ：关键字lowmemorykiller  低内存时关闭进程
+Eventslog ：am_finish_activity  结束activity
+7.权限拒绝
+ java.lang.SecurityException: Permission Denial
+8.内存泄露
+单例或静态变量持有contex应使用applicationContext
+非静态内部类创建静态对象：非静态内部类和匿名类内部类都会潜在持有它们所属的外部类的引用，但是静态内部类却不会。内部类不可生成静态对象，匿名类(AsyncTask，handler，runable)益封装为静态类
+BraodcastReceiver，ContentObserver，File，Cursor，Stream，Bitmap等资源，应该在Activity销毁时及时关闭或者注销，Timer Timertask需要cancel，cancel掉属性动画
+使用ListView在构造Adapter时，使用缓存的convertView。
+集合容器（比如ArrayList）在退出程序之前，将集合里的东西clear，然后置为null，再退出程序。
+不使用WebView对象时，应该先从父控件中移除，再调用它的destory()函数来销毁它
+
+第四章 adb命令
+获取当前activity
+Linux:adb shell dumpsys activity | grep "mFocusedActivity"
+windows:adb shell dumpsys activity | findstr "mFocusedActivity"
+启动Activity：
+adb shell am start -n 包名/包名＋类名（-n 类名,-a action,-d date,-m MIME-TYPE,-c category,-e 扩展数据,等）。
+adb shell am start -n com.Android.settings/com.android.settings.ChooseLockGeneric --ez confirm_credentials false --ei lockscreen.password_type 0 --activity-clear-task
+log过滤
+adb logcat |grep -E "Bluetooth|BtOpp"(log多筛选)
+Adb logcat –s XXX
+adb logcat -s *:E > a.log  将所有elog写入
+获取手机属性
+adb shell getprop ro.cda.skuid.id_final 获取当前SKUID
+adb shell getprop >a.prof  导出手机系统属性值
+REQ:导出wifi账号密码|锁屏密码 
+adb shell cat /data/misc/wifi/wpa_supplicant.conf
+adb shell ls data/system/gatekeeper.pattern.key
+
+第1节 dumpsys命令 dumpsys activity XXXs
+intents 待处理的intent(PendingIntentRecord)
+broadcasts all注册的broadcasts
+providers ContentProviderRecord
+activities, Stack-->task{TaskRecord}-->Activity{ActivityRecord}
+第1节 pm命令
+pm clear <packagename> 清除应用数据
+pm path <package>: 打印给定包名的apk路径
+
+第五章 Ubuntu使用
+gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize' 双击最小化
+终端内多个标签   shift+ctrl+T
+搜索：grep -nr  Xx  搜索内容.
+find -name "*" |xargs grep "BluetoothManagerService"
+Croot 直接到编译根目录
+calibre 可以做epub文件的软件
+meld  比较软件
+
+第1节 linux命令
+pwd
+cd ls ll 
+mkdir rmdir
+touch cp mv rm cat chmod
+tar {-a,-x}压缩与解压
+man
+echo 
+et/profile 环境变量 home/XXX/.bashrc 开机启动 source XX快速生效
+ln -s 原路径 快捷方式路径
+$XXX 代表变量内容 $n 表示第n个参数 $0是脚本名
+
+第六章 git命令
+只有三种状态：已提交（committed），已修改（modified）和已暂存（staged）。
+
+git diff (--staged)不加参数表示staged提交后的修改，加参数表示staged的修改
+
+改名或移动位置
+git mv file_from file_to 
+
+查看提交历史
+git log –p -2常用 -p 选项展开显示每次提交的内容差异，用 -2 则仅显示最近的两次更新
+图形化工具 gitk
+
+Git 命令别名
+$ git config --global alias.co checkout
+
+跟踪分支
+git checkout -b [分支名] [远程名]/[分支名]。如果你有 1.6.2 以上版本的 Git，还可以用 --track 选项简化：
+$ git checkout --track origin/serverfix
+
+强制覆盖下载
+git fetch --all
+git reset --hard origin/master
+
+回退：
+git log 
+git reset --hard fc1cf2a323642e16579e4eb681c5f98ac443a58f
+
+第1节 stash
+git stash (save 名字) 暂存修改
+git stash pop|apply 前者恢复并删除最后一个staged,后者恢复所有但不删除(可指定名字只恢复一个)
+git stash (drop 名字|clear)删除staged
+git stash list
+git stash show 名字 (-p) 显示差别，加参数显示详情
+git stash branch testchanges 创建branch并恢复所有
+
+第2节 git配置：
+git config --global user.name p_jlonliang
+git config --global user.email p_jlonliang@tencent.com
+
+ssh-keygen
+cat ~/.ssh/id_rsa.pub
+
+第3节 add中移除文件
+git rm (--cached) readme.txt 默认删除文件，加参数后仅是不再track
+git reset HEAD benchmarks.rb 将add状态取消
+
+第4节 提交更新
+git commit -m "Story 182: Fix benchmarks for speed"
+git commit -a -m 'added new benchmarks'跳过使用暂存区域，所有tracked的修改
+git commit --amend 修改最后一次提交
+
+第5节 分支(合并--衍合到)
+git checkout master    切换分支
+git merge hotfix       master合并hotfit
+git branch -d hotfix   删除分支，大写的D强制删除，即使是未merged的branch
+
+第6节 衍合基础
+将变化补丁重新其他分支打一遍。在 Git 里，这种操作叫做衍合（rebase）
+注: git checkout experiment
+git rebase master 衍合到master
+git rebase master server 后者可默认为当前所在branch
+
+git rebase --onto master server client
+使用 git rebase 的 --onto 选项来截取部分修改到master
+
+第7节 冲突的合并
+删除 <<<<<<<，=======，和>>>>>>> 这些行。运行 git add 将把它们标记为已解决（resolved）。然后commit
+图形界面：git mergetool
+
+第8节 推送
+git push origin serverfix 推送到默认分支
+git push origin serverfix:awesomebranch 推送并新建分支awesomebranch在服务器
+git push [远程仓库名] [本地分支]:[远程分支] 
+如果省略 [本地分支]，那就等于是在说“在这里提取空白然后把它变成[远程分支]”，删除远程分支。
+
+第9节 .ignore文件
+# 此为注释 – 将被 Git 忽略
+*.a # 忽略所有 .a 结尾的文件
+!lib.a # 但 lib.a 除外
+/TODO # 仅仅忽略项目根目录下的 TODO 文件，不包括 subdir/TODO
+build/ # 忽略 build/ 目录下的所有文件
+doc/*.txt # 会忽略 doc/notes.txt 但不包括 doc/server/arch.txt
+
+第10节 patch
+生成patch的命令
+git diff  > patch//本地变更  git diff 的内容，生成patch文件
+git diff  branchname --cached > patch //branch 之间差分生成patch文件
+使用patch
+git apply patch //将patch文件内容差分到本地
+测试是否可以将patch完美打入本地src
+git apply --check patch
+
+第七章 速记单元
+进程和线程的区别(先进递增)
+多进程，可以提高我们APP占用的最高内存。
+
+快捷键
+Win+L 锁屏，Win+E 显示资源管理器，Win+D 显示桌面(led灯)
+Eclipse:a2插入上下,c5 hedo删注释,as爱是如此pm,acl格式化
+第1节 优秀思维
+目利他迭忙整合运(牡蛎跌盲证喝晕)
+第2节 UML关系(实现，泛化，依赖，关联，聚合，组合)
+是翻译官剧组：△虚实线，局参静方虚箭头，实箭有个数，菱形实箭总分现，组合不共享
+第4节 编程感悟
+添加之前先清空，使用之前先判有(null或size)，先框架后逻辑，布局参数XMl化，选大取小用Math
+第5节 人性的弱点
+对事：中立思考，预测最坏并改善
+对己：有序，劳身，享得；拒辩，谈己，认错(徐老的辩己错)
+对人：听，迎，夸，恕，笑
+重要性，名字，服务意识，虚心请教，高尚动机和取胜欲望
+
+第八章 系统bug及需求
+
+REQ：保持屏幕不暗不锁
+getWindow().setFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON, WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
+REQ：查看手机imei
+*#06# 手机imei
+
+BUG：点击dialog外会自动结束
+processDialog有一个属性  setCanceledOnTouchOutside(false)
+
+BUG:弹出的对话框背景会多一条线
+requestWindowFeature(Window.FEATURE_NO_TITLE); //added 
+BUG：Notification位置固定
+notificationSleep.priority
+
+BUG：打开应用是白屏/黑屏很久
+使用releasre版本软件可以避免Android Studio中新加入的Instant Run功能对debug版本的影响
+
+BUG：发布应用对未翻译报错
+<resources xmlns:tools="http://schemas.android.com/tools"  xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2"  tools:ignore="MissingTranslation">
+
+FAR：全屏任意位置滑动语言选择控件
+在Activity中dispatch事件dispatchTouchEvent传递给相应控件处理
+
+BUG：导航栏或状态栏白色看不清内容
+getWindow().getDecorView().setSystemUiVisibility( getWindow().getDecorView().getSystemUiVisibility() | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+getWindow().getDecorView().setSystemUiVisibility( mActivity.getWindow().getDecorView().getSystemUiVisibility() | LOGHT_NAVIGATIN_BAR);
+onWindowFocusChanged  中添加
+状态栏及导航透明度为100%，需要使用合成色
+
+REQ：全屏并隐藏虚拟导航按键
+Window window = getWindow();
+WindowManager.LayoutParams params = window.getAttributes();
+params.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN|View.SYSTEM_UI_FLAG_HIDE_NAVIGATION|View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
+window.setAttributes(params);
+
+REQ：将user修改为userdebug版本
+fastboot flash boot boot.img
+fastboot erase  userdata
+
+REQ：安卓手机取消虚拟按键
+system下build.prop
+qemu.hw.mainkeys=1
+
+BUG：HorizontalScrollView存在多余的导航条
+android:scrollbars="none"
+
+
+
+第九章 英语单词
+function/fiction/firction  功能函数--小说虚构---不和抵触
+cave/pave/care/carve 山洞洞穴--铺路--关心--切，雕刻
+assess/process/possess  进行评估评价--过程程序--占有，拥有
+interest/internet/internal  兴趣利息--互联网--内部的
+pursuit/biscuit/circuit/circus  追求--饼干--电路--马戏团
+
+tinct/distinct   色彩---明显清楚的 不寻常的
+I perfer quality to quantily 
+tailor/tail  裁缝(v/n)---尾巴
+soccer/saucer/sauce   足球---茶托碟子---酱汁，调味料
+lunch/bunch/punch/branch/brunch/brand 午餐--群，束--猛击穿孔---树枝分支---早午饭---品牌，商标
+static/statistic  静态不变的---统计学，统计资料/值
+tigar/cigar  老虎--雪茄烟
+infect/inspect/affect/effect/insect/impact   传染---检查---感动假装---影响实现，个人财务(pl)---昆虫---影响碰撞
+count/county/country    计算--郡县---国家乡村
+free/fee/flee/fleet  解放---费用---逃走--舰队
+faculty/faulty  天赋，学院，全体教员---次品
+
+property/properly/proportion  特性财产---适当地; 正确地---比例平衡使成比例
+peasant/pleasant  农民(豌豆蚂蚁)---舒适的，令人愉悦的
+brood/blood  沉思孵蛋，一窝---血，血统家族
+row/frown/crown  排，划船---皱眉---王冠
+sense/sensible   感官识别力---明智的
+
+diagram/graph  简图--图解
+bank/blank/blanket/black  银行---空白的茫然的---毛毯毯子---黑人的，黑色
+ail/mail/sail/pail/tail/rail  生病苦恼境况不佳---邮政---航行驾船---桶，一桶的量---尾巴，盯...梢---轨道
+amaze/amuse  使惊讶，惊颚---逗乐，给...提供娱乐
+aid/raid/maid/amid  救援助手---突然袭击，劫掠---女仆，少女---在...中间
+tap/top/cap/tip  水龙头，轻叩--顶，上部---帽，遮罩，覆盖胜过---小费，忠告，倒下
+vain/rain/gain/rein 徒劳的--下雨--收益得到，增加---缰绳，勒缰绳使停步
+curious/serious/precious /previous  好奇的--严重的--珍贵的---之前的
+cate/cake    佳肴---蛋糕
+ski/skin  滑雪(板)，皮肤
+rota/rotary   值班表---旋转的，转动的
+hat/hate  帽子，帽子代表的职位---憎恨不喜欢，厌恶
+venture/adventure 风险投资，企业，冒险---冒险精神，冒险活动
+table/tablet 桌子表格---药片，竹木简
+stock/stick/block  库存，股票---棍，粘住，留下(stuck过去式)--大楼，街区，障碍物
+freeway/freeze/freely    高速公路--使冻结，冰冻期--自由的，慷慨的
+rag/rage/range 破布---发怒---一系列
+
+sweet/sweat 甜的---出汗，汗水
+fate/fade/fare 命运---褪色---票价，进展
+stead/steadily  代替好处对..,有用---坚定地，不断地，稳定的
+invite/invade    邀请---侵略
+rail/rain 栏杆，铁路，咒骂---下雨，雨
+slit/split  切开，裂缝---分裂分担
+sight/slight/night/tight/fight  眼界，名胜---纤细的，轻视蔑视---晚上---紧身的--战斗---
+constitute/contribute  组成建立---捐款贡献
+reside、inhabit  驻扎，居住
+Descendent/descend/ancestor后裔---下来(from)起源(to)沦为--祖先，原型
+
+steadily/ stitch /ditch/strategy (斯特的泪)坚定地，稳定的---缝，绣，一针(司太奇)---沟，渠----策略，战略
+concern 担心，使担心
+precious/previous 珍贵的--先前的
+spill/skill/spoil/spell  使溢出，溢出---技巧手艺---损坏，溺爱，战利品---拼写，咒语，魅力
+flat---flag---fat  平的，统一的，公寓套房---旗帜---胖的
+dispute/disputy   争端，争吵--副手，代理人（家疲累）
+
+fashion/cushion 时尚--垫子
+cell/celler/seller  细胞，小房间/地窖，地下室/销售者
+thread/dread 线，将线穿过---恐惧，畏惧
+gradual/graduate  逐渐的---毕业生
+tight/right 紧身的，牢固的--对的，右，权利
+extend/intend/tend/extent 延伸给予，到达-- 打算做--趋向，照管---程度，范围
+deception/dictation/detection 骗局--口授--觉察，侦查
+soul/soup/sour/sold 灵魂--汤---酸的，馊的---卖的   （plr 评论人）
+bough/cough 树枝--咳舒
+
+suspend/spend/suspect/sudden  暂停中止--用钱，花时间，度过--推测怀疑，嫌疑犯，可疑的--突然地，意外的
+constitution/institution/stitution/stituation  宪法体质--社会公共机构，习俗，制度--制度--个人情况，局面，处境
+bear/ear/earn/pear/hear/near/era 熊--耳朵--挣得--梨树--听到，听证，听说--在附近，靠近，亲近的--时代，纪元
+camp/campaign/  野营地，工地宿舍，阵营--运动，战役
+stoop/loop/stool/shoot/shop/stop --弯腰，(to)堕落到，降低身份做--环，回路--凳子--射击，投篮，拍摄，苗--商店，工厂车间，购物--停止
+paw/law/raw/saw/jaw  爪，用爪子抓--法律规律--原始的生的--锯，锯东西--颌，颚
+drop/drip/crop 使下降，滴--滴，滴水声，滴下的液体--作物，收成，修剪
+sale/scale/salt/seal/pale/salty/sole/solo/solor  卖--刻度比例，攀登--盐，腌--封条，海豹，密封--苍白的--咸的--唯一的--独奏--日光的
+pant/pan/ant/pint/pants/plant/want  喘息，气喘吁吁的--平底锅--蚂蚁--品脱--长裤，内裤--植物，工厂，间谍，种植--想要，不足
+rubber/robber/robot   橡胶，橡胶的--海盗，海贼
+loaf/load/leaf 一条面包，游荡闲逛--负荷，使装载--叶子，张，页
+silk/milk/mill 丝绸--牛奶，挤奶--磨坊工厂，研磨
+less/bless/brass 少的--使有幸得到(with),祝福--黄铜，厚脸皮
+tension/extension/pension/mention  状态拉力--扩大分机--养老金，发养老金--提及说起
+bitter/batter/better 哭的--连续猛击，击球员--较好的
+electric/elastic/plastic 电动的--电的--橡皮圈，有弹性的--塑料制品，信用卡，塑料的
+twelfth(拖要付century 陕西瑞 --世纪)  第十二。十二分之一
+fence/defence(defense)栅栏(粉丝)，击剑--(in)防御工事，辩护
+lighten/brighten/enlighten/frighten  减轻点亮--使明亮愉快--启发启蒙--使恐惧
+deserve/preserve/reserve 应得，值得--保存维持，保护区--保留预定，自然保护区
+sweet/sweat/seeep 甜的--出汗，汗水--扫，打扫
+hasty /haste/nasty/tasty 草率的/急忙(n)/令人讨厌的/味道好的
+plan plane 计划加e平坦的，飞机
+progress process 进步进展 -- 步骤，处理
+abstract subtract  抽象，提取--减去
+curl curb cure 卷发弄卷--制止--治愈治疗
+pilot  plot  故事情节i飞行员驾驶
+shift gift shirt  转移礼物衬衫
+launch  lunch  bunch 午餐加a就发射 束，使成一束，群等
+towel--tower 毛巾，用毛巾檫--塔，要害
+convince--province  使信服，使信任--省 领域
+explo--explosive--explorer  爆炸--爆炸的突增的，炸药--探险家探测器
+semester 学期（义子消毒）
+whisky/risky 威士忌酒--危险的，有伤风化的
+fever/never/lever/favo(u)r 发烧，一时的狂热--从不，绝不--工具，途径，撬动sth--好感，赞同sth
+repent/repeat/recent  后悔--重复说做--最近的
+sole/pole/hole/role  唯一的，脚底--杆，电极--洞，漏洞，窘境--角色，作用
+reward/award/toward/ward/inward 报答，奖赏--授予，奖金--朝，接近--病房行政区，挡住--内心的里面的
+drain/brain/grain/train/pain/plain  排水，排水沟--脑，智慧--谷物，少量--火车，一系列--痛苦，使心痛--清晰地，平原
+torture  （脱却）折磨，拷问
+ratio（瑞秀）比率----radio(收音机，无线电传送)----generate（产生能量，导致）
+illustrate（以类似崔忒）说明，给...做插图说明
+compensation（康喷谁信）补偿，赔偿(一支笔的车站)
+occupation（阿Q培新）工作职业消遣(occ向上的增加辐射)
+dictation（迪克忒心）口授听写（字典增加辐射）
+superb（苏坡博）极好的，高质量的（极好的b）--superme（最重要的）--suburb（萨贝尔）郊区（U-R-b的一部分）
+comply(顺从; 应允) --complicate（使复杂难懂恶化）--compliment（称赞恭维）
+passenger/messenger  乘客/送信人
+resident（居民，住院的）--president(总统校长董事长)
+collide（两个ide一致）碰撞，冲突
+race（瑞士）赛跑，竞争，参赛，使疾跑（face/rice面对稻谷米饭）
+cripple（哭到苹果没有a）跛子，使跛，严重剥削
+territory（忒瑞特瑞）领土版图（保守党的毛巾）
+boast(of/about)--coast--roast--toast--boat--boot--boost（自夸/海岸/烤/吐司/船/启动解雇/推动提高）
+consistent -- continent （一致的/大陆，洲）
+tune/tone/tunnel/june 曲调，语气，隧道，六月
+interpret/intergrate/enterprise/interrupt口译，使合并，事业心，打扰
+dam/dim/jam/ham/dad 堤坝--昏暗的--果酱塞进--火腿--爸爸
+component/opponent 部件成分--对手
+gloomy--bloom 忧郁的--开花，开花期
+shield/field/yield 护罩，保护--田地视野--屈服产生让出产量
+convention/convenient/conversion  （肯温馨）习俗大会--近便的省力的（肯为你丫的）-转变信仰
+hare/care/fare/rare/dare/here 野兔--关心--票价--珍奇的--敢--在这里
+
+earnest 认真的真挚的(耳朵的鸟窝)
+stable/stale 稳定的/不新鲜的
+cure/recure/recurisive 治愈/痊愈/递归的
+loyal--royal 忠诚的--王室的
+well/swell/flatten 好的/肿/打扁打倒
+special/specify  特殊的，专门的---明确说明，具体指定
+drag--drug  拖--毒品，使服用麻醉药
+shame/same/scheme 羞耻使丢脸--相同的--计划阴谋（死尅么）
+inhabit--inherit 居住于--继承
+block、clock 大楼时钟
+prescribe--describe（开药--描写形容画出）
+abandon---abundant抛弃/大量的(啊板凳特)
+character 性格，人物，字符(字符扮演者)
+money（钱）----monetary（嘛呢特瑞）金融的，货币的
+reveal（瑞未有）揭露，泄露----reverse（瑞我是）使翻转，倒退
+store/storey/story  商店/楼层/故事，报道，楼层
+aspect--perspective   方面---观点视角
+
+choreography 编舞者
+queue/enqueue/dequeue 队列/入队/出列
+parse 从语法上描述或分析（词句等）
+exector 执行者实现者
+trigger 触发,触发器(vt,n)
+compat 兼容性(n)
+thumbnail 拇指甲 缩略图
+author/authority 创造者/权威当权者
+annotation 注释(n)
+retention 保留,记忆力(n)
+decor 装饰，布景(n)
+

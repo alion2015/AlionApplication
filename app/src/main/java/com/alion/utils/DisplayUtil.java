@@ -4,6 +4,7 @@ import android.content.Context;
 
 /**
  * dp、sp转换为px的工具类
+ * ldpi:mdpi:hdpi:xhdpi:xxhdpi=3:4:6:8:12
  */
 public class DisplayUtil {
 

@@ -9,14 +9,19 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.RectF;
 import android.graphics.Region;
+import android.os.Build;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v7.graphics.Palette;
 import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.Window;
 import android.widget.Toast;
+
+import com.alion.utils.LogUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -105,7 +110,7 @@ public class FoldView extends View {
 
         // 实例化滑动Handler处理器
         mSlideHandler = new SlideHandler();
-        delayMillis = 10;
+        delayMillis = 0;
     }
 
     @Override
@@ -209,114 +214,114 @@ public class FoldView extends View {
             canvas.drawBitmap(mBitmaps.get(mBitmaps.size() - 1), 0, 0, null);
             return;
         }
+        if(isSlide) {
+            /*
+             * 判断触摸点是否在短边的有效区域内
+             */
+            if (!mRegionShortSize.contains((int) mPointX, (int) mPointY)) {
+                // 如果不在则通过x坐标强行重算y坐标
+                mPointY = (float) (Math.sqrt((Math.pow(mViewWidth, 2) - Math.pow(mPointX, 2))) - mViewHeight);
 
-        /*
-         * 判断触摸点是否在短边的有效区域内
-         */
-        if (!mRegionShortSize.contains((int) mPointX, (int) mPointY)){
-            // 如果不在则通过x坐标强行重算y坐标
-            mPointY = (float) (Math.sqrt((Math.pow(mViewWidth, 2) - Math.pow(mPointX, 2))) - mViewHeight);
+                // 精度附加值避免精度损失
+                mPointY = Math.abs(mPointY) + mValueAdded;
+            }
 
-            // 精度附加值避免精度损失
-            mPointY = Math.abs(mPointY) + mValueAdded;
+            /*
+             * 缓冲区域判断
+             */
+            float area = mViewHeight - mBuffArea;
+            if (!isSlide && mPointY >= area) {
+                mPointY = area;
+            }
+
+            /*
+             * 额，这个该怎么注释好呢……根据图来
+             */
+            float mK = mViewWidth - mPointX;
+            float mL = mViewHeight - mPointY;
+
+            // 需要重复使用的参数存值避免重复计算
+            float temp = (float) (Math.pow(mL, 2) + Math.pow(mK, 2));
+
+            /*
+             * 计算短边长边长度
+             */
+            float sizeShort = temp / (2F * mK);
+            float sizeLong = temp / (2F * mL);
+
+            /*
+             * 根据长短边边长计算旋转角度并确定mRatio的值
+             */
+            if (sizeShort < sizeLong) {
+                mRatio = Ratio.SHORT;
+                float sin = (mK - sizeShort) / sizeShort;
+                mDegrees = (float) (Math.asin(sin) / Math.PI * 180);
+            } else {
+                mRatio = Ratio.LONG;
+                float cos = mK / sizeLong;
+                mDegrees = (float) (Math.acos(cos) / Math.PI * 180);
+            }
+
+            // 移动路径起点至触摸点
+            mPath.moveTo(mPointX, mPointY);
+            mPathFoldAndNext.moveTo(mPointX, mPointY);
+
+            if (sizeLong > mViewHeight) {
+                // 计算……额……按图来AN边~
+                float an = sizeLong - mViewHeight;
+
+                // 三角形AMN的MN边
+                float largerTrianShortSize = an / (sizeLong - (mViewHeight - mPointY)) * (mViewWidth - mPointX);
+
+                // 三角形AQN的QN边
+                float smallTrianShortSize = an / sizeLong * sizeShort;
+
+                /*
+                 * 计算参数
+                 */
+                float topX1 = mViewWidth - largerTrianShortSize;
+                float topX2 = mViewWidth - smallTrianShortSize;
+                float btmX2 = mViewWidth - sizeShort;
+
+                /*
+                 * 生成四边形路径
+                 */
+                mPath.lineTo(topX1, 0);
+                mPath.lineTo(topX2, 0);
+                mPath.lineTo(btmX2, mViewHeight);
+                mPath.close();
+
+                /*
+                 * 生成包含折叠和下一页的路径
+                 */
+                mPathFoldAndNext.lineTo(topX1, 0);
+                mPathFoldAndNext.lineTo(mViewWidth, 0);
+                mPathFoldAndNext.lineTo(mViewWidth, mViewHeight);
+                mPathFoldAndNext.lineTo(btmX2, mViewHeight);
+                mPathFoldAndNext.close();
+            } else {
+                /*
+                 * 计算参数
+                 */
+                float leftY = mViewHeight - sizeLong;
+                float btmX = mViewWidth - sizeShort;
+
+                /*
+                 * 生成三角形路径
+                 */
+                mPath.lineTo(mViewWidth, leftY);
+                mPath.lineTo(btmX, mViewHeight);
+                mPath.close();
+
+                /*
+                 * 生成包含折叠和下一页的路径
+                 */
+                mPathFoldAndNext.lineTo(mViewWidth, leftY);
+                mPathFoldAndNext.lineTo(mViewWidth, mViewHeight);
+                mPathFoldAndNext.lineTo(btmX, mViewHeight);
+                mPathFoldAndNext.close();
+            }
         }
-
-        /*
-         * 缓冲区域判断
-         */
-        float area = mViewHeight - mBuffArea;
-        if (!isSlide && mPointY >= area) {
-            mPointY = area;
-        }
-
-        /*
-         * 额，这个该怎么注释好呢……根据图来
-         */
-        float mK = mViewWidth - mPointX;
-        float mL = mViewHeight - mPointY;
-
-        // 需要重复使用的参数存值避免重复计算
-        float temp = (float) (Math.pow(mL, 2) + Math.pow(mK, 2));
-
-        /*
-         * 计算短边长边长度
-         */
-        float sizeShort = temp / (2F * mK);
-        float sizeLong = temp / (2F * mL);
-
-        /*
-         * 根据长短边边长计算旋转角度并确定mRatio的值
-         */
-        if (sizeShort < sizeLong) {
-            mRatio = Ratio.SHORT;
-            float sin = (mK - sizeShort) / sizeShort;
-            mDegrees = (float) (Math.asin(sin) / Math.PI * 180);
-        } else {
-            mRatio = Ratio.LONG;
-            float cos = mK / sizeLong;
-            mDegrees = (float) (Math.acos(cos) / Math.PI * 180);
-        }
-
-        // 移动路径起点至触摸点
-        mPath.moveTo(mPointX, mPointY);
-        mPathFoldAndNext.moveTo(mPointX, mPointY);
-
-        if (sizeLong > mViewHeight) {
-            // 计算……额……按图来AN边~
-            float an = sizeLong - mViewHeight;
-
-            // 三角形AMN的MN边
-            float largerTrianShortSize = an / (sizeLong - (mViewHeight - mPointY)) * (mViewWidth - mPointX);
-
-            // 三角形AQN的QN边
-            float smallTrianShortSize = an / sizeLong * sizeShort;
-
-            /*
-             * 计算参数
-             */
-            float topX1 = mViewWidth - largerTrianShortSize;
-            float topX2 = mViewWidth - smallTrianShortSize;
-            float btmX2 = mViewWidth - sizeShort;
-
-            /*
-             * 生成四边形路径
-             */
-            mPath.lineTo(topX1, 0);
-            mPath.lineTo(topX2, 0);
-            mPath.lineTo(btmX2, mViewHeight);
-            mPath.close();
-
-            /*
-             * 生成包含折叠和下一页的路径
-             */
-            mPathFoldAndNext.lineTo(topX1, 0);
-            mPathFoldAndNext.lineTo(mViewWidth, 0);
-            mPathFoldAndNext.lineTo(mViewWidth, mViewHeight);
-            mPathFoldAndNext.lineTo(btmX2, mViewHeight);
-            mPathFoldAndNext.close();
-        } else {
-            /*
-             * 计算参数
-             */
-            float leftY = mViewHeight - sizeLong;
-            float btmX = mViewWidth - sizeShort;
-
-            /*
-             * 生成三角形路径
-             */
-            mPath.lineTo(mViewWidth, leftY);
-            mPath.lineTo(btmX, mViewHeight);
-            mPath.close();
-
-            /*
-             * 生成包含折叠和下一页的路径
-             */
-            mPathFoldAndNext.lineTo(mViewWidth, leftY);
-            mPathFoldAndNext.lineTo(mViewWidth, mViewHeight);
-            mPathFoldAndNext.lineTo(btmX, mViewHeight);
-            mPathFoldAndNext.close();
-        }
-
         drawBitmaps(canvas);
     }
 
@@ -337,7 +342,7 @@ public class FoldView extends View {
         // 计算数据起始位置
         int start = mBitmaps.size() - 2 - mPageIndex;
         int end = mBitmaps.size() - mPageIndex;
-
+        Log.d("alionlog", "drawBitmaps: start"+start+"end="+end);
         /*
          * 如果数据起点位置小于0则表示当前已经到了最后一张图片
          */
@@ -368,49 +373,110 @@ public class FoldView extends View {
         /*
          * 计算当前页的区域
          */
-        canvas.save();
-        canvas.clipPath(mRegionCurrent);
-        canvas.clipPath(mPathFoldAndNext, Region.Op.DIFFERENCE);
-        canvas.drawBitmap(mBitmaps.get(end - 1), 0, 0, null);
-        canvas.restore();
+        if(isSlide) {
+            canvas.save();
+            canvas.clipPath(mRegionCurrent);
+            canvas.clipPath(mPathFoldAndNext, Region.Op.DIFFERENCE);
+            canvas.drawBitmap(mBitmaps.get(end - 1), 0, 0, null);
+            canvas.restore();
 
-        /*
-         * 计算折叠页的区域
-         */
-        canvas.save();
-        canvas.clipPath(mPath);
+            /*
+             * 计算折叠页的区域
+             */
+            canvas.save();
+            canvas.clipPath(mPath);
 
-        canvas.translate(mPointX, mPointY);
+            canvas.translate(mPointX, mPointY);
 
-        /*
-         * 根据长短边标识计算折叠区域图像
-         */
-        if (mRatio == Ratio.SHORT) {
-            canvas.rotate(90 - mDegrees);
-            canvas.translate(0, -mViewHeight);
-            canvas.scale(-1, 1);
-            canvas.translate(-mViewWidth, 0);
-        } else {
-            canvas.rotate(-(90 - mDegrees));
-            canvas.translate(-mViewWidth, 0);
-            canvas.scale(1, -1);
-            canvas.translate(0, -mViewHeight);
+            /*
+             * 根据长短边标识计算折叠区域图像
+             */
+            if (mRatio == Ratio.SHORT) {
+                canvas.rotate(90 - mDegrees);
+                canvas.translate(0, -mViewHeight);
+                canvas.scale(-1, 1);
+                canvas.translate(-mViewWidth, 0);
+            } else {
+                canvas.rotate(-(90 - mDegrees));
+                canvas.translate(-mViewWidth, 0);
+                canvas.scale(1, -1);
+                canvas.translate(0, -mViewHeight);
+            }
+            Paint paint = new Paint();
+            paint.setAlpha(100);
+            canvas.drawBitmap(mBitmaps.get(end - 1), 0, 0, paint);
+            canvas.restore();
+
+            /*
+             * 计算下一页的区域
+             */
+            canvas.save();
+            canvas.clipPath(mPathFoldAndNext);
+            canvas.clipPath(mPath, Region.Op.DIFFERENCE);
+            canvas.drawBitmap(mBitmaps.get(start), 0, 0, null);
+            canvas.restore();
+            LogUtils.logTrace("alionstack", "drawBitmap");
+            if(mSlide == Slide.LEFT_BOTTOM){
+                setActionBarColor(start);
+            }else{
+                setActionBarColor(end-1);
+            }
+        }else{
+            canvas.drawBitmap(mBitmaps.get(end - 1), 0, 0, null);
         }
-        Paint paint = new Paint();
-        paint.setAlpha(100);
-        canvas.drawBitmap(mBitmaps.get(end - 1), 0, 0,paint);
-        canvas.restore();
-
-        /*
-         * 计算下一页的区域
-         */
-        canvas.save();
-        canvas.clipPath(mPathFoldAndNext);
-        canvas.clipPath(mPath, Region.Op.DIFFERENCE);
-        canvas.drawBitmap(mBitmaps.get(start), 0, 0, null);
-        canvas.restore();
     }
 
+    private void setActionBarColor(int start) {
+        Palette.from(mBitmaps.get(start)).generate(new Palette.PaletteAsyncListener() {
+            @Override
+            public void onGenerated(Palette palette) {
+                // 获取到柔和的深色的颜色（可传默认值）
+                int DarkMuted = palette.getDarkMutedColor(Color.BLUE);
+                // 获取到活跃的深色的颜色（可传默认值）
+                int DarkVibrant = palette.getDarkVibrantColor(Color.BLUE);
+                // 获取到柔和的明亮的颜色（可传默认值）
+                int LightMuted = palette.getLightMutedColor(Color.BLUE);
+                // 获取到活跃的明亮的颜色（可传默认值）
+                int LightVibrant = palette.getLightVibrantColor(Color.BLUE);
+                // 获取图片中最活跃的颜色（也可以说整个图片出现最多的颜色）（可传默认值）
+                int Vibrant = palette.getVibrantColor(Color.BLUE);
+                // 获取图片中一个最柔和的颜色（可传默认值）
+                int Muted = palette.getMutedColor(Color.BLUE);
+                Palette.Swatch vibrant = palette.getVibrantSwatch();
+                if (vibrant == null) {
+                    for (Palette.Swatch swatch : palette.getSwatches()) {
+                        vibrant = swatch;
+                        break;
+                    }
+                }
+                // 这样获取的颜色可以进行改变。
+                int rbg = vibrant.getRgb();
+
+                /*if (Build.VERSION.SDK_INT > 21) {
+                    Window window = mContext.getWindow();
+                    //状态栏改变颜色。
+                    int color = changeColor(rbg);
+                    window.setStatusBarColor(color);
+                }*/
+                onBitmapChanged.onChanged(rbg);
+            }
+        });
+    }
+
+    // 对获取到的RGB颜色进行修改。（涉及到位运算，我也不是很懂这块）
+    private int changeColor(int rgb) {
+        int red = rgb >> 16 & 0xFF;
+        int green = rgb >> 8 & 0xFF;
+        int blue = rgb & 0xFF;
+        red = (int) Math.floor(red * (1 - 0.2));
+        green = (int) Math.floor(green * (1 - 0.2));
+        blue = (int) Math.floor(blue * (1 - 0.2));
+        return Color.rgb(red, green, blue);
+    }
+    public interface OnBitmapChanged{
+            public void onChanged(int color);
+    }
+    public OnBitmapChanged onBitmapChanged ;
     /**
      * 默认显示
      *
@@ -458,22 +524,12 @@ public class FoldView extends View {
             return;
         }
 
-        /*
-         * 如果当前页不是最后一页
-         * 如果是需要翻下一页
-         * 并且上一页已被做掉
-         */
-        if (!isLastPage && isNextPage && (mPointX - mAutoSlideV_BL <= -mViewWidth)) {
-            mPointX = -mViewWidth;
-            mPointY = mViewHeight;
-            mPageIndex++;
-            invalidate();
-        }
+
 
         /*
          * 如果当前滑动标识为向右下滑动x坐标恒小于控件宽度
          */
-        else if (mSlide == Slide.RIGHT_BOTTOM && mPointX < mViewWidth) {
+        if (mSlide == Slide.RIGHT_BOTTOM && mPointX < mViewWidth) {
             // 则让x坐标自加
             mPointX += mAutoSlideV_BR;
 
@@ -495,7 +551,20 @@ public class FoldView extends View {
             mPointY = mStart_Y + ((mPointX - mStart_X) * (mViewHeight - mStart_Y)) / (-mViewWidth - mStart_X);
 
             // 让SlideHandler处理重绘
-            mSlideHandler.sleep(delayMillis);
+           mSlideHandler.sleep(delayMillis);
+        }
+        /*
+         * 如果当前页不是最后一页
+         * 如果是需要翻下一页
+         * 并且上一页已被做掉
+         */
+        else if (!isLastPage && isNextPage && (mPointX - mAutoSlideV_BL <= -mViewWidth)) {
+            mPointX = -mViewWidth;
+            mPointY = mViewHeight;
+            mPageIndex++;
+            Log.d("alionlog", "slide: mPageIndex"+mPageIndex);
+            isSlide = false;
+            invalidate();
         }
     }
 
@@ -519,6 +588,13 @@ public class FoldView extends View {
     public boolean onTouchEvent(MotionEvent event) {
         isNextPage = true;
 
+        /*// 限制pageIndex的值范围
+        mPageIndex = mPageIndex < 0 ? 0 : mPageIndex;
+        mPageIndex = mPageIndex > mBitmaps.size() ? mBitmaps.size() : mPageIndex;*/
+
+        /*int start = mBitmaps.size() - 2 - mPageIndex;
+        int end = mBitmaps.size() - mPageIndex;*/
+
         /*
          * 获取当前事件点
          */
@@ -537,6 +613,8 @@ public class FoldView extends View {
 
                         // 摩擦吧骚年！
                         justSlide(x, y);
+
+                        //setActionBarColor(end-1);
                         break;
                     }
                     // 当前为往右下滑
@@ -550,7 +628,7 @@ public class FoldView extends View {
                 if(!((x<mAutoAreaLeft&&y>mAutoAreaButtom) || (x>mAutoAreaRight&&y>mAutoAreaButtom))){
                     return false;//表示控件不受理该系列事件
                 }
-                isSlide = false;
+                isSlide = true;
                 /*
                  * 如果事件点位于回滚区域
                  */
@@ -563,6 +641,7 @@ public class FoldView extends View {
                     invalidate();
                 }
                 downAndMove(event);
+                //setActionBarColor(start);
                 break;
             case MotionEvent.ACTION_MOVE:
                 downAndMove(event);
@@ -612,7 +691,7 @@ public class FoldView extends View {
      * @param bitmaps
      *            位图数据列表
      */
-    public synchronized void setBitmaps(List<Bitmap> bitmaps) {
+    public synchronized void setBitmaps(List<Bitmap> bitmaps,OnBitmapChanged changed) {
         /*
          * 如果数据为空则抛出异常
          */
@@ -627,6 +706,7 @@ public class FoldView extends View {
 
         mBitmaps = bitmaps;
         invalidate();
+        onBitmapChanged = changed;
     }
 
     /**

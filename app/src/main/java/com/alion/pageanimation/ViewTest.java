@@ -2,8 +2,10 @@ package com.alion.pageanimation;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
@@ -14,9 +16,10 @@ import com.alion.myapplication.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ViewTest extends AppCompatActivity {
+public class ViewTest extends AppCompatActivity implements FoldView.OnBitmapChanged {
     FoldView myView;
     List<Bitmap> mBitmaps;
+    ActionBar mActionBar;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +33,12 @@ public class ViewTest extends AppCompatActivity {
         mBitmaps.add(BitmapFactory.decodeResource(getResources(),R.mipmap.mid5));
         mBitmaps.add(BitmapFactory.decodeResource(getResources(),R.mipmap.mid6));
         mBitmaps.add(BitmapFactory.decodeResource(getResources(),R.mipmap.mid7));
-        myView.setBitmaps(mBitmaps);
+        myView.setBitmaps(mBitmaps,this);
+        mActionBar = getSupportActionBar();
+    }
+
+    @Override
+    public void onChanged(int color) {
+        mActionBar.setBackgroundDrawable(new ColorDrawable(color));
     }
 }

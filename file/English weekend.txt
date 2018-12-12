@@ -390,6 +390,7 @@ ServiceHandler：IntentService的内部类，在handleMessage中调用onHandleIntent并stop
 
 
 第二章 自定义View
+AC包含window，decore是根view，事件由WMS来接收，并通过AC回调对应的onClickListener
 第1节 重绘
 处于GONE的view不会引起页面的重绘
 postInvalidate() 方法在非 UI 线程中调用，通知 UI 线程重绘。invalidate() 方法在 UI 线程中调用，重绘当前 UI。
@@ -461,6 +462,22 @@ MotionEvent提供getX/getY、getRawX/getRawY 前者是相对父控件坐标，后者相对手机屏幕
 view.getLocationInWindow(location); //获取在当前窗口内的绝对坐标，getLeft , getTop, getBottom, getRight,  这一组是获取相对在它父窗口里的坐标。
 view.getLocationOnScreen(location);//获取在整个屏幕内的绝对坐标，注意这个值是要从屏幕顶端算起，也就是包括了通知栏的高度。
 TouchSlop 滑动的最小距离  ViewConfiguration.get(getContext()).getScaledTouchSlop()
+
+第6节 滑动 
+1.三种方式实现View的滑动：
+通过View本身提供的scrollTo/scrollBy方法  // 改变绘制起点
+通过动画给View添加平移动画				 //
+通过改变View的LayoutParams使得View重新布局
+
+2.Scroller
+mScroller.startScroll(scrollX, 0, delta, 0, 1000);
+invalidate();
+public void computeScroll() {
+    if (mScroller.computeScrollOffset()) {
+        scrollTo(mScroller.getCurrX(), mScroller.getCurrY());
+        postInvalidate();
+    }
+}
 
 第三章 Android问题分析和优化
 
@@ -885,4 +902,5 @@ author/authority 创造者/权威当权者
 annotation 注释(n)
 retention 保留,记忆力(n)
 decor 装饰，布景(n)
-
+measure 测量; 估量(vt,n)
+divider 分割线

@@ -1,4 +1,4 @@
-package com.alion.demo;
+package com.alion.liferecycle;
 
 import android.app.Activity;
 import android.app.Dialog;

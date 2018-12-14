@@ -35,7 +35,8 @@ public class Yinpintu extends View {
                 Color.RED,
                 Color.BLUE,
                 Shader.TileMode.CLAMP);
-        mPaint.setShader(mLinearGradient);mPaint.setStyle(Paint.Style.STROKE);
+        mPaint.setShader(mLinearGradient);
+        mPaint.setStyle(Paint.Style.STROKE);
     }
 
     @Override

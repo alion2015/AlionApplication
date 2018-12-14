@@ -3,6 +3,8 @@
 duokan/downloads/micloudbooks
 regedit
 1080*720*192
+
+矩阵乘积，前行乘后列对应元素
 android.os.Process.killProcess(android.os.Process.myPid()); 自杀
 
 Handler：多线程间全局变量共享
@@ -478,6 +480,11 @@ public void computeScroll() {
         postInvalidate();
     }
 }
+
+第7节 实现闪光的textview
+mPaint.setShader(mLinearGradient);
+mGradientMatrix.setTranslate(mTranslate, 0);
+mLinearGradient.setLocalMatrix(mGradientMatrix);
 
 第三章 Android问题分析和优化
 

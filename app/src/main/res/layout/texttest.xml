@@ -16,10 +16,17 @@
         android:layout_width="match_parent"
         android:layout_height="418dp"
         app:layout_constraintTop_toBottomOf="@+id/textview" />-->
-    <com.alion.surceface.SurfaceViewTemplate
+    <!--<com.alion.surceface.SurfaceViewTemplate
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        />
+        />-->
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBlack"
+        android:id="@+id/oval"
+        android:src="@drawable/circle"/>
 <!--
     <com.alion.canvasdraw.DrawOnOther
         android:layout_width="match_parent"

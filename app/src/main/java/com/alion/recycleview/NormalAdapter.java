@@ -1,13 +1,17 @@
 package com.alion.recycleview;
 
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.alion.myapplication.R;
+import com.alion.provider.LauncherData;
 
+import java.net.URISyntaxException;
 import java.util.List;
 
 // ① 创建Adapter
@@ -15,14 +19,17 @@ public class NormalAdapter extends RecyclerView.Adapter<NormalAdapter.VH>{
     //② 创建ViewHolder
     public static class VH extends RecyclerView.ViewHolder{
         public final TextView title;
+        public final ImageView icon;
+        public Intent intent;
         public VH(View v) {
             super(v);
             title = (TextView) v.findViewById(R.id.title);
+            icon = (ImageView) v.findViewById(R.id.imageicon);
         }
     }
 
-    private List<String> mDatas;
-    public NormalAdapter(List<String> data) {
+    private List<LauncherData> mDatas;
+    public NormalAdapter(List<LauncherData> data) {
         this.mDatas = data;
     }
 
@@ -35,14 +42,22 @@ public class NormalAdapter extends RecyclerView.Adapter<NormalAdapter.VH>{
         return new VH(v);                                                                            //生成ViewHolder
     }
     @Override
-    public void onBindViewHolder(VH holder, int position) {                                          //为传入的ViewHolder绑定数据
-        holder.title.setText(mDatas.get(position));
+    public void onBindViewHolder(final VH holder, int position) {                                          //为传入的ViewHolder绑定数据
+        holder.title.setText(mDatas.get(position).title);
         holder.itemView.setOnClickListener(new View.OnClickListener() {                              //为item本身添加点击事件(itemView是inflate生成的view本身)
             @Override
             public void onClick(View v) {
                 //item 点击事件
+                v.getContext().startActivity(holder.intent);
             }
         });
+        String intent =""+mDatas.get(position).intent;
+        try {
+            holder.intent = Intent.parseUri(intent, 0);
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+        holder.icon.setImageBitmap(mDatas.get(position).icon);
     }
 
     @Override

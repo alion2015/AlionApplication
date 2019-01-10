@@ -3,88 +3,16 @@
 duokan/downloads/micloudbooks
 regedit
 1080*720*192
-
-¾ØÕó³Ë»ı£¬Ç°ĞĞ³ËºóÁĞ¶ÔÓ¦ÔªËØ
-android.os.Process.killProcess(android.os.Process.myPid()); ×ÔÉ±
-
-Handler£º¶àÏß³Ì¼äÈ«¾Ö±äÁ¿¹²Ïí
-×ÓÏß³Ì´´½¨handlerĞèÒªLooper.prepare()-->new Handler -->Looper.loop()
-
-SharedPreferences:commitÊÇÔ­×ÓÌá½»µ½Êı¾İ¿â£¬ÖĞ¼ä²»¿É´ò¶Ï¡£applyÊÇÔ­×ÓÌá½»µÄÄÚ´æ,Ö®ºóÔÙÒì²½Ìá½»µ½Êı¾İ¿â£¬Òò´ËÒ²²»»áÓĞ·µ»ØÖµ¡£
-ËùÓĞcommitÌá½»ÊÇÍ¬²½¹ı³Ì£¬Ğ§ÂÊ»á±ÈapplyÒì²½Ìá½»µÄËÙ¶ÈÂı¡£
+¾ØÕó³Ë»ı£¬Ç°ĞĞ³ËºóÁĞ¶ÔÓ¦ÔªËØÇóºÍ
 
 aadd amod adel csxg
 amk amon rml apl
-StackTraceElement[] elements = Thread.currentThread().getStackTrace();
-ÔÚUI ThreadÖĞÈ¥×öÒ»¸öloop²»¶ÏµØÍùmessage queueÖĞÑ¹ÈëÏûÏ¢Ê±£¬ÎÒÃÇµÄUI ThreadÊÇ²»»áÈ¥´¦ÀíÕâĞ©messageµÄ£¬Ö±µ½loop½áÊøÎªÖ¹£¬Õâ¾ÍÊÇÎªÊ²Ã´ÎÒÃÇÔÚwhileÖĞ²»¶Ïµ÷ÓÃinvalidate()µÄÊ±ºòÄãÖ»»á¿´µ½×îºóµÄ½á¹û¶ø²»»áµÃµ½ÖĞ¼ä¹ı³ÌµÄ±ä»¯
-AppCompatActivity ¼Ì³ĞFragmentActivity¿ÉÓÃactionbar
-ContextCompat.checkSelfPermission(mContext, permission) ==  PackageManager.PERMISSION_DENIED;
-ActivityCompat.shouldShowRequestPermissionRationale(
 
-ScrollView±ß½çÒõÓ°fadingEdge(·¨¶¨±ß½ç)
-onCreateOptionMenu-->menu.add(×é,id,ÅÅĞò,Ãû×Ö)-->onOptionsItemSeleted(item.getItemId)
-radioGroup-->checkBoxÓÃCompoundButton.OnCheckedChangeListener()
-Toast.makeText(xx.this,¡±ÄÚÈİ¡±,Toast.LENGTH_SHORT).show()
-progressBar-->
-style/incrementProgressBarBy()/setProgress()
-Ê¹ÓÃHttpURLconnection(URL.openConnectionµÃµ½).getinputStream()ÏÂÔØÎÄ¼ş
-SAX½âÎöXMLÎÄ¼ş
-ÊµÏÖDocument/Element/CharactersµÄ½âÎö-->µ÷ÓÃSAXparserFactory.
-          newInstance().newSAXParser().getXMLReader()Éú³É½âÎöÆ÷¶ÔÏó
-WIFIÊ¹ÓÃ(WiFiManger)context.getSystemService(Service.WIFI_SERVICE).setWifiEnabled(){ÔÚSystemServiceRegistryÖĞ²éÕÒ}
+ldpi:mdpi:hdpi:xhdpi:xxhdpi=3:4:6:8:12¡£
 
-Spinner ÏÂÀ­¿ò
-DatePickerDialogÓÃÓÚÑ¡ÔñÈÕÆÚ
-AutoCompleteTextView Ìá¹©ÈÈµã¿ìËÙÊäÈë¹¦ÄÜ
-SeekBarÓĞ»¬¿éµÄ½ø¶ÈÌõ£»RatingBarÆÀ¼Û
-DrawerLayoutÌæ´úsideMenuÊµÏÖ²à±ß²Ëµ¥À¸¹¦ÄÜ
-HorizontalScrollView  ºáÏò»¬¶¯view
-
-ListView  ArrayAdapter-----SimpleAdapter
-android:parentActivityName  ½çÃæ×óÉÏ½ÇÌí¼Ó< ¿ÉÒÔÖ±½ÓÌø»ØÖ¸¶¨µÄ´°¿Ú
-
-Transaction  ÊÂÎñ½«²Ù×÷·â×°ÎªÔ­×Ó²Ù×÷,
-ÔÚContentProviderÖĞ½«ContentProviderOperation²ÎÊılist´«Èë²¢Ö´ĞĞgetContentResolver().applyBatch(LauncherProvider.AUTHORITY, ops)
-db.beginTransaction();db.setTransactionSuccessful();db.endTransaction();
-
-4.drawableµÄpaddingĞèÒªsetBounds
-
-6.Ïß³Ì³ØÖ´ĞĞ´«ÈërunableµÄrun·½·¨
-10.mLocalBroadcastManager = LocalBroadcastManager.getInstance(this);//»ñµÃÊµÀı  mLocalBroadcastManager.registerReceiver(receiver, filter);//×¢²á¼àÌı
-Context.registerReceiver(mBroadcastReceiver, intentFilter);  //È«¾Ö¹ã²¥µÄ×¢²á·½Ê½
-20.±ß¾àµÄ²»Í¬(mpÄÚÍâ)
-marginÊÇÍâ±ß¾àÔÚborderÍâÃæ£¬¶øpaddingÊÇÄÚ±ß¾à£¬ÔÚborderÄÚ²¿
-
-3.Íâ²¿Àà.this.³ÉÔ±±äÁ¿|³ÉÔ±·½·¨
-6.LinearLayout ¶Ô±È RelativeLayout  ÎŞ·¨½µµÍ²ã¼¶Éî¶È»ò×Óview¸ß¶ÈÓëgroup²»Í¬Ê±ÓÅÏÈÊ¹ÓÃLinerlayout
-7.ANR£ºÓ¦ÓÃÔÚ5ÃëÄÚÎ´ÏìÓ¦ÓÃ»§µÄÊäÈëÊÂ¼ş£¨Èç°´¼ü»òÕß´¥Ãş£©£»BroadcastReceiverÎ´ÔÚ10ÃëÄÚÍê³ÉÏà¹ØµÄ´¦Àí£»ServiceÔÚÌØ¶¨µÄÊ±¼äÄÚÎŞ·¨´¦ÀíÍê³É 20Ãë
-
-9.android:largeHeap="true"
-11.postdelayed 
-looperÖĞ  MessageQueue.next ½øÈëÊ±ÅĞ¶¨µ±Ç°msgÊÇ·ñÓĞÑÓ³Ù£¬ÓĞµÄ»°¾Í×èÈûnativePollOnce
-MessageQueue.enqueueMessage ÅĞ¶ÏÓëµ±Ç°msg.when Èô¸ü¶ÌÇÒÏß³Ì×èÈû¾Í»½ĞÑ
-MessageQueueÖĞµÄÏûÏ¢¶¼ÊÇ°´ÕÕMessageµÄ¿ªÊ¼Ö´ĞĞÊ±¼äÀ´ÅÅĞòµÄ.
-12.ÔÚÊ¹ÓÃ¸ßÓÚminSdkVersion API levelµÄ·½·¨ĞèÒª:
-ÓÃ@TargeApi(9) Ê¹¿ÉÒÔ±àÒëÍ¨¹ı;
-if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD) 
-13.µ¹¼ÆÊ±CountDownTimer (long millisInFuture, long countDownInterval)  
-	extends CountDownTimer ×ÜÊ±³¤,Ë¢ĞÂ»Øµ÷¼ä¸ô
- 	»Øµ÷onFinish|onTick    ¼ÇµÃ²Ù×÷Ç°ÅĞ¶¨activity´æÔÚ£¬ÇÒÔÚonDestoryÖĞtimer.cancle()
-
-18.Ò»¸öÊı×óÒÆNÎ»±íÊ¾³ËÒÔ2µÄn´Î·½£¬ÓÒÒÆ±íÊ¾³ıÒÔ
-  |=    -----------   &= ~  ÓÃÓÚÌí¼ÓºÍ°şÀë±êÖ¾Î»(»òµÈÓëµÈ·Ç)
-  Òì»òÁ½´ÎÍ¬Ò»¸ö¶ÔÏóµÈÓÚÃ»ÓĞ²Ù×÷
-
-21. Lp HvºáÊú(laopo)
-
-22.callbackÊµÏÖÊÇ±¾Éí¶¨ÒåÁËinterfaceºÍ¾ßÌåµ÷ÓÃÁ÷³Ì£¬¶Ô·½Í¨¹ıÊµÏÖinterfaceÀ´½ÓÈë¡£±ãÓÚĞÅÏ¢»Ø´« && Çø±ğcallbacks
-27.½Ó¿Ú¶¨ÒåÀàËÆabstract¶¨ÒåµÄ³éÏóÀà£¬±ØĞëÈ«²¿ÊµÏÖ
-
-
+runable.runOnUiThread
 
 1.³éÏó¡¢¼Ì³Ğ¡¢·â×°¡¢¶àÌ¬ĞÔ
-Ëæ»úÉú³É a µ½ b (²»°üº¬b)µÄÕûÊı:
-(int)(Math.random()*(b-a))+a; (int)(Math.random()*(b-a+1))+a;
 
 Êı×éÊôÓÚÒıÓÃÀàĞÍ£¬¸¸Ààobject     AdView [] adViews=new AdView[N];
 
@@ -96,24 +24,41 @@ String.equal()
 Integer.parseInt() finish() 
 str.getBytes()
 
-Overloading ÀàÖĞÖØÔØ    Overriding ¼Ì³ĞÊ±¸²Ğ´
+android:parentActivityName  ½çÃæ×óÉÏ½ÇÌí¼Ó< ¿ÉÒÔÖ±½ÓÌø»ØÖ¸¶¨µÄ´°¿Ú
+9.android:largeHeap="true"
+
+4.drawableµÄpaddingĞèÒªsetBounds
+
+3.Íâ²¿Àà.this.³ÉÔ±±äÁ¿|³ÉÔ±·½·¨
+
+25.jar -cvf android.jar .  //´ò°üµ±Ç°ÄÚÈİµ½jar°ü(ÓÃÓÚºÏ²¢java°ü)
+26.µã9ÇĞÍ¼Ê¹ÓÃ·½·¨£º½«Í¼ÃüÃû.9.png-->×öÆÕÍ¨Í¼Ê¹ÓÃ
+30.Ctrl+G ×ªµ½ÏàÓ¦µÄĞĞ  ¼ÇÊÂ±¾Ò²¿ÉÒÔ
+31.CÅÌ²»×ã£ºÉ¾³ı widows/tempÎÄ¼ş¼Ğ
+32.PSÔ²½Ç¾ØĞÎ¼°Â¼ÖÆ¶¯×÷£ºÑ¡Ôñ-->ĞŞ¸Ä-->Æ½»¬ Ñ¡Ôñ7
+33.»ğ³µÍËÆ±£º48--5%£»24--10%£»20%¡£Á½ÌìÎåÒ»ÌìÊ®£¬²»µ½ÕûÌì¿Û20
+34.·É»ú·¢Æ±£º»úÆ±30ÌìÄÚ¿ÉÒÔ²¹´ò·¢Æ±
+35.»Æ½ğ±ÈÀı£º»Æ½ğ·Ö¸î6.18
+31.ÎŞ·ìºÏ²¢¶à¸öÎÄ¼şcopy /b 1.jpg+dz.rar mypic.jpg 
+
+12.ÔÚÊ¹ÓÃ¸ßÓÚminSdkVersion API levelµÄ·½·¨ĞèÒª:
+ÓÃ@TargeApi(9) Ê¹¿ÉÒÔ±àÒëÍ¨¹ı;
+if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD) 
+
+18.Ò»¸öÊı×óÒÆNÎ»±íÊ¾³ËÒÔ2µÄn´Î·½£¬ÓÒÒÆ±íÊ¾³ıÒÔ
+  |=    -----------   &= ~  ÓÃÓÚÌí¼ÓºÍ°şÀë±êÖ¾Î»(»òµÈÓëµÈ·Ç)
+  Òì»òÁ½´ÎÍ¬Ò»¸ö¶ÔÏóµÈÓÚÃ»ÓĞ²Ù×÷
+
+22.callbackÊµÏÖÊÇ±¾Éí¶¨ÒåÁËinterfaceºÍ¾ßÌåµ÷ÓÃÁ÷³Ì£¬¶Ô·½Í¨¹ıÊµÏÖinterfaceÀ´½ÓÈë¡£±ãÓÚĞÅÏ¢»Ø´« && Çø±ğcallbacks
+27.½Ó¿Ú¶¨ÒåÀàËÆabstract¶¨ÒåµÄ³éÏóÀà£¬±ØĞëÈ«²¿ÊµÏÖ
+
 
 throws ·½·¨Ç°£¬·½·¨²»´¦ÀíÒì³£
-
-thread run start   |   runable run thread start ×ÊÔ´¹²Ïí
-synchronized ·½·¨ºÍ¿é
-ÀàËøºÍ¶ÔÏóËø£º¾²Ì¬·½·¨»òÕßÒ»¸öÀàµÄclass¶ÔÏóÉÏµÄÎª¶ÔÏóËø
-ÓĞsynchronizedĞŞÊÎµÄ·½·¨³ÆÎªÍ¬²½·½·¨£¬Í¬²½·½·¨±ØĞëÔÚ³ÖÓĞËøÊ±£¬²ÅÄÜ¹»Ö´ĞĞ¡£synchronizedĞŞÊÎµÄ¾²Ì¬·½·¨±ØĞë³ÖÓĞÀàËø£¬·Ç¾²Ì¬·½·¨±ØĞë³ÖÓĞ¶ÔÏóËø¡£Ö´ĞĞµÄÊ±ºò£¬»áÒ»Ö±³ÖÓĞÕâ¸öËø£¬Ö´ĞĞÍêÁË¾Í»áÊÍ·ÅÕâ¸öËø¡£ Ò»¸öÀàÖ»ÓĞÒ»°ÑÀàËø£¬Ò»¸ö¶ÔÏóÊµÀıÖ»ÓĞÒ»°Ñ¶ÔÏóËø¡£Í¬²½·½·¨£¬Ë­ÄÃ×ÅËø£¬Ë­¾Í¿ÉÒÔÖ´ĞĞ£¬ÄÃ²»µ½µÄ¾ÍÖ»ÄÜµÈ
-×èÈû¾ÍÊÇµÈ´ı¹ı³ÌÖĞ²»¿ÉÒÔÈ¥¸É±ğµÄÊÂÇé
-lockº¯ÊıÊÇ×èÈûµÄ£¬ÒòÎªËüµ÷ÓÃWaitForSingleObjectº¯ÊıÊ±´«µİµÄµÚ¶ş¸ö²ÎÊıÊÇINFINITE£¬±íÊ¾ÎŞÏŞµÈ´ıÏÂÈ¥£¬ËùÒÔÊÇ×èÈûµÄ¡£ 
-tryLockº¯ÊıÊ±·Ç×èÈûµÄ£¬µ÷ÓÃºóÁ¢¼´·µ»Ø¡£ÒòÎªËüµ÷ÓÃWaitForSingleObjectº¯ÊıÊ±´«µİµÄµÚ¶ş¸ö²ÎÊıÊÇ0£¬±íÊ¾²»µÈ´ı£¬Á¢¼´·µ»Ø¡£ 
-µ÷ÓÃlock»òÕßtryLockºó£¬¶¼ĞèÒªµ÷ÓÃunlockÀ´½âËø¡£
 
 ×ÓÀàµÄ·ºĞÍÀàĞÍÊÇÎŞ·¨Ê¹ÓÃ¸¸ÀàµÄ·ºĞÍÀàĞÍ½ÓÊÕ£¬ÀıÈç£ºInfo <String>²»ÄÜÊ¹ÓÃInfo<Object> 
 ÀàÃû³Æ<? (extends/super Àà)> ¶ÔÏóÃû³Æ   ·Ö±ğ¶¨ÒåÁËÍ¨Åä/ÉÏÏŞ/ÏÂÏŞ <? extends Object> Ïàµ±ÓÚÃ»ÓĞÏŞÖÆ
 
-Math
-Random nextXXX(Y) 
+Math.Random nextXXX(Y) 
 
 StringBuffer   append|insert(o,s)|delete(s,e)|indexOf|replace(s,e,s)|reverse·´×ª|substring      ÌíÉ¾²é¸Ä·´È¡
 
@@ -130,6 +75,9 @@ new SimpleDateFormat("EE-yyyy-MM-dd HH:mm:ss").format(new Date());EE±íÊ¾ĞÇÆÚ    
 ObservableÀàºÍObserver½Ó¿Ú addObserver|deleteObserver|setChanged|notifyObservers
 Timer.scheduleAtFixedRate ¹Ì¶¨ÆµÂÊÖ´ĞĞ
 
+Ã¶¾Ù(enum)ÀàÒ²¿ÉÒÔÊµÏÖÒ»¸ö½Ó¿Ú£¬Ã¶¾ÙÖĞ¿ÉÒÔ¶¨Òå³éÏó·½·¨----Ã¿¸öÔªËØ¶¼±ØĞë·Ö±ğÊµÏÖ´Ë³éÏó·½·¨¡£
+
+µÚ0½Ú File²Ù×÷
 File createNewFile()|mkdir()|delete|exists|isDirectory|length|list|listFiles|  
 FileOutputStream(file,appendÎÄ¼şÎ²×·¼Ó) write|flush|close 
 FileInputStream available(ÎÄ¼ş´óĞ¡)|read|close
@@ -141,7 +89,27 @@ BufferedReader buf=new BufferedReader(new InputStreamReader(System.in))
           sb.append(line);
 Scanner  hasNextXXX|nextXXX|useDelimiter£¨ÉèÖÃ·Ö¸ô·û£©|nextLine       (has)NextXXX(Line)|useDelimiter
 
-Ã¶¾Ù(enum)ÀàÒ²¿ÉÒÔÊµÏÖÒ»¸ö½Ó¿Ú£¬Ã¶¾ÙÖĞ¿ÉÒÔ¶¨Òå³éÏó·½·¨----Ã¿¸öÔªËØ¶¼±ØĞë·Ö±ğÊµÏÖ´Ë³éÏó·½·¨¡£
+µÚ1½Ú ÅÅĞòÏà¹Ø
+¶à´Î½»»»£º¸´ÖÆÒ»¸ö£¬ºóÃæÓÃÇ°Öµ¸²¸Ç£¬»Ö¸´µ½×îÖÕÎ»ÖÃ
+È«²¿Ê¹ÓÃ±ÕºÏÇø¼äÅÅĞò
+
+Ñ¡Ôñ£ºÕÒ¼«ÖµÓëµÚÒ»¸öÎ´´¦Àí½»»»
+²åÈëÅÅĞò£º×Ô¼ºÇ°ÃæÓĞĞò£¬½«×Ô¼º±È½ÏÈ¥²¹Î»£º½üºõÓĞĞòÊ±Ğ§ÂÊ¸ß
+Ã°ÅİÅÅĞò£º½«×î´óÖµ¶ªµ½Ä©Î²£¬Ã¿´Î±È½Ï¶¼³¢ÊÔ½»»»
+Ï£¶ûÅÅĞò£ºÍ¨¹ı½¥Ğ¡µÄ¼ä¸ô¶à´Îµ÷ÓÃ²åÈëÅÅĞò{n/2}
+
+
+¹é²¢{ÄæĞò¶Ô}£º(lmr)ĞèÒªÉêÇëĞÂ¿Õ¼ä£¬kÖ¸ÏòÏÂÒ»¸ö¿ÉÒÔ·ÅÈëµÄÎ»ÖÃ
+	  ±¾ÉíÓĞĞò²»merge;Êı¾İÁ¿½ÏĞ¡(15)²ÉÓÃ²åÈëÅÅĞò
+¿ìËÙÅÅĞò{µÚN´óµÄÊı}£º(lji)ÒÔµ±Ç°Öµ½«Çø¼äÄÚÔªËØ·ÖÁ½²¿·Ö²¢·µ»Øj£¬ÔÙµİ¹é
+	  Ëæ»úµÚÒ»¸öÔªËØ£»ÖØ¸´¶àÊ±Ë«±ß±éÀú(lijr)£»ÈıÂ·ÅÅĞò
+	  ×îºóÒ»´Î½»»»£¡£¡£¡
+
+¶ÑÅÅĞò{Ç°NÃû}£º×Ó½Úµã²»´óÓÚ¸¸½ÚµãµÄÂú¶ş²æÊ÷£»Êı×é´æ´¢1¿ªÊ¼Ê±£¬i/2£¬2i£¬2i+1£¬n/2£»
+	Ìí¼Ó£º·Åµ½×îºó²¢Óë¸¸½Úµã±È½Ï
+	É¾³ı£º×îºóÒ»¸öÌæ»»¸ù£¬²¢Ñ­»·Óë×Ó½Úµã±È½Ï
+	Heapify:×îºóÒ»¸ö·ÇÒ¶×Ó¿ªÊ¼Ö´ĞĞdown¹¹½¨¶Ñ
+	Ë÷Òı¶ÑºÍË«ÏòË÷Òı¶Ñ
 
 µÚ2½Ú Êı×éºÍÁ´±í(×¢: all vs  --- hashtable arraymap)
 1.ArrayList ÊÇÒ»¸öÊı×é¶ÓÁĞ£¬Ïàµ±ÓÚ¶¯Ì¬Êı×é¡£ËüÓÉÊı×éÊµÏÖ£¬Ëæ»ú·ÃÎÊĞ§ÂÊ¸ß£¬Ëæ»ú²åÈë¡¢Ëæ»úÉ¾³ıĞ§ÂÊµÍ¡£
@@ -153,68 +121,43 @@ HashTableÏà¶ÔHashMapÇø±ğÊÇÍ¬²½ Ïß³Ì°²È«
 HashMapÄÚ²¿Ò»¸öÊı×é<HashMapEntry>  ArrayMapÄÚ²¿Ë«Êı×é
 Êı¾İÁ¿Ğ¡£¬ÇÒĞèÆµ·±´æ´¢Êı¾İÊ±£¬ÍÆ¼öArrayMap¡£¶øÁ¿½Ï´óÊ±£¬ÍÆ¼öHashMap¡£
 
-
-24.batÃüÁîµÄÅĞ¶Ï(¿Õ¸ñ)
-@echo off
-if '%1'=='' (
-adb shell ps|findstr monkey
-) else (
-adb shell kill %1
-)
-25.jar -cvf android.jar .  //´ò°üµ±Ç°ÄÚÈİµ½jar°ü(ÓÃÓÚºÏ²¢java°ü)
-26.µã9ÇĞÍ¼Ê¹ÓÃ·½·¨£º½«Í¼ÃüÃû.9.png-->×öÆÕÍ¨Í¼Ê¹ÓÃ
-30.Ctrl+G ×ªµ½ÏàÓ¦µÄĞĞ  ¼ÇÊÂ±¾Ò²¿ÉÒÔ
-31.CÅÌ²»×ã£ºÉ¾³ı widows/tempÎÄ¼ş¼Ğ
-32.PSÔ²½Ç¾ØĞÎ¼°Â¼ÖÆ¶¯×÷£ºÑ¡Ôñ-->ĞŞ¸Ä-->Æ½»¬ Ñ¡Ôñ7
-33.»ğ³µÍËÆ±£º48--5%£»24--10%£»20%¡£Á½ÌìÎåÒ»ÌìÊ®£¬²»µ½ÕûÌì¿Û20
-34.·É»ú·¢Æ±£º»úÆ±30ÌìÄÚ¿ÉÒÔ²¹´ò·¢Æ±
-35.»Æ½ğ±ÈÀı£º»Æ½ğ·Ö¸î6.18
-31.ÎŞ·ìºÏ²¢¶à¸öÎÄ¼şcopy /b 1.jpg+dz.rar mypic.jpg 
-
-LiveDataÊµÏÖ»ù±¾µÄAndroid Activity/FragmentÉúÃüÖÜÆÚ¸ĞÖª£¬±¾ÉíÆä³ÖÓĞ¿É¹Û²ìÊı¾İ£¬¿ª·¢Õß¿ÉÓÃLiveDataµÄonActive/onInactiveÊµÏÖÓëAndroidÉúÃüÖÜÆÚ½âñî/ñîºÏ£¬½ø¶øÍ¨¹ıLiveDataµÄpostValue»òÕßsetValue·½·¨£¬Í¨Öª¹Û²ìÕßObserverÊı¾İµÄ±ä»¯²¢Çë¿É¹Û²ìµÄ±ä»¯Êı¾İÍ¨¹ıObserverµÄonChanged´«µ¼³öÀ´¡£
+µÚ2½Ú Êı×éºÍLiveDataÊµÏÖ»ù±¾µÄAndroid Activity/FragmentÉúÃüÖÜÆÚ¸ĞÖª£¬±¾ÉíÆä³ÖÓĞ¿É¹Û²ìÊı¾İ£¬¿ª·¢Õß¿ÉÓÃLiveDataµÄonActive/onInactiveÊµÏÖÓëAndroidÉúÃüÖÜÆÚ½âñî/ñîºÏ£¬½ø¶øÍ¨¹ıLiveDataµÄpostValue»òÕßsetValue·½·¨£¬Í¨Öª¹Û²ìÕßObserverÊı¾İµÄ±ä»¯²¢Çë¿É¹Û²ìµÄ±ä»¯Êı¾İÍ¨¹ıObserverµÄonChanged´«µ¼³öÀ´¡£
 LifecycleÒª×öµÄÄÚÈİÖ÷ÒªÊÇÊµÏÖLifecycleObserver½Ó¿Ú£¬È»ºóÍ¨¹ıÊµÏÖÁËLifecycleOwner½Ó¿ÚµÄ¶ÔÏó½øĞĞ×¢²á£¬ÒÔ¼àÌıÆäÉúÃüÖÜÆÚ£¬ºóĞø¾ÍÊÇ×øµÈÍ¨ÖªÁË
 ViewModelÊÇÓÃÀ´¹ÜÀíºÍUI×é¼şÓĞ¹ØµÄÊı¾İµÄ£¬¶øLiveDataÓÖÊÇÕâĞ©Êı¾İµÄ³ÖÓĞÀà£¬ËùÒÔÔÚÊ¹ÓÃLiveDataµÄÊ±ºò£¬¾Í×ÔÈ»Ïëµ½ÒªÊ¹ÓÃViewModelÁË¡£ÁíÍâ´ÓViewModelµÄ¶¨Òå£¬ÎÒÃÇÒ²ÄÜ¿´µ½ViewModel»¹¿ÉÒÔÓÃÓÚUI×é¼ş¼äµÄÍ¨ĞÅ£¬»ØÏëÏÂµ±³õÃæÊÔ¹ÙÎÊÄãFragmentÖ®¼äÔõÃ´Í¨ĞÅµÄÎÊÌâ£¬ÕÆÎÕViewModelºó¾Í¶àÁËÒ»ÖÖ¸ß±Æ¸ñµÄ»Ø´ğÁË
 
-µÚ2½Ú Æô¶¯Ä£Ê½
+µÚ3½Ú ¶àÏß³ÌÏà¹Ø
+1.android.os.Process.killProcess(android.os.Process.myPid()); ×ÔÉ±
+2.Handler£º¶àÏß³Ì¼äÈ«¾Ö±äÁ¿¹²Ïí
+3.×ÓÏß³Ì´´½¨handlerĞèÒªLooper.prepare()-->new Handler -->Looper.loop()
+4.SharedPreferences:commitÊÇÔ­×ÓÌá½»µ½Êı¾İ¿â£¬ÖĞ¼ä²»¿É´ò¶Ï¡£applyÊÇÔ­×ÓÌá½»µÄÄÚ´æ,Ö®ºóÔÙÒì²½Ìá½»µ½Êı¾İ¿â£¬Òò´ËÒ²²»»áÓĞ·µ»ØÖµ¡£
+ËùÓĞcommitÌá½»ÊÇÍ¬²½¹ı³Ì£¬Ğ§ÂÊ»á±ÈapplyÒì²½Ìá½»µÄËÙ¶ÈÂı¡£
+5.Transaction  ÊÂÎñ½«²Ù×÷·â×°ÎªÔ­×Ó²Ù×÷,
+ÔÚContentProviderÖĞ½«ContentProviderOperation²ÎÊılist´«Èë²¢Ö´ĞĞgetContentResolver().applyBatch(LauncherProvider.AUTHORITY, ops)
+db.beginTransaction();db.setTransactionSuccessful();db.endTransaction();
+6.Ïß³Ì³ØÖ´ĞĞ´«ÈërunableµÄrun·½·¨
+7.postdelayed 
+looperÖĞ  MessageQueue.next ½øÈëÊ±ÅĞ¶¨µ±Ç°msgÊÇ·ñÓĞÑÓ³Ù£¬ÓĞµÄ»°¾Í×èÈûnativePollOnce
+MessageQueue.enqueueMessage ÅĞ¶ÏÓëµ±Ç°msg.when Èô¸ü¶ÌÇÒÏß³Ì×èÈû¾Í»½ĞÑ
+MessageQueueÖĞµÄÏûÏ¢¶¼ÊÇ°´ÕÕMessageµÄ¿ªÊ¼Ö´ĞĞÊ±¼äÀ´ÅÅĞòµÄ.
+8.thread run start   |   runable run thread start ×ÊÔ´¹²Ïí
+9.synchronized ·½·¨ºÍ¿é
+ÀàËøºÍ¶ÔÏóËø£º¾²Ì¬·½·¨»òÕßÒ»¸öÀàµÄclass¶ÔÏóÉÏµÄÎª¶ÔÏóËø
+ÓĞsynchronizedĞŞÊÎµÄ·½·¨³ÆÎªÍ¬²½·½·¨£¬Í¬²½·½·¨±ØĞëÔÚ³ÖÓĞËøÊ±£¬²ÅÄÜ¹»Ö´ĞĞ¡£synchronizedĞŞÊÎµÄ¾²Ì¬·½·¨±ØĞë³ÖÓĞÀàËø£¬·Ç¾²Ì¬·½·¨±ØĞë³ÖÓĞ¶ÔÏóËø¡£Ö´ĞĞµÄÊ±ºò£¬»áÒ»Ö±³ÖÓĞÕâ¸öËø£¬Ö´ĞĞÍêÁË¾Í»áÊÍ·ÅÕâ¸öËø¡£ Ò»¸öÀàÖ»ÓĞÒ»°ÑÀàËø£¬Ò»¸ö¶ÔÏóÊµÀıÖ»ÓĞÒ»°Ñ¶ÔÏóËø¡£Í¬²½·½·¨£¬Ë­ÄÃ×ÅËø£¬Ë­¾Í¿ÉÒÔÖ´ĞĞ£¬ÄÃ²»µ½µÄ¾ÍÖ»ÄÜµÈ
+10.×èÈû¾ÍÊÇµÈ´ı¹ı³ÌÖĞ²»¿ÉÒÔÈ¥¸É±ğµÄÊÂÇé
+lockº¯ÊıÊÇ×èÈûµÄ£¬ÒòÎªËüµ÷ÓÃWaitForSingleObjectº¯ÊıÊ±´«µİµÄµÚ¶ş¸ö²ÎÊıÊÇINFINITE£¬±íÊ¾ÎŞÏŞµÈ´ıÏÂÈ¥£¬ËùÒÔÊÇ×èÈûµÄ¡£ 
+tryLockº¯ÊıÊ±·Ç×èÈûµÄ£¬µ÷ÓÃºóÁ¢¼´·µ»Ø¡£ÒòÎªËüµ÷ÓÃWaitForSingleObjectº¯ÊıÊ±´«µİµÄµÚ¶ş¸ö²ÎÊıÊÇ0£¬±íÊ¾²»µÈ´ı£¬Á¢¼´·µ»Ø¡£ 
+µ÷ÓÃlock»òÕßtryLockºó£¬¶¼ĞèÒªµ÷ÓÃunlockÀ´½âËø¡£
+
+µÚ4½Ú Æô¶¯Ä£Ê½
 standard|singleTop ¿É¶àÊµÀı£¬Ä¬ÈÏÔÚ·¢ËÍµÄtask £¬ºóÕßÔÚ½öÔÚÕ»¶¥Ê±²»ĞÂ½¨
 singleTask|singleInstance µ¥Àı£¬ºóÕß¶ÀÕ¼task£¬Ç°Õß»áÇå¿ÕÕ»¶¥
 
-µÚ3½Ú ´úÀí
+µÚ5½Ú ´úÀí
 ¾²Ì¬´úÀí£º´úÀíºÍÊµÌå¾ù¼Ì³Ğ½Ó¿Ú²¢ÔÚ´úÀíÖĞÌí¼ÓÊµÌåµÄÒıÓÃ£¬¼´¿É×¢ÈëÊµÌåÒıÓÃÊ¹ÓÃ´úÀí
 ¶¯Ì¬´úÀí£ºÔËĞĞÊ±ºÏ³É´úÀí£¬ĞèÒªÊµÏÖ½Ó¿ÚµÄÊµÌåºÍÊµÏÖInvocationHandlerµÄ´úÀí»ùÀà£¬ÔËÓÃjdk¶¯Ì¬·´Éäjava.lang.reflect.Proxy.newProxyInstance´«ÈëÊµÌåµÄclassloader£¬ÊµÌåµÄinterface£¬´úÀí»ùÀà
-1¡¢¶¨Òå³éÏó½ÇÉ«
-public interface Subject {
-public void Request();
-}
-2¡¢¶¨ÒåÕæÊµ½ÇÉ«
-public class RealSubject implements Subject {
-@Override
-public void Request() {
-System.out.println("RealSubject");
-}
-}
-3¡¢¶¨Òå´úÀí½ÇÉ«
-public class DynamicSubject implements InvocationHandler {
-private Object sub;
-public DynamicSubject(Object obj){
-this.sub = obj;
-}
-@Override
-public Object invoke(Object proxy, Method method, Object[] args)
-throws Throwable {
-method.invoke(sub, args);
-return null;
-}
-}
-4¡¢Í¨¹ıProxy.newProxyInstance¹¹½¨´úÀí¶ÔÏó
-RealSubject realSub = new RealSubject();
-InvocationHandler handler = new DynamicSubject(realSub);
-Subject sub = (Subject)Proxy.newProxyInstance(handler.getClass().getClassLoader(),
-realSub.getClass().getInterfaces(), handler);      
-5¡¢Í¨¹ıµ÷ÓÃ´úÀí¶ÔÏóµÄ·½·¨È¥µ÷ÓÃÕæÊµ½ÇÉ«µÄ·½·¨¡£
-sub.Request();
+Proxy.newProxyInstance(ÊµÏÖInvocationHandlerµÄÀàµÄclassloader,ÊµÌåÀà.getClass().getInterfaces(), ÊµÏÖInvocationHandlerµÄÀàµÄÊµÀı¶ÔÏó);      
 
-µÚ4½Ú Androidstudio Ïà¹Ø
+µÚ6½Ú Androidstudio Ïà¹Ø
 1.todo  EditorÏÂ±à¼­todoºÍ Live Templates ºóÕßÓÃÓÚ¿ìËÙ²åÈë´úÂë£¬Òª×¢ÒâabbreviationºÍtemplate(ĞèÒªtodo´óĞ´)
 2. favorites¿ÉÒÔÊÕ²ØÏà¹ØÎÄ¼ş  bookmarkÔÚÌØ¶¨·½·¨Ç°¼Ó¶Ïµã 
 3.localhistory Ã¿´Î±£´æ¶¼»áÉú³ÉÀúÊ·¼ÇÂ¼
@@ -240,64 +183,8 @@ Recent File£ºCtrl+E
 ¸´ÖÆÑ¡ÖĞ£ºCtrl+Alt+Down 
 ¸ñÊ½»¯´úÂë£ºCtrl+Alt+L
 
-µÚ5½Ú ContentObserver
-getContentResolver().registerContentObserver (uri, boolean notifyForDescendants,  ContentObserver observer)
- Uri.parse(XXX)  Ö»ĞèÒªuriÎ¨Ò»ÇÒ×¢²áºÍÍ¨Öª¸üĞÂ£¬¿ÉÒÔ¼àÌıÈÎºÎÊı¾İ
-getContentResolver().notifyChange(uri, null);
-getContentResolver().registerContentObserver(Settings.System.getUriFor(KEY_THEME_MONITOR), true, mContentObserver); ¸ù¾İÃû×Ö¼àÌısettingÖĞÊı¾İ
 
-
-µÚ6½Ú ¿ªÔ´¿Ø¼şÊ¹ÓÃ
-2.XRecyclerView Ò»¸öÖ§³ÖÏÂÀ­Ë¢ĞÂºÍÏÂÀ­¼ÓÔØµÄ RecyclerView¡£ÏÂÀ­Ë¢ĞÂ¡¢ÉÏÀ­¼ÓÔØ¸ü¶à¡¢RecyclerViewÍ·²¿
-3.EventBus
-¸¸ÀàÖĞ¶¨ÒåµÄ¶©ÔÄ·½·¨²»ÄÜ±»ÖØĞ´
-¶©ÔÄ·½·¨±ØĞëÎªpublicÇÒÓĞÎ¨Ò»²ÎÊı
-ÊÂ¼şµÄ¸¸Àà»òÊµÏÖµÄ½Ó¿Ú±»¶©ÔÄ£¬ÔòÒ²¿ÉÒÔ¼àÌıµ½¡£
-Ïß³ÌÍ¨ĞÅ£¬²»Ö§³Ö¿ç½ø³Ì
-4.UI¿¨¶Ù¼à²â¿ò¼ÜBlockCanary
-Ó¦ÓÃ·¢Éú¿¨¶Ù£¬Ò»¶¨ÊÇÔÚdispatchMessageÖĞÖ´ĞĞÁËºÄÊ±²Ù×÷¡£ÎÒÃÇÍ¨¹ı¸øÖ÷Ïß³ÌµÄLooperÉèÖÃÒ»¸öPrinter£¬´òµãÍ³¼ÆdispatchMessage·½·¨Ö´ĞĞµÄÊ±¼ä£¬Èç¹û³¬³ö·§Öµ£¬±íÊ¾·¢Éú¿¨¶Ù£¬Ôòdump³ö¸÷ÖÖĞÅÏ¢£¬Ìá¹©¿ª·¢Õß·ÖÎöĞÔÄÜÆ¿¾±¡£
-2.SwipeBackLayout  ÓÒ»¬·µ»Ø  
-3.greenDao ¸ù¾İ×¢ÊÍ×Ô¶¯Éú³ÉÊı¾İ¿â¼°Ïà¹Ø²Ù×÷
-1.bugly  ÌÚÑ¶·½°¸ ½â¾öÓ¦ÓÃÈÈ¸üĞÂºÍANRÈÕÖ¾»Ø´«
-3.LeakCanary 
-leakcanary£ºÔ­Àí£ºActivityDestoryÖ®ºó½«Ëü·ÅÔÚÒ»¸öWeakReference£¬½«WR¹ØÁªµ½Ò»¸öReferenceQueue£¬²é¿´RQÖĞÊÇ·ñ´æÔÚActivityµÄÒıÓÃ£¬Èç¹û´æÔÚ¾ÍDump³öheapĞÅÏ¢½øĞĞ·ÖÎö
-Ê×ÏÈ´´½¨Ò»¸örefWatcherÆô¶¯activityRefWatcher£¬Í¨¹ıActivityLifecycleCallbacks°ÑOndestoryÉúÃüÖÜÆÚ¹ØÁª
-½âÎöhprofÎÄ¼ş²¢·â×°³Ésnapshot£¬¸ù¾İÈõÒıÓÃºÍkey²éÕÒĞ¹Â¶¶ÔÏó£¬ÕÒµ½×î¶ÌĞ¹Â¶Â·¾¶
-
-4.ButterKnife(¿ìËÙ×ÊÔ´ÊÂ¼ş°ó¶¨)
-Bind±êÇ©ÔÚ8.0.0Ö®ºó±ä³ÉÁËBindView£¬8.7.0Ö®ºóÒªÓÃR2.id.XXX
-ËùÓĞ×ÊÔ´ºÍÏÂÁĞÊÂ¼ş(Ñ¡ÖĞÎÄ±¾½¹µã)
-OnTouch  OnEditorAction
-OnClick  OnLongClick
-OnItemClick  OnItemLongClick  OnItemSelected
-OnCheckedChanged OnTextChanged 
-OnFocusChange OnPageChange
-
-unbinder = ButterKnife.bind(this, view);  
-unbinder.unbind();  
-ButterKnife.bind(this, view);  //ViewHolderÖĞ´«ÈëviewÀ´°ó¶¨
-
-applyÁ¢¼´¶ÔÁĞ±íÖĞµÄËùÓĞÊÓÍ¼½øĞĞ²Ù×÷¡£ActionºÍSetter½Ó¿ÚÔÊĞíÖ¸¶¨¼òµ¥µÄĞĞÎª¡£
-ButterKnife.apply(nameViews, ENABLED, false);  
-ButterKnife.apply(nameViews, View.ALPHA, 0.0f);//Ò»¸öAndroidÊôĞÔÒ²¿ÉÒÔÓÃÓÚÓ¦ÓÃµÄ·½·¨¡£
-5.jitpack ¿ªÔ´¿âµÄ´´½¨ÓëÊ¹ÓÃ
-6.Glide
-Glide Glide.with(this).load(url).into(imageView);
-7.okhttpºÍvolley£º
-volley  ¹È¸èµÄÍøÂçÇëÇó¿ò¼Ü.  RequestQueue -->XXXRequest-->queue.add(request)
-Response re = OkHttpClient.Builder().readTimeout(5, TimeUnit.SECONDS).build().newCall(new Request.Builder().url("http://www.baidu.com").get().build()).execute/enqueue();
-CallÊÇ½«okhttpClientºÍRequest·â×°£¬ÓÉÄÚ²¿µÄDispatcherÎ¬»¤ÔËĞĞÁĞ±í£¬Òì²½¶ªÈëÏß³Ì³Ø¡£¾ùÖ´ĞĞgetResponseWithInterceptorChain·½·¨Á´Ê½µ÷ÓÃÀ¹½ØÆ÷
-8.BlockCanary£ºÔ­Àí£ºÏñLooper×¢Èëprint£¬¼ÆËãdispatchMsgÇ°ºóÊ±¼ä²î
-Looper.getMainLooper().setMessageLogging(mainLooperPrinter);
-
-µÚ7½Ú ViewPagerºÍViewPagerIndicator
-ViewPager ºÍ PagerAdapter ºóÕßĞèÒªÊµÏÖinstantiateItemÔÚÈİÆ÷ÖĞÌí¼ÓitemView£»ÔÚdestoryItemÖĞcontainer.removeView;isViewFromObjectÖĞreturn view == object ;
-Viewpager.setOnPageChangeListener(new ViewPager.OnPageChangeListener()¼àÌıÒ³ÃæonPageScrolledºÍonPageSelected 
-ViewPagerIndicatorÒıÈë£º
-ÊµÀı»¯TabPageIndicator£¬indicator.setViewPager(pager); 
-ÔÚIndicatorÉÏÉèÖÃOnPagerChangeListner¼àÌıÆ÷
-
-µÚ8½Ú ÄÚ´æ·ÖÇøºÍÒıÓÃ·ÖÀà
+µÚ7½Ú ÄÚ´æ·ÖÇøºÍÒıÓÃ·ÖÀà
 ÄÚ´æ·ÖÎª3²¿·Ö£º
 Õ»£º»ù±¾ÀàĞÍºÍ¶ÔÏóÒıÓÃ
 ¶Ñ£º¶ÔÏó¼°Êı×é(GC¹ÜÀí)
@@ -309,13 +196,13 @@ ViewPagerIndicatorÒıÈë£º
 ĞéÒıÓÃ »ù±¾²»¾ö¶¨¶ÔÏóÈÎºÎÉúÃüÖÜÆÚ
 ¶ÔÏó±»GC»ØÊÕ£¬ĞéÄâ»ú¾Í»á°ÑÕâ¸öÒıÓÃ¼ÓÈëÓëÖ®¹ØÁªµÄÒıÓÃ¶ÓÁĞÖĞ
 
-µÚ9½Ú ³£¼ûintent-filterÖĞµÄactioin(MLDH)
+µÚ8½Ú ³£¼ûintent-filterÖĞµÄactioin(MLDH)
 <action android:name="android.intent.action.MAIN" /> ¾ö¶¨Æô¶¯µÄÖ÷activity
 <category android:name="android.intent.category.LAUNCHER" />ÔÚluncherÖĞÏÔÊ¾Í¼±ê(ÓëÉÏÃæµÄÒ»ÆğÊ¹ÓÃ)
 <category android:name="android.intent.category.DEFAULT" />¾ö¶¨¸ÃActivity½ÓÊÕÒşÊ½Intent
 <category android:name="android.intent.category.HOME" /> ÉèÖÃ¸Ã×é¼şÎªHome Activity
 
-µÚ10½Ú gc reason
+µÚ9½Ú gc reason
 GC_CONCURRENT(Í¬Ê±·¢ÉúµÄÊÂ) µ±¶Ñ½«Òª±»ÌîÂúµÄÊ±ºò´¥·¢µÄgc
 GC_FOR_MALLOC(ÄÚ´æ·ÖÅä) µ±Ó¦ÓÃµÄ¶ÑÒÑ¾­±»ÌîÂúÇÒ¼ÌĞøÉêÇëÄÚ´æÊ±gc¡£ÏµÍ³»áÉ±ËÀÓ¦ÓÃµÄ½ø³Ì²¢ÇÒ»ØÊÕËùÓĞÄÚ´æ
 
@@ -325,23 +212,7 @@ GC_EXPLICIT£ºÏÔÊ¾µÄGC£¬ÀıÈçµ÷ÓÃSystem.gc()£¨Ó¦¸Ã±ÜÃâµ÷ÓÃÏÔÊ¾µÄGC£¬ĞÅÈÎGC»áÔÚĞèÒª
 GC_HPROF_DUMP_HEAP£ºÇëÇó´´½¨ HPROF ÎÄ¼şÀ´·ÖÎö¶ÑÄÚ´æÊ±³öÏÖµÄGC¡£
 GC_EXTERNAL_ALLOC£º½öÊÊÓÃÓÚ API ¼¶±ğĞ¡ÓÚµÈÓÚ10 £¬ÓÃÓÚÍâ²¿·ÖÅäÄÚ´æµÄGC¡£
 
-
-µÚ12½Ú TextureViewºÍSurfaceView
-SurfaceView{ »æÖÆ»áÓĞ¶ÀÁ¢´°¿Ú£¬ TextureView Ã»ÓĞ¶ÀÁ¢µÄ´°¿Ú}
-×¢: TextureView.setSurfaceTextureListener(new TextureView.SurfaceTextureListener()
-¼Ì³ĞSurfaceView,²¢ÊµÏÖÁ½¸ö½Ó¿Ú£ºSurfaceHolder.CallbackºÍRunnable£»
-getHolder()./*»ñÈ¡SurfaceHolder¶ÔÏó*/mHolder.addCallback(this);//×¢²áSurfaceHolderµÄ»Øµ÷·½·¨
-synchronized (mSurfaceHolder) {/**ÔÚÕâÀï¼ÓÉÏÏß³Ì°²È«Ëø**/ 
-mCanvas =mSurfaceHolder.lockCanvas();/**ÄÃµ½µ±Ç°»­²¼ È»ºóËø¶¨**/ 
-draw();
-mSurfaceHolder.unlockCanvasAndPost(mCanvas); }/**»æÖÆ½áÊøºó½âËøÏÔÊ¾ÔÚÆÁÄ»ÉÏ**/ 
-
-µÚ13½Ú JSON´´½¨Óë½âÎö(Stringer-->Tokener-->nextValue)
-JSONStringer´´½¨Ò»¸öJson ÎÄ±¾£¬¿ÉÒÔÍ¨¹ıJSONTokenerµÄnextValue()À´
-»ñµÃJSONObject¶ÔÏó
-Í¨¹ıJSONObjectÓëJSONArrayµÄgetInt£¬getString,getDouble,getJSONArray£¬getJSONObjectµÈº¯ÊıÀ´½âÎöjson.
-
-µÚ14½Ú LauncherÏà¹Ø
+µÚ10½Ú LauncherÏà¹Ø
 sBgItemsIdMap--¼ÓÔØºó×ÀÃæµÄËùÓĞitem(iconºÍwidget)
 sBgWorkspaceItems¡ª¨C¼ÓÔØºó×ÀÃæµÄËùÓĞicon
 sBgAppWidgets¡ª¨CÕâÀïÃæ·ÅµÄwidget
@@ -376,7 +247,7 @@ AppWidgetProviderInfo-->LauncherAppWidgetProviderInfo{providerinfo}
 	ºóÕßLauncherModel.getWidgetProviders(contex,user)»ñÈ¡
 ResolveInfo Í¨¹ıPM.queryIntentActivities²éÑ¯µÃµ½ÔÚmannifestÖĞ²É¼¯µÄĞÅÏ¢
 
-µÚ16½Ú IntentService
+µÚ11½Ú IntentService
 ThreadÓµÓĞLooper£¬Looper¶ÔÏó³ÖÓĞÒ»¸öÏûÏ¢¶ÓÁĞMessageQueue.
 Handler½öÊÇÓµÓĞÒıÓÃ£¬»áÔÚ×ÓÏß³ÌÖĞÖ´ĞĞHandleMessage
 IntentService ServiceHandler(onHandleIntent) HandlerThread
@@ -391,8 +262,158 @@ ServiceHandler£ºIntentServiceµÄÄÚ²¿Àà£¬ÔÚhandleMessageÖĞµ÷ÓÃonHandleIntent²¢stop
 ÎªfalseÊ±²ÅÖ´ĞĞ×ÓÀàÊµÏÖµÄhandleMessage
 
 
+µÚÒ»ÕÂ ³£ÓÃ¿Ø¼şÊ¹ÓÃ
+1.<selector <item android:state_ android:drawable /> />
+2.pain.measureText(str) ¼ÆËãµ±Ç°PaintÏÂ×Ö·û´®µÄÊµ¼Ê¿í¶È£¬·µ»Øpx
+3.ViewOutlineProvider ÊµÏÖ²Ã¼ôºÍÕÚÕÖ
+6.Glide.with(this).load(url).into(imageView);
+10.ScrollView±ß½çÒõÓ°fadingEdge(·¨¶¨±ß½ç)
+11.onCreateOptionMenu-->menu.add(×é,id,ÅÅĞò,Ãû×Ö)-->onOptionsItemSeleted(item.getItemId)
+radioGroup-->checkBoxÓÃCompoundButton.OnCheckedChangeListener()
+12.Toast.makeText(xx.this,¡±ÄÚÈİ¡±,Toast.LENGTH_SHORT).show()
+progressBar-->style/incrementProgressBarBy()/setProgress()
+13.Ê¹ÓÃHttpURLconnection(URL.openConnectionµÃµ½).getinputStream()ÏÂÔØÎÄ¼ş
+15.WIFIÊ¹ÓÃ(WiFiManger)context.getSystemService(Service.WIFI_SERVICE).setWifiEnabled(){ÔÚSystemServiceRegistryÖĞ²éÕÒ}
+
+Spinner ÏÂÀ­¿ò
+DatePickerDialogÓÃÓÚÑ¡ÔñÈÕÆÚ
+AutoCompleteTextView Ìá¹©ÈÈµã¿ìËÙÊäÈë¹¦ÄÜ
+SeekBarÓĞ»¬¿éµÄ½ø¶ÈÌõ£»RatingBarÆÀ¼Û
+DrawerLayoutÌæ´úsideMenuÊµÏÖ²à±ß²Ëµ¥À¸¹¦ÄÜ
+HorizontalScrollView  ºáÏò»¬¶¯view
+jitpack ¿ªÔ´¿âµÄ´´½¨ÓëÊ¹ÓÃ
+2.XRecyclerView Ò»¸öÖ§³ÖÏÂÀ­Ë¢ĞÂºÍÏÂÀ­¼ÓÔØµÄ RecyclerView¡£ÏÂÀ­Ë¢ĞÂ¡¢ÉÏÀ­¼ÓÔØ¸ü¶à¡¢RecyclerViewÍ·²¿
+2.SwipeBackLayout  ÓÒ»¬·µ»Ø  
+3.greenDao ¸ù¾İ×¢ÊÍ×Ô¶¯Éú³ÉÊı¾İ¿â¼°Ïà¹Ø²Ù×÷
+1.bugly  ÌÚÑ¶·½°¸ ½â¾öÓ¦ÓÃÈÈ¸üĞÂºÍANRÈÕÖ¾»Ø´«
+3.ViewOutlineProvider ÊµÏÖ²Ã¼ôºÍÕÚÕÖ
+
+µÚ1½Ú EventBus
+¸¸ÀàÖĞ¶¨ÒåµÄ¶©ÔÄ·½·¨²»ÄÜ±»ÖØĞ´
+¶©ÔÄ·½·¨±ØĞëÎªpublicÇÒÓĞÎ¨Ò»²ÎÊı
+ÊÂ¼şµÄ¸¸Àà»òÊµÏÖµÄ½Ó¿Ú±»¶©ÔÄ£¬ÔòÒ²¿ÉÒÔ¼àÌıµ½¡£
+Ïß³ÌÍ¨ĞÅ£¬²»Ö§³Ö¿ç½ø³Ì
+µÚ2½Ú UI¿¨¶Ù¼à²â¿ò¼ÜBlockCanary
+Ó¦ÓÃ·¢Éú¿¨¶Ù£¬Ò»¶¨ÊÇÔÚdispatchMessageÖĞÖ´ĞĞÁËºÄÊ±²Ù×÷¡£ÎÒÃÇÍ¨¹ı¸øÖ÷Ïß³ÌµÄLooperÉèÖÃÒ»¸öPrinter£¬´òµãÍ³¼ÆdispatchMessage·½·¨Ö´ĞĞµÄÊ±¼ä£¬Èç¹û³¬³ö·§Öµ£¬±íÊ¾·¢Éú¿¨¶Ù£¬Ôòdump³ö¸÷ÖÖĞÅÏ¢£¬Ìá¹©¿ª·¢Õß·ÖÎöĞÔÄÜÆ¿¾±¡£
+StackTraceElement[] elements = Thread.currentThread().getStackTrace();
+µÚ3½Ú LeakCanary 
+leakcanary£ºÔ­Àí£ºActivityDestoryÖ®ºó½«Ëü·ÅÔÚÒ»¸öWeakReference£¬½«WR¹ØÁªµ½Ò»¸öReferenceQueue£¬²é¿´RQÖĞÊÇ·ñ´æÔÚActivityµÄÒıÓÃ£¬Èç¹û´æÔÚ¾ÍDump³öheapĞÅÏ¢½øĞĞ·ÖÎö
+Ê×ÏÈ´´½¨Ò»¸örefWatcherÆô¶¯activityRefWatcher£¬Í¨¹ıActivityLifecycleCallbacks°ÑOndestoryÉúÃüÖÜÆÚ¹ØÁª
+½âÎöhprofÎÄ¼ş²¢·â×°³Ésnapshot£¬¸ù¾İÈõÒıÓÃºÍkey²éÕÒĞ¹Â¶¶ÔÏó£¬ÕÒµ½×î¶ÌĞ¹Â¶Â·¾¶
+µÚ4½Ú ButterKnife(¿ìËÙ×ÊÔ´ÊÂ¼ş°ó¶¨)
+Bind±êÇ©ÔÚ8.0.0Ö®ºó±ä³ÉÁËBindView£¬8.7.0Ö®ºóÒªÓÃR2.id.XXX
+ËùÓĞ×ÊÔ´ºÍÏÂÁĞÊÂ¼ş(Ñ¡ÖĞÎÄ±¾½¹µã)
+OnTouch  OnEditorAction
+OnClick  OnLongClick
+OnItemClick  OnItemLongClick  OnItemSelected
+OnCheckedChanged OnTextChanged 
+OnFocusChange OnPageChange
+
+unbinder = ButterKnife.bind(this, view);  
+unbinder.unbind();  
+ButterKnife.bind(this, view);  //ViewHolderÖĞ´«ÈëviewÀ´°ó¶¨
+
+applyÁ¢¼´¶ÔÁĞ±íÖĞµÄËùÓĞÊÓÍ¼½øĞĞ²Ù×÷¡£ActionºÍSetter½Ó¿ÚÔÊĞíÖ¸¶¨¼òµ¥µÄĞĞÎª¡£
+ButterKnife.apply(nameViews, ENABLED, false);  
+ButterKnife.apply(nameViews, View.ALPHA, 0.0f);//Ò»¸öAndroidÊôĞÔÒ²¿ÉÒÔÓÃÓÚÓ¦ÓÃµÄ·½·¨¡£
+µÚ5½Ú okhttpºÍvolley£º
+volley  ¹È¸èµÄÍøÂçÇëÇó¿ò¼Ü.  RequestQueue -->XXXRequest-->queue.add(request)
+Response re = OkHttpClient.Builder().readTimeout(5, TimeUnit.SECONDS).build().newCall(new Request.Builder().url("http://www.baidu.com").get().build()).execute/enqueue();
+CallÊÇ½«okhttpClientºÍRequest·â×°£¬ÓÉÄÚ²¿µÄDispatcherÎ¬»¤ÔËĞĞÁĞ±í£¬Òì²½¶ªÈëÏß³Ì³Ø¡£¾ùÖ´ĞĞgetResponseWithInterceptorChain·½·¨Á´Ê½µ÷ÓÃÀ¹½ØÆ÷
+µÚ6½Ú BlockCanary£º
+Ô­Àí£ºÏñLooper×¢Èëprint£¬¼ÆËãdispatchMsgÇ°ºóÊ±¼ä²î
+Looper.getMainLooper().setMessageLogging(mainLooperPrinter);
+
+µÚ7½Ú AppCompatActivity ¼Ì³ĞFragmentActivity¿ÉÓÃtoolbar
+ContextCompat.checkSelfPermission(mContext, permission) ==  PackageManager.PERMISSION_DENIED;
+ActivityCompat.shouldShowRequestPermissionRationale(
+
+µÚ8½Ú SAX½âÎöXMLÎÄ¼ş
+ÊµÏÖDocument/Element/CharactersµÄ½âÎö-->µ÷ÓÃSAXparserFactory.
+          newInstance().newSAXParser().getXMLReader()Éú³É½âÎöÆ÷¶ÔÏó
+µÚ9½Ú RecyclerViewÊ¹ÓÃ
+extends RecyclerView.ViewHolder
+¸ù¾İ´«ÈëµÄview½âÎö³öĞèÒªµÄ×Ö¶Î
+RecyclerView.Adapter<NormalAdapter.VH>
+	VH onCreateViewHolder(ViewGroup parent, int viewType)
+	LayoutInflater²úÉúview²¢´´½¨VH²¢·µ»Ø
+	onBindViewHolder(VH holder, int position)
+	¸ù¾İÎ»ÖÃ¸øVHÖĞ×Ö¶Î°ó¶¨Êı¾İ
+	getItemCount()
+mRecycle.setLayoutManager(new GridLayoutManager(this,9,OrientationHelper.HORIZONTAL,true));
+mRecycle.setAdapter(new NormalAdapter(mData));
+µÚ10½Ú mLocalBroadcastManager = LocalBroadcastManager.getInstance(this);//»ñµÃÊµÀı  mLocalBroadcastManager.registerReceiver(receiver, filter);//×¢²á¼àÌı
+Context.registerReceiver(mBroadcastReceiver, intentFilter);  //È«¾Ö¹ã²¥µÄ×¢²á·½Ê½
+µÚ11½Ú µ¹¼ÆÊ±CountDownTimer (long millisInFuture, long countDownInterval)  
+	extends CountDownTimer ×ÜÊ±³¤,Ë¢ĞÂ»Øµ÷¼ä¸ô
+ 	»Øµ÷onFinish|onTick    ¼ÇµÃ²Ù×÷Ç°ÅĞ¶¨activity´æÔÚ£¬ÇÒÔÚonDestoryÖĞtimer.cancle()
+µÚ12½Ú ContentObserver
+getContentResolver().registerContentObserver (uri, boolean notifyForDescendants,  ContentObserver observer)
+ Uri.parse(XXX)  Ö»ĞèÒªuriÎ¨Ò»ÇÒ×¢²áºÍÍ¨Öª¸üĞÂ£¬¿ÉÒÔ¼àÌıÈÎºÎÊı¾İ
+getContentResolver().notifyChange(uri, null);
+getContentResolver().registerContentObserver(Settings.System.getUriFor(KEY_THEME_MONITOR), true, mContentObserver); ¸ù¾İÃû×Ö¼àÌısettingÖĞÊı¾İ
+µÚ13½Ú ViewPagerºÍViewPagerIndicator
+ViewPager ºÍ PagerAdapter ºóÕßĞèÒªÊµÏÖinstantiateItemÔÚÈİÆ÷ÖĞÌí¼ÓitemView£»ÔÚdestoryItemÖĞcontainer.removeView;isViewFromObjectÖĞreturn view == object ;
+Viewpager.setOnPageChangeListener(new ViewPager.OnPageChangeListener()¼àÌıÒ³ÃæonPageScrolledºÍonPageSelected 
+ViewPagerIndicatorÒıÈë£º
+ÊµÀı»¯TabPageIndicator£¬indicator.setViewPager(pager); 
+ÔÚIndicatorÉÏÉèÖÃOnPagerChangeListner¼àÌıÆ÷
+µÚ14½Ú TextureViewºÍSurfaceView
+SurfaceView{ »æÖÆ»áÓĞ¶ÀÁ¢´°¿Ú£¬ TextureView Ã»ÓĞ¶ÀÁ¢µÄ´°¿Ú}
+×¢: TextureView.setSurfaceTextureListener(new TextureView.SurfaceTextureListener()
+¼Ì³ĞSurfaceView,²¢ÊµÏÖÁ½¸ö½Ó¿Ú£ºSurfaceHolder.CallbackºÍRunnable£»
+	getHolder()./*»ñÈ¡SurfaceHolder¶ÔÏó*/mHolder.addCallback(this);//×¢²áSurfaceHolderµÄ»Øµ÷·½·¨
+	synchronized (mSurfaceHolder) {/**ÔÚÕâÀï¼ÓÉÏÏß³Ì°²È«Ëø**/ 
+	mCanvas =mSurfaceHolder.lockCanvas();/**ÄÃµ½µ±Ç°»­²¼ È»ºóËø¶¨**/ 
+	draw();
+	mSurfaceHolder.unlockCanvasAndPost(mCanvas); }/**»æÖÆ½áÊøºó½âËøÏÔÊ¾ÔÚÆÁÄ»ÉÏ**/ 
+µÚ15½Ú JSON´´½¨Óë½âÎö(Stringer-->Tokener-->nextValue)
+JSONStringer´´½¨Ò»¸öJson ÎÄ±¾£¬¿ÉÒÔÍ¨¹ıJSONTokenerµÄnextValue()À´
+»ñµÃJSONObject¶ÔÏó
+Í¨¹ıJSONObjectÓëJSONArrayµÄgetInt£¬getString,getDouble,getJSONArray£¬getJSONObjectµÈº¯ÊıÀ´½âÎöjson.
+
+
 µÚ¶şÕÂ ×Ô¶¨ÒåView
 AC°üº¬window£¬decoreÊÇ¸ùview£¬ÊÂ¼şÓÉWMSÀ´½ÓÊÕ£¬²¢Í¨¹ıAC»Øµ÷¶ÔÓ¦µÄonClickListener
+Ã¿¸öActivity¶¼°üº¬Ò»¸öWindow¶ÔÏó£¬ÔÚAndroidÖĞWindow¶ÔÏóÍ¨³£ÓÉPhoneWindowÀ´ÊµÏÖ¡£PhoneWindow½«Ò»¸öDecorViewÉèÖÃÎªÕû¸öÓ¦ÓÃ´°¿ÚµÄ¸ùView¡£DecorView×÷Îª´°¿Ú½çÃæµÄ¶¥²ãÊÓÍ¼£¬·â×°ÁËÒ»Ğ©´°¿Ú²Ù×÷µÄÍ¨ÓÃ·½·¨¡£¿ÉÒÔËµ£¬DecorView½«ÒªÏÔÊ¾µÄ¾ßÌåÄÚÈİ³ÊÏÖÔÚÁËPhoneWindowÉÏ£¬ÕâÀïÃæµÄËùÓĞViewµÄ¼àÌıÊÂ¼ş£¬¶¼Í¨¹ıWindowManagerServiceÀ´½øĞĞ½ÓÊÕ£¬²¢Í¨¹ıActivity¶ÔÏóÀ´»Øµ÷ÏàÓ¦µÄonClickListener
+
+µ±³ÌĞòÔÚonCreate()·½·¨ÖĞµ÷ÓÃsetContentView()·½·¨ºó£¬ActivityManagerService»á»Øµ÷onResume()·½·¨£¬´ËÊ±ÏµÍ³²Å»á°ÑÕû¸öDecorViewÌí¼Óµ½PhoneWindowÖĞ£¬²¢ÈÃÆäÏÔÊ¾³öÀ´£¬´Ó¶ø×îÖÕÍê³É½çÃæµÄ»æÖÆ¡£
+
+µ÷ÓÃLayout·½·¨À´¶Ô×Ô¼ºÖØĞÂ²¼¾Ö£¬´Ó¶ø´ïµ½ÒÆ¶¯ViewµÄĞ§¹û(¿É×Ô¼ºµ÷ÓÃ)
+
+Èç¹ûÔÚViewGroupÖĞÊ¹ÓÃscrollTo¡¢scrollBy·½·¨£¬ÄÇÃ´ÒÆ¶¯µÄ½«ÊÇËùÓĞ×ÓView£¬µ«Èç¹ûÔÚViewÖĞÊ¹ÓÃ£¬ÄÇÃ´ÒÆ¶¯µÄ½«ÊÇViewµÄÄÚÈİ
+
+µÚ01½Ú ViewµÄ²âÁ¿
+MeasureSpecÊÇÒ»¸ö32Î»µÄintÖµ£¬ÆäÖĞ¸ß2Î»Îª²âÁ¿µÄÄ£Ê½£¬µÍ30Î»Îª²âÁ¿µÄ´óĞ¡
+ViewÀàÄ¬ÈÏµÄonMeasure()·½·¨Ö»Ö§³ÖEXACTLYÄ£Ê½,ÒªÈÃ×Ô¶¨ÒåViewÖ§³Öwrap_contentÊôĞÔ£¬ÄÇÃ´¾Í±ØĞëÖØĞ´onMeasure()·½·¨À´Ö¸¶¨wrap_contentÊ±µÄ´óĞ¡¡£
+ÔÚÖØĞ´onMeasure()·½·¨ºó£¬×îÖÕÒª×öµÄ¹¤×÷¾ÍÊÇ°Ñ²âÁ¿ºóµÄ¿í¸ßÖµ×÷Îª²ÎÊıÉèÖÃ¸øsetMeasuredDimension()·½·¨¡£
+int specMode = MeasureSpec.getMode(measureSpec);
+int specSize = MeasureSpec.getSize(measureSpec);
+
+µÚ02½Ú ViewµÄ»æÖÆ
+´«½øÈ¥µÄbitmapÓëÍ¨¹ıÕâ¸öbitmap´´½¨µÄCanvas»­²¼ÊÇ½ô½ôÁªÏµÔÚÒ»ÆğµÄ£¬Õâ¸ö¹ı³ÌÎÒÃÇ³ÆÖ®Îª×°ÔØ»­²¼
+×¢: Canvas canvas = new Canvas(bitmap)
+
+µÚ03½Ú ÖØÒª»Øµ÷º¯Êı
+onFinishInflate()£º´ÓXML¼ÓÔØ×é¼şºó»Øµ÷¡£
+onSizeChanged()£º×é¼ş´óĞ¡¸Ä±äÊ±»Øµ÷£¬¿ÉÒÔµÃµ½¼ÆËãºóµÄ´óĞ¡Öµ¡£
+
+µÚ04½Ú ´´½¨¸´ºÏ¿Ø¼ş
+ĞèÒªÔÚres×ÊÔ´Ä¿Â¼µÄvaluesÄ¿Â¼ÏÂ´´½¨Ò»¸öattrs.xmlµÄÊôĞÔ¶¨ÒåÎÄ¼ş£¬²¢ÔÚ¸ÃÎÄ¼şÖĞÍ¨¹ıÈçÏÂ´úÂë¶¨ÒåÏàÓ¦µÄÊôĞÔ¼´¿É¡£
+TypedArray ta = context.obtainStyledAttributes(attrs,R.styleable.TopBar);
+//´ÓTypedArrayÖĞÈ¡³ö¶ÔÓ¦µÄÖµÀ´ÎªÒªÉèÖÃµÄÊôĞÔ¸³Öµ
+mLeftTextColor = ta.getColor(R.styleable.TopBar_leftTextColor, 0);
+×¢: //»ñÈ¡ÍêTypedArrayµÄÖµºó£¬Ò»°ãÒªµ÷ÓÃ // recyle·½·¨À´±ÜÃâÖØĞÂ´´½¨µÄÊ±ºòµÄ´íÎó ta.recycle();
+xmlns:custom="http://schemas.android.com/apk/res-auto"
+ÕâÀïÎÒÃÇ½«ÒıÈëµÄµÚÈı·½¿Ø¼şµÄÃû×Ö¿Õ¼äÈ¡ÃûÎªcustom£¬Ö®ºóÔÚXMLÎÄ¼şÖĞÊ¹ÓÃ×Ô¶¨ÒåµÄÊôĞÔÊ±£¬¾Í¿ÉÒÔÍ¨¹ıÕâ¸öÃû×Ö¿Õ¼äÀ´ÒıÓÃ
+µÚ05½Ú LayoutParams
+Í¨¹ıgetLayoutParams()»ñÈ¡LayoutParamsÊ±£¬ĞèÒª¸ù¾İViewËùÔÚ¸¸²¼¾ÖµÄÀàĞÍÀ´ÉèÖÃ²»Í¬µÄÀàĞÍ
+×¢: ViewGroup.MarginLayoutParams¸ü¼ÓµÄ·½±ã£¬²»ĞèÒª¿¼ÂÇ¸¸²¼¾ÖµÄÀàĞÍ
+µÚ06½Ú ÒõÓ°Ğ§¹ûºÍRippleĞ§¹û
+ViewµÄZÖµÓÉÁ½²¿·Ö×é³É£¬elevationºÍtranslationZ£¨ËüÃÇ¶¼ÊÇAndroid 5.XĞÂÒıÈëµÄÊôĞÔ£©
+RippleĞ§¹û£¬¼´µã»÷ºóµÄ²¨ÎÆĞ§¹û
+×¢: //²¨ÎÆÓĞ±ß½ç android:background="?android:attr/selectableItemBackground" //²¨ÎÆ³¬³ö±ß½ç android:background="?android:attr/selectableItemBackgroundBorderless"
+
 µÚ1½Ú ÖØ»æ
 ´¦ÓÚGONEµÄview²»»áÒıÆğÒ³ÃæµÄÖØ»æ
 postInvalidate() ·½·¨ÔÚ·Ç UI Ïß³ÌÖĞµ÷ÓÃ£¬Í¨Öª UI Ïß³ÌÖØ»æ¡£invalidate() ·½·¨ÔÚ UI Ïß³ÌÖĞµ÷ÓÃ£¬ÖØ»æµ±Ç° UI¡£
@@ -421,23 +442,27 @@ moveToÓ°ÏìµÄÊÇºóÃæ²Ù×÷µÄÆğµãÎ»ÖÃ£¬²»»áÓ°ÏìÖ®Ç°µÄ²Ù×÷£»¶ø setLastPoint¸Ä±äÇ°Ò»²½²
 save/restore ¾ùÊÇÕ»²Ù×÷
 saveLayer»á´´½¨Ò»¸öÈ«ĞÂÍ¸Ã÷µÄbitmap£¬´óĞ¡ÓëÖ¸¶¨±£´æµÄÇøÓòÒ»ÖÂ£¬ÆäºóµÄ»æÍ¼²Ù×÷¶¼·ÅÔÚÕâ¸öbitmapÉÏ½øĞĞ¡£ÔÚ»æÖÆ½áÊøºó£¬»áÖ±½Ó¸ÇÔÚÉÏÒ»²ãµÄBitmapÉÏÏÔÊ¾¡£Ö»ÓĞµ±µ÷ÓÃrestore()¡¢resoreToCount()º¯ÊıÒÔºó£¬²Å»á·µ»Øµ½Ô­Ê¼»­²¼ÉÏ»æÖÆ¡£ 
 
+×ø±êÏµµÄÆ½ÒÆÓë·­×ª  ×¢: translate()·½·¨Óërotate()·½·¨
+
 quadTo¡¢cubicTo·Ö±ğÊÇ¶ş½×ºÍÈı½×±´Èû¶ûÇúÏß
 
 µÚ4½Ú ¶¯»­Ïà¹Ø
+ÊµÏÖÔ­ÀíÊÇÃ¿´Î»æÖÆÊÓÍ¼Ê±ViewËùÔÚµÄViewGroupÖĞµÄdrawChildº¯Êı»ñÈ¡¸ÃViewµÄAnimationµÄTransformationÖµ£¬È»ºóµ÷ÓÃcanvas.concat(transformToApply.getMatrix())£¬Í¨¹ı¾ØÕóÔËËãÍê³É¶¯»­Ö¡
+
 alpha-scale-rotate-translate-set
 valueAnimator -- >objectAnimator
 AnimatorUpdateListener   AnimatorListener
 						 AnimatorListenerAdapter
 animate() || getAnimatedValue()
 
-						 anim.addListener(new AnimatorListenerAdapter() 
+anim.addListener(new AnimatorListenerAdapter() 
 anim.addListener(new Animator.AnimatorListener()
 valueAnimator.addUpdateListener(new AnimatorUpdateListener()
 
 animator.getAnimatedValue();
 
 ObjectAnimator.ofFloat(mButton, "alpha", 1f, 0f, 1f);
-ÊÖ¶¯ÉèÖÃ¶ÔÏóÀàÊôĞÔµÄ set()&get() À©Õ¹
+ÊÖ¶¯ÉèÖÃ¶ÔÏóÀàÊôĞÔµÄ set()&get() À©Õ¹(°ü×°Àà£º´«ÈëÀà¶ÔÏó¹¹Ôì£¬Ìí¼ÓĞèÒªµÄÊôĞÔ·½·¨)
 
 AnimatorSet play|after|before|with
 
@@ -496,6 +521,8 @@ mLinearGradient.setLocalMatrix(mGradientMatrix);
 data/anr/traces.txt
 data/system/dropbox
 
+Ó¦ÓÃÔÚ5ÃëÄÚÎ´ÏìÓ¦ÓÃ»§µÄÊäÈëÊÂ¼ş£¨Èç°´¼ü»òÕß´¥Ãş£©£»BroadcastReceiverÎ´ÔÚ10ÃëÄÚÍê³ÉÏà¹ØµÄ´¦Àí£»ServiceÔÚÌØ¶¨µÄÊ±¼äÄÚÎŞ·¨´¦ÀíÍê³É 20Ãë
+
 CPUusage ago/later  Sending signal. PID: 21404 SIG: 3
 Èç¹ûCPUÊ¹ÓÃÁ¿½Ó½ü100%£¬ËµÃ÷µ±Ç°Éè±¸ºÜÃ¦£¬ÓĞ¿ÉÄÜÊÇCPU¼¢¶öµ¼ÖÂÁËANR(´óÁ¿¼ÆËã)
 Èç¹ûCPUÊ¹ÓÃÁ¿ºÜÉÙ£¬ËµÃ÷Ö÷Ïß³Ì±»BLOCK£º¹Ø×¢NATIVEÍøÂçµÈ´ı
@@ -536,10 +563,12 @@ BraodcastReceiver£¬ContentObserver£¬File£¬Cursor£¬Stream£¬BitmapµÈ×ÊÔ´£¬Ó¦¸ÃÔÚAc
 ¼¯ºÏÈİÆ÷£¨±ÈÈçArrayList£©ÔÚÍË³ö³ÌĞòÖ®Ç°£¬½«¼¯ºÏÀïµÄ¶«Î÷clear£¬È»ºóÖÃÎªnull£¬ÔÙÍË³ö³ÌĞò¡£
 ²»Ê¹ÓÃWebView¶ÔÏóÊ±£¬Ó¦¸ÃÏÈ´Ó¸¸¿Ø¼şÖĞÒÆ³ı£¬ÔÙµ÷ÓÃËüµÄdestory()º¯ÊıÀ´Ïú»ÙËü
 
+9.ÎŞ·¨½µµÍ²ã¼¶Éî¶È»ò×Óview¸ß¶ÈÓëgroup²»Í¬Ê±ÓÅÏÈÊ¹ÓÃLinerlayout¶ø·Çrelativelayout
+
 µÚËÄÕÂ adbÃüÁî
 »ñÈ¡µ±Ç°activity
 Linux:adb shell dumpsys activity | grep "mFocusedActivity"
-windows:adb shell dumpsys activity | findstr "mFocusedActivity"
+windows:adb shell dumpsys activity | findstr "ResumedActivity"
 Æô¶¯Activity£º
 adb shell am start -n °üÃû/°üÃû£«ÀàÃû£¨-n ÀàÃû,-a action,-d date,-m MIME-TYPE,-c category,-e À©Õ¹Êı¾İ,µÈ£©¡£
 adb shell am start -n com.Android.settings/com.android.settings.ChooseLockGeneric --ez confirm_credentials false --ei lockscreen.password_type 0 --activity-clear-task
@@ -563,7 +592,9 @@ activities, Stack-->task{TaskRecord}-->Activity{ActivityRecord}
 pm clear <packagename> Çå³ıÓ¦ÓÃÊı¾İ
 pm path <package>: ´òÓ¡¸ø¶¨°üÃûµÄapkÂ·¾¶
 
-µÚÎåÕÂ UbuntuÊ¹ÓÃ
+µÚÎåÕÂ UbuntuµÈÏµÍ³Ïà¹ØÊ¹ÓÃ
+AndroidÄ¿Â¼ÏÂµÄ\system\core\toolboxºÍ\frameworks\base\cmds¾ÍÊÇÎÒÃÇËùÓĞADBÃüÁîºÍShellÃüÁîµÄÀ´Ô´ÁË
+
 gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize' Ë«»÷×îĞ¡»¯
 ÖÕ¶ËÄÚ¶à¸ö±êÇ©   shift+ctrl+T
 ËÑË÷£ºgrep -nr  Xx  ËÑË÷ÄÚÈİ.
@@ -583,6 +614,14 @@ echo
 et/profile »·¾³±äÁ¿ home/XXX/.bashrc ¿ª»úÆô¶¯ source XX¿ìËÙÉúĞ§
 ln -s Ô­Â·¾¶ ¿ì½İ·½Ê½Â·¾¶
 $XXX ´ú±í±äÁ¿ÄÚÈİ $n ±íÊ¾µÚn¸ö²ÎÊı $0ÊÇ½Å±¾Ãû
+
+µÚ2½Ú batÃüÁîµÄÅĞ¶Ï(¿Õ¸ñ)
+@echo off
+if '%1'=='' (
+adb shell ps|findstr monkey
+) else (
+adb shell kill %1
+)
 
 µÚÁùÕÂ gitÃüÁî
 Ö»ÓĞÈıÖÖ×´Ì¬£ºÒÑÌá½»£¨committed£©£¬ÒÑĞŞ¸Ä£¨modified£©ºÍÒÑÔİ´æ£¨staged£©¡£
@@ -676,24 +715,28 @@ git apply patch //½«patchÎÄ¼şÄÚÈİ²î·Öµ½±¾µØ
 ²âÊÔÊÇ·ñ¿ÉÒÔ½«patchÍêÃÀ´òÈë±¾µØsrc
 git apply --check patch
 
-µÚÆßÕÂ ËÙ¼Çµ¥Ôª
-½ø³ÌºÍÏß³ÌµÄÇø±ğ(ÏÈ½øµİÔö)
-¶à½ø³Ì£¬¿ÉÒÔÌá¸ßÎÒÃÇAPPÕ¼ÓÃµÄ×î¸ßÄÚ´æ¡£
 
-¿ì½İ¼ü
+µÚÆßÕÂ ËÙ¼Çµ¥Ôª
+µÚ1½Ú ½ø³ÌºÍÏß³ÌµÄÇø±ğ(ÏÈ½øµİÔö)
+¶à½ø³Ì£¬¿ÉÒÔÌá¸ßÎÒÃÇAPPÕ¼ÓÃµÄ×î¸ßÄÚ´æ¡£
+µÚ2½Ú ¿ì½İ¼ü
 Win+L ËøÆÁ£¬Win+E ÏÔÊ¾×ÊÔ´¹ÜÀíÆ÷£¬Win+D ÏÔÊ¾×ÀÃæ(ledµÆ)
-Eclipse:a2²åÈëÉÏÏÂ,c5 hedoÉ¾×¢ÊÍ,as°®ÊÇÈç´Ëpm,acl¸ñÊ½»¯
-µÚ1½Ú ÓÅĞãË¼Î¬
+Eclipse:a2²åÈëÉÏÏÂ,c5 hedoÉ¾×¢ÊÍ,as°®ÊÇÈç´Ëpm,acdl¸´ÖÆ¸ñÊ½»¯
+µÚ3½Ú ÓÅĞãË¼Î¬
 Ä¿ÀûËûµüÃ¦ÕûºÏÔË(ÄµòÃµøÃ¤Ö¤ºÈÔÎ)
-µÚ2½Ú UML¹ØÏµ(ÊµÏÖ£¬·º»¯£¬ÒÀÀµ£¬¹ØÁª£¬¾ÛºÏ£¬×éºÏ)
+µÚ4½Ú UML¹ØÏµ(ÊµÏÖ£¬·º»¯£¬ÒÀÀµ£¬¹ØÁª£¬¾ÛºÏ£¬×éºÏ)
 ÊÇ·­Òë¹Ù¾ç×é£º¡÷ĞéÊµÏß£¬¾Ö²Î¾²·½Ğé¼ıÍ·£¬Êµ¼ıÓĞ¸öÊı£¬ÁâĞÎÊµ¼ı×Ü·ÖÏÖ£¬×éºÏ²»¹²Ïí
-µÚ4½Ú ±à³Ì¸ĞÎò
-Ìí¼ÓÖ®Ç°ÏÈÇå¿Õ£¬Ê¹ÓÃÖ®Ç°ÏÈÅĞÓĞ(null»òsize)£¬ÏÈ¿ò¼ÜºóÂß¼­£¬²¼¾Ö²ÎÊıXMl»¯£¬Ñ¡´óÈ¡Ğ¡ÓÃMath
-µÚ5½Ú ÈËĞÔµÄÈõµã
+µÚ5½Ú ±à³Ì¸ĞÎò
+Ìí¼ÓÖ®Ç°ÏÈÇå¿Õ£¬Ê¹ÓÃÖ®Ç°ÏÈÅĞÓĞ(null»òsize)£¬ÏÈ¿ò¼ÜºóÂß¼­£¬²¼¾Ö²ÎÊıXMl»¯£¬Ñ¡´óÈ¡Ğ¡ÓÃMath£¬Èë²ÎÖ»¶Á£»µİ¹éÏÈÍË³ö
+µÚ6½Ú ÈËĞÔµÄÈõµã
 ¶ÔÊÂ£ºÖĞÁ¢Ë¼¿¼£¬Ô¤²â×î»µ²¢¸ÄÉÆ
 ¶Ô¼º£ºÓĞĞò£¬ÀÍÉí£¬ÏíµÃ£»¾Ü±ç£¬Ì¸¼º£¬ÈÏ´í(ĞìÀÏµÄ±ç¼º´í)
 ¶ÔÈË£ºÌı£¬Ó­£¬¿ä£¬Ë¡£¬Ğ¦
 ÖØÒªĞÔ£¬Ãû×Ö£¬·şÎñÒâÊ¶£¬ĞéĞÄÇë½Ì£¬¸ßÉĞ¶¯»úºÍÈ¡Ê¤ÓûÍû
+µÚ7½Ú ±ß¾àµÄ²»Í¬(mpÄÚÍâ)
+marginÊÇÍâ±ß¾àÔÚborderÍâÃæ£¬¶øpaddingÊÇÄÚ±ß¾à£¬ÔÚborderÄÚ²¿
+µÚ8½Ú Lp HvºáÊú(laopo)
+
 
 µÚ°ËÕÂ ÏµÍ³bug¼°ĞèÇó
 

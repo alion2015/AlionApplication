@@ -23,7 +23,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>-->
-        <activity android:name="com.alion.textview.TextActivity">
+        <activity android:name="com.alion.provider.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -51,6 +51,14 @@
                 <action android:name="com.alion.timeclick" />
             </intent-filter>
         </receiver>-->
+
+        <provider
+            android:exported="true"
+            android:name="com.alion.provider.MyContentProvider"
+            android:authorities="com.alion.provider"
+            android:readPermission="com.alion.provider.Read"
+            android:writePermission="com.alion.provider.Write" />
     </application>
 
+    <uses-permission android:name="com.alion.provider.Read" android:protectionLevel="normal"/>
 </manifest>

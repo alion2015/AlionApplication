@@ -7,6 +7,7 @@ if '%1'=='monkey' (goto monkey)
 if '%1'=='apl' (goto apl)
 if '%1'=='focus' (goto focus)
 if '%1'=='xy' (goto xy)
+if '%1'=='mn' (goto monitor)
 
 echo restart    :replace launcher and restart phone
 echo kmonkey  *a    :kill monkey
@@ -16,6 +17,7 @@ echo monkey  *a *b    :monkey long=a period=b
 echo apl    :pull databases of launcher to desktop
 echo focus    :ResumedActivity of phone
 echo xy    :adb to xiaoyao
+echo mn    :start UI monitor
 
 :demo
 goto break
@@ -66,6 +68,10 @@ goto break
 
 :xy
 adb connect 127.0.0.1:21503
+goto break
+
+:monitor
+start /d "D:\androidSDK\tools\bin" uiautomatorviewer.bat
 goto break
 
 :break

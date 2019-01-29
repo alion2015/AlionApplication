@@ -16,13 +16,14 @@ echo rml rml    :rm data of launcher
 echo monkey  *a *b    :monkey long=a period=b
 echo apl    :pull databases of launcher to desktop
 echo focus    :ResumedActivity of phone
-echo xy    :adb to xiaoyao
+echo xy *a   :adb to xiaoyao a is index that start with 0
 echo mn    :start UI monitor
 
 :demo
 goto break
 
 :restart
+adb shell rm -rf data/data/com.android.launcherWT*
 adb shell rm data/app/com.android.launcherWT-1.apk
 adb push D:\Launcher\launcherWT\launcherWT-release.apk data/app/com.android.launcherWT-1.apk
 adb shell stop
@@ -67,7 +68,9 @@ adb shell dumpsys activity | findstr ResumedActivity
 goto break
 
 :xy
-adb connect 127.0.0.1:21503
+set index=0
+if '%2' neq '' (set index=%2)
+adb connect 127.0.0.1:215%index%3
 goto break
 
 :monitor

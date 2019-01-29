@@ -33,7 +33,7 @@ public class LauncherPReader extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.myrecycle);
 
-        mRecycle = findViewById(R.id.recycleview);
+        mRecycle = (RecyclerView)findViewById(R.id.recycleview);
         initData();
         mRecycle.setLayoutManager(/*new LinearLayoutManager(this)*/new GridLayoutManager(this,3,OrientationHelper.HORIZONTAL,true));
         mRecycle.setAdapter(new NormalAdapter(mData));

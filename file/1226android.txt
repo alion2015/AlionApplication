@@ -6,7 +6,6 @@ regedit
 ¾ØÕó³Ë»ı£¬Ç°ĞĞ³ËºóÁĞ¶ÔÓ¦ÔªËØÇóºÍ
 
 aadd amod adel csxg
-amk amon rml apl
 
 ldpi:mdpi:hdpi:xhdpi:xxhdpi=3:4:6:8:12¡£
 
@@ -58,7 +57,9 @@ throws ·½·¨Ç°£¬·½·¨²»´¦ÀíÒì³£
 ×ÓÀàµÄ·ºĞÍÀàĞÍÊÇÎŞ·¨Ê¹ÓÃ¸¸ÀàµÄ·ºĞÍÀàĞÍ½ÓÊÕ£¬ÀıÈç£ºInfo <String>²»ÄÜÊ¹ÓÃInfo<Object> 
 ÀàÃû³Æ<? (extends/super Àà)> ¶ÔÏóÃû³Æ   ·Ö±ğ¶¨ÒåÁËÍ¨Åä/ÉÏÏŞ/ÏÂÏŞ <? extends Object> Ïàµ±ÓÚÃ»ÓĞÏŞÖÆ
 
-Math.Random nextXXX(Y) 
+Math.Random nextXXX(Y) ×î´óÖµÊÇYµÄËæ»úXXXÀàĞÍ£¬Ö±½ÓMath.Random()²úÉú0-1µÄËæ»úĞ¡Êı
+final Random random = new Random();
+int temp = random.nextInt(max)%(max-min+1) + min;
 
 StringBuffer   append|insert(o,s)|delete(s,e)|indexOf|replace(s,e,s)|reverse·´×ª|substring      ÌíÉ¾²é¸Ä·´È¡
 
@@ -90,6 +91,8 @@ BufferedReader buf=new BufferedReader(new InputStreamReader(System.in))
 Scanner  hasNextXXX|nextXXX|useDelimiter£¨ÉèÖÃ·Ö¸ô·û£©|nextLine       (has)NextXXX(Line)|useDelimiter
 
 µÚ1½Ú ÅÅĞòÏà¹Ø
+µİ¹éÊ×ÏÈÊµÏÖÍË³öÌõ¼ş
+±éÀúµÄË³ĞòÊ¼ÖÕÊÇÒ»ÑùµÄ£¬Ö»ÊÇ·ÃÎÊ¸ùµÄÊ±»ú£¬·ÖÎªÇ°ÖĞºóÈıÖÖ
 ¶à´Î½»»»£º¸´ÖÆÒ»¸ö£¬ºóÃæÓÃÇ°Öµ¸²¸Ç£¬»Ö¸´µ½×îÖÕÎ»ÖÃ
 È«²¿Ê¹ÓÃ±ÕºÏÇø¼äÅÅĞò
 
@@ -135,6 +138,8 @@ ViewModelÊÇÓÃÀ´¹ÜÀíºÍUI×é¼şÓĞ¹ØµÄÊı¾İµÄ£¬¶øLiveDataÓÖÊÇÕâĞ©Êı¾İµÄ³ÖÓĞÀà£¬ËùÒÔÔÚÊ
 ÔÚContentProviderÖĞ½«ContentProviderOperation²ÎÊılist´«Èë²¢Ö´ĞĞgetContentResolver().applyBatch(LauncherProvider.AUTHORITY, ops)
 db.beginTransaction();db.setTransactionSuccessful();db.endTransaction();
 6.Ïß³Ì³ØÖ´ĞĞ´«ÈërunableµÄrun·½·¨
+ExecutorService singleT = Executors.newSingleThreadExecutor();
+singleT.submit(new Runnable())
 7.postdelayed 
 looperÖĞ  MessageQueue.next ½øÈëÊ±ÅĞ¶¨µ±Ç°msgÊÇ·ñÓĞÑÓ³Ù£¬ÓĞµÄ»°¾Í×èÈûnativePollOnce
 MessageQueue.enqueueMessage ÅĞ¶ÏÓëµ±Ç°msg.when Èô¸ü¶ÌÇÒÏß³Ì×èÈû¾Í»½ĞÑ
@@ -275,6 +280,7 @@ progressBar-->style/incrementProgressBarBy()/setProgress()
 13.Ê¹ÓÃHttpURLconnection(URL.openConnectionµÃµ½).getinputStream()ÏÂÔØÎÄ¼ş
 15.WIFIÊ¹ÓÃ(WiFiManger)context.getSystemService(Service.WIFI_SERVICE).setWifiEnabled(){ÔÚSystemServiceRegistryÖĞ²éÕÒ}
 
+
 Spinner ÏÂÀ­¿ò
 DatePickerDialogÓÃÓÚÑ¡ÔñÈÕÆÚ
 AutoCompleteTextView Ìá¹©ÈÈµã¿ìËÙÊäÈë¹¦ÄÜ
@@ -371,6 +377,36 @@ SurfaceView{ »æÖÆ»áÓĞ¶ÀÁ¢´°¿Ú£¬ TextureView Ã»ÓĞ¶ÀÁ¢µÄ´°¿Ú}
 JSONStringer´´½¨Ò»¸öJson ÎÄ±¾£¬¿ÉÒÔÍ¨¹ıJSONTokenerµÄnextValue()À´
 »ñµÃJSONObject¶ÔÏó
 Í¨¹ıJSONObjectÓëJSONArrayµÄgetInt£¬getString,getDouble,getJSONArray£¬getJSONObjectµÈº¯ÊıÀ´½âÎöjson.
+µÚ16½Ú dexposed¿ìËÙÊ¹ÓÃ
+µÚÒ»²½£º
+dependencies {
+    compile( 'com.taobao.android:dexposed:0.1.7@aar')
+µÚ¶ş²½£ºACÖĞÉùÃ÷
+ static {
+        // load xposed lib for hook.
+        try {
+            if (android.os.Build.VERSION.SDK_INT == 22){
+                System.loadLibrary("dexposed_l51");
+            } else if (android.os.Build.VERSION.SDK_INT > 19 && android.os.Build.VERSION.SDK_INT <= 21){
+                System.loadLibrary("dexposed_l");
+            } else if (android.os.Build.VERSION.SDK_INT > 14){
+                System.loadLibrary("dexposed");
+            }
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
+    }
+µÚÈı²½£ºHookÂß¼­
+DexposedBridge.findAndHookMethod(Log.class, "d", String.class, String.class, new XC_MethodHook() {
+            @Override
+            protected void afterHookedMethod(XC_MethodHook.MethodHookParam arg0) throws Throwable {
+                String tag = (String) arg0.args[0];
+                String msg = (String) arg0.args[1];
+                mLogContent.setText(tag + "," + msg);
+            }
+        });
+
+
 
 
 µÚ¶şÕÂ ×Ô¶¨ÒåView
@@ -727,7 +763,7 @@ Eclipse:a2²åÈëÉÏÏÂ,c5 hedoÉ¾×¢ÊÍ,as°®ÊÇÈç´Ëpm,acdl¸´ÖÆ¸ñÊ½»¯
 µÚ4½Ú UML¹ØÏµ(ÊµÏÖ£¬·º»¯£¬ÒÀÀµ£¬¹ØÁª£¬¾ÛºÏ£¬×éºÏ)
 ÊÇ·­Òë¹Ù¾ç×é£º¡÷ĞéÊµÏß£¬¾Ö²Î¾²·½Ğé¼ıÍ·£¬Êµ¼ıÓĞ¸öÊı£¬ÁâĞÎÊµ¼ı×Ü·ÖÏÖ£¬×éºÏ²»¹²Ïí
 µÚ5½Ú ±à³Ì¸ĞÎò
-Ìí¼ÓÖ®Ç°ÏÈÇå¿Õ£¬Ê¹ÓÃÖ®Ç°ÏÈÅĞÓĞ(null»òsize)£¬ÏÈ¿ò¼ÜºóÂß¼­£¬²¼¾Ö²ÎÊıXMl»¯£¬Ñ¡´óÈ¡Ğ¡ÓÃMath£¬Èë²ÎÖ»¶Á£»µİ¹éÏÈÍË³ö
+Ìí¼ÓÖ®Ç°ÏÈÇå¿Õ£¬Ê¹ÓÃÖ®Ç°ÏÈÅĞÓĞ(null»òsize)£¬ÏÈ¿ò¼ÜºóÂß¼­£¬²¼¾Ö²ÎÊıXMl»¯£¬Ñ¡´óÈ¡Ğ¡ÓÃMath£¬Èë²ÎÖ»¶Á
 µÚ6½Ú ÈËĞÔµÄÈõµã
 ¶ÔÊÂ£ºÖĞÁ¢Ë¼¿¼£¬Ô¤²â×î»µ²¢¸ÄÉÆ
 ¶Ô¼º£ºÓĞĞò£¬ÀÍÉí£¬ÏíµÃ£»¾Ü±ç£¬Ì¸¼º£¬ÈÏ´í(ĞìÀÏµÄ±ç¼º´í)

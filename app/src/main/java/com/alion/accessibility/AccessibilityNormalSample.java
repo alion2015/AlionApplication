@@ -43,8 +43,8 @@ public class AccessibilityNormalSample extends Activity implements View.OnClickL
         mHandler.postDelayed(new Runnable() {
             @Override
             public void run() {
-//                simulationClickByText();
-                //simulationClickById();
+               simulationClickByText();
+                //         simulationClickById();
             }
         }, 2000);
     }
@@ -62,7 +62,7 @@ public class AccessibilityNormalSample extends Activity implements View.OnClickL
         mHandler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                boolean result = AccessibilityOperator.getInstance().clickByText("OFF");
+                boolean result = AccessibilityOperator.getInstance().clickByText("关闭");
                 Log.d("alionlog",result ? "OnOff开关模拟点击成功" : "OnOff开关模拟点击失败");
             }
         }, 4000);
@@ -76,19 +76,19 @@ public class AccessibilityNormalSample extends Activity implements View.OnClickL
     }
 
     private void simulationClickById() {
-        boolean result = AccessibilityOperator.getInstance().clickById("com.accessibility:id/normal_sample_checkbox");
+        boolean result = AccessibilityOperator.getInstance().clickById("com.alion.myapplication:id/normal_sample_checkbox");
         Log.d("alionlog",result ? "复选框模拟点击成功" : "复选框模拟点击失败");
         mHandler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                boolean result = AccessibilityOperator.getInstance().clickById("com.accessibility:id/normal_sample_radiobutton");
+                boolean result = AccessibilityOperator.getInstance().clickById("com.alion.myapplication:id/normal_sample_radiobutton");
                 Log.d("alionlog",result ? "单选按钮模拟点击成功" : "单选按钮模拟点击失败");
             }
         }, 2000);
         mHandler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                boolean result = AccessibilityOperator.getInstance().clickById("com.accessibility:id/normal_sample_togglebutton");
+                boolean result = AccessibilityOperator.getInstance().clickById("com.alion.myapplication:id/normal_sample_togglebutton");
                 Log.d("alionlog",result ? "OnOff开关模拟点击成功" : "OnOff开关模拟点击失败");
             }
         }, 4000);

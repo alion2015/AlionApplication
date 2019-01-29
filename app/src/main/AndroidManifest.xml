@@ -6,7 +6,6 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:name="com.alion.AlionApplication"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -23,7 +22,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>-->
-        <activity android:name="com.alion.provider.MainActivity">
+        <activity android:name="com.alion.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -58,6 +57,21 @@
             android:authorities="com.alion.provider"
             android:readPermission="com.alion.provider.Read"
             android:writePermission="com.alion.provider.Write" />
+
+        <activity android:name="com.alion.accessibility.AccessibilityNormalSample"/>
+
+        <service android:name="com.alion.accessibility.AccessibilitySampleService"
+            android:label="@string/app_name"
+            android:exported="true"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
+            >
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessibility_config"/>
+        </service>
     </application>
 
     <uses-permission android:name="com.alion.provider.Read" android:protectionLevel="normal"/>

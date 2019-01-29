@@ -20,7 +20,7 @@
     <Button
         android:id="@+id/accessibility_find_and_click"
         android:layout_marginTop="20dp"
-        android:text="模拟辅助功能点击View"
+        android:text="打开头条"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 </LinearLayout>

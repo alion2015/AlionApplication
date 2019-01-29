@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.provider.Settings;
 import android.text.TextUtils;
 
-import com.alion.accessibility.AccessibilityOpenHelperActivity;
 import com.alion.accessibility.AccessibilitySampleService;
 
 
@@ -14,8 +13,6 @@ import com.alion.accessibility.AccessibilitySampleService;
  */
 public class AccessibilityUtil {
     private static final String ACCESSIBILITY_SERVICE_PATH = AccessibilitySampleService.class.getCanonicalName();
-    private static final String ACTION = "action";
-    private static final String ACTION_START_ACCESSIBILITY_SETTING = "action_start_accessibility_setting";
     /**
      * 判断是否有辅助功能权限
      *
@@ -60,11 +57,17 @@ public class AccessibilityUtil {
         return new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
     }
     public static void jumpToSettingPage(Context context) {
-        try {
+       /* try {
             Intent intent = new Intent(context,  AccessibilityOpenHelperActivity.class);
             intent.putExtra(ACTION, ACTION_START_ACCESSIBILITY_SETTING);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(intent);
-        } catch (Exception ignore) {}
+        } catch (Exception ignore) {}*/
+        try {
+            Intent intent = AccessibilityUtil.getAccessibilitySettingPageIntent(context);
+            context.startActivity(intent);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

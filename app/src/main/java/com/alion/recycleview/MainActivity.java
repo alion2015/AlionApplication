@@ -36,10 +36,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.myrecycle);
 
-        mRecycle = findViewById(R.id.recycleview);
+        mRecycle = (RecyclerView)findViewById(R.id.recycleview);
         initData();
         mRecycle.setLayoutManager(new GridLayoutManager(this,9,OrientationHelper.HORIZONTAL,true));
-        mRecycle.setAdapter(new NormalAdapter(mData));
+        //mRecycle.setAdapter(new NormalAdapter(mData));
         mRecycle.addItemDecoration(new MDGridRvDividerDecoration(this));
 
     }

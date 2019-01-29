@@ -10,7 +10,10 @@ import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 
 
+import java.util.LinkedList;
 import java.util.List;
+
+import static com.alion.accessibility.AccessibilitySampleService.PARENTCLASSID;
 
 /**
  * Created by alion on 2019/1/1.
@@ -19,9 +22,9 @@ import java.util.List;
 @TargetApi(16)
 public class AccessibilityOperator {
 
+
     private Context mContext;
     private static AccessibilityOperator mInstance = new AccessibilityOperator();
-    private AccessibilityEvent mAccessibilityEvent;
     private AccessibilityService mAccessibilityService;
 
     private AccessibilityOperator() {
@@ -35,12 +38,9 @@ public class AccessibilityOperator {
         mContext = context;
     }
 
-    public void updateEvent(AccessibilityService service, AccessibilityEvent event) {
-        if (service != null && mAccessibilityService == null) {
+    public void updateEvent(AccessibilityService service) {
+        if (service != null) {
             mAccessibilityService = service;
-        }
-        if (event != null) {
-            mAccessibilityEvent = event;
         }
     }
 
@@ -56,16 +56,12 @@ public class AccessibilityOperator {
     }
 
     public AccessibilityNodeInfo getRootNodeInfo() {
-        AccessibilityEvent curEvent = mAccessibilityEvent;
         AccessibilityNodeInfo nodeInfo = null;
         if (Build.VERSION.SDK_INT >= 16) {
             // 建议使用getRootInActiveWindow，这样不依赖当前的事件类型
             if (mAccessibilityService != null) {
                 nodeInfo = mAccessibilityService.getRootInActiveWindow();
-                Log.d("alionlog", "nodeInfo: " + nodeInfo);
             }
-        } else {
-            nodeInfo = curEvent.getSource();
         }
         return nodeInfo;
     }
@@ -98,7 +94,16 @@ public class AccessibilityOperator {
     }
 
     public boolean clickByText(String text) {
-        return performClick(findNodesByText(text));
+        List<AccessibilityNodeInfo> nis = findNodesByText(text);
+        if(null!=nis&& nis.size()>0) {
+            AccessibilityNodeInfo item = nis.get(0);
+            while (null!=item && !item.performAction(AccessibilityNodeInfo.ACTION_CLICK)){
+                item=item.getParent();
+            }
+            return (null!=item)? false: true;
+        }else{
+            return  false;
+        }
     }
 
     /**
@@ -117,8 +122,6 @@ public class AccessibilityOperator {
             AccessibilityNodeInfo node;
             for (int i = 0; i < nodeInfos.size(); i++) {
                 node = nodeInfos.get(i);
-                // 获得点击View的类型
-                Log.d("alionlog", "View类型：" + node.getClassName());
                 // 进行模拟点击
                 if (node.isEnabled()) {
                     return node.performAction(AccessibilityNodeInfo.ACTION_CLICK);
@@ -126,6 +129,51 @@ public class AccessibilityOperator {
             }
         }
         return false;
+    }
+
+    public AccessibilityNodeInfo getNodeByClass(String classname){
+        List<AccessibilityNodeInfo> recy = findNodesById(PARENTCLASSID);
+        for(int i=0;i<recy.size();i++){
+            AccessibilityNodeInfo item = recy.get(i);
+            Log.d("alionlog", "getNodeByClass: "+item.getClassName().toString());
+            if(item.getClassName().toString().contains(classname)){
+                return item;
+            }
+        }
+        return null;
+    }
+
+    public AccessibilityNodeInfo getNodeByClass(AccessibilityNodeInfo root, String classname) {
+        /*if (root == null || (root.getClassName().toString().equals(classname)&&root.isScrollable())) return root;
+        AccessibilityNodeInfo bew = null;
+        for (int i = 0; i < root.getChildCount(); i++) {
+            AccessibilityNodeInfo child = root.getChild(i);
+            if(null!=child) {
+                bew = getNodeByClass(child, classname);
+                if (null != bew && bew.getClassName().toString().equals(classname)&&root.isScrollable()) {
+                    return bew;
+                }
+            }
+        }
+        return bew;*/
+        List<AccessibilityNodeInfo> all = new LinkedList<>();
+        getAllNotes(all,root);
+        for(int i = 0; i < all.size(); i++){
+            AccessibilityNodeInfo child = all.get(i);
+            if(child.getClassName().toString().equals(classname) && child.isScrollable()) {
+                return child;
+            }
+        }
+        return null;
+    }
+
+    private void getAllNotes(List<AccessibilityNodeInfo> all, AccessibilityNodeInfo root) {
+        if(root==null )return ;
+        all.add(root);
+        for(int i = 0; i < root.getChildCount(); i++){
+            AccessibilityNodeInfo child = root.getChild(i);
+            getAllNotes(all,child);
+        }
     }
 
     public boolean clickBackKey() {

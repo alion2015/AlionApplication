@@ -2,12 +2,14 @@ package com.alion;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.ContentObserver;
 import android.graphics.Outline;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Handler;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,6 +17,7 @@ import android.view.View;
 import android.view.ViewOutlineProvider;
 import android.widget.Button;
 
+import com.alion.check.SignCheck;
 import com.alion.countdowntimer.TimeCount;
 import com.alion.myapplication.R;
 
@@ -32,7 +35,20 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mButton = findViewById(R.id.button);
+        mButton = (Button)findViewById(R.id.button);
+
+        SignCheck signCheck = new SignCheck(this,"72:5F:E6:2B:53:7B:3C:5B:C9:2C:FC:AC:D2:EC:63:B7:23:9B:06:06");
+        if(signCheck.check()) {
+            //TODO 签名正常
+        }else                {
+            //TODO 签名不正确
+            new AlertDialog.Builder(this).setMessage("请前往官方渠道下载正版 app， http://.....").setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    System.exit(0);
+                }
+            }).show();
+        }
 
         ViewOutlineProvider viewOutlineProvider1 =
                 new ViewOutlineProvider() {

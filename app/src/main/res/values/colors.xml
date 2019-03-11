@@ -5,4 +5,7 @@
     <color name="colorAccent">#FF4081</color>
     <color name="colorRed">#FF0000</color>
     <color name="colorBlack">#000000</color>
+
+    <color name="mytext_color">#CCFFFFFF </color>
+    <color name="mytext_color_h">#E500FFFF</color>
 </resources>

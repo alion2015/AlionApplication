@@ -3,80 +3,8 @@
 duokan/downloads/micloudbooks
 regedit
 1080*720*192
-矩阵乘积，前行乘后列对应元素求和
-
-aadd amod adel csxg
-
-ldpi:mdpi:hdpi:xhdpi:xxhdpi=3:4:6:8:12。
-
-runable.runOnUiThread
-
-1.抽象、继承、封装、多态性
-
-数组属于引用类型，父类object     AdView [] adViews=new AdView[N];
-
-类首常大包全小  Eclipse  interface 
-implements/extends abstract instanceof 
-static 实例个数及自动命名
-final 常量不可改
-String.equal() 
-Integer.parseInt() finish() 
-str.getBytes()
-
+新增算法.会计.高效java
 android:parentActivityName  界面左上角添加< 可以直接跳回指定的窗口
-9.android:largeHeap="true"
-
-4.drawable的padding需要setBounds
-
-3.外部类.this.成员变量|成员方法
-
-25.jar -cvf android.jar .  //打包当前内容到jar包(用于合并java包)
-26.点9切图使用方法：将图命名.9.png-->做普通图使用
-30.Ctrl+G 转到相应的行  记事本也可以
-31.C盘不足：删除 widows/temp文件夹
-32.PS圆角矩形及录制动作：选择-->修改-->平滑 选择7
-33.火车退票：48--5%；24--10%；20%。两天五一天十，不到整天扣20
-34.飞机发票：机票30天内可以补打发票
-35.黄金比例：黄金分割6.18
-31.无缝合并多个文件copy /b 1.jpg+dz.rar mypic.jpg 
-
-12.在使用高于minSdkVersion API level的方法需要:
-用@TargeApi(9) 使可以编译通过;
-if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD) 
-
-18.一个数左移N位表示乘以2的n次方，右移表示除以
-  |=    -----------   &= ~  用于添加和剥离标志位(或等与等非)
-  异或两次同一个对象等于没有操作
-
-22.callback实现是本身定义了interface和具体调用流程，对方通过实现interface来接入。便于信息回传 && 区别callbacks
-27.接口定义类似abstract定义的抽象类，必须全部实现
-
-
-throws 方法前，方法不处理异常
-
-子类的泛型类型是无法使用父类的泛型类型接收，例如：Info <String>不能使用Info<Object> 
-类名称<? (extends/super 类)> 对象名称   分别定义了通配/上限/下限 <? extends Object> 相当于没有限制
-
-Math.Random nextXXX(Y) 最大值是Y的随机XXX类型，直接Math.Random()产生0-1的随机小数
-final Random random = new Random();
-int temp = random.nextInt(max)%(max-min+1) + min;
-
-StringBuffer   append|insert(o,s)|delete(s,e)|indexOf|replace(s,e,s)|reverse反转|substring      添删查改反取
-
-Arrays fill|sort|binarySearch 填充数组，排序(Comparable|Comparator)，检索(前包含) (Arrays.asList将数组转list，list.toArray转为数组)
-Collections  sort|混排Shuffling|反转Reverse|替换所有的元素(Fill)|拷贝(Copy)|min/max|Rotate定距离循环元素
-
-Runtime   getRuntime()|gc|exec("notepad.exe")
-System exit(0)|currentTimeMillis 毫秒级系统时间|getProperties 属性
-
-new Date().getHours());  
-Calendar.getInstance().get(Calendar.HOUR); 
-new SimpleDateFormat("EE-yyyy-MM-dd HH:mm:ss").format(new Date());EE表示星期    Date/Calendar/SimpleDateFormat
-    
-Observable类和Observer接口 addObserver|deleteObserver|setChanged|notifyObservers
-Timer.scheduleAtFixedRate 固定频率执行
-
-枚举(enum)类也可以实现一个接口，枚举中可以定义抽象方法----每个元素都必须分别实现此抽象方法。
 
 第0节 File操作
 File createNewFile()|mkdir()|delete|exists|isDirectory|length|list|listFiles|  
@@ -267,6 +195,7 @@ ServiceHandler：IntentService的内部类，在handleMessage中调用onHandleIntent并stop
 为false时才执行子类实现的handleMessage
 
 
+
 第一章 常用控件使用
 1.<selector <item android:state_ android:drawable /> />
 2.pain.measureText(str) 计算当前Paint下字符串的实际宽度，返回px
@@ -359,7 +288,7 @@ getContentResolver().registerContentObserver (uri, boolean notifyForDescendants,
 getContentResolver().notifyChange(uri, null);
 getContentResolver().registerContentObserver(Settings.System.getUriFor(KEY_THEME_MONITOR), true, mContentObserver); 根据名字监听setting中数据
 第13节 ViewPager和ViewPagerIndicator
-ViewPager 和 PagerAdapter 后者需要实现instantiateItem在容器中添加itemView；在destoryItem中container.removeView;isViewFromObject中return view == object ;
+ViewPager 和 PagerAdapter 后者需要实现instantiateItem在容器中添加itemView；在destoryItem中container.removeView;isViewFromObject中return view == object ;setPrimaryItem返回当前处理的position
 Viewpager.setOnPageChangeListener(new ViewPager.OnPageChangeListener()监听页面onPageScrolled和onPageSelected 
 ViewPagerIndicator引入：
 实例化TabPageIndicator，indicator.setViewPager(pager); 
@@ -421,7 +350,7 @@ AC包含window，decore是根view，事件由WMS来接收，并通过AC回调对应的onClickListener
 
 第01节 View的测量
 MeasureSpec是一个32位的int值，其中高2位为测量的模式，低30位为测量的大小
-View类默认的onMeasure()方法只支持EXACTLY模式,要让自定义View支持wrap_content属性，那么就必须重写onMeasure()方法来指定wrap_content时的大小。
+View类默认的onMeasure()方法只支持EXACTLY模式,要让自定义View支持wrap_content属性，那么就必须重写onMeasure()方法来指定wrap_content时的大小。resolveSizeAndState可以修改该值
 在重写onMeasure()方法后，最终要做的工作就是把测量后的宽高值作为参数设置给setMeasuredDimension()方法。
 int specMode = MeasureSpec.getMode(measureSpec);
 int specSize = MeasureSpec.getSize(measureSpec);
@@ -434,7 +363,7 @@ int specSize = MeasureSpec.getSize(measureSpec);
 onFinishInflate()：从XML加载组件后回调。
 onSizeChanged()：组件大小改变时回调，可以得到计算后的大小值。
 
-第04节 创建复合控件
+第04节 自定义属性
 需要在res资源目录的values目录下创建一个attrs.xml的属性定义文件，并在该文件中通过如下代码定义相应的属性即可。
 TypedArray ta = context.obtainStyledAttributes(attrs,R.styleable.TopBar);
 //从TypedArray中取出对应的值来为要设置的属性赋值
@@ -442,12 +371,14 @@ mLeftTextColor = ta.getColor(R.styleable.TopBar_leftTextColor, 0);
 注: //获取完TypedArray的值后，一般要调用 // recyle方法来避免重新创建的时候的错误 ta.recycle();
 xmlns:custom="http://schemas.android.com/apk/res-auto"
 这里我们将引入的第三方控件的名字空间取名为custom，之后在XML文件中使用自定义的属性时，就可以通过这个名字空间来引用
-第05节 LayoutParams
-通过getLayoutParams()获取LayoutParams时，需要根据View所在父布局的类型来设置不同的类型
-注: ViewGroup.MarginLayoutParams更加的方便，不需要考虑父布局的类型
+
+第05节 padding和MarginLayoutParams
+view.setPadding(left, top, right, bottom); 可以直接设置padding
+ViewGroup.MarginLayoutParams(params); marginParams.setMargins(leftPx, topPx, rightPx, bottomPx);view.setLayoutParams(marginParams);
+
 第06节 阴影效果和Ripple效果
 View的Z值由两部分组成，elevation和translationZ（它们都是Android 5.X新引入的属性）
-Ripple效果，即点击后的波纹效果
+Ripple效果，即点击后的波纹效果 Material主题直接有
 注: //波纹有边界 android:background="?android:attr/selectableItemBackground" //波纹超出边界 android:background="?android:attr/selectableItemBackgroundBorderless"
 
 第1节 重绘
@@ -463,6 +394,7 @@ measure()会回调onMeasure()给mMeasuredWidth赋值{setMeasuredDimension}父类指定的可
 平时ListView加载item中，adapter的getView方法中，我们经常用到：
 LayoutInflater.from(mContext).inflate(R.layout.it,parent,false);
 其中LayoutInflater的Inflate的三个参数意思为：(布局文件，父类布局，是否加载在父类上(可省略))
+
 第3节 canvas和Path绘图
 //DIFFERENCE是第一次不同于第二次的部分显示出来
 //REPLACE是显示第二次的
@@ -520,6 +452,7 @@ oldTarget!=null && oldTarget!=newTarget {
 }
 oldTarget = newTarget
 3.GP若是oldTarget，直接执行Touch，不访问拦截
+
 第7节 坐标
 MotionEvent提供getX/getY、getRawX/getRawY 前者是相对父控件坐标，后者相对手机屏幕
 view.getLocationInWindow(location); //获取在当前窗口内的绝对坐标，getLeft , getTop, getBottom, getRight,  这一组是获取相对在它父窗口里的坐标。
@@ -548,16 +481,12 @@ mGradientMatrix.setTranslate(mTranslate, 0);
 mLinearGradient.setLocalMatrix(mGradientMatrix);
 
 第三章 Android问题分析和优化
-
-动画要cancel，没有GONE还是可以点击
 1.crash （崩溃）
 关键字：FATAL EXCEPTION   -----java代码 
                    fault 进程pid及线程tid号  backtrace及stack信息
 2.anr（无响应）
 data/anr/traces.txt
 data/system/dropbox
-
-应用在5秒内未响应用户的输入事件（如按键或者触摸）；BroadcastReceiver未在10秒内完成相关的处理；Service在特定的时间内无法处理完成 20秒
 
 CPUusage ago/later  Sending signal. PID: 21404 SIG: 3
 如果CPU使用量接近100%，说明当前设备很忙，有可能是CPU饥饿导致了ANR(大量计算)
@@ -662,53 +591,35 @@ adb shell kill %1
 第六章 git命令
 只有三种状态：已提交（committed），已修改（modified）和已暂存（staged）。
 
+..Git\etc\bash.bashrc最后添加简写
+alias gpm='git push origin  HEAD:refs/for/master'
+
 git diff (--staged)不加参数表示staged提交后的修改，加参数表示staged的修改
+git rm (--cached) readme.txt 默认删除文件，加参数后仅是不再track(将add状态取消)
 
-改名或移动位置
-git mv file_from file_to 
+.ignore文件!lib.a # 但 lib.a 除外
 
-查看提交历史
 git log –p -2常用 -p 选项展开显示每次提交的内容差异，用 -2 则仅显示最近的两次更新
 图形化工具 gitk
-
-Git 命令别名
-$ git config --global alias.co checkout
-
-跟踪分支
-git checkout -b [分支名] [远程名]/[分支名]。如果你有 1.6.2 以上版本的 Git，还可以用 --track 选项简化：
-$ git checkout --track origin/serverfix
-
-强制覆盖下载
-git fetch --all
-git reset --hard origin/master
-
-回退：
-git log 
-git reset --hard fc1cf2a323642e16579e4eb681c5f98ac443a58f
-
-第1节 stash
-git stash (save 名字) 暂存修改
-git stash pop|apply 前者恢复并删除最后一个staged,后者恢复所有但不删除(可指定名字只恢复一个)
-git stash (drop 名字|clear)删除staged
-git stash list
-git stash show 名字 (-p) 显示差别，加参数显示详情
-git stash branch testchanges 创建branch并恢复所有
 
 第2节 git配置：
 git config --global user.name p_jlonliang
 git config --global user.email p_jlonliang@tencent.com
+可以直接编写
+..user/name/.gitconfig
+[user]
+	name = p_jlonliang
+	email = p_jlonliang@tencent.com
 
 ssh-keygen
 cat ~/.ssh/id_rsa.pub
 
-第3节 add中移除文件
-git rm (--cached) readme.txt 默认删除文件，加参数后仅是不再track
-git reset HEAD benchmarks.rb 将add状态取消
-
 第4节 提交更新
 git commit -m "Story 182: Fix benchmarks for speed"
-git commit -a -m 'added new benchmarks'跳过使用暂存区域，所有tracked的修改
 git commit --amend 修改最后一次提交
+
+第7节 冲突的合并(7)
+删除 <<<<<<<，=======，和>>>>>>> 这些行。运行 git add 将把它们标记为已解决（resolved）。然后commit
 
 第5节 分支(合并--衍合到)
 git checkout master    切换分支
@@ -724,269 +635,125 @@ git rebase master server 后者可默认为当前所在branch
 git rebase --onto master server client
 使用 git rebase 的 --onto 选项来截取部分修改到master
 
-第7节 冲突的合并
-删除 <<<<<<<，=======，和>>>>>>> 这些行。运行 git add 将把它们标记为已解决（resolved）。然后commit
-图形界面：git mergetool
-
 第8节 推送
 git push origin serverfix 推送到默认分支
 git push origin serverfix:awesomebranch 推送并新建分支awesomebranch在服务器
 git push [远程仓库名] [本地分支]:[远程分支] 
 如果省略 [本地分支]，那就等于是在说“在这里提取空白然后把它变成[远程分支]”，删除远程分支。
-
-第9节 .ignore文件
-# 此为注释 – 将被 Git 忽略
-*.a # 忽略所有 .a 结尾的文件
-!lib.a # 但 lib.a 除外
-/TODO # 仅仅忽略项目根目录下的 TODO 文件，不包括 subdir/TODO
-build/ # 忽略 build/ 目录下的所有文件
-doc/*.txt # 会忽略 doc/notes.txt 但不包括 doc/server/arch.txt
-
-第10节 patch
-生成patch的命令
-git diff  > patch//本地变更  git diff 的内容，生成patch文件
-git diff  branchname --cached > patch //branch 之间差分生成patch文件
-使用patch
-git apply patch //将patch文件内容差分到本地
-测试是否可以将patch完美打入本地src
-git apply --check patch
+git push origin  HEAD:refs/for/dev
 
 
-第七章 速记单元
-第1节 进程和线程的区别(先进递增)
-多进程，可以提高我们APP占用的最高内存。
-第2节 快捷键
-Win+L 锁屏，Win+E 显示资源管理器，Win+D 显示桌面(led灯)
-Eclipse:a2插入上下,c5 hedo删注释,as爱是如此pm,acdl复制格式化
-第3节 优秀思维
-目利他迭忙整合运(牡蛎跌盲证喝晕)
-第4节 UML关系(实现，泛化，依赖，关联，聚合，组合)
-是翻译官剧组：△虚实线，局参静方虚箭头，实箭有个数，菱形实箭总分现，组合不共享
-第5节 编程感悟
-添加之前先清空，使用之前先判有(null或size)，先框架后逻辑，布局参数XMl化，选大取小用Math，入参只读
-第6节 人性的弱点
-对事：中立思考，预测最坏并改善
-对己：有序，劳身，享得；拒辩，谈己，认错(徐老的辩己错)
-对人：听，迎，夸，恕，笑
-重要性，名字，服务意识，虚心请教，高尚动机和取胜欲望
-第7节 边距的不同(mp内外)
-margin是外边距在border外面，而padding是内边距，在border内部
-第8节 Lp Hv横竖(laopo)
+第九九章 速记单元
+(-.-)android:shape{rectangle|oval|line|ring}|solid填充|gradient渐变|corners圆角|stroke描边|padding|size 
+(-.-)绘制坐标均是相对父布局
+(-.-)FontMetrics top,ascent,descent,bottom,leading baseline开始绘制，上负
+(-.-)Linerlayout android:layout_width="0dp" android:layout_weight="1.0" 用于等比例
+(-.-)ANR 5,10,20service最长
+(-.-)动画要cancel，未GONE可点击，回调置位防打断
+(-.-)setCanceledOnTouchOutside 点击外部关闭dialog
+(-.-)requestWindowFeature(Window.FEATURE_NO_TITLE);对话框title与内容间有横线
+(-.-)priority决定Notification位置排序
+(-.-)android:scrollbars="none"去除scrollbar
+(-.-)Lp Hv横竖(laopo)
+(-.-)mp内外
+(-.-)drawable的padding需要setBounds
+(-.-)android:largeHeap="true"
+(-.-)外部类.this.成员变量|成员方法
+(-.-)jar -cvf android.jar .  //打包当前内容到jar包(用于合并java包){xvf}
+(-.-)点9切图使用方法：将图命名.9.png-->做普通图使用
+(-.-)Ctrl+G 转到相应的行  记事本也可以
+(-.-)编辑->首选项->单位与标尺 更改为像素           {编首单选修平}
+(-.-)PS圆角矩形及录制动作：选择-->修改-->平滑 选择7
+(-.-)火车退票：48--5%；24--10%；20%。二五一十扣20
+(-.-)飞机发票：机票30天内可以补打发票
+(-.-)黄金比例：黄金分割6.18
+(-.-)无缝合并多个文件copy /b 1.jpg+dz.rar mypic.jpg 
+(-.-)抽象、继承、封装、多态性            {抽多继封}
+(-.-)callback实现是本身定义了interface和具体调用流程，对方通过实现interface来接入。便于信息回传 && 区别callbacks
+(-.-)接口定义类似abstract定义的抽象类，必须全部实现
+(-.-)矩阵乘积，前行乘后列对应元素求和
+(-.-)ldpi:mdpi:hdpi:xhdpi:xxhdpi=3:4:6:8:12。
+(-.-)runOnUiThread(runable) activity的方法
+(-.-)数组属于引用类型，父类object     AdView [] adViews=new AdView[N]; ArrayList<BaseBean> beans = new ArrayList<BaseBean>();
+(-.-)高于minSdkVersion API用@TargeApi(9) 使可以编译通过;if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD) 
+(-.-)左移N位表示乘以2的n次方;|=和&=~标志位;^异或两次同一个数等于没有操作
+(-.-)<? extends String>String的子类<? super String>String的父类和它本身的类   
+(-.-)Observable类和Observer接口 addObserver|deleteObserver|setChanged|notifyObservers
+(-.-)StringBuffer   append|insert(o,s)|delete(s,e)|indexOf|replace(s,e,s)|reverse反转|substring      天查3所提范姐
+(-.-)System exit(0)|currentTimeMillis 毫秒级系统时间|getProperties 属性
+(-.-)new Date().getHours()); | Calendar.getInstance().get(Calendar.HOUR); 
+   new SimpleDateFormat("EE-yyyy-MM-dd HH:mm:ss").format(new Date());EE表示星期    
+(-.-)Math.Random nextXXX(Y)最大值是Y的随机XXX类型，直接Math.Random()产生0-1的随机小数
+(-.-)(Arrays.asList将数组转list，list.toArray转为数组)Arrays：填充排序和二分查找 Collections：排序翻转最值定距循环
+(-.-)implements 接口/extends abstract instanceof interface
+(-.-)String.equal() | str.getBytes()
+(-.-)Integer.parseInt()>valueOf()
+(-.-)线程和进程的区别(先进递增)
+	多进程，可以提高我们APP占用的最高内存。
+(-.-) 快捷键
+	Win+L 锁屏，Win+E 显示资源管理器，Win+D 显示桌面(led灯)
+	Eclipse:a2插入上下,c5 hedo删注释,as爱是如此pm,acdl复制格式化
+(-.-) 优秀思维
+	目利他迭忙整合运(牡蛎跌盲证喝晕)
+(-.-) UML关系(实现，泛化，依赖，关联，聚合，组合)
+	是翻译官剧组：△虚实线，局参静方虚箭头，实箭有个数，菱形实箭总分现，组合不共享
+(-.-)编程感悟
+	添加之前先清空，使用之前先判有(null或size)，先框架后逻辑，布局参数XMl化，选大取小用Math，入参只读
+(-.-) 人性的弱点
+	对事：中立思考，预测最坏并改善
+	对己：有序，劳身，享得；拒辩，谈己，认错(徐老的辩己错)
+	对人：听，迎，夸，恕，笑
+	重要性，名字，服务意识，虚心请教，高尚动机和取胜欲望
+(-.-) git 冲突7 HEAD:refs/for/dev
+	merge/rebase to 
+	git diff --staged //git rm --cached
+	git log -p -2
+(-.-) adb shell
+	am start -n 包/类
+	pm clear/path 包
+	dumpsys activity activities
+(-.-) linux命令
+	pwd
+	mkdir chmod cd ls/ll rmdir
+	touch tar cp/mv cat rm
+	man echo
+	ln -s 原路径 快捷方式路径
+	et/profile 环境变量 home/XXX/.bashrc 开机启动 source XX快速生效
+(-.-) Layout和setMeasuredDimension()分别是布局和测量的最后一步
+(-.-) scrollTo、scrollBy移动所有的子View或则内容
+(-.-) Canvas canvas = new Canvas(bitmap)
+(-.-) attrs.xml->obtainStyledAttributes(attrs,R.styleable.x)->ta.recycle()
+(-.-) view.setPadding/view.setLayoutParams(MarginLayoutParams)
+(-.-) elevation阴影/Ripple效果在Material是默认值
+(-.-) GONE的view不会引起页面的重绘
+(-.-) invalidate方法只会执行onDraw方法/requestLayout重新测量和布局但不重绘
+(-.-) 动画相关
+	alpha-scale-rotate-translate-set；
+	valueAnimator->AnimatorUpdateListener(getAnimatedValue());
+	objectAnimator->AnimatorListener/AnimatorListenerAdapter;
+	AnimatorSet play|after|before|with;
+	ObjectAnimator.ofFloat(mButton, "alpha", 1f, 0f, 1f);
+	手动设置对象类属性的 set()&get() 扩展(包装类：传入类对象构造，添加需要的属性方法)
+(-.-) 事件传递：
+	1.AC是底板，GP包含view，AC和View默认拦截
+	2.寻找newTarget，找到后判断：
+	oldTarget!=null && oldTarget!=newTarget {
+		传递cancel直到oldTarget
+		传递event给AC
+		oldTarget = newTarget
+	}else if(oldTarget==newTarget)onTouch(event)
+(-.-) MotionEvent提供getX/getY、getRawX/getRawY 前者是相对父控件坐标，后者相对手机屏幕
+(-.-) ViewConfiguration.get(getContext()).getScaledTouchSlop()
+(-.-) Scroller
+	new Scroller.startScroll(sX, sY, eX, eY, duration);
+	invalidate();
+	public void computeScroll() {
+		if (mScroller.computeScrollOffset()) {
+			scrollTo(mScroller.getCurrX(), mScroller.getCurrY());
+			postInvalidate();
+		}
+	}
 
-
-第八章 系统bug及需求
-
-REQ：保持屏幕不暗不锁
-getWindow().setFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON, WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-
-REQ：查看手机imei
-*#06# 手机imei
-
-BUG：点击dialog外会自动结束
-processDialog有一个属性  setCanceledOnTouchOutside(false)
-
-BUG:弹出的对话框背景会多一条线
-requestWindowFeature(Window.FEATURE_NO_TITLE); //added 
-BUG：Notification位置固定
-notificationSleep.priority
-
-BUG：打开应用是白屏/黑屏很久
-使用releasre版本软件可以避免Android Studio中新加入的Instant Run功能对debug版本的影响
-
-BUG：发布应用对未翻译报错
-<resources xmlns:tools="http://schemas.android.com/tools"  xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2"  tools:ignore="MissingTranslation">
-
-FAR：全屏任意位置滑动语言选择控件
-在Activity中dispatch事件dispatchTouchEvent传递给相应控件处理
-
-BUG：导航栏或状态栏白色看不清内容
-getWindow().getDecorView().setSystemUiVisibility( getWindow().getDecorView().getSystemUiVisibility() | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
-getWindow().getDecorView().setSystemUiVisibility( mActivity.getWindow().getDecorView().getSystemUiVisibility() | LOGHT_NAVIGATIN_BAR);
-onWindowFocusChanged  中添加
-状态栏及导航透明度为100%，需要使用合成色
-
-REQ：全屏并隐藏虚拟导航按键
-Window window = getWindow();
-WindowManager.LayoutParams params = window.getAttributes();
-params.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN|View.SYSTEM_UI_FLAG_HIDE_NAVIGATION|View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
-window.setAttributes(params);
-
-REQ：将user修改为userdebug版本
-fastboot flash boot boot.img
-fastboot erase  userdata
-
-REQ：安卓手机取消虚拟按键
-system下build.prop
-qemu.hw.mainkeys=1
-
-BUG：HorizontalScrollView存在多余的导航条
-android:scrollbars="none"
-
-
-
-第九章 英语单词
-function/fiction/firction  功能函数--小说虚构---不和抵触
-cave/pave/care/carve 山洞洞穴--铺路--关心--切，雕刻
-assess/process/possess  进行评估评价--过程程序--占有，拥有
-interest/internet/internal  兴趣利息--互联网--内部的
-pursuit/biscuit/circuit/circus  追求--饼干--电路--马戏团
-
-tinct/distinct   色彩---明显清楚的 不寻常的
-I perfer quality to quantily 
-tailor/tail  裁缝(v/n)---尾巴
-soccer/saucer/sauce   足球---茶托碟子---酱汁，调味料
-lunch/bunch/punch/branch/brunch/brand 午餐--群，束--猛击穿孔---树枝分支---早午饭---品牌，商标
-static/statistic  静态不变的---统计学，统计资料/值
-tigar/cigar  老虎--雪茄烟
-infect/inspect/affect/effect/insect/impact   传染---检查---感动假装---影响实现，个人财务(pl)---昆虫---影响碰撞
-count/county/country    计算--郡县---国家乡村
-free/fee/flee/fleet  解放---费用---逃走--舰队
-faculty/faulty  天赋，学院，全体教员---次品
-
-property/properly/proportion  特性财产---适当地; 正确地---比例平衡使成比例
-peasant/pleasant  农民(豌豆蚂蚁)---舒适的，令人愉悦的
-brood/blood  沉思孵蛋，一窝---血，血统家族
-row/frown/crown  排，划船---皱眉---王冠
-sense/sensible   感官识别力---明智的
-
-diagram/graph  简图--图解
-bank/blank/blanket/black  银行---空白的茫然的---毛毯毯子---黑人的，黑色
-ail/mail/sail/pail/tail/rail  生病苦恼境况不佳---邮政---航行驾船---桶，一桶的量---尾巴，盯...梢---轨道
-amaze/amuse  使惊讶，惊颚---逗乐，给...提供娱乐
-aid/raid/maid/amid  救援助手---突然袭击，劫掠---女仆，少女---在...中间
-tap/top/cap/tip  水龙头，轻叩--顶，上部---帽，遮罩，覆盖胜过---小费，忠告，倒下
-vain/rain/gain/rein 徒劳的--下雨--收益得到，增加---缰绳，勒缰绳使停步
-curious/serious/precious /previous  好奇的--严重的--珍贵的---之前的
-cate/cake    佳肴---蛋糕
-ski/skin  滑雪(板)，皮肤
-rota/rotary   值班表---旋转的，转动的
-hat/hate  帽子，帽子代表的职位---憎恨不喜欢，厌恶
-venture/adventure 风险投资，企业，冒险---冒险精神，冒险活动
-table/tablet 桌子表格---药片，竹木简
-stock/stick/block  库存，股票---棍，粘住，留下(stuck过去式)--大楼，街区，障碍物
-freeway/freeze/freely    高速公路--使冻结，冰冻期--自由的，慷慨的
-rag/rage/range 破布---发怒---一系列
-
-sweet/sweat 甜的---出汗，汗水
-fate/fade/fare 命运---褪色---票价，进展
-stead/steadily  代替好处对..,有用---坚定地，不断地，稳定的
-invite/invade    邀请---侵略
-rail/rain 栏杆，铁路，咒骂---下雨，雨
-slit/split  切开，裂缝---分裂分担
-sight/slight/night/tight/fight  眼界，名胜---纤细的，轻视蔑视---晚上---紧身的--战斗---
-constitute/contribute  组成建立---捐款贡献
-reside、inhabit  驻扎，居住
-Descendent/descend/ancestor后裔---下来(from)起源(to)沦为--祖先，原型
-
-steadily/ stitch /ditch/strategy (斯特的泪)坚定地，稳定的---缝，绣，一针(司太奇)---沟，渠----策略，战略
-concern 担心，使担心
-precious/previous 珍贵的--先前的
-spill/skill/spoil/spell  使溢出，溢出---技巧手艺---损坏，溺爱，战利品---拼写，咒语，魅力
-flat---flag---fat  平的，统一的，公寓套房---旗帜---胖的
-dispute/disputy   争端，争吵--副手，代理人（家疲累）
-
-fashion/cushion 时尚--垫子
-cell/celler/seller  细胞，小房间/地窖，地下室/销售者
-thread/dread 线，将线穿过---恐惧，畏惧
-gradual/graduate  逐渐的---毕业生
-tight/right 紧身的，牢固的--对的，右，权利
-extend/intend/tend/extent 延伸给予，到达-- 打算做--趋向，照管---程度，范围
-deception/dictation/detection 骗局--口授--觉察，侦查
-soul/soup/sour/sold 灵魂--汤---酸的，馊的---卖的   （plr 评论人）
-bough/cough 树枝--咳舒
-
-suspend/spend/suspect/sudden  暂停中止--用钱，花时间，度过--推测怀疑，嫌疑犯，可疑的--突然地，意外的
-constitution/institution/stitution/stituation  宪法体质--社会公共机构，习俗，制度--制度--个人情况，局面，处境
-bear/ear/earn/pear/hear/near/era 熊--耳朵--挣得--梨树--听到，听证，听说--在附近，靠近，亲近的--时代，纪元
-camp/campaign/  野营地，工地宿舍，阵营--运动，战役
-stoop/loop/stool/shoot/shop/stop --弯腰，(to)堕落到，降低身份做--环，回路--凳子--射击，投篮，拍摄，苗--商店，工厂车间，购物--停止
-paw/law/raw/saw/jaw  爪，用爪子抓--法律规律--原始的生的--锯，锯东西--颌，颚
-drop/drip/crop 使下降，滴--滴，滴水声，滴下的液体--作物，收成，修剪
-sale/scale/salt/seal/pale/salty/sole/solo/solor  卖--刻度比例，攀登--盐，腌--封条，海豹，密封--苍白的--咸的--唯一的--独奏--日光的
-pant/pan/ant/pint/pants/plant/want  喘息，气喘吁吁的--平底锅--蚂蚁--品脱--长裤，内裤--植物，工厂，间谍，种植--想要，不足
-rubber/robber/robot   橡胶，橡胶的--海盗，海贼
-loaf/load/leaf 一条面包，游荡闲逛--负荷，使装载--叶子，张，页
-silk/milk/mill 丝绸--牛奶，挤奶--磨坊工厂，研磨
-less/bless/brass 少的--使有幸得到(with),祝福--黄铜，厚脸皮
-tension/extension/pension/mention  状态拉力--扩大分机--养老金，发养老金--提及说起
-bitter/batter/better 哭的--连续猛击，击球员--较好的
-electric/elastic/plastic 电动的--电的--橡皮圈，有弹性的--塑料制品，信用卡，塑料的
-twelfth(拖要付century 陕西瑞 --世纪)  第十二。十二分之一
-fence/defence(defense)栅栏(粉丝)，击剑--(in)防御工事，辩护
-lighten/brighten/enlighten/frighten  减轻点亮--使明亮愉快--启发启蒙--使恐惧
-deserve/preserve/reserve 应得，值得--保存维持，保护区--保留预定，自然保护区
-sweet/sweat/seeep 甜的--出汗，汗水--扫，打扫
-hasty /haste/nasty/tasty 草率的/急忙(n)/令人讨厌的/味道好的
-plan plane 计划加e平坦的，飞机
-progress process 进步进展 -- 步骤，处理
-abstract subtract  抽象，提取--减去
-curl curb cure 卷发弄卷--制止--治愈治疗
-pilot  plot  故事情节i飞行员驾驶
-shift gift shirt  转移礼物衬衫
-launch  lunch  bunch 午餐加a就发射 束，使成一束，群等
-towel--tower 毛巾，用毛巾檫--塔，要害
-convince--province  使信服，使信任--省 领域
-explo--explosive--explorer  爆炸--爆炸的突增的，炸药--探险家探测器
-semester 学期（义子消毒）
-whisky/risky 威士忌酒--危险的，有伤风化的
-fever/never/lever/favo(u)r 发烧，一时的狂热--从不，绝不--工具，途径，撬动sth--好感，赞同sth
-repent/repeat/recent  后悔--重复说做--最近的
-sole/pole/hole/role  唯一的，脚底--杆，电极--洞，漏洞，窘境--角色，作用
-reward/award/toward/ward/inward 报答，奖赏--授予，奖金--朝，接近--病房行政区，挡住--内心的里面的
-drain/brain/grain/train/pain/plain  排水，排水沟--脑，智慧--谷物，少量--火车，一系列--痛苦，使心痛--清晰地，平原
-torture  （脱却）折磨，拷问
-ratio（瑞秀）比率----radio(收音机，无线电传送)----generate（产生能量，导致）
-illustrate（以类似崔忒）说明，给...做插图说明
-compensation（康喷谁信）补偿，赔偿(一支笔的车站)
-occupation（阿Q培新）工作职业消遣(occ向上的增加辐射)
-dictation（迪克忒心）口授听写（字典增加辐射）
-superb（苏坡博）极好的，高质量的（极好的b）--superme（最重要的）--suburb（萨贝尔）郊区（U-R-b的一部分）
-comply(顺从; 应允) --complicate（使复杂难懂恶化）--compliment（称赞恭维）
-passenger/messenger  乘客/送信人
-resident（居民，住院的）--president(总统校长董事长)
-collide（两个ide一致）碰撞，冲突
-race（瑞士）赛跑，竞争，参赛，使疾跑（face/rice面对稻谷米饭）
-cripple（哭到苹果没有a）跛子，使跛，严重剥削
-territory（忒瑞特瑞）领土版图（保守党的毛巾）
-boast(of/about)--coast--roast--toast--boat--boot--boost（自夸/海岸/烤/吐司/船/启动解雇/推动提高）
-consistent -- continent （一致的/大陆，洲）
-tune/tone/tunnel/june 曲调，语气，隧道，六月
-interpret/intergrate/enterprise/interrupt口译，使合并，事业心，打扰
-dam/dim/jam/ham/dad 堤坝--昏暗的--果酱塞进--火腿--爸爸
-component/opponent 部件成分--对手
-gloomy--bloom 忧郁的--开花，开花期
-shield/field/yield 护罩，保护--田地视野--屈服产生让出产量
-convention/convenient/conversion  （肯温馨）习俗大会--近便的省力的（肯为你丫的）-转变信仰
-hare/care/fare/rare/dare/here 野兔--关心--票价--珍奇的--敢--在这里
-
-earnest 认真的真挚的(耳朵的鸟窝)
-stable/stale 稳定的/不新鲜的
-cure/recure/recurisive 治愈/痊愈/递归的
-loyal--royal 忠诚的--王室的
-well/swell/flatten 好的/肿/打扁打倒
-special/specify  特殊的，专门的---明确说明，具体指定
-drag--drug  拖--毒品，使服用麻醉药
-shame/same/scheme 羞耻使丢脸--相同的--计划阴谋（死尅么）
-inhabit--inherit 居住于--继承
-block、clock 大楼时钟
-prescribe--describe（开药--描写形容画出）
-abandon---abundant抛弃/大量的(啊板凳特)
-character 性格，人物，字符(字符扮演者)
-money（钱）----monetary（嘛呢特瑞）金融的，货币的
-reveal（瑞未有）揭露，泄露----reverse（瑞我是）使翻转，倒退
-store/storey/story  商店/楼层/故事，报道，楼层
-aspect--perspective   方面---观点视角
-
-choreography 编舞者
-queue/enqueue/dequeue 队列/入队/出列
-parse 从语法上描述或分析（词句等）
-exector 执行者实现者
-trigger 触发,触发器(vt,n)
-compat 兼容性(n)
-thumbnail 拇指甲 缩略图
-author/authority 创造者/权威当权者
-annotation 注释(n)
-retention 保留,记忆力(n)
-decor 装饰，布景(n)
-measure 测量; 估量(vt,n)
-divider 分割线
+(-.-)(-.-)(-.-)
+一句话知识点，单独记录仅保留速记语
+前后双添加

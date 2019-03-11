@@ -1,24 +1,16 @@
 package com.alion;
 
-import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.database.ContentObserver;
-import android.graphics.Outline;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Handler;
-import android.support.v7.app.AlertDialog;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.view.ViewOutlineProvider;
 import android.widget.Button;
 
-import com.alion.check.SignCheck;
-import com.alion.countdowntimer.TimeCount;
 import com.alion.myapplication.R;
 
 /**
@@ -30,14 +22,23 @@ public class MainActivity extends AppCompatActivity {
     private ContentObserver observer;
     private Uri uri = Uri.parse("content://.test.a");  ;
     private Button mButton;
+    float percent = 0;
+    MyText myText;
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mButton = (Button)findViewById(R.id.button);
+        myText = (MyText)findViewById(R.id.mytext1);
 
-        SignCheck signCheck = new SignCheck(this,"72:5F:E6:2B:53:7B:3C:5B:C9:2C:FC:AC:D2:EC:63:B7:23:9B:06:06");
+       mButton = (Button)findViewById(R.id.button);
+        mButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myHandler.sendEmptyMessageDelayed(0,200);
+            }
+        });
+        /* SignCheck signCheck = new SignCheck(this,"72:5F:E6:2B:53:7B:3C:5B:C9:2C:FC:AC:D2:EC:63:B7:23:9B:06:06");
         if(signCheck.check()) {
             //TODO 签名正常
         }else                {
@@ -61,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
                                 view.getHeight(), 90);
                     }
                 };
-        mButton.setOutlineProvider(viewOutlineProvider1);
+        mButton.setOutlineProvider(viewOutlineProvider1);*/
        /* findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,4 +82,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });*/
     }
+    Handler myHandler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            percent+=0.001;
+            myText.setStr("测试代码",percent);
+            myHandler.sendEmptyMessageDelayed(0,60);
+            super.handleMessage(msg);
+        }
+    };
 }

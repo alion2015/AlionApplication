@@ -4,4 +4,7 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="margin_large">32dp</dimen>
     <dimen name="margin_medium">16dp</dimen>
+
+    <dimen name="mytext_textsize">28px</dimen>
+
 </resources>

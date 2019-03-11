@@ -8,3 +8,7 @@ captures
 .externalNativeBuild
 gradlew*
 app/build
+*.acid
+*.cuid
+*.cuid2
+*.apk

@@ -25,7 +25,6 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.ContextMenu;
 import android.view.KeyEvent;
-import android.view.KeyboardShortcutGroup;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -252,19 +251,6 @@ public class TestActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onLocalVoiceInteractionStarted() {
-        Log.d(TAG, "onLocalVoiceInteractionStarted: ");
-        super.onLocalVoiceInteractionStarted();
-    }
-
-    @Override
-    public void onLocalVoiceInteractionStopped() {
-        Log.d(TAG, "onLocalVoiceInteractionStopped: enter");
-        super.onLocalVoiceInteractionStopped();
-        Log.d(TAG, "onLocalVoiceInteractionStopped: exit");
-    }
-
-    @Override
     public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
         Log.d(TAG, "onSaveInstanceState: enter");
         super.onSaveInstanceState(outState, outPersistentState);
@@ -303,28 +289,6 @@ public class TestActivity extends AppCompatActivity {
         Log.d(TAG, "onProvideAssistContent: enter");
         super.onProvideAssistContent(outContent);
         Log.d(TAG, "onProvideAssistContent: exit");
-    }
-
-    @Override
-    public void onProvideKeyboardShortcuts(List<KeyboardShortcutGroup> data, Menu menu, int deviceId) {
-        Log.d(TAG, "onProvideKeyboardShortcuts: enter");
-        super.onProvideKeyboardShortcuts(data, menu, deviceId);
-        Log.d(TAG, "onProvideKeyboardShortcuts: exit");
-    }
-
-    @Override
-    public void onMultiWindowModeChanged(boolean isInMultiWindowMode) {
-        Log.d(TAG, "onMultiWindowModeChanged: enter");
-        super.onMultiWindowModeChanged(isInMultiWindowMode);
-        Log.d(TAG, "onMultiWindowModeChanged: exit");
-    }
-
-
-    @Override
-    public void onPictureInPictureModeChanged(boolean isInPictureInPictureMode) {
-        Log.d(TAG, "onPictureInPictureModeChanged: enter");
-        super.onPictureInPictureModeChanged(isInPictureInPictureMode);
-        Log.d(TAG, "onPictureInPictureModeChanged: exit");
     }
 
     @Override

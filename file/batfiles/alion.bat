@@ -8,6 +8,7 @@ if '%1'=='apl' (goto apl)
 if '%1'=='focus' (goto focus)
 if '%1'=='xy' (goto xy)
 if '%1'=='mn' (goto monitor)
+if '%1'=='kapp' (goto kapp)
 
 echo restart    :replace launcher and restart phone
 echo kmonkey  *a    :kill monkey
@@ -18,6 +19,7 @@ echo apl    :pull databases of launcher to desktop
 echo focus    :ResumedActivity of phone
 echo xy *a   :adb to xiaoyao a is index that start with 0
 echo mn    :start UI monitor
+echo kapp *a    :1/2 kill filemanager/maintenance
 
 :demo
 goto break
@@ -65,6 +67,7 @@ goto break
 :focus
 adb shell dumpsys activity | findstr mFocusedActivity
 adb shell dumpsys activity | findstr ResumedActivity
+adb shell dumpsys window | findstr mCurrentFocus
 goto break
 
 :xy
@@ -75,6 +78,14 @@ goto break
 
 :monitor
 start /d "D:\androidSDK\tools\bin" uiautomatorviewer.bat
+goto break
+
+:kapp
+if '%2'=='1' (
+adb shell am force-stop com.wucl.filemanager
+) else (
+if '%2'=='2' (adb shell am force-stop com.wt.maintenance)
+)
 goto break
 
 :break

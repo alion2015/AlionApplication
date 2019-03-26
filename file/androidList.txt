@@ -3,7 +3,7 @@
 duokan/downloads/micloudbooks
 regedit
 1080*720*192
-新增算法.会计.高效java
+新增算法.会计.高效java,ES6
 android:parentActivityName  界面左上角添加< 可以直接跳回指定的窗口
 
 第0节 File操作
@@ -80,10 +80,6 @@ MessageQueue中的消息都是按照Message的开始执行时间来排序的.
 lock函数是阻塞的，因为它调用WaitForSingleObject函数时传递的第二个参数是INFINITE，表示无限等待下去，所以是阻塞的。 
 tryLock函数时非阻塞的，调用后立即返回。因为它调用WaitForSingleObject函数时传递的第二个参数是0，表示不等待，立即返回。 
 调用lock或者tryLock后，都需要调用unlock来解锁。
-
-第4节 启动模式
-standard|singleTop 可多实例，默认在发送的task ，后者在仅在栈顶时不新建
-singleTask|singleInstance 单例，后者独占task，前者会清空栈顶
 
 第5节 代理
 静态代理：代理和实体均继承接口并在代理中添加实体的引用，即可注入实体引用使用代理
@@ -197,19 +193,6 @@ ServiceHandler：IntentService的内部类，在handleMessage中调用onHandleIntent并stop
 
 
 第一章 常用控件使用
-1.<selector <item android:state_ android:drawable /> />
-2.pain.measureText(str) 计算当前Paint下字符串的实际宽度，返回px
-3.ViewOutlineProvider 实现裁剪和遮罩
-6.Glide.with(this).load(url).into(imageView);
-10.ScrollView边界阴影fadingEdge(法定边界)
-11.onCreateOptionMenu-->menu.add(组,id,排序,名字)-->onOptionsItemSeleted(item.getItemId)
-radioGroup-->checkBox用CompoundButton.OnCheckedChangeListener()
-12.Toast.makeText(xx.this,”内容”,Toast.LENGTH_SHORT).show()
-progressBar-->style/incrementProgressBarBy()/setProgress()
-13.使用HttpURLconnection(URL.openConnection得到).getinputStream()下载文件
-15.WIFI使用(WiFiManger)context.getSystemService(Service.WIFI_SERVICE).setWifiEnabled(){在SystemServiceRegistry中查找}
-
-
 Spinner 下拉框
 DatePickerDialog用于选择日期
 AutoCompleteTextView 提供热点快速输入功能
@@ -228,6 +211,10 @@ jitpack 开源库的创建与使用
 订阅方法必须为public且有唯一参数
 事件的父类或实现的接口被订阅，则也可以监听到。
 线程通信，不支持跨进程
+EventBus.getDefault().unregister/register(this);
+@Subscribe(threadMode = ThreadMode.MAIN)
+public void Event(MessageEvent messageEvent)
+
 第2节 UI卡顿监测框架BlockCanary
 应用发生卡顿，一定是在dispatchMessage中执行了耗时操作。我们通过给主线程的Looper设置一个Printer，打点统计dispatchMessage方法执行的时间，如果超出阀值，表示发生卡顿，则dump出各种信息，提供开发者分析性能瓶颈。
 StackTraceElement[] elements = Thread.currentThread().getStackTrace();
@@ -335,7 +322,11 @@ DexposedBridge.findAndHookMethod(Log.class, "d", String.class, String.class, new
             }
         });
 
-
+第17节 BaseRecyclerViewAdapterHelper：
+adapter = new MyAdapter(R.layout.item_rv, datas); 构建布局和参数
+qa.setOnItemChildClickListener/setOnItemClickListener 设置元素点击和整体点击
+extends BaseQuickAdapter<QuickAdapter.BaseViewData, BaseViewHolder> 继承，第一参数是数据类型
+convert->BaseViewHolder.setText/addOnClickListener/setImageResource 转化，设置和绑定
 
 
 第二章 自定义View
@@ -406,7 +397,7 @@ LayoutInflater.from(mContext).inflate(R.layout.it,parent,false);
 Path 不是立即操作
 moveTo影响的是后面操作的起点位置，不会影响之前的操作；而 setLastPoint改变前一步操作最后一个点的位置，不仅影响前一步操作，同时也会影响后一步操作！
 
-每次调用canvas.drawXXXX系列函数来绘图进，都会产生一个全新的透明的Canvas画布。
+每次调用canvas.drawXXXX系列函数来绘图进，都会产生一个全新的透明的Canvas画布。(drawArc弧形)
 save/restore 均是栈操作
 saveLayer会创建一个全新透明的bitmap，大小与指定保存的区域一致，其后的绘图操作都放在这个bitmap上进行。在绘制结束后，会直接盖在上一层的Bitmap上显示。只有当调用restore()、resoreToCount()函数以后，才会返回到原始画布上绘制。 
 
@@ -642,10 +633,37 @@ git push [远程仓库名] [本地分支]:[远程分支]
 如果省略 [本地分支]，那就等于是在说“在这里提取空白然后把它变成[远程分支]”，删除远程分支。
 git push origin  HEAD:refs/for/dev
 
+第8节 正则表达式
+(-.-)检查一个串是否含有某种子串、将匹配的子串替换或者从某个串中取出符合某个条件的子串等
+(-.-)通过在 *、+ 或 ? 限定符之后放置 ?，该表达式从"贪心"表达式转换为"非贪心"表达式或者最小匹配。
+(-.-)() 后可以用\n引用第N个匹配，从1开始;在JScript 中则使用 $0…$9 属性。;|用在两个小括号对间表示二选一
+(-.-)[]中括号表达式;()子表达式;{}限定表达式，必有下限
+(-.-)*,?,+任意个,0|1个,至少一个
+(-.-)\d匹配一个数字字符;\b匹配一个单词边界;.除了新行外所有字符;^$首尾;\w任意字符
+
+
 
 第九九章 速记单元
-(-.-)android:shape{rectangle|oval|line|ring}|solid填充|gradient渐变|corners圆角|stroke描边|padding|size 
+(-.-)QuickAdapter 构造/点击/继承/convert
+(-.-)()[]{} *?+ dbw.
+(-.-)standard|singleTop 可多实例，默认在发送的task ，后者在仅在栈顶时不新建singleTask|singleInstance 单例，后者独占task，前者会清空栈顶
+(-.-)<selector <item android:state_ android:drawable/color /> />
+(-.-)ViewOutlineProvider /setClipToOutline 实现裁剪和遮罩
+(-.-)Glide.with(this).load(url).placeholder(XXX).into(imageView);
+(-.-)ScrollView边界阴影fadingEdge(法定边界)
+(-.-)onCreateOptionsMenu-->menu.add(组,id,排序,名字)-->onOptionsItemSeleted(item.getItemId)
+(-.-)radioGroup-->checkBox用CompoundButton.OnCheckedChangeListener()
+(-.-)Toast.makeText(xx.this,”内容”,Toast.LENGTH_SHORT).show()
+(-.-)progressBar-->style/incrementProgressBy()/setProgress()
+(-.-)js/json/wxml/wxss 逻辑/配置/布局/样式
+(-.-)CSS .class #id
+(-.-)enter一类子主题,tab当前的子主题
+(-.-)android:layout_gravity|gravity 在父布局中|自身内容
+(-.-)new ArrayList<Type>(Arrays.asList(Object o1, ....so on));new ArrayList<T>() {{add(Object o1); ...}};
+(-.-)BitmapFactory.decodeResource/decodeStream/createBitmap;BitmapDrawable.getBitmap()
+(-.-)android:shape{rectangle|oval|line|ring}|solid填充|gradient渐变|corners圆角|stroke描边|padding|size  {PS填变描圆}
 (-.-)绘制坐标均是相对父布局
+(-.-)pain.measureText(str) 计算当前Paint下字符串的实际宽度，返回px
 (-.-)FontMetrics top,ascent,descent,bottom,leading baseline开始绘制，上负
 (-.-)Linerlayout android:layout_width="0dp" android:layout_weight="1.0" 用于等比例
 (-.-)ANR 5,10,20service最长
@@ -728,7 +746,7 @@ git push origin  HEAD:refs/for/dev
 (-.-) GONE的view不会引起页面的重绘
 (-.-) invalidate方法只会执行onDraw方法/requestLayout重新测量和布局但不重绘
 (-.-) 动画相关
-	alpha-scale-rotate-translate-set；
+	alpha-scale-rotate-translate-set； asrt
 	valueAnimator->AnimatorUpdateListener(getAnimatedValue());
 	objectAnimator->AnimatorListener/AnimatorListenerAdapter;
 	AnimatorSet play|after|before|with;

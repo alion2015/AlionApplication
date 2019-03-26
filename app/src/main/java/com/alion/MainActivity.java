@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        myText = (MyText)findViewById(R.id.mytext1);
+        /*myText = (MyText)findViewById(R.id.mytext1);
 
        mButton = (Button)findViewById(R.id.button);
         mButton.setOnClickListener(new View.OnClickListener() {
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 myHandler.sendEmptyMessageDelayed(0,200);
             }
-        });
+        });*/
         /* SignCheck signCheck = new SignCheck(this,"72:5F:E6:2B:53:7B:3C:5B:C9:2C:FC:AC:D2:EC:63:B7:23:9B:06:06");
         if(signCheck.check()) {
             //TODO 签名正常

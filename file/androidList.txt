@@ -327,6 +327,7 @@ adapter = new MyAdapter(R.layout.item_rv, datas); 构建布局和参数
 qa.setOnItemChildClickListener/setOnItemClickListener 设置元素点击和整体点击
 extends BaseQuickAdapter<QuickAdapter.BaseViewData, BaseViewHolder> 继承，第一参数是数据类型
 convert->BaseViewHolder.setText/addOnClickListener/setImageResource 转化，设置和绑定
+getViewByPosition(RecyclerView recyclerView, int position, @IdRes int viewId) //点击事件中获取其他子控件
 
 
 第二章 自定义View

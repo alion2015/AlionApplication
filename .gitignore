@@ -12,3 +12,5 @@ app/build
 *.cuid
 *.cuid2
 *.apk
+file/
+!file/androidList.txt

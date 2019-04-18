@@ -211,11 +211,13 @@ jitpack 开源库的创建与使用
 订阅方法必须为public且有唯一参数
 事件的父类或实现的接口被订阅，则也可以监听到。
 线程通信，不支持跨进程
-EventBus.getDefault().unregister/register(this);
+EventBus.getDefault().unregister/register(this)/post(messageEvent);
 @Subscribe(threadMode = ThreadMode.MAIN)
 public void Event(MessageEvent messageEvent)
 
 第2节 UI卡顿监测框架BlockCanary
+原理：像Looper注入print，计算dispatchMsg前后时间差
+Looper.getMainLooper().setMessageLogging(mainLooperPrinter);
 应用发生卡顿，一定是在dispatchMessage中执行了耗时操作。我们通过给主线程的Looper设置一个Printer，打点统计dispatchMessage方法执行的时间，如果超出阀值，表示发生卡顿，则dump出各种信息，提供开发者分析性能瓶颈。
 StackTraceElement[] elements = Thread.currentThread().getStackTrace();
 第3节 LeakCanary 
@@ -242,9 +244,28 @@ ButterKnife.apply(nameViews, View.ALPHA, 0.0f);//一个Android属性也可以用于应用的
 volley  谷歌的网络请求框架.  RequestQueue -->XXXRequest-->queue.add(request)
 Response re = OkHttpClient.Builder().readTimeout(5, TimeUnit.SECONDS).build().newCall(new Request.Builder().url("http://www.baidu.com").get().build()).execute/enqueue();
 Call是将okhttpClient和Request封装，由内部的Dispatcher维护运行列表，异步丢入线程池。均执行getResponseWithInterceptorChain方法链式调用拦截器
-第6节 BlockCanary：
-原理：像Looper注入print，计算dispatchMsg前后时间差
-Looper.getMainLooper().setMessageLogging(mainLooperPrinter);
+
+第6节 Dragger2 依赖注入(帮写工厂代码的工具+)
+@Inject/component|@module/provides
+modules工厂,inject(待注入类),
+
+第7节 RXjava
+Action/Function  均是call操作,后者返回数据
+响应式编程：
+.subscribeOn(Schedulers.newThread())/.observeOn(AndroidSchedulers.mainThread())
+create()/just()/from()---事件产生
+map()/ZIP()/filter()/take()--- 事件加工
+subscribe()---事件消费
+
+第8节 okhttp3：
+OkHttpClient.Builder().addInterceptor(new LoggingInterceptor()).build();
+Request.Builder().url(url){.post(RequestBody.create(mediaType, requestBody))}.build();
+okHttpClient.newCall(request).execute()/.enqueue(new Callback()
+第9节 retrofit(适配及转化):
+定义bean
+接口定义部分url:{}占位符,@path("默认值"),@Query("key")请求参数；注意返回值
+Retrofit.Builder().baseUrl().addConverterFactory().addCallAdapterFactory().build();
+
 
 第7节 AppCompatActivity 继承FragmentActivity可用toolbar
 ContextCompat.checkSelfPermission(mContext, permission) ==  PackageManager.PERMISSION_DENIED;
@@ -645,6 +666,16 @@ git push origin  HEAD:refs/for/dev
 
 
 第九九章 速记单元
+(-.-)callback的执行在调用线程，极可能是子线程
+(-.-)okHttpClient.newCall(request).execute()/.enqueue(new Callback();client和request均是build模式
+(-.-)Retrofit.Builder().baseUrl().addConverterFactory().addCallAdapterFactory().build();
+	{}占位符,@path("默认值"),@Query("key")请求参数；注意返回值；
+(-.-)EventBus.getDefault().unregister/register(this)/post(messageEvent);
+	@Subscribe(threadMode = ThreadMode.MAIN)
+	public void Event(MessageEvent messageEvent)
+(-.-).subscribeOn(Schedulers.newThread())/.observeOn(AndroidSchedulers.mainThread())/subscribe()
+(-.-)MVP把Activity中的UI逻辑抽象成View接口，把业务逻辑抽象成Presenter接口，Model类还是原来的Model。AC实现view并继承带双参基类
+(-.-)Dragger2 依赖注入@Inject/component|@modules/provides
 (-.-)QuickAdapter 构造/点击/继承/convert
 (-.-)()[]{} *?+ dbw.
 (-.-)standard|singleTop 可多实例，默认在发送的task ，后者在仅在栈顶时不新建singleTask|singleInstance 单例，后者独占task，前者会清空栈顶

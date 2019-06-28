@@ -602,6 +602,8 @@ adb shell kill %1
 )
 
 第六章 git命令
+
+git remote add origin https://github.com/alion2015/py191.git
 只有三种状态：已提交（committed），已修改（modified）和已暂存（staged）。
 
 ..Git\etc\bash.bashrc最后添加简写
@@ -666,6 +668,11 @@ git push origin  HEAD:refs/for/dev
 
 
 第九九章 速记单元
+(-.-)sudo apt update && sudo apt upgrade
+(-.-)异步不等待返回，阻塞指等待时仅等待
+(-.-)\n 是换行
+(-.-)3次握手是2,4次挥手是><
+(-.-)看/感/需/你是否
 (-.-)callback的执行在调用线程，极可能是子线程
 (-.-)okHttpClient.newCall(request).execute()/.enqueue(new Callback();client和request均是build模式
 (-.-)Retrofit.Builder().baseUrl().addConverterFactory().addCallAdapterFactory().build();
@@ -678,7 +685,7 @@ git push origin  HEAD:refs/for/dev
 (-.-)Dragger2 依赖注入@Inject/component|@modules/provides
 (-.-)QuickAdapter 构造/点击/继承/convert
 (-.-)()[]{} *?+ dbw.
-(-.-)standard|singleTop 可多实例，默认在发送的task ，后者在仅在栈顶时不新建singleTask|singleInstance 单例，后者独占task，前者会清空栈顶
+(-.-)standard|singleTop 可多实例，默认在发送的task ，后者在仅在栈顶时不新建singleTask|singleInstance 单例，后者独占task，前者会清空栈顶 (ITTs)
 (-.-)<selector <item android:state_ android:drawable/color /> />
 (-.-)ViewOutlineProvider /setClipToOutline 实现裁剪和遮罩
 (-.-)Glide.with(this).load(url).placeholder(XXX).into(imageView);
@@ -738,7 +745,7 @@ git push origin  HEAD:refs/for/dev
 (-.-)implements 接口/extends abstract instanceof interface
 (-.-)String.equal() | str.getBytes()
 (-.-)Integer.parseInt()>valueOf()
-(-.-)线程和进程的区别(先进递增)
+(-.-)线程和进程的区别(现金)
 	多进程，可以提高我们APP占用的最高内存。
 (-.-) 快捷键
 	Win+L 锁屏，Win+E 显示资源管理器，Win+D 显示桌面(led灯)
@@ -764,7 +771,7 @@ git push origin  HEAD:refs/for/dev
 	dumpsys activity activities
 (-.-) linux命令
 	pwd
-	mkdir chmod cd ls/ll rmdir
+	mkdir chmod cd(~ /home/XX) ls/ll(-a包括掩藏,支持通配) rmdir
 	touch tar cp/mv cat rm
 	man echo
 	ln -s 原路径 快捷方式路径

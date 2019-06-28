@@ -9,19 +9,25 @@ if '%1'=='focus' (goto focus)
 if '%1'=='xy' (goto xy)
 if '%1'=='mn' (goto monitor)
 if '%1'=='kapp' (goto kapp)
+if '%1'=='vers' (goto version)
 
-echo restart    :replace launcher and restart phone
-echo kmonkey  *a    :kill monkey
-echo log log  *a    :logcat to a
-echo rml rml    :rm data of launcher
-echo monkey  *a *b    :monkey long=a period=b
-echo apl    :pull databases of launcher to desktop
 echo focus    :ResumedActivity of phone
+echo vers     :version code of inputmethod
+echo kmonkey  *a    :kill monkey
+echo rml rml    :rm data of wecarnews
+echo monkey  *a *b    :monkey for wecarnews long=a period=b
 echo xy *a   :adb to xiaoyao a is index that start with 0
 echo mn    :start UI monitor
-echo kapp *a    :1/2 kill filemanager/maintenance
+echo kapp *a    :1/2/3 kill filemanager/maintenance/wecarnews
+echo log log  *a    :logcat to a
+echo apl    :pull databases of launcher to desktop
+echo restart    :replace launcher and restart phone
 
 :demo
+goto break
+
+:version
+adb shell pm dump com.android.inputmethod.pinyin | findstr “versionName” 
 goto break
 
 :restart
@@ -42,14 +48,14 @@ goto break
 
 :log
 if '%2'=='' (
-adb logcat> D:\adblogcat\adblog.txt
+adb logcat> D:\adblog.txt
 ) else (
-adb logcat> D:\adblogcat\%2.txt
+adb logcat> D:\%2.txt
 )
 goto break
 
 :rml
-adb shell rm -rf data/data/com.android.launcherWT*
+adb shell rm -rf data/data/com.tencent.wecarnews*
 goto break
 
 :monkey
@@ -57,7 +63,7 @@ set long=50000
 set period=20
 if '%2' neq '' (set long=%1)
 if '%3' neq '' (set period=%2)
-adb shell monkey -p com.android.launcherWT  --ignore-crashes --ignore-timeouts --throttle %period% --pct-syskeys 0 -v %long%
+adb shell monkey -p com.tencent.wecarnews  --ignore-crashes --ignore-timeouts --throttle %period% --pct-syskeys 0 -v %long%
 goto break
 
 :apl
@@ -84,7 +90,11 @@ goto break
 if '%2'=='1' (
 adb shell am force-stop com.wucl.filemanager
 ) else (
-if '%2'=='2' (adb shell am force-stop com.wt.maintenance)
+if '%2'=='2' (
+adb shell am force-stop com.wt.maintenance)
+) else (
+if '%2'=='3' (
+adb shell am force-stop com.tencent.wecarnews)
 )
 goto break
 
